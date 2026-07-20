@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Over Finsera — Op het snijvlak van cijfers, processen en technologie</title>
+  <meta name="description" content="Finsera is een boutique finance consultancy: senior denkkracht op het snijvlak van cijfers, processen en technologie voor groeiende bedrijven.">
+  <link rel="canonical" href="https://finsera.dhanyindraswara.com/Over.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .over-hero { max-width: 920px; margin: 0 auto; padding: clamp(56px,9vw,104px) clamp(20px,5vw,64px) clamp(40px,6vw,64px); }
+    .over-hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(38px,5vw,60px); line-height: 1.04; letter-spacing: -0.03em; color: var(--navy); margin: 0 0 32px; text-wrap: balance; }
+    .over-hero p { font-size: clamp(17px,1.4vw,20px); line-height: 1.62; color: var(--text-2); margin: 0; max-width: 760px; text-wrap: pretty; }
+    .over-band { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .over-band__inner { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
+    .over-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); }
+    .over-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
+    .over-mission { font-family: var(--serif); font-size: clamp(20px,2vw,26px); line-height: 1.36; color: var(--navy); font-weight: 600; margin: 0; text-wrap: pretty; }
+    .over-how { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; text-wrap: pretty; }
+    .over-team { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
+    .over-team__head { max-width: 640px; margin-bottom: 44px; }
+    .over-team__head h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px,3.4vw,40px); line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 18px; text-wrap: balance; }
+    .over-team__head p { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; text-wrap: pretty; }
+    .over-team__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 760px; }
+    .over-card { background: #fff; border: 1px solid rgba(22,36,61,0.08); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 26px rgba(22,36,61,0.05); transition: transform .2s ease, box-shadow .2s ease; }
+    .over-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(22,36,61,0.1); }
+    .over-card__photo { aspect-ratio: 4/5; position: relative; display: flex; align-items: center; justify-content: center; }
+    .over-card__photo--navy { background: linear-gradient(135deg,#23375C,#16243D); }
+    .over-card__photo--copper { background: linear-gradient(135deg,#B0793F,#8a5d2e); }
+    .over-card__photo span { font-size: 13px; font-weight: 600; color: rgba(247,246,243,0.55); letter-spacing: 0.02em; }
+    .over-card__body { padding: 20px 22px; }
+    .over-card__role { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--navy); }
+    .over-card__sub { font-size: 14.5px; color: var(--text-2); margin-top: 4px; }
+    .over-quote { background: var(--navy); position: relative; overflow: hidden; }
+    .over-quote__halo { position: absolute; left: 50%; top: 0; width: 800px; height: 400px; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(176,121,63,0.14), transparent 65%); }
+    .over-quote__inner { position: relative; max-width: 920px; margin: 0 auto; padding: clamp(64px,9vw,116px) clamp(20px,5vw,64px); text-align: center; }
+    .over-quote__mark { font-family: var(--serif); font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .over-quote__text { font-family: var(--serif); font-weight: 600; font-size: clamp(22px,2.8vw,34px); line-height: 1.38; color: var(--bg); margin: 0; text-wrap: balance; }
+    .over-cta { max-width: 1200px; margin: 0 auto; padding: clamp(64px,9vw,104px) clamp(20px,5vw,64px); text-align: center; }
+    .over-cta h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px,3.6vw,42px); line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 28px; text-wrap: balance; }
+    @media (max-width: 820px) { .over-2col, .over-team__grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand"><span class="nav__logo"><span></span></span><span class="nav__wordmark">Finsera</span></a>
+  <div class="nav__links">
+    <a href="index.html" class="nav__link" data-i18n="navHome">Home</a>
+    <a href="Over.html" class="nav__link is-active" data-i18n="navOver">Over Finsera</a>
+    <a href="Cases.html" class="nav__link" data-i18n="navCases">Cases</a>
+    <a href="Blog.html" class="nav__link" data-i18n="navBlog">Blog</a>
+    <div class="lang-toggle"><button type="button" class="lang-toggle__btn" data-lang="nl">NL</button><button type="button" class="lang-toggle__btn" data-lang="en">EN</button></div>
+    <a href="Contact.html" class="nav__cta" data-i18n="navCta">Plan een gesprek</a>
+  </div>
+  <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg></button>
+  <div class="nav__mobile" data-mobile hidden>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="Over.html" data-i18n="navOver">Over Finsera</a>
+    <a href="Cases.html" data-i18n="navCases">Cases</a>
+    <a href="Blog.html" data-i18n="navBlog">Blog</a>
+    <div class="nav__mobile-langs"><button type="button" class="lang-toggle__btn" data-lang="nl">NL</button><button type="button" class="lang-toggle__btn" data-lang="en">EN</button></div>
+    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Plan een gesprek</a>
+  </div>
+</nav>
+
+<main>
+  <section class="over-hero">
+    <div class="eyebrow" data-i18n="eyebrow">Over Finsera</div>
+    <h1 data-i18n="h1">Op het snijvlak van cijfers, processen en technologie.</h1>
+    <p data-i18n="intro">Finsera is opgericht vanuit een ongebruikelijke combinatie: jarenlange ervaring met compliance en interne beheersing, hands-on ondernemerschap, en een accountancy-achtergrond in audit en rapportage. Precies het snijvlak waar groeiende bedrijven vastlopen: tussen de cijfers, de processen en de technologie.</p>
+  </section>
+
+  <section class="over-band">
+    <div class="over-band__inner over-2col">
+      <div>
+        <div class="over-label" data-i18n="missionLabel">Missie</div>
+        <p class="over-mission" data-i18n="mission">Wij stellen middelgrote bedrijven in staat om strategisch te leiden — niet tactisch te micromanagen — door heldere financiële inzichtelijkheid, intelligente dashboards en AI-gedreven automatisering die de dagelijkse operatie transformeert.</p>
+      </div>
+      <div>
+        <div class="over-label" data-i18n="howLabel">Hoe we werken</div>
+        <p class="over-how" data-i18n="how">Wij geloven dat goede managementrapportage leidt tot betere besluiten. Een goed dashboard is geen gadget, maar een professioneel systeem om vanaf hoger niveau naar je bedrijf te kijken — in plaats van dagelijks brandjes te blussen. Van chaos naar strategische helderheid en slimme uitvoering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="over-team">
+    <div class="over-team__head">
+      <div class="over-label" data-i18n="teamLabel">Het team</div>
+      <h2 data-i18n="teamHeading">Bewust boutique.</h2>
+      <p data-i18n="team">Finsera werkt met een klein, senior team: strategie en klantcontact door de oprichter, ondersteund door specialisten in data, Power BI en automatisering. Bewust boutique: selectief in opdrachten, persoonlijk in aanpak.</p>
+    </div>
+    <div class="over-team__grid">
+      <div class="over-card">
+        <div class="over-card__photo over-card__photo--navy"><span data-i18n="photo1">Foto oprichter</span></div>
+        <div class="over-card__body">
+          <div class="over-card__role" data-i18n="role1">Oprichter</div>
+          <div class="over-card__sub" data-i18n="role1sub">Strategie & klantcontact</div>
+        </div>
+      </div>
+      <div class="over-card">
+        <div class="over-card__photo over-card__photo--copper"><span data-i18n="photo2">Foto Thomas</span></div>
+        <div class="over-card__body">
+          <div class="over-card__role">Thomas</div>
+          <div class="over-card__sub" data-i18n="role2sub">Data, Power BI & automatisering</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="over-quote">
+    <div class="over-quote__halo"></div>
+    <div class="over-quote__inner">
+      <div class="over-quote__mark">“</div>
+      <p class="over-quote__text">Finsera transforms fast-growing mid-market companies by aligning strategy, operations, and financial visibility through professional reporting, dashboards, and intelligent automation.</p>
+    </div>
+  </section>
+
+  <section class="over-cta">
+    <h2 data-i18n="ctaHeading">Benieuwd wat we voor jouw organisatie kunnen betekenen?</h2>
+    <a href="Contact.html" class="btn-copper" data-i18n="cta">Plan een discovery call</a>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <div class="footer__brand-row">
+        <span class="footer__logo"><span></span></span>
+        <span class="footer__wordmark">Finsera</span>
+      </div>
+      <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
+      <a href="Contact.html" class="footer__cta"><span data-i18n="cta">Plan een kennismakingsgesprek</span> <span>&rarr;</span></a>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__col-title" data-i18n="footNav">Navigatie</div>
+        <div class="footer__col-links">
+          <a href="index.html" data-i18n="navHome">Home</a>
+          <a href="Over.html" data-i18n="navOver">Over Finsera</a>
+          <a href="Cases.html">Cases</a>
+          <a href="Blog.html">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <div class="footer__col-links">
+          <a href="mailto:info@finsera.nl" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>info@finsera.nl</a>
+          <a href="tel:+31615860942" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>06 - 15 86 09 42</a>
+          <span class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>KvK 93587953</span>
+          <a href="#" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>&copy; 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
+    <span class="footer__legal"><a href="#" data-i18n="footPrivacy">Privacyverklaring</a> &middot; <a href="#" data-i18n="footTerms">Algemene voorwaarden</a></span>
+  </div>
+</footer>
+
+<script>
+window.FINSERA_PAGE = {
+  nl: {
+    eyebrow: 'Over Finsera', h1: 'Op het snijvlak van cijfers, processen en technologie.',
+    intro: 'Finsera is opgericht vanuit een ongebruikelijke combinatie: jarenlange ervaring met compliance en interne beheersing, hands-on ondernemerschap, en een accountancy-achtergrond in audit en rapportage. Precies het snijvlak waar groeiende bedrijven vastlopen: tussen de cijfers, de processen en de technologie.',
+    missionLabel: 'Missie',
+    mission: 'Wij stellen middelgrote bedrijven in staat om strategisch te leiden — niet tactisch te micromanagen — door heldere financiële inzichtelijkheid, intelligente dashboards en AI-gedreven automatisering die de dagelijkse operatie transformeert.',
+    howLabel: 'Hoe we werken',
+    how: 'Wij geloven dat goede managementrapportage leidt tot betere besluiten. Een goed dashboard is geen gadget, maar een professioneel systeem om vanaf hoger niveau naar je bedrijf te kijken — in plaats van dagelijks brandjes te blussen. Van chaos naar strategische helderheid en slimme uitvoering.',
+    teamLabel: 'Het team', teamHeading: 'Bewust boutique.',
+    team: 'Finsera werkt met een klein, senior team: strategie en klantcontact door de oprichter, ondersteund door specialisten in data, Power BI en automatisering. Bewust boutique: selectief in opdrachten, persoonlijk in aanpak.',
+    photo1: 'Foto oprichter', photo2: 'Foto Thomas',
+    role1: 'Oprichter', role1sub: 'Strategie & klantcontact', role2sub: 'Data, Power BI & automatisering',
+    ctaHeading: 'Benieuwd wat we voor jouw organisatie kunnen betekenen?'
+  },
+  en: {
+    eyebrow: 'About Finsera', h1: 'At the intersection of numbers, processes and technology.',
+    intro: 'Finsera was founded from an unusual combination: years of experience with compliance and internal control, hands-on entrepreneurship, and an accountancy background in audit and reporting. Exactly the intersection where growing companies get stuck: between the numbers, the processes and the technology.',
+    missionLabel: 'Mission',
+    mission: 'We enable mid-market companies to lead strategically — not micromanage tactically — through clear financial clarity, intelligent dashboards and AI-driven automation that transforms daily operations.',
+    howLabel: 'How we work',
+    how: 'We believe good management reporting leads to better decisions. A good dashboard is not a gadget, but a professional system to look at your business from a higher level — instead of firefighting every day. From chaos to strategic clarity and smart execution.',
+    teamLabel: 'The team', teamHeading: 'Deliberately boutique.',
+    team: 'Finsera works with a small, senior team: strategy and client contact by the founder, supported by specialists in data, Power BI and automation. Deliberately boutique: selective in assignments, personal in approach.',
+    photo1: 'Founder photo', photo2: 'Thomas photo',
+    role1: 'Founder', role1sub: 'Strategy & client contact', role2sub: 'Data, Power BI & automation',
+    ctaHeading: 'Curious what we can do for your organisation?'
+  }
+};
+</script>
+<script src="js/shared.js"></script>
+<script src="js/reveal.js"></script>
+</body>
+</html>
