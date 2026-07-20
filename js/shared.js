@@ -8,13 +8,13 @@
   var SHARED = {
     nl: {
       navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
-      cta: 'Plan een kennismakingsgesprek',
+      cta: 'Vraag de diagnose aan',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring', footTerms: 'Algemene voorwaarden'
     },
     en: {
       navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
-      cta: 'Book an introductory call',
+      cta: 'Request the diagnosis',
       footTagline: 'A financial foundation that grows with your organisation.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy', footTerms: 'Terms and conditions'
     }

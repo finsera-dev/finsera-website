@@ -9,7 +9,7 @@
   var I18N = {
     nl: {
       navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
-      cta: 'Plan een kennismakingsgesprek',
+      cta: 'Vraag de diagnose aan',
       diagCta: 'Vraag de diagnose aan',
       diagEyebrowTop: 'Zo starten we · de diagnose',
       diagBespoke: 'De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.',
@@ -26,7 +26,7 @@
       heroH1a: 'Grip op je cijfers', heroH1b: 'Ruimte om strategisch te leiden',
       heroSub: 'Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.',
       heroSubLead: 'Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.',
-      heroCta1: 'Plan een kennismakingsgesprek',
+      heroCta1: 'Vraag de diagnose aan',
       heroCta2: 'Bekijk onze aanpak',
       heroTrust: 'Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet',
       nDatabron: 'Databron', nRapport: 'Rapportage', nDetail: 'Detailniveau', nDashboard: 'Dashboard', live: 'live',
@@ -146,7 +146,7 @@
     },
     en: {
       navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
-      cta: 'Book an introductory call',
+      cta: 'Request the diagnosis',
       diagCta: 'Request the diagnosis',
       diagEyebrowTop: 'How we start · the diagnosis',
       diagBespoke: 'The diagnosis determines what your company needs — and in what order.',
@@ -163,7 +163,7 @@
       heroH1a: 'Control over your numbers', heroH1b: 'Room to lead strategically',
       heroSub: 'Finsera helps growing mid-market companies professionalise their financial steering: from reliable management reporting and real-time dashboards to AI-driven automation.',
       heroSubLead: 'First a grip on the foundation. Then the leverage of AI and automation.',
-      heroCta1: 'Book an introductory call',
+      heroCta1: 'Request the diagnosis',
       heroCta2: 'See our approach',
       heroTrust: 'For growing companies · 10–50 employees · €10M–€50M revenue',
       nDatabron: 'Data source', nRapport: 'Report', nDetail: 'Detail level', nDashboard: 'Dashboard', live: 'live',
