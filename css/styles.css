@@ -32,6 +32,7 @@ body {
   font-family: var(--sans);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a { color: inherit; }
@@ -170,7 +171,8 @@ a { color: inherit; }
 .hero__orb--1 { width: 440px; height: 440px; background: radial-gradient(circle, rgba(176,121,63,0.22), transparent 70%); top: -130px; right: -70px; animation: finDrift1 18s ease-in-out infinite; }
 .hero__orb--2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,161,78,0.16), transparent 70%); bottom: -160px; left: -90px; animation: finDrift2 22s ease-in-out infinite; }
 .hero__orb--3 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(35,55,92,0.10), transparent 70%); top: 28%; left: 42%; animation: finDrift3 26s ease-in-out infinite; }
-.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(36px, 5vw, 64px); align-items: center; }
+.hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: clamp(36px, 5vw, 64px); align-items: center; }
+.hero__grid > * { min-width: 0; }
 .hero__eyebrow {
   animation: finRise .6s cubic-bezier(.22,1,.36,1) both;
   display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600;
@@ -681,7 +683,7 @@ a { color: inherit; }
 
 /* ============================================================ RESPONSIVE == */
 @media (max-width: 980px) {
-  .hero__grid { grid-template-columns: 1fr; }
+  .hero__grid { grid-template-columns: minmax(0, 1fr); }
   .demo__row { flex-direction: column; }
   .demo__arrow { transform: rotate(90deg); }
 }
@@ -899,3 +901,42 @@ a { color: inherit; }
 .xls__mrg { background: rgba(92,124,168,0.28); color: rgba(247,246,243,0.85); }
 .xls__hi { background: rgba(201,161,78,0.16); color: rgba(247,246,243,0.7); }
 .xls__err { background: rgba(192,86,63,0.32); color: #ffb4a2; font-weight: 700; }
+
+/* ============================ MOBILE POLISH (phones) ======================== */
+@media (max-width: 600px) {
+  /* hero: smaller headline, tighter rhythm, full-width CTA */
+  .hero { padding-top: 26px; }
+  .hero__eyebrow { font-size: 11px; letter-spacing: 0.09em; margin-bottom: 16px; align-items: flex-start; }
+  .hero__eyebrow span:first-child { margin-top: 7px; }
+  .hero__h1 { font-size: clamp(30px, 8.4vw, 40px); margin-bottom: 18px; }
+  .hero__h1-line + .hero__h1-line { margin-top: 0.2em; }
+  .hero__sub { font-size: 15.5px; line-height: 1.55; margin-bottom: 24px; }
+  .hero__ctas { gap: 12px; margin-bottom: 24px; }
+  .hero__ctas .btn-copper { width: 100%; justify-content: center; text-align: center; }
+  .hero__trust { font-size: 12.5px; }
+
+  /* section headings scale down */
+  .section-h2 { font-size: clamp(23px, 6.6vw, 30px); }
+  .page-hero__title { font-size: clamp(30px, 9vw, 44px); }
+  .diag__title, .demo__head h2 { font-size: clamp(22px, 6.4vw, 30px); }
+
+  /* section vertical padding trim */
+  .sol, .diensten, .team, .rev, .pain__inner { padding-top: clamp(40px, 11vw, 64px); padding-bottom: clamp(40px, 11vw, 64px); }
+
+  /* diagnosis + service cards: comfortable inner padding */
+  .diag { padding: 26px 22px; }
+  .svc2__card, .tstm, .team__card { padding: 22px 20px; }
+
+  /* team card: stack avatar above text so it isn't cramped */
+  .team__card { flex-direction: column; gap: 14px; }
+  .team__avatar { width: 60px; height: 60px; border-radius: 15px; }
+  .team__avatar span { font-size: 24px; }
+
+  /* cases card padding */
+  .cases { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 400px) {
+  .hero__h1 { font-size: 29px; }
+  .section-h2 { font-size: 22px; }
+}
