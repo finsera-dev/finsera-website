@@ -8,11 +8,23 @@
   /* --------------------------------------------------------------- i18n --- */
   var I18N = {
     nl: {
-      navHome: 'Home', navOver: 'Over Finsera', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
+      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
       cta: 'Plan een kennismakingsgesprek',
-      heroEyebrow: 'Boutique finance consultancy',
+      diagCta: 'Vraag de diagnose aan',
+      diagEyebrowTop: 'Zo starten we · de diagnose',
+      diagBespoke: 'De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.',
+      svcShortIntro: 'Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.',
+      svcBespoke: 'Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.',
+      svc1Short: 'Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.',
+      svc2Short: 'Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt — met oog voor privacy, betrouwbaarheid en menselijk toezicht.',
+      svcMore: 'Meer over onze diensten',
+      svc1More: 'Bekijk deze dienst', svc2More: 'Bekijk deze dienst',
+      dienstenPageEyebrow: 'Onze diensten', dienstenPageTitle: 'Diensten',
+      dienstenPageIntro: 'Eén diagnose als startpunt, plus twee diensten die op elkaar voortbouwen. Hieronder in detail wat je van elk mag verwachten.',
+      routeSectionEyebrow: 'Onze aanpak', routeSectionTitle: 'Van diagnose naar fundament naar AI.',
+      heroEyebrow: 'Financiële rapportage, dashboards en automatisering voor groeiend MKB',
       heroH1a: 'Grip op je cijfers', heroH1b: 'Ruimte om strategisch te leiden',
-      heroSub: 'Finsera helpt groeiende MKB-plus bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.',
+      heroSub: 'Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.',
       heroSubLead: 'Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.',
       heroCta1: 'Plan een kennismakingsgesprek',
       heroCta2: 'Bekijk onze aanpak',
@@ -80,7 +92,7 @@
       ai5Title: 'Voorraad en inkoop', ai5Desc: 'Vraag voorspellen, bestellen en signaleren.',
       ai6Title: 'Klantvragen en support', ai6Desc: 'Sneller en consistenter beantwoorden.',
       aiUseExtra: 'Dezelfde aanpak werkt ook buiten finance, bijvoorbeeld bij klantvragen, helpdesk of marketing.',
-      aiTraining: 'We bouwen niet alleen, we nemen je team mee: van een awareness-training voor de organisatie tot gerichte begeleiding voor de dagelijkse gebruikers.',
+      aiTraining: 'We bouwen niet alleen, we nemen je team mee: van een bewustwordingstraining voor de organisatie tot gerichte begeleiding voor de dagelijkse gebruikers.',
       aiTool5: 'Automatisering',
       svc2Foot: 'Staat je fundament al stevig en wil je vooral repeterend werk automatiseren? Dan starten we daar.',
       diagReportLabel: 'Adviesrapport', diagScan: 'analyse loopt',
@@ -90,7 +102,7 @@
       step2Title: 'Rapportage', step2Body: 'Betrouwbare cijfers en managementrapportages waar je op kunt sturen.',
       step3Title: 'Optimalisatie', step3Body: 'Intelligente automatisering en AI, alleen waar het aantoonbaar waarde oplevert.',
       demoEyebrow: 'Visuele demo', demoTitle: 'Van Excel-chaos naar realtime inzicht.',
-      demoStack: 'Excel-rapport Q4', demoPowerbi: 'Power BI · Finsera-dashboard', demoRealtime: 'realtime',
+      demoStack: 'Verkoop_2026_v3.xlsx', demoStackNote: 'handmatig samengevoegd', demoSourceLabel: 'één bron van waarheid', demoPowerbi: 'Power BI · Finsera-dashboard', demoRealtime: 'realtime',
       demoKpi1: 'Omzet', demoKpi2: 'Marge', demoKpi3: 'EBITDA', demoKpi4: 'Ind. kosten',
       demoTrend: 'Omzettrend', demoDept: 'Per afdeling', demoMix: 'Marge-mix',
       solHub: 'Eén betrouwbaar fundament', solHubSub: 'Realtime inzicht, één bron van waarheid',
@@ -100,6 +112,21 @@
       case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control.', case2Result: 'Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.',
       case2Chip1: 'Boekhouding', case2Chip2: 'Cliëntdata', case2ChartLabel: 'Realisatie vs norm', case2Badge: 'AO/IB · audit-proof',
       case2Leg1: 'Realisatie', case2Leg2: 'Budget', case2Leg3: 'Vorige periode',
+      teamEyebrow: 'Het team',
+      teamTitle: 'Opgericht door een financespecialist en een data-engineer.',
+      teamRole1: 'Oprichter · Finance & Control',
+      teamBio1: 'Ruim tien jaar in audit en control: Belastingdienst/Douane, accountancy (samenstel & audit) en interim finance management bij groeiend MKB.',
+      teamRole2: 'Partner · Data, Power BI & automatisering',
+      teamBio2: 'Data-architectuur, Power BI en AI-automatisering voor het MKB.',
+      teamLinkedin: 'Bekijk op LinkedIn',
+      teamNote: 'Bewust boutique: selectief in opdrachten, persoonlijk in aanpak. Alles wat we bouwen is gedocumenteerd en overdraagbaar — het tegenovergestelde van persoonsafhankelijke kennis.',
+      revEyebrow: 'Wat klanten zeggen', revTitle: 'Vertrouwen, opgebouwd in de praktijk.',
+      revIntro: 'We bouwen onze reviews op terwijl we onze klantcases afronden. Heb je met ons gewerkt? We horen graag je ervaring.',
+      revFormTitle: 'Deel je ervaring', revFormIntro: 'Je review helpt andere directies de juiste keuze te maken.',
+      revName: 'Naam', revCompany: 'Bedrijf (optioneel)', revRating: 'Beoordeling', revMessage: 'Je ervaring', revSubmit: 'Review versturen',
+      revPlaceholderMsg: 'Waar heeft Finsera je bij geholpen, en wat leverde het op?',
+      revThanks: 'Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.',
+      revSoon: 'Binnenkort plaatsen we hier geverifieerde reviews van onze eerste klanten.',
       ctaTitle: 'Klaar voor grip op je cijfers?',
       ctaText: 'Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
@@ -118,9 +145,21 @@
       ]
     },
     en: {
-      navHome: 'Home', navOver: 'About', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
+      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
       cta: 'Book an introductory call',
-      heroEyebrow: 'Boutique finance consultancy',
+      diagCta: 'Request the diagnosis',
+      diagEyebrowTop: 'How we start · the diagnosis',
+      diagBespoke: 'The diagnosis determines what your company needs — and in what order.',
+      svcShortIntro: 'First a grip on your numbers with dashboards and management reporting. Then targeted automation, on a foundation that holds.',
+      svcBespoke: 'No generic tool fits your company flawlessly. That’s why we build everything bespoke: to your systems, your processes and your definitions.',
+      svc1Short: 'From loose exports and Excel lists to one reliable source of truth. Finance, management and operations look at the same numbers and steer on what matters.',
+      svc2Short: 'Only once the foundation holds do we automate what costs time and keeps recurring — with an eye for privacy, reliability and human oversight.',
+      svcMore: 'More about our services',
+      svc1More: 'View this service', svc2More: 'View this service',
+      dienstenPageEyebrow: 'Our services', dienstenPageTitle: 'Services',
+      dienstenPageIntro: 'One diagnosis as the starting point, plus two services that build on each other. Below, in detail, what to expect from each.',
+      routeSectionEyebrow: 'Our approach', routeSectionTitle: 'From diagnosis to foundation to AI.',
+      heroEyebrow: 'Financial reporting, dashboards and automation for growing SMEs',
       heroH1a: 'Control over your numbers', heroH1b: 'Room to lead strategically',
       heroSub: 'Finsera helps growing mid-market companies professionalise their financial steering: from reliable management reporting and real-time dashboards to AI-driven automation.',
       heroSubLead: 'First a grip on the foundation. Then the leverage of AI and automation.',
@@ -200,7 +239,7 @@
       step2Title: 'Reporting', step2Body: 'Reliable numbers and management reports you can steer with.',
       step3Title: 'Optimisation', step3Body: 'Intelligent automation and AI, only where it demonstrably adds value.',
       demoEyebrow: 'Visual demo', demoTitle: 'From Excel chaos to real-time insight.',
-      demoStack: 'Excel report Q4', demoPowerbi: 'Power BI · Finsera dashboard', demoRealtime: 'real-time',
+      demoStack: 'Verkoop_2026_v3.xlsx', demoStackNote: 'manually merged', demoSourceLabel: 'one source of truth', demoPowerbi: 'Power BI · Finsera dashboard', demoRealtime: 'real-time',
       demoKpi1: 'Revenue', demoKpi2: 'Margin', demoKpi3: 'EBITDA', demoKpi4: 'Indirect cost',
       demoTrend: 'Revenue trend', demoDept: 'Per department', demoMix: 'Margin mix',
       solHub: 'One reliable foundation', solHubSub: 'Real-time insight, one source of truth',
@@ -210,6 +249,21 @@
       case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control.', case2Result: 'Financial figures and client data in one report, set against budget and the previous period.',
       case2Chip1: 'Bookkeeping', case2Chip2: 'Client data', case2ChartLabel: 'Actual vs norm', case2Badge: 'AO/IB · audit-proof',
       case2Leg1: 'Actual', case2Leg2: 'Budget', case2Leg3: 'Previous period',
+      teamEyebrow: 'The team',
+      teamTitle: 'Founded by a finance specialist and a data engineer.',
+      teamRole1: 'Founder · Finance & Control',
+      teamBio1: 'More than ten years in audit and control: the Dutch Tax and Customs Administration, accountancy (compilation & audit) and interim finance management at growing SMEs.',
+      teamRole2: 'Partner · Data, Power BI & automation',
+      teamBio2: 'Data architecture, Power BI and AI automation for SMEs.',
+      teamLinkedin: 'View on LinkedIn',
+      teamNote: 'Deliberately boutique: selective in engagements, personal in approach. Everything we build is documented and transferable — the opposite of person-dependent knowledge.',
+      revEyebrow: 'What clients say', revTitle: 'Trust, built in practice.',
+      revIntro: 'We build up our reviews as we complete our client cases. Have you worked with us? We’d love to hear about your experience.',
+      revFormTitle: 'Share your experience', revFormIntro: 'Your review helps other boards make the right choice.',
+      revName: 'Name', revCompany: 'Company (optional)', revRating: 'Rating', revMessage: 'Your experience', revSubmit: 'Send review',
+      revPlaceholderMsg: 'What did Finsera help you with, and what did it deliver?',
+      revThanks: 'Thank you! Your review has opened in your email app — click send to finish.',
+      revSoon: 'Verified reviews from our first clients will appear here soon.',
       ctaTitle: 'Ready for control over your numbers?',
       ctaText: 'No temporary patches or loose tools, but a foundation that grows with your organisation. Let’s explore in one conversation where the processes get stuck now and where the biggest gains are, tailored to where you stand today.',
       footTagline: 'A financial foundation that grows with your organisation.',
@@ -259,14 +313,14 @@
   // voegt een variantieanalyse toe (actueel vs budget vs vorig jaar) + één
   // operationele noemer.
   var METRICS = {
-    omzet:    { key: 'mOmzet',    value: '€ 24,8M', delta: '12,4%', arrow: '▲', pos: true,
-                detail: { a: 24.8, b: 23.5, c: 22.1, d: '+5,5%', dPos: true, denomKey: 'denomOmzet', denomVal: '€ 13,5K', denomArrow: '▲' } },
+    omzet:    { key: 'mOmzet',    value: '€ 18,4M', delta: '12,4%', arrow: '▲', pos: true,
+                detail: { a: 18.4, b: 17.2, c: 16.1, d: '+7,0%', dPos: true, denomKey: 'denomOmzet', denomVal: '€ 10,0K', denomArrow: '▲' } },
     marge:    { key: 'mMarge',    value: '28,4%',   delta: '3,1pp', arrow: '▲', pos: true,
                 detail: { a: 28.4, b: 27.0, c: 26.2, d: '+1,4pp', dPos: true, denomKey: 'denomMarge', denomVal: '+2,3pp', denomArrow: '▲' } },
     cashflow: { key: 'mCashflow', value: '€ 2,4M',  delta: '8,7%',  arrow: '▲', pos: true,
                 detail: { a: 2.4, b: 2.1, c: 1.9, d: '+14,3%', dPos: true, denomKey: 'denomCashflow', denomVal: '46', denomArrow: '▼' } },
     klanten:  { key: 'mKlanten',  value: '1.840',   delta: '6,2%',  arrow: '▲', pos: true,
-                detail: { a: 1840, b: 1760, c: 1690, d: '+4,5%', dPos: true, denomKey: 'denomKlanten', denomVal: '€ 13,5K', denomArrow: '▲' } },
+                detail: { a: 1840, b: 1760, c: 1690, d: '+4,5%', dPos: true, denomKey: 'denomKlanten', denomVal: '€ 10,0K', denomArrow: '▲' } },
     verzuim:  { key: 'mVerzuim',  value: '4,1%',    delta: '0,6pp', arrow: '▼', pos: true,
                 detail: { a: 4.1, b: 4.5, c: 4.8, d: '−0,4pp', dPos: true, denomKey: 'denomVerzuim', denomVal: '9,4', denomArrow: '▼' } }
   };
@@ -376,6 +430,10 @@
       var key = el.getAttribute('data-i18n');
       var val = t()[key];
       if (val != null) el.textContent = val;
+    });
+    $all('[data-i18n-ph]').forEach(function (el) {
+      var val = t()[el.getAttribute('data-i18n-ph')];
+      if (val != null) el.setAttribute('placeholder', val);
     });
     $all('.lang-toggle__btn').forEach(function (b) {
       b.classList.toggle('is-on', b.getAttribute('data-lang') === lang);
@@ -605,10 +663,10 @@
   /* --------------------------- service 1: management report (table/chart) - */
   // [key, actueel, norm, Δ/trend, actueelWaarde, normWaarde, lagerIsBeter]
   var REPORT_FIN = [
-    ['rOmzet', '4,8M', '4,5M', '+0,3', 4.8, 4.5, false],
+    ['rOmzet', '18,4M', '17,2M', '+1,2', 18.4, 17.2, false],
     ['rBruto', '38%', '37%', '+1', 38, 37, false],
-    ['rKosten', '2,1M', '2,0M', '+0,1', 2.1, 2.0, true],
-    ['rResultaat', '0,9M', '0,8M', '+0,1', 0.9, 0.8, false]
+    ['rKosten', '4,9M', '4,7M', '+0,2', 4.9, 4.7, true],
+    ['rResultaat', '2,1M', '1,9M', '+0,2', 2.1, 1.9, false]
   ];
   var REPORT_NON = [
     ['rBezoekers', '128K', '110K', 'up', 128, 110, false],
@@ -686,6 +744,54 @@
       if (open) aiUse.removeAttribute('hidden'); else aiUse.setAttribute('hidden', '');
       aiUseToggle.setAttribute('aria-expanded', String(open));
       aiUseToggle.classList.toggle('is-open', open);
+    });
+  }
+
+  /* ------------------------------------------------- review form (mailto) - */
+  // Static-site friendly: the form composes an e-mail to Finsera. Swap the
+  // mailto for a real form endpoint (Formspree/Web3Forms) when available.
+  var REVIEW_EMAIL = 'info@finsera.nl';
+  var reviewForm = $('#reviewForm');
+  if (reviewForm) {
+    var starsWrap = $('#revStars');
+    var ratingInput = $('#revRatingInput');
+    function paintStars(v) {
+      $all('.rev__star', starsWrap).forEach(function (s) {
+        s.classList.toggle('is-on', +s.getAttribute('data-val') <= v);
+      });
+    }
+    if (starsWrap && ratingInput) {
+      paintStars(+ratingInput.value);
+      starsWrap.addEventListener('click', function (e) {
+        var b = e.target.closest ? e.target.closest('.rev__star') : null;
+        if (!b) return;
+        ratingInput.value = b.getAttribute('data-val');
+        paintStars(+ratingInput.value);
+      });
+    }
+    reviewForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!reviewForm.reportValidity()) return;
+      var fd = new FormData(reviewForm);
+      var name = (fd.get('name') || '').toString().trim();
+      var company = (fd.get('company') || '').toString().trim();
+      var rating = (fd.get('rating') || '5').toString();
+      var message = (fd.get('message') || '').toString().trim();
+      var subject = 'Review Finsera — ' + name + (company ? ' (' + company + ')' : '');
+      var body = [
+        'Naam: ' + name,
+        company ? ('Bedrijf: ' + company) : null,
+        'Beoordeling: ' + rating + '/5',
+        '',
+        message
+      ].filter(function (l) { return l !== null; }).join('\n');
+      window.location.href = 'mailto:' + REVIEW_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      var thanks = $('#revThanks');
+      if (thanks) thanks.removeAttribute('hidden');
+      reviewForm.reset();
+      if (ratingInput) { ratingInput.value = '5'; paintStars(5); }
     });
   }
 
