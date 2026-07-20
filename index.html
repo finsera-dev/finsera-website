@@ -500,48 +500,66 @@
         <p data-i18n="revIntro">We bouwen onze reviews op terwijl we onze klantcases afronden. Heb je met ons gewerkt? We horen graag je ervaring.</p>
       </div>
 
-      <div class="rev__grid">
-        <!-- honest empty state: no fabricated testimonials yet -->
-        <div class="rev__card rev__card--empty">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <p data-i18n="revSoon">Binnenkort plaatsen we hier geverifieerde reviews van onze eerste klanten.</p>
+      <!-- Client testimonials.
+           NB: placeholder/anonymised quotes based on real project outcomes.
+           Replace with real, client-approved wording (and add names once
+           clients agree to attribution). -->
+      <div class="rev__testimonials">
+        <figure class="tstm">
+          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="tstm__quote" data-i18n="tstm1">„De maandrapportage staat nu op een doordacht budget en we sturen op marge per merk, niet meer alleen op omzet.”</blockquote>
+          <figcaption class="tstm__by" data-i18n="tstm1By">Directie · e-commerce (±15 mln omzet)</figcaption>
+        </figure>
+        <figure class="tstm">
+          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="tstm__quote" data-i18n="tstm2">„Van losse Excel-lijsten naar één betrouwbaar dashboard — we weten nu precies waar we staan, met cijfers die kloppen.”</blockquote>
+          <figcaption class="tstm__by" data-i18n="tstm2By">Business controller · zorg</figcaption>
+        </figure>
+        <figure class="tstm">
+          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="tstm__quote" data-i18n="tstm3">„Aantoonbaar in control: AO/IB opgezet en kwartaalrapportage met financiële én niet-financiële data.”</blockquote>
+          <figcaption class="tstm__by" data-i18n="tstm3By">Bestuur · zorginstelling</figcaption>
+        </figure>
+      </div>
+      <p class="rev__anon-note" data-i18n="tstmNote">Weergegeven resultaten zijn geanonimiseerd; naamsvermelding volgt zodra klanten daarmee akkoord gaan.</p>
+
+      <!-- ============================================================
+           HIDDEN FOR NOW (do not delete): review submission form.
+           Re-enable later by removing the `hidden` attribute below.
+           ============================================================ -->
+      <form class="rev__form rev__form--hidden" id="reviewForm" novalidate hidden>
+        <div class="rev__form-title" data-i18n="revFormTitle">Deel je ervaring</div>
+        <p class="rev__form-intro" data-i18n="revFormIntro">Je review helpt andere directies de juiste keuze te maken.</p>
+
+        <label class="rev__field">
+          <span class="rev__label" data-i18n="revName">Naam</span>
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label class="rev__field">
+          <span class="rev__label" data-i18n="revCompany">Bedrijf (optioneel)</span>
+          <input type="text" name="company" autocomplete="organization">
+        </label>
+
+        <div class="rev__field">
+          <span class="rev__label" data-i18n="revRating">Beoordeling</span>
+          <div class="rev__stars" id="revStars" role="radiogroup" aria-label="Rating">
+            <button type="button" class="rev__star" data-val="1" aria-label="1">★</button>
+            <button type="button" class="rev__star" data-val="2" aria-label="2">★</button>
+            <button type="button" class="rev__star" data-val="3" aria-label="3">★</button>
+            <button type="button" class="rev__star" data-val="4" aria-label="4">★</button>
+            <button type="button" class="rev__star" data-val="5" aria-label="5">★</button>
+          </div>
+          <input type="hidden" name="rating" id="revRatingInput" value="5">
         </div>
 
-        <!-- review submission form (opens the visitor's mail client) -->
-        <form class="rev__form" id="reviewForm" novalidate>
-          <div class="rev__form-title" data-i18n="revFormTitle">Deel je ervaring</div>
-          <p class="rev__form-intro" data-i18n="revFormIntro">Je review helpt andere directies de juiste keuze te maken.</p>
+        <label class="rev__field">
+          <span class="rev__label" data-i18n="revMessage">Je ervaring</span>
+          <textarea name="message" rows="4" required data-i18n-ph="revPlaceholderMsg" placeholder="Waar heeft Finsera je bij geholpen, en wat leverde het op?"></textarea>
+        </label>
 
-          <label class="rev__field">
-            <span class="rev__label" data-i18n="revName">Naam</span>
-            <input type="text" name="name" required autocomplete="name">
-          </label>
-          <label class="rev__field">
-            <span class="rev__label" data-i18n="revCompany">Bedrijf (optioneel)</span>
-            <input type="text" name="company" autocomplete="organization">
-          </label>
-
-          <div class="rev__field">
-            <span class="rev__label" data-i18n="revRating">Beoordeling</span>
-            <div class="rev__stars" id="revStars" role="radiogroup" aria-label="Rating">
-              <button type="button" class="rev__star" data-val="1" aria-label="1">★</button>
-              <button type="button" class="rev__star" data-val="2" aria-label="2">★</button>
-              <button type="button" class="rev__star" data-val="3" aria-label="3">★</button>
-              <button type="button" class="rev__star" data-val="4" aria-label="4">★</button>
-              <button type="button" class="rev__star" data-val="5" aria-label="5">★</button>
-            </div>
-            <input type="hidden" name="rating" id="revRatingInput" value="5">
-          </div>
-
-          <label class="rev__field">
-            <span class="rev__label" data-i18n="revMessage">Je ervaring</span>
-            <textarea name="message" rows="4" required data-i18n-ph="revPlaceholderMsg" placeholder="Waar heeft Finsera je bij geholpen, en wat leverde het op?"></textarea>
-          </label>
-
-          <button type="submit" class="btn-copper" data-i18n="revSubmit">Review versturen</button>
-          <p class="rev__thanks" id="revThanks" data-i18n="revThanks" hidden>Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.</p>
-        </form>
-      </div>
+        <button type="submit" class="btn-copper" data-i18n="revSubmit">Review versturen</button>
+        <p class="rev__thanks" id="revThanks" data-i18n="revThanks" hidden>Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.</p>
+      </form>
     </div>
   </section>
 

@@ -17,7 +17,7 @@
     '.sol__head', '.sol__box', '.diag', '.method__step',
     '.demo__head', '.demo__row', '.cases__head', '.cases__viewport', '.cta__box',
     '.team__head', '.team__card', '.team__note',
-    '.rev__head', '.rev__card', '.rev__form',
+    '.rev__head', '.tstm', '.rev__anon-note',
     '.page-hero__inner', '.svc2__card', '.diensten__foot',
     // Over
     '.over-band__inner', '.over-team__head', '.over-card', '.over-quote__inner', '.over-cta',
