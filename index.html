@@ -286,23 +286,53 @@
       </div>
 
       <div class="demo__row">
-        <!-- excel stack (the messy 'before': manual, versioned spreadsheets) -->
+        <!-- excel chaos (the messy 'before'): several messy, versioned files
+             stacked, the top one a real spreadsheet grid with merged cells -->
         <div class="demo__excel">
-          <div class="sheet sheet1"></div>
-          <div class="sheet sheet2"></div>
-          <div class="sheet sheet-top">
-            <div class="demo__excel-bar">
-              <span class="demo__excel-x">X</span>
-              <span class="demo__excel-file" data-i18n="demoStack">Verkoop_2026_v3.xlsx</span>
+          <div class="xls xls--b2"><span class="xls__tab"><span class="xls__x">X</span>begroting_FINAL_v7.xlsx</span></div>
+          <div class="xls xls--b1"><span class="xls__tab"><span class="xls__x">X</span>Kopie_van_omzet(2).xlsx</span></div>
+          <div class="xls xls--top">
+            <span class="xls__tab"><span class="xls__x">X</span><span data-i18n="demoStack">Verkoop_2026_v3.xlsx</span></span>
+            <div class="xls__grid">
+              <!-- column header row -->
+              <span class="xls__c xls__corner"></span>
+              <span class="xls__c xls__colh">A</span>
+              <span class="xls__c xls__colh">B</span>
+              <span class="xls__c xls__colh">C</span>
+              <span class="xls__c xls__colh">D</span>
+              <!-- row 1: merged title across A–C -->
+              <span class="xls__c xls__rowh">1</span>
+              <span class="xls__c xls__span3 xls__ttl">Omzet Q1 concept!!</span>
+              <span class="xls__c xls__empty"></span>
+              <!-- row 2: headers -->
+              <span class="xls__c xls__rowh">2</span>
+              <span class="xls__c xls__hd">Maand</span>
+              <span class="xls__c xls__hd">Omzet</span>
+              <span class="xls__c xls__hd">Marge</span>
+              <span class="xls__c xls__hd">Δ</span>
+              <!-- row 3 -->
+              <span class="xls__c xls__rowh">3</span>
+              <span class="xls__c">jan</span>
+              <span class="xls__c xls__num">64.200</span>
+              <span class="xls__c xls__span2 xls__mrg">38% (?)</span>
+              <!-- row 4 -->
+              <span class="xls__c xls__rowh">4</span>
+              <span class="xls__c">feb</span>
+              <span class="xls__c xls__num">61.500</span>
+              <span class="xls__c xls__err">#REF!</span>
+              <span class="xls__c xls__num up">+9%</span>
+              <!-- row 5: merged label across A–B -->
+              <span class="xls__c xls__rowh">5</span>
+              <span class="xls__c xls__span2 xls__hi">totaal =SOM(</span>
+              <span class="xls__c xls__num">195.900</span>
+              <span class="xls__c xls__num down">−5%</span>
+              <!-- row 6: mostly empty / messy -->
+              <span class="xls__c xls__rowh">6</span>
+              <span class="xls__c xls__dim">apr??</span>
+              <span class="xls__c xls__empty"></span>
+              <span class="xls__c xls__empty"></span>
+              <span class="xls__c xls__dim">#N/A</span>
             </div>
-            <div class="demo__excel-rows">
-              <div class="demo__excel-row head"><span>Maand</span><span>Omzet</span><span>Δ</span></div>
-              <div class="demo__excel-row data"><span>jan</span><span>64.200</span><span class="up">+13%</span></div>
-              <div class="demo__excel-row data"><span>feb</span><span>61.500</span><span class="up">+9%</span></div>
-              <div class="demo__excel-row data"><span>mrt</span><span>70.300</span><span class="down">−5%</span></div>
-              <div class="demo__excel-row data demo__excel-row--dim"><span>apr</span><span>…</span><span>—</span></div>
-            </div>
-            <div class="demo__excel-note"><span class="demo__excel-dot"></span><span data-i18n="demoStackNote">handmatig samengevoegd</span></div>
           </div>
         </div>
 

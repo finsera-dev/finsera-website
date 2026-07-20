@@ -562,7 +562,7 @@ a { color: inherit; }
 .demo__head { text-align: center; max-width: 700px; margin: 0 auto 56px; }
 .demo__head h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 3.8vw, 44px); line-height: 1.1; letter-spacing: -0.02em; color: var(--bg); margin: 0; text-wrap: balance; }
 .demo__row { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 3.5vw, 44px); flex-wrap: wrap; }
-.demo__excel { position: relative; width: 184px; height: 206px; flex-shrink: 0; }
+.demo__excel { position: relative; width: 244px; height: 248px; flex-shrink: 0; }
 .demo__excel .sheet { position: absolute; inset: 0; border-radius: 12px; }
 .demo__excel .sheet1 { transform: rotate(-7deg); background: rgba(247, 246, 243, 0.04); border: 1px solid rgba(247, 246, 243, 0.1); }
 .demo__excel .sheet2 { transform: rotate(-3deg); background: rgba(247, 246, 243, 0.05); border: 1px solid rgba(247, 246, 243, 0.12); }
@@ -873,3 +873,29 @@ a { color: inherit; }
 @media (max-width: 860px) {
   .rev__testimonials { grid-template-columns: 1fr; }
 }
+
+/* ============================ DEMO — messy Excel grid (multiple files) ====== */
+/* Several stacked spreadsheet windows; the top one is a real grid with merges. */
+.demo__excel .xls { position: absolute; border-radius: 8px; background: #12203a; border: 1px solid rgba(247,246,243,0.14); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+.demo__excel .xls--b2 { inset: 0 8px 26px 30px; transform: rotate(4deg); background: #142440; }
+.demo__excel .xls--b1 { inset: 6px 20px 20px 12px; transform: rotate(-5deg); background: #16294a; }
+.demo__excel .xls--top { inset: 18px 0 0 0; transform: rotate(-1.2deg); background: #0f1d35; overflow: hidden; }
+.xls__tab { display: flex; align-items: center; gap: 6px; padding: 7px 9px; font-size: 10.5px; font-weight: 600; color: rgba(247,246,243,0.82); font-family: monospace; border-bottom: 1px solid rgba(247,246,243,0.1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.xls__x { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 3px; background: #1D6F42; color: #fff; font-size: 9px; font-weight: 700; font-family: var(--sans); flex-shrink: 0; }
+/* the spreadsheet grid: row-number col + 4 data cols (A–D) */
+.xls__grid { display: grid; grid-template-columns: 20px repeat(4, 1fr); gap: 0; background: rgba(247,246,243,0.14); }
+.xls__c { min-height: 20px; padding: 3px 5px; font-family: monospace; font-size: 9.5px; line-height: 1.35; color: rgba(247,246,243,0.8); background: #0f1d35; border-right: 1px solid rgba(247,246,243,0.08); border-bottom: 1px solid rgba(247,246,243,0.08); display: flex; align-items: center; overflow: hidden; white-space: nowrap; }
+.xls__colh, .xls__rowh, .xls__corner { justify-content: center; color: rgba(247,246,243,0.45); font-weight: 700; background: #16273f; font-size: 9px; }
+.xls__num { justify-content: flex-end; }
+.xls__hd { color: rgba(247,246,243,0.55); font-weight: 700; text-transform: uppercase; font-size: 8.5px; letter-spacing: 0.03em; }
+.xls__empty { background: #0d1a30; }
+.xls__dim { color: rgba(247,246,243,0.35); }
+.xls__up { color: var(--green-2); }
+.xls__down { color: var(--red); }
+/* merged cells — span multiple columns, off-tone to look messy */
+.xls__span2 { grid-column: span 2; }
+.xls__span3 { grid-column: span 3; }
+.xls__ttl { background: rgba(201,161,78,0.22); color: var(--gold); font-weight: 700; }
+.xls__mrg { background: rgba(92,124,168,0.28); color: rgba(247,246,243,0.85); }
+.xls__hi { background: rgba(201,161,78,0.16); color: rgba(247,246,243,0.7); }
+.xls__err { background: rgba(192,86,63,0.32); color: #ffb4a2; font-weight: 700; }
