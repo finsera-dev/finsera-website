@@ -18,6 +18,42 @@
 
   var state = { view: 'cal', monthOffset: 0, date: null, time: null };
 
+  /* ------------------------------------------------- echte agenda -------- */
+  // /api/slots geeft de momenten terug waarop er daadwerkelijk ruimte is.
+  // Ligt de koppeling eruit, dan blijft `avail.configured` false en vallen
+  // we terug op de vaste tijden met handmatige bevestiging. De bezoeker
+  // merkt daar niets van; wij bevestigen dan zelf.
+  var avail = { configured: false, byDate: {} };
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function dateKey(d) {
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+  /** "2026-08-26T09:00:00" — wandkloktijd, zoals de API hem verwacht. */
+  function stamp(date, time) {
+    return date && time ? dateKey(date) + 'T' + time + ':00' : '';
+  }
+  /** Tijden die op deze dag te boeken zijn. */
+  function timesFor(date) {
+    if (!avail.configured) return SLOTS.slice();
+    return avail.byDate[dateKey(date)] || [];
+  }
+  function dayBookable(date) {
+    return timesFor(date).length > 0;
+  }
+
+  function loadAvailability() {
+    return fetch('/api/slots', { headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.configured || !Array.isArray(d.days)) return;
+        var by = {};
+        d.days.forEach(function (x) { by[x.date] = x.times; });
+        avail = { configured: true, byDate: by };
+      })
+      .catch(function () { /* terugval blijft staan */ });
+  }
+
   function sameDay(a, b) {
     return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
   }
@@ -52,12 +88,15 @@
     var guard = 0;
     while (out.length < n && guard++ < 60) {
       var dow = day.getDay();
-      if (dow !== 0 && dow !== 6) {
+      var open = avail.configured ? timesFor(day) : (dow === 0 || dow === 6 ? [] : SLOTS);
+      if (open.length) {
         var today = [];
-        for (var i = 0; i < SLOTS.length; i++) {
-          var parts = SLOTS[i].split(':');
+        for (var i = 0; i < open.length; i++) {
+          var parts = open[i].split(':');
           var dt = new Date(day.getFullYear(), day.getMonth(), day.getDate(), +parts[0], +parts[1]);
-          if (dt >= earliest) today.push({ date: dt, time: SLOTS[i] });
+          // De server past de aanlooptijd al toe; lokaal doen we het ook,
+          // zodat de terugval zich hetzelfde gedraagt.
+          if (avail.configured || dt >= earliest) today.push({ date: dt, time: open[i] });
         }
         // eerste en laatste van de dag: ochtend- en middagoptie
         if (today.length > PER_DAY) {
@@ -134,7 +173,9 @@
       (function (dayNum) {
         var dt = new Date(year, month, dayNum);
         var dow = dt.getDay();
-        var disabled = dt < today || dow === 0 || dow === 6;
+        // Met de agendakoppeling is een dag alleen klikbaar als er echt
+        // nog ruimte is; zonder koppeling zijn alle werkdagen open.
+        var disabled = dt < today || dow === 0 || dow === 6 || !dayBookable(dt);
         var selected = sameDay(dt, state.date);
         var cell = document.createElement('div');
         cell.className = 'ct-daycell';
@@ -162,7 +203,15 @@
       $('ctSelectedDay').textContent = dayLabel(state.date);
       var slotsEl = $('ctSlots');
       slotsEl.innerHTML = '';
-      SLOTS.forEach(function (s) {
+      var open = timesFor(state.date);
+      if (!open.length) {
+        var leeg = document.createElement('div');
+        leeg.className = 'ct-noslots';
+        var dd = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+        leeg.textContent = dd.noSlots || 'Op deze dag is niets meer vrij.';
+        slotsEl.appendChild(leeg);
+      }
+      open.forEach(function (s) {
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'ct-slot' + (state.time === s ? ' is-on' : '');
@@ -178,7 +227,7 @@
   }
 
   /* ------------------------------------------------------------ submit --- */
-  // De aanvraag gaat naar /api/contact. Lukt dat niet, dan zeggen we dat
+  // De aanvraag gaat naar /api/book. Lukt dat niet, dan zeggen we dat
   // eerlijk en tonen we het e-mailadres — nooit een bevestiging voor een
   // afspraak die nergens is aangekomen.
   var FALLBACK_EMAIL = 'info@finsera.nl';
@@ -218,7 +267,7 @@
       btn.textContent = label;
     }
 
-    fetch('/api/contact', {
+    fetch('/api/book', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -226,15 +275,34 @@
         company: company,
         email: email,
         hp: hp,
-        day: state.date ? dayLabel(state.date) : '',
-        time: state.time || '',
+        slot: stamp(state.date, state.time),
+        slotLabel: summary(),
         lang: lang()
       })
     }).then(function (r) {
+      if (r.status === 409) { var e = new Error('taken'); e.taken = true; throw e; }
       if (!r.ok) throw new Error('http ' + r.status);
+      return r.json().catch(function () { return {}; });
+    }).then(function (data) {
       restore();
-      finish();
-    }).catch(function () {
+      finish(data);
+    }).catch(function (err) {
+      // Moment is intussen weggeboekt: opnieuw ophalen en terug naar de keuze,
+      // in plaats van een bevestiging voor een afspraak die niet past.
+      if (err && err.taken) {
+        restore();
+        loadAvailability().then(function () {
+          state.time = null;
+          renderNext();
+          renderCalendar();
+          setView('cal');
+          var dd = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+          var el = $('ctError');
+          el.textContent = dd.slotTaken || 'Dat moment is net geboekt. Kies een ander tijdstip.';
+          el.hidden = false;
+        });
+        return;
+      }
       restore();
       var el = $('ctError');
       var dd = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
@@ -249,7 +317,16 @@
     });
   }
 
-  function finish() {
+  function finish(data) {
+    var d = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+    var msg = $('ctDoneMsg');
+    // Twee verschillende uitkomsten, en dat mag je zien: staat de afspraak
+    // echt in de agenda, of moeten wij hem nog bevestigen?
+    if (msg) {
+      msg.textContent = (data && data.via === 'calendar')
+        ? (d.thanksBooked || 'De uitnodiging staat in je mail, met de link voor de videocall.')
+        : (d.thanksMsg || 'We nemen binnen één werkdag contact met je op.');
+    }
     $('ctDoneSummary').textContent = summary();
     setView('done');
   }
@@ -285,8 +362,17 @@
     renderCalendar();
   };
 
-  // init
+  // init — meteen de vaste tijden tonen, en zodra de echte beschikbaarheid
+  // binnen is opnieuw tekenen. Zo staat er nooit een lege pagina te wachten
+  // op een netwerkverzoek.
   setView('cal');
   renderNext();
   renderCalendar();
+  loadAvailability().then(function () {
+    if (!avail.configured) return;
+    // Een eerder gekozen dag kan intussen vol zitten.
+    if (state.date && !dayBookable(state.date)) { state.date = null; state.time = null; }
+    renderNext();
+    renderCalendar();
+  });
 })();

@@ -60,6 +60,7 @@
     .ct-slots { display: flex; flex-direction: column; gap: 8px; }
     .ct-slot { width: 100%; font-family: var(--sans); font-size: 14.5px; font-weight: 600; padding: 11px 0; border-radius: 10px; cursor: pointer; transition: all .15s ease; background: #fff; color: var(--navy); border: 1px solid rgba(22,36,61,0.16); }
     .ct-slot.is-on { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .ct-noslots { font-size: 13.5px; line-height: 1.5; color: var(--text-2); }
     .ct-noday { font-size: 13.5px; color: var(--text-2); line-height: 1.5; padding-top: 34px; }
 
     /* --- eerstvolgende momenten (primair) --- */
@@ -269,7 +270,7 @@
             <div class="ct-done">
               <div class="ct-done__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F8A4C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
               <h2 data-i18n="thanks">Bedankt!</h2>
-              <p data-i18n="thanksMsg">We nemen binnen één werkdag contact met je op.</p>
+              <p id="ctDoneMsg">We nemen binnen één werkdag contact met je op.</p>
               <div class="ct-done__chip" id="ctDoneSummary"></div>
             </div>
           </div>
@@ -330,6 +331,9 @@ window.FINSERA_PAGE = {
     error: 'Vul je naam en een geldig e-mailadres in.', submit: 'Bevestig je afspraak',
     subnote: 'Verstuur — we reageren binnen één werkdag.', thanks: 'Bedankt!', thanksMsg: 'We nemen binnen één werkdag contact met je op.',
     sending: 'Versturen…', sendFailed: 'Versturen lukte niet. Mail ons direct op',
+    thanksBooked: 'De uitnodiging staat in je mail, met de link voor de videocall.',
+    slotTaken: 'Dat moment is net geboekt. Kies een ander tijdstip.',
+    noSlots: 'Op deze dag is niets meer vrij.',
     ctPrivacy: 'We gebruiken je gegevens alleen om contact op te nemen over deze aanvraag.', ctPrivacyLink: 'Privacyverklaring'
   },
   en: {
@@ -343,6 +347,9 @@ window.FINSERA_PAGE = {
     error: 'Enter your name and a valid email address.', submit: 'Confirm your appointment',
     subnote: 'Submit — we reply within one business day.', thanks: 'Thank you!', thanksMsg: 'We will contact you within one business day.',
     sending: 'Sending…', sendFailed: 'Sending failed. Email us directly at',
+    thanksBooked: 'The invitation is in your inbox, with the video call link.',
+    slotTaken: 'That time was just booked. Please pick another one.',
+    noSlots: 'Nothing left on this day.',
     ctPrivacy: 'We only use your details to get in touch about this request.', ctPrivacyLink: 'Privacy statement'
   }
 };

@@ -13,28 +13,97 @@ python3 -m http.server 8000   # of: npx serve .
 
 Open daarna http://localhost:8000.
 
-Let op: `/api/contact` draait alleen op Vercel. Lokaal mislukt het versturen
-daarom altijd, en toont het formulier het e-mailadres als terugvaloptie. Dat is
-correct gedrag, geen bug. Wil je de hele flow lokaal testen, gebruik dan
-`vercel dev`.
+Let op: `/api/slots` en `/api/book` draaien alleen op Vercel. Lokaal komt er
+geen agenda binnen en valt de pagina terug op vaste tijden; het versturen
+mislukt en toont het e-mailadres. Dat is correct gedrag, geen bug. Wil je de
+hele flow lokaal testen, gebruik dan `vercel dev`.
 
 ## Environment variables
 
-**Zonder deze drie komt er geen enkele aanvraag binnen.** Instellen in Vercel
-onder Project → Settings → Environment Variables, voor zowel Production als
-Preview:
+Instellen in Vercel onder Project → Settings → Environment Variables, voor
+zowel Production als Preview.
 
-| Variabele | Waarde | Waarvoor |
-|---|---|---|
-| `RESEND_API_KEY` | API-sleutel van [resend.com](https://resend.com) | Verzending van de e-mail |
-| `FROM_EMAIL` | `Finsera <website@finsera.nl>` | Afzender; het domein moet in Resend geverifieerd zijn |
-| `NOTIFY_EMAIL` | `info@finsera.nl` | Waar de aanvraag heen gaat |
+### Agendakoppeling (Microsoft 365)
 
-Ontbreekt er één, dan geeft `api/contact.js` bewust een 503 terug in plaats van
-te doen alsof het gelukt is. De bezoeker krijgt dan het e-mailadres te zien.
+| Variabele | Waarde |
+|---|---|
+| `MS_TENANT_ID` | Directory (tenant) ID uit Azure |
+| `MS_CLIENT_ID` | Application (client) ID van de app-registratie |
+| `MS_CLIENT_SECRET` | Client secret van die app-registratie |
+| `MS_ORGANIZER_UPN` | De mailbox waarin de afspraken landen, bijv. `oner@finsera.nl` |
 
-Test na elke deploy één keer het formulier en kijk of de mail écht aankomt —
-ook in de spammap.
+Zonder deze vier valt de site terug op vaste tijden met handmatige
+bevestiging. Dat is geen storing; het formulier blijft gewoon werken.
+
+### Mail (terugval)
+
+| Variabele | Waarde |
+|---|---|
+| `RESEND_API_KEY` | API-sleutel van [resend.com](https://resend.com) |
+| `FROM_EMAIL` | `Finsera <website@finsera.nl>`; domein geverifieerd in Resend |
+| `NOTIFY_EMAIL` | `info@finsera.nl` |
+
+Ontbreken agenda én mail, dan geeft `api/book.js` bewust een 503 terug en
+toont het formulier het e-mailadres. Nooit een valse bevestiging.
+
+## Azure: de app-registratie opzetten
+
+Eenmalig, ongeveer een kwartier.
+
+1. **Azure Portal → Microsoft Entra ID → App registrations → New
+   registration.** Naam bijvoorbeeld `Finsera website booking`. Geen redirect
+   URI nodig — de site logt niet namens een gebruiker in.
+2. Noteer op de overzichtspagina de **Application (client) ID** en de
+   **Directory (tenant) ID**.
+3. **Certificates & secrets → New client secret.** Kopieer de waarde meteen;
+   hij is daarna niet meer op te vragen. Zet een herinnering voor de
+   vervaldatum, want daarna stopt de koppeling zonder waarschuwing.
+4. **API permissions → Add a permission → Microsoft Graph → Application
+   permissions → `Calendars.ReadWrite`.** Daarna **Grant admin consent**.
+   Let op: kies *Application*, niet *Delegated*.
+5. **Beperk de reikwijdte.** Een application permission geeft standaard
+   toegang tot élke mailbox in de tenant. Beperk dat in Exchange Online
+   PowerShell tot de mailbox uit `MS_ORGANIZER_UPN`:
+
+   ```powershell
+   New-ApplicationAccessPolicy -AppId <MS_CLIENT_ID> `
+     -PolicyScopeGroupId oner@finsera.nl `
+     -AccessRight RestrictAccess -Description "Finsera website booking"
+   ```
+
+   Sla deze stap niet over. Zonder policy kan de app bij alle agenda's in de
+   organisatie.
+6. Zet de vier variabelen in Vercel en deploy.
+7. **Test het.** Open `/api/slots` in de browser. Staat er `"configured":
+   true` met dagen erin, dan werkt de koppeling. Staat er `false`, kijk dan
+   in de Vercel-logs — daar staat waaróm.
+
+### Hoe de beschikbaarheid tot stand komt
+
+`api/_slots.js` biedt op werkdagen 09:00, 10:00, 11:00, 13:30, 15:00 en 16:00
+aan, telkens 30 minuten, met 18 uur aanlooptijd en 21 dagen vooruit. Daar
+gaat alles vanaf wat in de agenda staat als *busy*, *tentative* of *out of
+office*. *Working elsewhere* blokkeert niet — dan ben je wel bereikbaar. Wil
+je andere tijden, pas `SLOT_TIMES` aan.
+
+Bij het boeken wordt nog één keer gecontroleerd of het moment vrij is, zodat
+twee mensen die tegelijk boeken niet in hetzelfde half uur belanden.
+
+Alles rekent in lokale wandkloktijd, niet in UTC. Graph geeft zijn tijden ook
+lokaal terug dankzij de `Prefer`-header, waardoor de zomertijdwissel vanzelf
+goed gaat.
+
+## Tests
+
+```bash
+cd test
+TZ=Europe/Amsterdam node slots.test.mjs
+TZ=Europe/Amsterdam node api.test.mjs
+```
+
+Geen installatie of netwerk nodig; Microsoft Graph wordt nagebouwd. De
+faalpaden zijn het belangrijkst: die bewaken dat een bezoeker nooit een
+bevestiging ziet voor een afspraak die nergens staat.
 
 ## Structuur
 
@@ -42,7 +111,11 @@ ook in de spammap.
 index.html, Over.html, Diensten.html,     de pagina's
 Cases.html, Blog.html, Contact.html
 Privacyverklaring.html, 404.html
-api/contact.js                            serverless function voor het formulier
+api/slots.js                              beschikbare momenten uit de agenda
+api/book.js                               afspraak inplannen (of mailen)
+api/_graph.js                             Microsoft Graph: token en aanroepen
+api/_slots.js                             slotlogica, los testbaar
+test/                                     tests, zonder netwerk
 css/styles.css                            alle styling
 css/fonts.css                             @font-face voor de self-hosted fonts
 fonts/                                    Inter + Space Grotesk (woff2, variabel)
@@ -88,10 +161,6 @@ werk de `unicode-range` in `css/fonts.css` bij.
   klant-goedgekeurde citaten zijn.
 - **Blogartikel** in `blog/` is een concept en moet nog een redactieslag
   krijgen op toon en voorbeelden.
-- **De agenda op Contact is niet gekoppeld.** De tijdsloten in
-  `js/contact.js` (`SLOTS`) zijn hardcoded en altijd beschikbaar op
-  werkdagen. Zolang dat zo is, kan iemand een moment kiezen waarop je al
-  bezet bent. Een koppeling met Cal.com of Google Calendar lost dat op.
 
 ## Een blogartikel toevoegen
 
