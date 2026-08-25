@@ -38,6 +38,31 @@ function endOf(startStamp) {
 
 const STAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/;
 
+/** Stuurt een mail naar NOTIFY_EMAIL via Resend. Geeft false terug wanneer
+ *  mail niet is geconfigureerd; gooit wanneer het versturen mislukt. */
+async function stuurMail({ onderwerp, html, replyTo }) {
+  const key = process.env.RESEND_API_KEY;
+  const from = process.env.FROM_EMAIL;
+  const to = process.env.NOTIFY_EMAIL;
+  if (!key || !from || !to) return false;
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from, to: [to], reply_to: replyTo, subject: onderwerp, html })
+  });
+  if (!r.ok) throw new Error(`resend gaf ${r.status}: ${await r.text()}`);
+  return true;
+}
+
+function detailTabel(rijen) {
+  return [
+    '<table cellpadding="6" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">',
+    ...rijen.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`),
+    '</table>'
+  ].join('');
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -133,6 +158,27 @@ export default async function handler(req, res) {
         }
       });
 
+      // De uitnodiging gaat naar de genodigden, maar Outlook mailt de
+      // organisator niet over een afspraak in zijn eigen agenda. Daarom
+      // apart een melding naar NOTIFY_EMAIL. Mislukt die, dan staat de
+      // afspraak er evengoed — dus alleen loggen, nooit de boeking afkeuren.
+      try {
+        await stuurMail({
+          onderwerp: `Nieuwe afspraak — ${name}${company ? ` (${company})` : ''} — ${label}`,
+          replyTo: email,
+          html: '<h2>Nieuwe afspraak via finsera.nl</h2>' + detailTabel([
+            ['Naam', name],
+            ['Bedrijf', company || '—'],
+            ['E-mail', email],
+            ['Moment', label],
+            ['In de agenda van', host],
+            ['Taal site', lang.toUpperCase()]
+          ])
+        });
+      } catch (e) {
+        console.error('book: notificatiemail mislukt (de afspraak staat wel)', e);
+      }
+
       return res.status(200).json({
         ok: true,
         via: 'calendar',
@@ -149,46 +195,29 @@ export default async function handler(req, res) {
   }
 
   /* ----------------------------------------------------- 2. mailroute --- */
-  const key = process.env.RESEND_API_KEY;
-  const from = process.env.FROM_EMAIL;
-  const to = process.env.NOTIFY_EMAIL;
-
-  if (!key || !from || !to) {
-    console.error('book: geen agenda en geen mail geconfigureerd');
-    return res.status(503).json({ error: 'not_configured' });
-  }
-
-  const html = [
-    '<h2>Nieuwe afspraakaanvraag via finsera.nl</h2>',
-    '<p><em>De agendakoppeling was niet beschikbaar; bevestig deze afspraak handmatig.</em></p>',
-    '<table cellpadding="6" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">',
-    `<tr><td><strong>Naam</strong></td><td>${escapeHtml(name)}</td></tr>`,
-    `<tr><td><strong>Bedrijf</strong></td><td>${escapeHtml(company || '—')}</td></tr>`,
-    `<tr><td><strong>E-mail</strong></td><td>${escapeHtml(email)}</td></tr>`,
-    `<tr><td><strong>Voorkeursmoment</strong></td><td>${escapeHtml(label || '(geen gekozen)')}</td></tr>`,
-    `<tr><td><strong>Taal site</strong></td><td>${lang.toUpperCase()}</td></tr>`,
-    '</table>'
-  ].join('');
-
   try {
-    const r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: email,
-        subject: `Afspraakaanvraag — ${name}${company ? ` (${company})` : ''}`,
-        html
-      })
+    const verstuurd = await stuurMail({
+      onderwerp: `Afspraakaanvraag — ${name}${company ? ` (${company})` : ''}`,
+      replyTo: email,
+      html: [
+        '<h2>Nieuwe afspraakaanvraag via finsera.nl</h2>',
+        '<p><em>De agendakoppeling was niet beschikbaar; bevestig deze afspraak handmatig.</em></p>',
+        detailTabel([
+          ['Naam', name],
+          ['Bedrijf', company || '—'],
+          ['E-mail', email],
+          ['Voorkeursmoment', label || '(geen gekozen)'],
+          ['Taal site', lang.toUpperCase()]
+        ])
+      ].join('')
     });
-    if (!r.ok) {
-      console.error('book: resend gaf', r.status, await r.text());
-      return res.status(502).json({ error: 'send_failed' });
+    if (!verstuurd) {
+      console.error('book: geen agenda en geen mail geconfigureerd');
+      return res.status(503).json({ error: 'not_configured' });
     }
     return res.status(200).json({ ok: true, via: 'email' });
   } catch (err) {
-    console.error('book: onverwachte fout', err);
+    console.error('book: mail versturen mislukt', err);
     return res.status(502).json({ error: 'send_failed' });
   }
 }
