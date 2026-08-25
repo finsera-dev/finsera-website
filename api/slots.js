@@ -12,8 +12,9 @@
    formulier aan, ook niet als Graph eruit ligt.
    ========================================================================== */
 
-import { isConfigured, mailboxes, availabilityMode, graph, TIMEZONE, GraphError } from './_graph.js';
-import { candidateSlots, blocksBySchedule, freeSlotsMulti, groupByDay, window_, HORIZON_DAYS } from './_slots.js';
+import { isConfigured, mailboxes, availabilityMode, GraphError } from './_graph.js';
+import { candidateSlots, freeSlotsMulti, groupByDay, window_, HORIZON_DAYS } from './_slots.js';
+import { busyByMailbox } from './_agenda.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -35,24 +36,16 @@ export default async function handler(req, res) {
   const boxes = mailboxes();
 
   try {
-    // getSchedule accepteert meerdere mailboxen in een aanroep, dus de
-    // agenda's van iedereen worden in een keer opgehaald.
-    const schedule = await graph(
-      `/users/${encodeURIComponent(boxes[0])}/calendar/getSchedule`,
-      {
-        method: 'POST',
-        body: {
-          schedules: boxes,
-          startTime: { dateTime: win.start, timeZone: TIMEZONE },
-          endTime: { dateTime: win.end, timeZone: TIMEZONE },
-          availabilityViewInterval: 30
-        }
-      }
-    );
+    const { via, byMailbox, geweigerd } = await busyByMailbox(boxes, win.start, win.end);
+    if (via === 'calendarView') {
+      console.warn('slots: getSchedule geweigerd, teruggevallen op calendarView', {
+        status: geweigerd.status, requestId: geweigerd.requestId
+      });
+    }
 
     const free = freeSlotsMulti(
       candidateSlots(now, HORIZON_DAYS),
-      blocksBySchedule(schedule, boxes),
+      byMailbox,
       boxes,
       availabilityMode()
     );

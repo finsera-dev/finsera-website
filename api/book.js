@@ -14,7 +14,8 @@
    ========================================================================== */
 
 import { isConfigured, mailboxes, availabilityMode, graph, TIMEZONE, GraphError } from './_graph.js';
-import { SLOT_MINUTES, localStamp, blocksBySchedule, whoIsFree } from './_slots.js';
+import { SLOT_MINUTES, localStamp, whoIsFree } from './_slots.js';
+import { busyByMailbox } from './_agenda.js';
 
 const MAX = { name: 120, company: 160, email: 160, slot: 32 };
 
@@ -77,20 +78,14 @@ export default async function handler(req, res) {
 
       // Opnieuw controleren of het moment nog vrij is. Tussen het laden van
       // de pagina en het versturen kan er iets in de agenda zijn gezet.
-      const check = await graph(
-        `/users/${encodeURIComponent(boxes[0])}/calendar/getSchedule`,
-        {
-          method: 'POST',
-          body: {
-            schedules: boxes,
-            startTime: { dateTime: slot, timeZone: TIMEZONE },
-            endTime: { dateTime: end, timeZone: TIMEZONE },
-            availabilityViewInterval: 30
-          }
-        }
-      );
+      const { via, byMailbox, geweigerd } = await busyByMailbox(boxes, slot, end);
+      if (via === 'calendarView') {
+        console.warn('book: getSchedule geweigerd, teruggevallen op calendarView', {
+          status: geweigerd.status, requestId: geweigerd.requestId
+        });
+      }
 
-      const free = whoIsFree({ start: slot, end }, blocksBySchedule(check, boxes), boxes);
+      const free = whoIsFree({ start: slot, end }, byMailbox, boxes);
       const genoeg = mode === 'any' ? free.length > 0 : free.length === boxes.length;
       if (!genoeg) {
         return res.status(409).json({ error: 'slot_taken' });
