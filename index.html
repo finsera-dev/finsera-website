@@ -11,30 +11,57 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finsera">
+  <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Finsera — Grip op je cijfers. Ruimte om strategisch te leiden.">
   <meta property="og:description" content="Boutique finance consultancy voor snelgroeiende middelgrote bedrijven. Van Excel-chaos naar realtime inzicht.">
   <meta property="og:url" content="https://finsera.nl/">
+  <meta property="og:image" content="https://finsera.nl/img/og-finsera.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Finsera — Grip op je cijfers. Ruimte om strategisch te leiden.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://finsera.nl/img/og-finsera.jpg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://finsera.nl/#organisatie",
     "name": "Finsera",
     "description": "Boutique financiële procesoptimalisatie en consultancy voor snelgroeiende Nederlandse middelgrote bedrijven.",
     "url": "https://finsera.nl/",
-    "areaServed": "NL",
-    "knowsAbout": ["Managementrapportage", "Power BI dashboards", "Financiële automatisering", "AI-strategie", "Interim controller"]
+    "image": "https://finsera.nl/img/og-finsera.jpg",
+    "email": "info@finsera.nl",
+    "telephone": "+31641413836",
+    "identifier": { "@type": "PropertyValue", "name": "KvK", "value": "93587953" },
+    "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+    "areaServed": { "@type": "Country", "name": "Nederland" },
+    "priceRange": "$$$",
+    "knowsLanguage": ["nl", "en"],
+    "knowsAbout": ["Managementrapportage", "Power BI dashboards", "Financiële automatisering", "AI-strategie", "Interim controller"],
+    "founder": [
+      { "@type": "Person", "name": "Öner Yücel", "jobTitle": "Financial & business consultant", "sameAs": "https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" },
+      { "@type": "Person", "name": "Tomas van der Laan", "jobTitle": "Data analyst & ontwikkelaar", "sameAs": "https://www.linkedin.com/in/tomasvdlaan/" }
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@finsera.nl",
+      "telephone": "+31641413836",
+      "availableLanguage": ["nl", "en"]
+    }
   }
   </script>
 </head>
 <body>
 
+<a class="skip-link" href="#inhoud">Naar de inhoud</a>
 <!-- ======================================================== NAV ========== -->
 <nav class="nav">
   <a href="index.html" class="nav__brand">
@@ -54,7 +81,7 @@
       <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
     </div>
 
-    <a href="Contact.html" class="nav__cta" data-i18n="navCta">Plan een gesprek</a>
+    <a href="Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 
   <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
@@ -71,11 +98,11 @@
       <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
       <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
     </div>
-    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Plan een gesprek</a>
+    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
-<main class="main">
+<main id="inhoud" class="main">
 
   <!-- ====================================================== HERO ========= -->
   <section class="hero">
@@ -154,48 +181,17 @@
     <div class="pain__inner">
       <div class="pain__head">
         <div class="eyebrow" data-i18n="painEyebrow">Herken je dit?</div>
-        <h2 class="section-h2" data-i18n="painHeading">Tien signalen dat je organisatie haar financiële structuur is ontgroeid.</h2>
-        <p data-i18n="painTik">Vink aan wat je herkent.</p>
+        <h2 class="section-h2" data-i18n="painHeading">Vier signalen dat je organisatie haar financiële structuur is ontgroeid.</h2>
       </div>
 
-      <div class="pain__grid">
-        <div class="pain__list" id="painList"></div>
-
-        <div class="pain__panel">
-          <div class="pain__panel-halo"></div>
-          <div class="pain__panel-inner">
-            <div class="pain__ringwrap">
-              <div class="pain__ring">
-                <svg viewBox="0 0 120 120">
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(247,246,243,0.14)" stroke-width="9"></circle>
-                  <circle id="painRing" class="pain__ring-progress" cx="60" cy="60" r="52" fill="none" stroke="#C9A14E" stroke-width="9" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
-                </svg>
-                <div class="pain__ring-num">
-                  <span class="count" id="painCount">0</span>
-                  <span class="total">/ 10</span>
-                </div>
-              </div>
-              <div class="pain__ring-caption" id="painCaption">signalen herkend</div>
-            </div>
-
-            <div class="pain__preview">
-              <div class="pain__preview-quote" id="painQuote">"Ik vertrouw mijn cijfers niet volledig."</div>
-              <div class="pain__preview-label" data-i18n="painLeadsTo">Waar dit toe leidt</div>
-              <p class="pain__preview-desc" id="painDesc">Je beslist uiteindelijk op gevoel, en blijft achteraf twijfelen of het klopte.</p>
-            </div>
-
-            <div class="pain__tailored" id="painTailored" hidden>
-              <div class="pain__tailored-label" data-i18n="painSynthLabel">Patroon herkend</div>
-              <p data-i18n="painSynthBody">Je herkent meerdere signalen, en dat is geen toeval. Het zijn symptomen van één oorzaak: een financieel fundament dat is meegegroeid met losse oplossingen. Precies waar onze diagnose voor bestaat.</p>
-              <a href="Contact.html" data-i18n="cta">Vraag de diagnose aan</a>
-            </div>
-            <div class="pain__hint" id="painHint" data-i18n="painHint">Vanaf drie signalen zie je het patroon.</div>
-          </div>
-        </div>
-      </div>
+      <!-- Was een quiz met tien signalen en een telring. Voor bezoekers die
+           al warm binnenkomen is dat te veel werk; nu vier statische kaarten
+           met meteen het gevolg erbij. -->
+      <div class="pain__cards" id="painList"></div>
 
       <div class="pain__bridge">
         <p><span class="pain__dash">—</span> <span data-i18n="bridge">Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.</span></p>
+        <a href="Contact.html" class="btn-copper" data-i18n="cta">Vraag de diagnose aan</a>
       </div>
     </div>
   </section>
@@ -280,143 +276,51 @@
 
   </section>
 
-  <!-- ====================================================== DEMO ========= -->
-  <section id="demo" class="demo">
-    <div class="demo__halo"></div>
-    <div class="demo__inner">
-      <div class="demo__head">
-        <div class="eyebrow eyebrow--gold" data-i18n="demoEyebrow">Visuele demo</div>
-        <h2 data-i18n="demoTitle">Van Excel-chaos naar realtime inzicht.</h2>
-      </div>
-
-      <div class="demo__row">
-        <!-- excel chaos (the messy 'before'): several messy, versioned files
-             stacked, the top one a real spreadsheet grid with merged cells -->
-        <div class="demo__excel">
-          <div class="xls xls--b2"><span class="xls__tab"><span class="xls__x">X</span>begroting_FINAL_v7.xlsx</span></div>
-          <div class="xls xls--b1"><span class="xls__tab"><span class="xls__x">X</span>Kopie_van_omzet(2).xlsx</span></div>
-          <div class="xls xls--top">
-            <span class="xls__tab"><span class="xls__x">X</span><span data-i18n="demoStack">Verkoop_2026_v3.xlsx</span></span>
-            <div class="xls__grid">
-              <!-- column header row -->
-              <span class="xls__c xls__corner"></span>
-              <span class="xls__c xls__colh">A</span>
-              <span class="xls__c xls__colh">B</span>
-              <span class="xls__c xls__colh">C</span>
-              <span class="xls__c xls__colh">D</span>
-              <!-- row 1: merged title across A–C -->
-              <span class="xls__c xls__rowh">1</span>
-              <span class="xls__c xls__span3 xls__ttl">Omzet Q1 concept!!</span>
-              <span class="xls__c xls__empty"></span>
-              <!-- row 2: headers -->
-              <span class="xls__c xls__rowh">2</span>
-              <span class="xls__c xls__hd">Maand</span>
-              <span class="xls__c xls__hd">Omzet</span>
-              <span class="xls__c xls__hd">Marge</span>
-              <span class="xls__c xls__hd">Δ</span>
-              <!-- row 3 -->
-              <span class="xls__c xls__rowh">3</span>
-              <span class="xls__c">jan</span>
-              <span class="xls__c xls__num">64.200</span>
-              <span class="xls__c xls__span2 xls__mrg">38% (?)</span>
-              <!-- row 4 -->
-              <span class="xls__c xls__rowh">4</span>
-              <span class="xls__c">feb</span>
-              <span class="xls__c xls__num">61.500</span>
-              <span class="xls__c xls__err">#REF!</span>
-              <span class="xls__c xls__num up">+9%</span>
-              <!-- row 5: merged label across A–B -->
-              <span class="xls__c xls__rowh">5</span>
-              <span class="xls__c xls__span2 xls__hi">totaal =SOM(</span>
-              <span class="xls__c xls__num">195.900</span>
-              <span class="xls__c xls__num down">−5%</span>
-              <!-- row 6: mostly empty / messy -->
-              <span class="xls__c xls__rowh">6</span>
-              <span class="xls__c xls__dim">apr??</span>
-              <span class="xls__c xls__empty"></span>
-              <span class="xls__c xls__empty"></span>
-              <span class="xls__c xls__dim">#N/A</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="demo__arrow" data-anim>
-          <svg width="46" height="24" viewBox="0 0 46 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="42" y2="12"></line><polyline points="32 4 42 12 32 20"></polyline></svg>
-        </div>
-
-        <!-- dashboard monitor -->
-        <div class="demo__dash-wrap">
-          <div class="demo__dash">
-            <div class="demo__dash-head">
-              <span class="demo__dot demo__dot--red"></span><span class="demo__dot demo__dot--gold"></span><span class="demo__dot demo__dot--green"></span>
-              <span class="demo__dash-name" data-i18n="demoPowerbi">Power BI · Finsera-dashboard</span>
-              <span class="demo__rt"><span class="dot" data-anim></span><span data-i18n="demoRealtime">realtime</span></span>
-            </div>
-            <div class="demo__kpis">
-              <div class="demo__kpi demo__kpi--copper"><div class="demo__kpi-label" data-i18n="demoKpi1">Omzet</div><div class="demo__kpi-value">€18,4M</div><div class="demo__kpi-delta up">▲ 12,4%</div></div>
-              <div class="demo__kpi demo__kpi--gold"><div class="demo__kpi-label" data-i18n="demoKpi2">Marge</div><div class="demo__kpi-value">38%</div><div class="demo__kpi-delta up">▲ 2,1pt</div></div>
-              <div class="demo__kpi demo__kpi--green"><div class="demo__kpi-label" data-i18n="demoKpi3">EBITDA</div><div class="demo__kpi-value">€2,1M</div><div class="demo__kpi-delta up">▲ 10,8%</div></div>
-              <div class="demo__kpi demo__kpi--grey"><div class="demo__kpi-label" data-i18n="demoKpi4">Ind. kosten</div><div class="demo__kpi-value">€0,9M</div><div class="demo__kpi-delta down">▼ 11%</div></div>
-            </div>
-            <div class="demo__lower">
-              <div class="demo__panel demo__trend">
-                <div class="demo__panel-title" data-i18n="demoTrend">Omzettrend</div>
-                <svg viewBox="0 0 240 84" preserveAspectRatio="none">
-                  <defs><linearGradient id="demotrend" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(176,121,63,0.4)"></stop><stop offset="1" stop-color="rgba(176,121,63,0)"></stop></linearGradient></defs>
-                  <path d="M4 66 L44 60 L84 64 L124 44 L164 48 L204 24 L236 16 L236 84 L4 84 Z" fill="url(#demotrend)"></path>
-                  <path d="M4 66 L44 60 L84 64 L124 44 L164 48 L204 24 L236 16" fill="none" stroke="#C9A14E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="460" data-anim style="animation:finDraw 2.4s ease-out"></path>
-                  <circle cx="124" cy="44" r="3" fill="#C9A14E"></circle><circle cx="204" cy="24" r="3" fill="#C9A14E"></circle><circle cx="236" cy="16" r="3.5" fill="#fff" data-anim style="animation:finFlick 1.4s ease-in-out infinite"></circle>
-                </svg>
-              </div>
-              <div class="demo__right">
-                <div class="demo__panel demo__dept">
-                  <div class="title" data-i18n="demoDept">Per afdeling</div>
-                  <div class="demo__dept-bars"><div class="b b1"></div><div class="b b2"></div><div class="b b3"></div></div>
-                </div>
-                <div class="demo__panel demo__donut">
-                  <svg width="44" height="44" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="rgba(247,246,243,0.12)" stroke-width="9"></circle><circle cx="40" cy="40" r="30" fill="none" stroke="#B0793F" stroke-width="9" stroke-linecap="round" stroke-dasharray="72 117" data-anim style="animation:finRingDraw 1.4s ease-out"></circle></svg>
-                  <div><div class="val">38%</div><div class="lbl" data-i18n="demoMix">Marge-mix</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="demo__stand1"></div>
-          <div class="demo__stand2"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ====================================================== TEAM ========= -->
-  <!-- Founder block: builds trust before the cases. Cards link to LinkedIn.
-       TODO: replace the two href="#" with the real LinkedIn profile URLs. -->
+  <!-- Founder block: builds trust before the cases. Portrait photos live in
+       img/team/. If a photo is missing the <img> removes itself on error and
+       the gradient + initials underneath show through, so the layout never
+       breaks. Öner's LinkedIn slug contains ö and ü; it is percent-encoded
+       here so the URL survives copy/paste and non-UTF-8 tooling. -->
   <section class="team">
     <div class="team__inner">
-      <div class="team__head">
-        <div class="eyebrow" data-i18n="teamEyebrow">Het team</div>
-        <h2 class="section-h2" data-i18n="teamTitle">Opgericht door een financespecialist en een data-engineer.</h2>
+      <div class="team__layout">
+
+        <div class="team__intro">
+          <div class="eyebrow team__eyebrow" data-i18n="teamEyebrow">Over ons</div>
+          <h2 class="team__h2"><span data-i18n="teamTitleA">Twee mensen. Eén doel:</span> <em data-i18n="teamTitleB">jouw bedrijf gezonder maken.</em></h2>
+          <p data-i18n="teamIntro1">Finsera is bewust klein. Je hebt geen accountmanager, geen junior en geen tussenlaag — je hebt óns. Öner brengt de finance-diepgang van jaren als controller mee. Tomas bouwt de tech: van data-integraties tot het dashboard waar je écht op stuurt.</p>
+          <p data-i18n="teamIntro2">Samen zijn we de brug tussen finance, IT en de dagelijkse operatie. We werken persoonlijk, we werken rustig, en we werken alleen als we écht waarde toevoegen.</p>
+          <a href="Over.html" class="team__cta"><span data-i18n="teamCta">Ontmoet ons</span> <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="team__grid">
+          <article class="team__card">
+            <div class="team__photo team__photo--copper">
+              <span class="team__photo-initials" aria-hidden="true">ÖY</span>
+              <img src="img/team/oner-yucel.jpg" alt="Portret van Öner Yücel" width="640" height="800" loading="lazy" decoding="async" onerror="this.remove()">
+            </div>
+            <div class="team__card-body">
+              <div class="team__name">Öner Yücel</div>
+              <div class="team__role" data-i18n="teamRole1">Financial &amp; business consultant</div>
+              <a class="team__link" href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener" aria-label="Öner Yücel op LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg><span data-i18n="teamLinkedin">LinkedIn</span></a>
+            </div>
+          </article>
+
+          <article class="team__card">
+            <div class="team__photo team__photo--navy">
+              <span class="team__photo-initials" aria-hidden="true">TL</span>
+              <img src="img/team/tomas-van-der-laan.jpg" alt="Portret van Tomas van der Laan" width="640" height="800" loading="lazy" decoding="async" onerror="this.remove()">
+            </div>
+            <div class="team__card-body">
+              <div class="team__name">Tomas van der Laan</div>
+              <div class="team__role" data-i18n="teamRole2">Data analyst &amp; ontwikkelaar</div>
+              <a class="team__link" href="https://www.linkedin.com/in/tomasvdlaan/" target="_blank" rel="noopener" aria-label="Tomas van der Laan op LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg><span data-i18n="teamLinkedin">LinkedIn</span></a>
+            </div>
+          </article>
+        </div>
+
       </div>
-      <div class="team__grid">
-        <a class="team__card" href="#" target="_blank" rel="noopener" aria-label="Öner Yücel op LinkedIn">
-          <div class="team__avatar team__avatar--copper" aria-hidden="true"><span>ÖY</span></div>
-          <div class="team__body">
-            <div class="team__name">Öner Yücel</div>
-            <div class="team__role" data-i18n="teamRole1">Oprichter · Finance &amp; Control</div>
-            <p class="team__bio" data-i18n="teamBio1">Ruim tien jaar in audit en control: Belastingdienst/Douane, accountancy (samenstel &amp; audit) en interim finance management bij groeiend MKB.</p>
-            <span class="team__link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg><span data-i18n="teamLinkedin">Bekijk op LinkedIn</span></span>
-          </div>
-        </a>
-        <a class="team__card" href="#" target="_blank" rel="noopener" aria-label="Thomas op LinkedIn">
-          <div class="team__avatar team__avatar--navy" aria-hidden="true"><span>T</span></div>
-          <div class="team__body">
-            <div class="team__name">Thomas</div>
-            <div class="team__role" data-i18n="teamRole2">Partner · Data, Power BI &amp; automatisering</div>
-            <p class="team__bio" data-i18n="teamBio2">Data-architectuur, Power BI en AI-automatisering voor het MKB.</p>
-            <span class="team__link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg><span data-i18n="teamLinkedin">Bekijk op LinkedIn</span></span>
-          </div>
-        </a>
-      </div>
-      <p class="team__note" data-i18n="teamNote">Bewust boutique: selectief in opdrachten, persoonlijk in aanpak. Alles wat we bouwen is gedocumenteerd en overdraagbaar — het tegenovergestelde van persoonsafhankelijke kennis.</p>
     </div>
   </section>
 
@@ -525,78 +429,6 @@
     </div>
   </section>
 
-  <!-- ==================================================== REVIEWS ======== -->
-  <section class="rev">
-    <div class="rev__inner">
-      <div class="rev__head">
-        <div class="eyebrow" data-i18n="revEyebrow">Wat klanten zeggen</div>
-        <h2 class="section-h2" data-i18n="revTitle">Vertrouwen, opgebouwd in de praktijk.</h2>
-        <p data-i18n="revIntro">We bouwen onze reviews op terwijl we onze klantcases afronden. Heb je met ons gewerkt? We horen graag je ervaring.</p>
-      </div>
-
-      <!-- Client testimonials.
-           NB: placeholder/anonymised quotes based on real project outcomes.
-           Replace with real, client-approved wording (and add names once
-           clients agree to attribution). -->
-      <div class="rev__testimonials">
-        <figure class="tstm">
-          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
-          <blockquote class="tstm__quote" data-i18n="tstm1">„De maandrapportage staat nu op een doordacht budget en we sturen op marge per merk, niet meer alleen op omzet.”</blockquote>
-          <figcaption class="tstm__by" data-i18n="tstm1By">Directie · e-commerce (±15 mln omzet)</figcaption>
-        </figure>
-        <figure class="tstm">
-          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
-          <blockquote class="tstm__quote" data-i18n="tstm2">„Van losse Excel-lijsten naar één betrouwbaar dashboard — we weten nu precies waar we staan, met cijfers die kloppen.”</blockquote>
-          <figcaption class="tstm__by" data-i18n="tstm2By">Business controller · zorg</figcaption>
-        </figure>
-        <figure class="tstm">
-          <div class="tstm__stars" aria-hidden="true">★★★★★</div>
-          <blockquote class="tstm__quote" data-i18n="tstm3">„Aantoonbaar in control: AO/IB opgezet en kwartaalrapportage met financiële én niet-financiële data.”</blockquote>
-          <figcaption class="tstm__by" data-i18n="tstm3By">Bestuur · zorginstelling</figcaption>
-        </figure>
-      </div>
-      <p class="rev__anon-note" data-i18n="tstmNote">Weergegeven resultaten zijn geanonimiseerd; naamsvermelding volgt zodra klanten daarmee akkoord gaan.</p>
-
-      <!-- ============================================================
-           HIDDEN FOR NOW (do not delete): review submission form.
-           Re-enable later by removing the `hidden` attribute below.
-           ============================================================ -->
-      <form class="rev__form rev__form--hidden" id="reviewForm" novalidate hidden>
-        <div class="rev__form-title" data-i18n="revFormTitle">Deel je ervaring</div>
-        <p class="rev__form-intro" data-i18n="revFormIntro">Je review helpt andere directies de juiste keuze te maken.</p>
-
-        <label class="rev__field">
-          <span class="rev__label" data-i18n="revName">Naam</span>
-          <input type="text" name="name" required autocomplete="name">
-        </label>
-        <label class="rev__field">
-          <span class="rev__label" data-i18n="revCompany">Bedrijf (optioneel)</span>
-          <input type="text" name="company" autocomplete="organization">
-        </label>
-
-        <div class="rev__field">
-          <span class="rev__label" data-i18n="revRating">Beoordeling</span>
-          <div class="rev__stars" id="revStars" role="radiogroup" aria-label="Rating">
-            <button type="button" class="rev__star" data-val="1" aria-label="1">★</button>
-            <button type="button" class="rev__star" data-val="2" aria-label="2">★</button>
-            <button type="button" class="rev__star" data-val="3" aria-label="3">★</button>
-            <button type="button" class="rev__star" data-val="4" aria-label="4">★</button>
-            <button type="button" class="rev__star" data-val="5" aria-label="5">★</button>
-          </div>
-          <input type="hidden" name="rating" id="revRatingInput" value="5">
-        </div>
-
-        <label class="rev__field">
-          <span class="rev__label" data-i18n="revMessage">Je ervaring</span>
-          <textarea name="message" rows="4" required data-i18n-ph="revPlaceholderMsg" placeholder="Waar heeft Finsera je bij geholpen, en wat leverde het op?"></textarea>
-        </label>
-
-        <button type="submit" class="btn-copper" data-i18n="revSubmit">Review versturen</button>
-        <p class="rev__thanks" id="revThanks" data-i18n="revThanks" hidden>Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.</p>
-      </form>
-    </div>
-  </section>
-
   <!-- ====================================================== CTA ========== -->
   <section class="cta">
     <div class="cta__box">
@@ -638,20 +470,22 @@
         <div class="footer__col-title">Contact</div>
         <div class="footer__col-links">
           <a href="mailto:info@finsera.nl" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>info@finsera.nl</a>
-          <a href="tel:+31615860942" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>06 - 15 86 09 42</a>
+          <a href="tel:+31641413836" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>06 - 41 41 38 36</a>
           <span class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>KvK 93587953</span>
-          <a href="#" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>LinkedIn</a>
         </div>
       </div>
     </div>
   </div>
   <div class="footer__bottom">
     <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
-    <span class="footer__legal"><a href="#" data-i18n="footPrivacy">Privacyverklaring</a> · <a href="#" data-i18n="footTerms">Algemene voorwaarden</a></span>
+    <span class="footer__legal"><a href="Privacyverklaring.html" data-i18n="footPrivacy">Privacyverklaring</a></span>
   </div>
 </footer>
 
 <script src="js/reveal.js"></script>
 <script src="js/app.js"></script>
+<!-- Vercel Web Analytics: cookieloos en geaggregeerd, dus geen cookiebanner nodig.
+     Aanzetten in Vercel: Project -> Analytics. Zonder dat blijft dit een 404 zonder effect. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
