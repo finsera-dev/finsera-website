@@ -37,17 +37,27 @@ export const TIMEZONE = 'Europe/Amsterdam';
 const LOGIN_BASE = process.env.MS_LOGIN_BASE || 'https://login.microsoftonline.com';
 const GRAPH_BASE = process.env.MS_GRAPH_BASE || 'https://graph.microsoft.com/v1.0';
 
+/** Environment variables komen via de Vercel-UI binnen, en daar blijft bij
+ *  plakken makkelijk een spatie of regeleinde aan hangen. Azure weigert het
+ *  secret dan met AADSTS7000215 — dezelfde foutcode als bij een verkeerd
+ *  secret, dus dat is uren zoeken naar iets onzichtbaars. Vandaar overal
+ *  trimmen bij het uitlezen. */
+function env(naam) {
+  const v = process.env[naam];
+  return typeof v === 'string' ? v.trim() : '';
+}
+
 export function isConfigured() {
   return Boolean(
-    process.env.MS_TENANT_ID &&
-    process.env.MS_CLIENT_ID &&
-    process.env.MS_CLIENT_SECRET &&
-    process.env.MS_ORGANIZER_UPN
+    env('MS_TENANT_ID') &&
+    env('MS_CLIENT_ID') &&
+    env('MS_CLIENT_SECRET') &&
+    env('MS_ORGANIZER_UPN')
   );
 }
 
 export function organizer() {
-  return process.env.MS_ORGANIZER_UPN;
+  return env('MS_ORGANIZER_UPN');
 }
 
 /** Alle mailboxen waarvan we de agenda meewegen: de organisator plus
@@ -74,13 +84,13 @@ export async function getToken(now) {
   if (cached.token && cached.expires > t + 60000) return cached.token;
 
   const body = new URLSearchParams({
-    client_id: process.env.MS_CLIENT_ID,
-    client_secret: process.env.MS_CLIENT_SECRET,
+    client_id: env('MS_CLIENT_ID'),
+    client_secret: env('MS_CLIENT_SECRET'),
     scope: 'https://graph.microsoft.com/.default',
     grant_type: 'client_credentials'
   });
 
-  const r = await fetch(`${LOGIN_BASE}/${process.env.MS_TENANT_ID}/oauth2/v2.0/token`, {
+  const r = await fetch(`${LOGIN_BASE}/${env('MS_TENANT_ID')}/oauth2/v2.0/token`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: body.toString()
@@ -88,7 +98,10 @@ export async function getToken(now) {
 
   const json = await r.json().catch(() => ({}));
   if (!r.ok || !json.access_token) {
-    throw new GraphError('token_failed', r.status, json);
+    // Azure geeft bij elk ongeldig secret dezelfde foutcode, met een tekst
+    // die alleen de ID/value-verwisseling noemt. Daarom loggen we hoe het
+    // secret erúit ziet — nooit wat erin staat. Dat scheelt gokwerk.
+    throw new GraphError('token_failed', r.status, json, secretShape());
   }
 
   cached = {
@@ -103,12 +116,36 @@ export function resetTokenCache() {
 }
 
 export class GraphError extends Error {
-  constructor(code, status, detail) {
+  constructor(code, status, detail, hint) {
     super(code);
     this.code = code;
     this.status = status;
     this.detail = detail;
+    if (hint) this.hint = hint;
   }
+}
+
+const GUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Beschrijft de vórm van het client secret, nooit de inhoud. Genoeg om de
+ *  drie klassieke fouten uit elkaar te houden:
+ *    lijktOpSecretId      -> de Secret ID geplakt in plaats van de Value
+ *    lengte veel < 40     -> afgekapt bij het selecteren met de muis
+ *    witruimteVerwijderd  -> spatie of regeleinde meegeplakt
+ *  Bij een goede Value zie je iets als: lengte 40, GUID false, ~ true. */
+export function secretShape() {
+  const ruw = process.env.MS_CLIENT_SECRET;
+  if (typeof ruw !== 'string') return { aanwezig: false };
+  const s = ruw.trim();
+  return {
+    aanwezig: true,
+    lengte: s.length,
+    lijktOpSecretId: GUID.test(s),
+    bevatTilde: s.includes('~'),
+    witruimteVerwijderd: s.length !== ruw.length,
+    clientIdLengte: env('MS_CLIENT_ID').length,
+    tenantIdIsGuid: GUID.test(env('MS_TENANT_ID'))
+  };
 }
 
 export async function graph(path, options) {

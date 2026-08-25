@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     // Bewust geen 500: de frontend valt terug op vaste tijden. Wel loggen,
     // zodat je in de Vercel-logs ziet dat de koppeling eruit ligt.
     console.error('slots: graph-aanroep mislukt',
-      err instanceof GraphError ? { code: err.code, status: err.status, detail: err.detail } : err);
+      err instanceof GraphError ? { code: err.code, status: err.status, detail: err.detail, secret: err.hint } : err);
     return res.status(200).json({ configured: false, reason: 'graph_unavailable' });
   }
 }
