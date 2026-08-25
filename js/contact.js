@@ -7,8 +7,8 @@
   'use strict';
 
   var LOC = {
-    nl: { weekdays: ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'], locale: 'nl-NL' },
-    en: { weekdays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], locale: 'en-GB' }
+    nl: { weekdays: ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'], locale: 'nl-NL', tomorrow: 'morgen' },
+    en: { weekdays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], locale: 'en-GB', tomorrow: 'tomorrow' }
   };
   var SLOTS = ['09:00', '10:00', '11:00', '13:30', '15:00', '16:00'];
 
@@ -34,6 +34,78 @@
     $('viewCal').hidden = v !== 'cal';
     $('viewDetails').hidden = v !== 'details';
     $('viewDone').hidden = v !== 'done';
+  }
+
+  /* ------------------------------------------- eerstvolgende momenten ---- */
+  // De maandkalender stond hiervoor vooraan, met vrijwel alles grijs. Dat
+  // leest als "geen ruimte". Nu tonen we eerst de eerstvolgende zes
+  // momenten als directe keuzes; de kalender is de uitwijk daaronder.
+  var NEXT_COUNT = 6;
+  var PER_DAY = 2;       // spreiden over dagen, anders staat er zes keer "morgen"
+  var LEAD_HOURS = 18;   // niets aanbieden binnen deze termijn
+
+  function nextSlots(n) {
+    var out = [];
+    var now = new Date();
+    var earliest = new Date(now.getTime() + LEAD_HOURS * 3600 * 1000);
+    var day = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var guard = 0;
+    while (out.length < n && guard++ < 60) {
+      var dow = day.getDay();
+      if (dow !== 0 && dow !== 6) {
+        var today = [];
+        for (var i = 0; i < SLOTS.length; i++) {
+          var parts = SLOTS[i].split(':');
+          var dt = new Date(day.getFullYear(), day.getMonth(), day.getDate(), +parts[0], +parts[1]);
+          if (dt >= earliest) today.push({ date: dt, time: SLOTS[i] });
+        }
+        // eerste en laatste van de dag: ochtend- en middagoptie
+        if (today.length > PER_DAY) {
+          today = [today[0], today[today.length - 1]];
+        }
+        for (var j = 0; j < today.length && out.length < n; j++) out.push(today[j]);
+      }
+      day = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 1);
+    }
+    return out;
+  }
+
+  function relativeDay(dt) {
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var d = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+    var diff = Math.round((d - today) / 86400000);
+    var l = loc();
+    if (diff === 1) return l.tomorrow;
+    if (diff > 1 && diff < 7) {
+      return dt.toLocaleDateString(l.locale, { weekday: 'long' });
+    }
+    return dt.toLocaleDateString(l.locale, { weekday: 'short', day: 'numeric', month: 'short' });
+  }
+
+  function renderNext() {
+    var el = $('ctNext');
+    if (!el) return;
+    el.innerHTML = '';
+    nextSlots(NEXT_COUNT).forEach(function (s) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ct-nextslot';
+      var d = document.createElement('span');
+      d.className = 'ct-nextslot__day';
+      d.textContent = relativeDay(s.date);
+      var t = document.createElement('span');
+      t.className = 'ct-nextslot__time';
+      t.textContent = s.time;
+      btn.appendChild(d); btn.appendChild(t);
+      btn.addEventListener('click', function () {
+        state.date = s.date;
+        state.time = s.time;
+        $('ctSummary').textContent = summary();
+        setView('details');
+        var name = $('ctName'); if (name) name.focus();
+      });
+      el.appendChild(btn);
+    });
   }
 
   /* ---------------------------------------------------------- calendar --- */
@@ -192,6 +264,13 @@
   $('ctBack').addEventListener('click', function () { setView('cal'); });
   $('ctForm').addEventListener('submit', submit);
 
+  var calToggle = $('ctToggleCal'), calWrap = $('ctCalWrap');
+  calToggle.addEventListener('click', function () {
+    var open = calWrap.hasAttribute('hidden');
+    if (open) calWrap.removeAttribute('hidden'); else calWrap.setAttribute('hidden', '');
+    calToggle.setAttribute('aria-expanded', String(open));
+  });
+
   // update placeholders + dynamic labels when language changes
   window.FINSERA_onLang = function () {
     var d = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
@@ -202,10 +281,12 @@
       $('ctSummary').textContent = summary();
       $('ctDoneSummary').textContent = summary();
     }
+    renderNext();
     renderCalendar();
   };
 
   // init
   setView('cal');
+  renderNext();
   renderCalendar();
 })();
