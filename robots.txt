@@ -4,4 +4,4 @@ Allow: /
 # Juridische pagina's hoeven niet in de index
 Disallow: /Privacyverklaring.html
 
-Sitemap: https://finsera.nl/sitemap.xml
+Sitemap: https://www.finsera.nl/sitemap.xml

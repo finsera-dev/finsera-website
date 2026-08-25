@@ -77,7 +77,7 @@ foutentabel staat op de gedeelde setup-pagina; hieronder de korte versie.
    Sla deze stap niet over. Zonder policy kan de app bij alle agenda's in de
    organisatie.
 6. Zet de vier variabelen in Vercel en deploy.
-7. **Test het.** Open `/api/slots` in de browser. Staat er `"configured":
+7. **Test het.** Open `https://www.finsera.nl/api/slots` in de browser. Staat er `"configured":
    true` met dagen erin, dan werkt de koppeling. Staat er `false`, kijk dan
    in de Vercel-logs — daar staat waaróm.
 
@@ -141,6 +141,19 @@ js/reveal.js                              scroll-animaties
 img/team/                                 portretfoto's (4:5 of 3:4, JPEG)
 img/og-finsera.jpg                        deelafbeelding voor LinkedIn
 ```
+
+## Domein
+
+De site draait op **www.finsera.nl**. Alle canonicals, Open Graph-URL's,
+`sitemap.xml`, `robots.txt` en de JSON-LD verwijzen daarnaar.
+
+De apex `finsera.nl` is in Vercel niet aan dit project gekoppeld. Zolang dat
+zo is, komt iemand die `finsera.nl` intypt nergens uit. Koppel de apex in
+Vercel en zet hem op redirect naar www; dan sluit alles op elkaar aan.
+
+Verander je ooit van kant, pas dan alle vier de plekken tegelijk aan —
+canonicals, OG-tags, sitemap en robots. Een canonical die iets anders zegt
+dan de redirect is slechter dan geen canonical.
 
 ## Teksten wijzigen
 
