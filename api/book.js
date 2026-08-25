@@ -146,7 +146,8 @@ export default async function handler(req, res) {
     } catch (err) {
       console.error('book: agenda-afspraak mislukt',
         err instanceof GraphError
-          ? { code: err.code, status: err.status, detail: err.detail, secret: err.hint, mailboxes: boxes }
+          ? { code: err.code, status: err.status, detail: err.detail, secret: err.hint,
+              mailboxes: boxes, path: err.path, token: err.token, requestId: err.requestId }
           : err);
       // valt door naar de mailroute hieronder
     }

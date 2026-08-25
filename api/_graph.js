@@ -148,6 +148,25 @@ export function secretShape() {
   };
 }
 
+/** Leest de payload van het token (base64url-JSON), zonder verificatie.
+ *  Nooit het token zelf loggen — wel bij welke app, tenant en rollen het
+ *  hoort. Daarmee zie je in één oogopslag of Vercel met dezelfde app praat
+ *  als degene die in de Application Access Policy staat. */
+export function tokenClaims(token) {
+  try {
+    const json = JSON.parse(Buffer.from(token.split('.')[1], 'base64url').toString('utf8'));
+    return {
+      appId: json.appid,
+      tenant: json.tid,
+      roles: json.roles,
+      afgegeven: json.iat ? new Date(json.iat * 1000).toISOString() : undefined,
+      verloopt: json.exp ? new Date(json.exp * 1000).toISOString() : undefined
+    };
+  } catch (e) {
+    return { onleesbaar: true };
+  }
+}
+
 export async function graph(path, options) {
   const opts = options || {};
   const token = await getToken();
@@ -172,7 +191,13 @@ export async function graph(path, options) {
   try { json = text ? JSON.parse(text) : null; } catch (e) { /* geen JSON */ }
 
   if (!r.ok) {
-    throw new GraphError('graph_failed', r.status, json || text);
+    const err = new GraphError('graph_failed', r.status, json || text);
+    // Extra context voor in de logs: welk pad, welke app/rollen, en Microsofts
+    // eigen request-id — dat laatste heb je nodig als je een ticket opent.
+    err.path = path;
+    err.token = tokenClaims(token);
+    err.requestId = r.headers.get('request-id') || undefined;
+    throw err;
   }
   return json;
 }
