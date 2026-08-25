@@ -84,5 +84,17 @@ werk de `unicode-range` in `css/fonts.css` bij.
 - **Engelse versie** heeft geen eigen URL's en geen `hreflang`, en wordt dus
   niet door Google geïndexeerd. Vereist `/en/`-pagina's.
 - **Algemene voorwaarden** zijn er niet; de link is uit de footer gehaald.
-- **Reviews**: de sectie toont bewust een lege staat tot er echte,
+- **Reviews**: de sectie is van de homepage gehaald tot er echte,
   klant-goedgekeurde citaten zijn.
+- **Blogartikel** in `blog/` is een concept en moet nog een redactieslag
+  krijgen op toon en voorbeelden.
+- **De agenda op Contact is niet gekoppeld.** De tijdsloten in
+  `js/contact.js` (`SLOTS`) zijn hardcoded en altijd beschikbaar op
+  werkdagen. Zolang dat zo is, kan iemand een moment kiezen waarop je al
+  bezet bent. Een koppeling met Cal.com of Google Calendar lost dat op.
+
+## Een blogartikel toevoegen
+
+Kopieer `blog/dashboard-lost-je-rapportageprobleem-niet-op.html`, pas de
+titel, meta-tags, canonical, datum en inhoud aan, en voeg een kaart toe in de
+`.bl-list` van `Blog.html`. Zet de nieuwe URL ook in `sitemap.xml`.
