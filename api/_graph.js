@@ -180,7 +180,8 @@ export async function graph(path, options) {
   };
   if (opts.headers) Object.assign(headers, opts.headers);
 
-  const r = await fetch(`${GRAPH_BASE}${path}`, {
+  // @odata.nextLink uit een gepagineerd antwoord is al een volledige URL.
+  const r = await fetch(path.startsWith('http') ? path : `${GRAPH_BASE}${path}`, {
     method: opts.method || 'GET',
     headers,
     body: opts.body ? JSON.stringify(opts.body) : undefined

@@ -29,7 +29,23 @@ const mock = http.createServer((req, res) => {
       if (graphGedrag === 'token_fout') return fout(401, { error: 'invalid_client' });
       return json({ access_token: 'test-token', expires_in: 3600, token_type: 'Bearer' });
     }
+    // De RAOP-situatie uit productie: getSchedule geweigerd door de
+    // Application Access Policy, terwijl gewone agenda-aanroepen wel mogen.
+    const RAOP = { error: { code: 'ErrorAccessDenied',
+      message: 'Access to OData is disabled: [RAOP] : Blocked by tenant configured AppOnly AccessPolicy settings.' } };
+
+    if (req.url.includes('/calendarView')) {
+      if (graphGedrag === 'raop_alles') return fout(403, RAOP);
+      if (graphGedrag === 'raop_bezet') {
+        // een blok dat alles afdekt, zodat elk kandidaat-moment vervalt
+        return json({ value: [{ showAs: 'busy',
+          start: { dateTime: '2000-01-01T00:00:00.0000000' },
+          end:   { dateTime: '2099-01-01T00:00:00.0000000' } }] });
+      }
+      return json({ value: [] });
+    }
     if (req.url.includes('getSchedule')) {
+      if (graphGedrag.startsWith('raop')) return fout(403, RAOP);
       if (graphGedrag === 'graph_down') return fout(503, { error: { code: 'ServiceUnavailable' } });
       const bezet = [{ status: 'busy', start: { dateTime: '2026-12-02T09:00:00.0000000' }, end: { dateTime: '2026-12-02T09:30:00.0000000' } }];
       const gevraagd = (JSON.parse(body || '{}').schedules) || ['oner@finsera.nl'];
@@ -261,6 +277,47 @@ await t('/api/slots vraagt beide mailboxen tegelijk op', async () => {
   assert.deepEqual(verzonden, ['oner@finsera.nl','tomas@finsera.nl']);
 });
 delete process.env.MS_ALSO_UPNS; delete process.env.MS_AVAILABILITY_MODE;
+
+console.log('\nRAOP-terugval — getSchedule geweigerd, calendarView werkt');
+await t('slots: valt terug op calendarView en geeft gewoon momenten', async () => {
+  configureer(true); resetTokenCache(); graphGedrag = 'raop';
+  const r = await roep(slots, { method: 'GET' });
+  assert.equal(r.payload.configured, true);
+  assert.ok(r.payload.days.length > 0, 'geen dagen via de terugvalroute');
+});
+await t('slots: bezette agenda blokkeert ook via de terugvalroute', async () => {
+  resetTokenCache(); graphGedrag = 'raop_bezet';
+  const r = await roep(slots, { method: 'GET' });
+  assert.equal(r.payload.configured, true);
+  assert.equal(r.payload.days.length, 0, 'bezette momenten toch aangeboden');
+});
+await t('slots: twee mailboxen -> calendarView per mailbox', async () => {
+  process.env.MS_ALSO_UPNS = 'tomas@finsera.nl'; resetTokenCache(); graphGedrag = 'raop';
+  const r = await roep(slots, { method: 'GET' });
+  assert.equal(r.payload.configured, true);
+  assert.match(laatsteRequest.url, /tomas%40finsera\.nl\/calendarView/, 'tweede mailbox niet opgevraagd');
+  delete process.env.MS_ALSO_UPNS;
+});
+await t('slots: calendarView ook geweigerd -> nette terugval, geen 500', async () => {
+  resetTokenCache(); graphGedrag = 'raop_alles';
+  const r = await roep(slots, { method: 'GET' });
+  assert.equal(r.statusCode, 200);
+  assert.equal(r.payload.configured, false);
+  assert.equal(r.payload.reason, 'graph_unavailable');
+});
+await t('book: boekt gewoon door via de terugvalroute', async () => {
+  resetTokenCache(); graphGedrag = 'raop'; aangemaakteEvents = [];
+  const r = await roep(book, { method: 'POST', body: GELDIG });
+  assert.equal(r.statusCode, 200);
+  assert.equal(r.payload.via, 'calendar');
+  assert.equal(aangemaakteEvents.length, 1);
+});
+await t('book: bezet via de terugvalroute -> 409', async () => {
+  resetTokenCache(); graphGedrag = 'raop_bezet'; aangemaakteEvents = [];
+  const r = await roep(book, { method: 'POST', body: GELDIG });
+  assert.equal(r.statusCode, 409);
+  assert.equal(aangemaakteEvents.length, 0);
+});
 
 mock.close();
 console.log(`\n${pass} controles geslaagd${process.exitCode ? ' — MET FOUTEN' : ''}\n`);

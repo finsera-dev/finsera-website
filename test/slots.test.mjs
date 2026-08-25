@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {
-  candidateSlots, busyBlocks, freeSlots, groupByDay, overlaps,
+  candidateSlots, busyBlocks, blocksFromEvents, freeSlots, groupByDay, overlaps,
   localStamp, window_, SLOT_TIMES, LEAD_HOURS
 } from '../api/_slots.js';
 
@@ -200,6 +200,36 @@ t('een agenda: gedraagt zich als voorheen', () => {
   const vrij = freeSlotsMulti(KAND, solo, [BOXES[0]], 'all');
   assert.equal(vrij.some(s => s.date === '2026-08-27' && s.time === '09:00'), false);
   assert.equal(vrij.some(s => s.date === '2026-08-27' && s.time === '11:00'), true);
+});
+
+console.log('\nblocksFromEvents — de calendarView-terugval');
+t('alleen blokkerende statussen tellen mee', () => {
+  const items = [
+    { showAs: 'busy', start: { dateTime: '2026-08-27T09:00:00' }, end: { dateTime: '2026-08-27T09:30:00' } },
+    { showAs: 'free', start: { dateTime: '2026-08-27T10:00:00' }, end: { dateTime: '2026-08-27T10:30:00' } },
+    { showAs: 'workingElsewhere', start: { dateTime: '2026-08-27T11:00:00' }, end: { dateTime: '2026-08-27T11:30:00' } },
+    { showAs: 'tentative', start: { dateTime: '2026-08-27T13:30:00' }, end: { dateTime: '2026-08-27T14:00:00' } }
+  ];
+  const blokken = blocksFromEvents(items);
+  assert.deepEqual(blokken.map(b => b.start), ['2026-08-27T09:00:00', '2026-08-27T13:30:00']);
+});
+t('geannuleerde items doen niet mee', () => {
+  const blokken = blocksFromEvents([
+    { showAs: 'busy', isCancelled: true, start: { dateTime: '2026-08-27T09:00:00' }, end: { dateTime: '2026-08-27T09:30:00' } }
+  ]);
+  assert.equal(blokken.length, 0);
+});
+t('fracties van seconden gaan eraf', () => {
+  const blokken = blocksFromEvents([
+    { showAs: 'busy', start: { dateTime: '2026-08-27T09:00:00.0000000' }, end: { dateTime: '2026-08-27T09:30:00.0000000' } }
+  ]);
+  assert.deepEqual(blokken[0], { start: '2026-08-27T09:00:00', end: '2026-08-27T09:30:00' });
+});
+t('zonder showAs geldt het item als bezet', () => {
+  const blokken = blocksFromEvents([
+    { start: { dateTime: '2026-08-27T09:00:00' }, end: { dateTime: '2026-08-27T09:30:00' } }
+  ]);
+  assert.equal(blokken.length, 1);
 });
 
 console.log(`\n${pass} controles geslaagd${process.exitCode ? ' — MET FOUTEN' : ''}\n`);

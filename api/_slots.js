@@ -87,6 +87,24 @@ export function blocksBySchedule(scheduleResponse, requested) {
   return out;
 }
 
+/** Blokken uit losse agenda-items (calendarView) — de terugvalroute voor
+ *  wanneer getSchedule geweigerd wordt. Zelfde spelregels als
+ *  blocksBySchedule: alleen blokkerende statussen tellen, fracties van
+ *  seconden gaan eraf, en geannuleerde items doen niet mee. */
+export function blocksFromEvents(events) {
+  const blocks = [];
+  for (const ev of events || []) {
+    if (ev.isCancelled) continue;
+    const status = String(ev.showAs || 'busy').toLowerCase();
+    if (!BLOCKING.has(status)) continue;
+    const s = ev.start && ev.start.dateTime;
+    const e = ev.end && ev.end.dateTime;
+    if (!s || !e) continue;
+    blocks.push({ start: s.slice(0, 19), end: e.slice(0, 19) });
+  }
+  return blocks;
+}
+
 /** Alle bezette blokken op een hoop, ongeacht van wie. */
 export function busyBlocks(scheduleResponse) {
   return Object.values(blocksBySchedule(scheduleResponse)).flat();
