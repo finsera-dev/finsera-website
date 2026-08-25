@@ -8,7 +8,7 @@
   /* --------------------------------------------------------------- i18n --- */
   var I18N = {
     nl: {
-      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
+      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
       cta: 'Vraag de diagnose aan',
       diagCta: 'Vraag de diagnose aan',
       diagEyebrowTop: 'Zo starten we · de diagnose',
@@ -79,7 +79,7 @@
       rOmzet: 'Omzet', rBruto: 'Brutomarge', rKosten: 'Kosten', rResultaat: 'Resultaat',
       rBezoekers: 'Bezoekers', rOffertes: 'Offertes', rConversie: 'Conversie', rVerzuim: 'Ziekteverzuim',
       srcLabel: 'Samengebracht uit:', src1: 'Boekhouding / ERP', src2: 'CRM', src3: 'WMS / voorraad', src4: 'HR / verzuim', src5: 'klantfeedback',
-      toolsLabel: 'Waarmee we werken', toolsNote: '(voorbeeldsymbolen, te vervangen door echte logo’s)', tool4: 'Maatwerk / ERP',
+      toolsLabel: 'Waarmee we werken', tool4: 'Maatwerk / ERP',
       svc1Foot: 'Heb je het dashboard al, maar ontbreekt de betrouwbare rapportage eronder? Of andersom? Dan starten we daar. We bouwen voort op wat er al is en herstellen wat niet klopt.',
       svc2Title: 'AI-strategie', svc2Benefit: 'Efficiënter werken met AI',
       svc2IntroShort: 'Goede automatisering begint niet bij een tool, maar bij je proces. Omdat we je processen in de diagnose al hebben doorgrond, zien we exact waar AI écht waarde toevoegt. We vertalen dit direct naar de werkvloer: we bouwen concrete workflows samen met je team, in plaats van een adviesrapport op afstand.',
@@ -121,13 +121,13 @@
       teamRole1: 'Financial & business consultant',
       teamRole2: 'Data analyst & ontwikkelaar',
       teamLinkedin: 'LinkedIn',
+      revSoon: 'Onze eerste trajecten lopen nog. Zodra klanten akkoord geven op een citaat, plaatsen we het hier — met naam en al. Liever niets dan iets wat we zelf verzonnen hebben.', revSoonCta: 'Zelf ervaren wat we doen',
       revEyebrow: 'Wat klanten zeggen', revTitle: 'Vertrouwen, opgebouwd in de praktijk.',
       revIntro: 'We bouwen onze reviews op terwijl we onze klantcases afronden. Heb je met ons gewerkt? We horen graag je ervaring.',
       revFormTitle: 'Deel je ervaring', revFormIntro: 'Je review helpt andere directies de juiste keuze te maken.',
       revName: 'Naam', revCompany: 'Bedrijf (optioneel)', revRating: 'Beoordeling', revMessage: 'Je ervaring', revSubmit: 'Review versturen',
       revPlaceholderMsg: 'Waar heeft Finsera je bij geholpen, en wat leverde het op?',
       revThanks: 'Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.',
-      revSoon: 'Binnenkort plaatsen we hier geverifieerde reviews van onze eerste klanten.',
       tstm1: '„De maandrapportage staat nu op een doordacht budget en we sturen op marge per merk, niet meer alleen op omzet.”',
       tstm1By: 'Directie · e-commerce (±15 mln omzet)',
       tstm2: '„Van losse Excel-lijsten naar één betrouwbaar dashboard — we weten nu precies waar we staan, met cijfers die kloppen.”',
@@ -153,7 +153,7 @@
       ]
     },
     en: {
-      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
+      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
       cta: 'Request the diagnosis',
       diagCta: 'Request the diagnosis',
       diagEyebrowTop: 'How we start · the diagnosis',
@@ -224,7 +224,7 @@
       rOmzet: 'Revenue', rBruto: 'Gross margin', rKosten: 'Costs', rResultaat: 'Result',
       rBezoekers: 'Visitors', rOffertes: 'Quotes', rConversie: 'Conversion', rVerzuim: 'Absenteeism',
       srcLabel: 'Brought together from:', src1: 'Bookkeeping / ERP', src2: 'CRM', src3: 'WMS / inventory', src4: 'HR / absence', src5: 'customer feedback',
-      toolsLabel: 'Tools we work with', toolsNote: '(example icons, to be replaced with real logos)', tool4: 'Custom / ERP',
+      toolsLabel: 'Tools we work with', tool4: 'Custom / ERP',
       svc1Foot: 'Do you already have the dashboard, but the reliable reporting underneath is missing? Or the other way around? Then that’s where we start. We build on what’s already there and fix what doesn’t add up.',
       svc2Title: 'AI strategy', svc2Benefit: 'Work more efficiently with AI',
       svc2IntroShort: 'Good automation doesn’t start with a tool, but with your process. Because we already understood your processes in the diagnosis, we see exactly where AI truly adds value. We translate this straight to the work floor: we build concrete workflows together with your team, instead of an advisory report at a distance.',
@@ -266,13 +266,13 @@
       teamRole1: 'Financial & business consultant',
       teamRole2: 'Data analyst & developer',
       teamLinkedin: 'LinkedIn',
+      revSoon: 'Our first engagements are still running. The moment a client approves a quote, it goes here — with their name on it. We would rather show nothing than something we wrote ourselves.', revSoonCta: 'Find out for yourself',
       revEyebrow: 'What clients say', revTitle: 'Trust, built in practice.',
       revIntro: 'We build up our reviews as we complete our client cases. Have you worked with us? We’d love to hear about your experience.',
       revFormTitle: 'Share your experience', revFormIntro: 'Your review helps other boards make the right choice.',
       revName: 'Name', revCompany: 'Company (optional)', revRating: 'Rating', revMessage: 'Your experience', revSubmit: 'Send review',
       revPlaceholderMsg: 'What did Finsera help you with, and what did it deliver?',
       revThanks: 'Thank you! Your review has opened in your email app — click send to finish.',
-      revSoon: 'Verified reviews from our first clients will appear here soon.',
       tstm1: '“Monthly reporting now runs on a well-considered budget, and we steer on margin per brand instead of revenue alone.”',
       tstm1By: 'Board · e-commerce (±€15M revenue)',
       tstm2: '“From scattered Excel lists to one reliable dashboard — we now know exactly where we stand, on numbers that hold.”',
@@ -476,10 +476,16 @@
   var burger = $('[data-burger]');
   var mobile = $('[data-mobile]');
   if (burger && mobile) {
-    burger.addEventListener('click', function () {
-      var open = mobile.hasAttribute('hidden');
+    var setMenu = function (open) {
       if (open) { mobile.removeAttribute('hidden'); } else { mobile.setAttribute('hidden', ''); }
       burger.setAttribute('aria-expanded', String(open));
+    };
+    burger.addEventListener('click', function () { setMenu(mobile.hasAttribute('hidden')); });
+    mobile.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !mobile.hasAttribute('hidden')) { setMenu(false); burger.focus(); }
     });
   }
 
@@ -490,8 +496,12 @@
     var data = t().painData;
     painListEl.innerHTML = '';
     data.forEach(function (d, i) {
-      var row = document.createElement('div');
+      // Een <button> met aria-pressed in plaats van een <div>: de lijst is
+      // een reeks aan/uit-keuzes en moet met het toetsenbord te bedienen zijn.
+      var row = document.createElement('button');
+      row.type = 'button';
       row.className = 'pain__row';
+      row.setAttribute('aria-pressed', state.selected[i] ? 'true' : 'false');
       if (state.active === i) row.classList.add('is-active');
       if (state.selected[i]) row.classList.add('is-selected');
       row.innerHTML =

@@ -106,16 +106,77 @@
   }
 
   /* ------------------------------------------------------------ submit --- */
-  function submit() {
+  // De aanvraag gaat naar /api/contact. Lukt dat niet, dan zeggen we dat
+  // eerlijk en tonen we het e-mailadres — nooit een bevestiging voor een
+  // afspraak die nergens is aangekomen.
+  var FALLBACK_EMAIL = 'info@finsera.nl';
+  var sending = false;
+
+  function showError(msgKey) {
+    var el = $('ctError');
+    var d = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+    el.textContent = d[msgKey] || d.error;
+    el.hidden = false;
+  }
+
+  function submit(ev) {
+    if (ev) ev.preventDefault();
+    if (sending) return;
+
     var hp = $('ctHp').value;
     var name = $('ctName').value.trim();
+    var company = $('ctCompany').value.trim();
     var email = $('ctEmail').value.trim();
-    var validEmail = /.+@.+\..+/.test(email);
+    var validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
     if (hp) { finish(); return; } // bot trap: silently "succeed"
-    if (!name || !validEmail) { $('ctError').hidden = false; return; }
+    if (!name || !validEmail) { showError('error'); return; }
+
     $('ctError').hidden = true;
-    finish();
+    sending = true;
+    var btn = $('ctSubmit');
+    var label = btn.textContent;
+    var d = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+    btn.disabled = true;
+    btn.textContent = d.sending || 'Versturen…';
+
+    function restore() {
+      sending = false;
+      btn.disabled = false;
+      btn.textContent = label;
+    }
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        company: company,
+        email: email,
+        hp: hp,
+        day: state.date ? dayLabel(state.date) : '',
+        time: state.time || '',
+        lang: lang()
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      restore();
+      finish();
+    }).catch(function () {
+      restore();
+      var el = $('ctError');
+      var dd = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
+      el.textContent = '';
+      el.appendChild(document.createTextNode((dd.sendFailed || 'Versturen lukte niet. Mail ons direct op ') + ' '));
+      var a = document.createElement('a');
+      a.href = 'mailto:' + FALLBACK_EMAIL + '?subject=' +
+        encodeURIComponent('Afspraakaanvraag' + (summary() ? ' — ' + summary() : ''));
+      a.textContent = FALLBACK_EMAIL;
+      el.appendChild(a);
+      el.hidden = false;
+    });
   }
+
   function finish() {
     $('ctDoneSummary').textContent = summary();
     setView('done');
@@ -129,7 +190,7 @@
     state.monthOffset += 1; renderCalendar();
   });
   $('ctBack').addEventListener('click', function () { setView('cal'); });
-  $('ctSubmit').addEventListener('click', submit);
+  $('ctForm').addEventListener('submit', submit);
 
   // update placeholders + dynamic labels when language changes
   window.FINSERA_onLang = function () {

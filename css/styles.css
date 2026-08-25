@@ -92,6 +92,36 @@ a { color: inherit; }
 }
 .btn-gold:hover { transform: translateY(-2px); }
 
+/* ------------------------------------------------- Focus & skip-link ----
+   Er stond eerder maar één :focus-regel in de hele stylesheet, waardoor
+   toetsenbordgebruikers nergens konden zien waar ze waren (WCAG 2.4.7).
+   :focus-visible toont de ring alleen bij toetsenbordnavigatie, dus
+   muisklikken blijven er hetzelfde uitzien als voorheen. */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Op donkere vlakken heeft koper te weinig contrast; daar gebruiken we goud. */
+.nav__mobile :focus-visible,
+.footer :focus-visible,
+.cta :focus-visible,
+.rev__soon :focus-visible,
+.graph :focus-visible,
+.demo :focus-visible,
+.cases__visual :focus-visible {
+  outline-color: var(--gold);
+}
+
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 200;
+  background: var(--navy); color: var(--bg);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  padding: 12px 20px; border-radius: 0 0 10px 10px;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 0; }
+
 /* ================================================================ NAV ===== */
 .nav {
   position: sticky; top: 0; z-index: 50;
@@ -274,9 +304,11 @@ a { color: inherit; }
 .pain__head p { font-size: 16px; color: var(--text-2); margin: 0; }
 .pain__grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(20px, 3vw, 40px); align-items: start; }
 .pain__list { display: flex; flex-direction: column; gap: 8px; }
+/* Dit is een <button>; vandaar de reset van font, breedte en uitlijning. */
 .pain__row {
   display: flex; align-items: center; gap: 12px; padding: 12px 15px; border-radius: 12px;
   cursor: pointer; border: 1px solid rgba(22, 36, 61, 0.08); background: transparent;
+  width: 100%; text-align: left; font: inherit; color: inherit; -webkit-appearance: none;
   transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 .pain__row.is-active { background: #fff; border-color: var(--copper); box-shadow: 0 6px 16px rgba(22, 36, 61, 0.07); }
@@ -894,6 +926,13 @@ a { color: inherit; }
   .demo__row.reveal-in .demo__dept-bars .b,
   .demo__row.reveal-in .demo__kpi { animation: none; }
 }
+
+/* Honest empty state while there are no client-approved quotes yet. */
+.rev__soon { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%); border-radius: 20px; padding: clamp(28px, 3.6vw, 44px); max-width: 720px; }
+.rev__soon svg { color: var(--gold); }
+.rev__soon p { margin: 0; font-size: clamp(16px, 1.5vw, 18px); line-height: 1.58; color: rgba(247, 246, 243, 0.86); text-wrap: pretty; }
+.rev__soon-link { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--gold); text-decoration: none; }
+.rev__soon-link:hover { color: #fff; }
 
 /* ============================ TESTIMONIALS (client quotes) ================== */
 .rev__testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 26px); }

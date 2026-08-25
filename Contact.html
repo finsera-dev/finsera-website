@@ -7,9 +7,23 @@
   <meta name="description" content="Plan een vrijblijvende discovery call van 30 minuten. Kies eerst een moment, daarna vragen we alleen het hoognodige.">
   <link rel="canonical" href="https://finsera.nl/Contact.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Finsera">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="Plan een discovery call | Finsera">
+  <meta property="og:description" content="Plan een vrijblijvende discovery call van 30 minuten. Kies eerst een moment, daarna vragen we alleen het hoognodige.">
+  <meta property="og:url" content="https://finsera.nl/Contact.html">
+  <meta property="og:image" content="https://finsera.nl/img/og-finsera.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Finsera — Grip op je cijfers. Ruimte om strategisch te leiden.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://finsera.nl/img/og-finsera.jpg">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
   <style>
     .ct-hero { max-width: 920px; margin: 0 auto; padding: clamp(48px,8vw,88px) clamp(20px,5vw,64px) clamp(28px,4vw,44px); text-align: center; }
@@ -55,9 +69,12 @@
     .ct-field label { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
     .fin-in { width: 100%; font-family: var(--sans); font-size: 15px; color: var(--text); background: #fff; border: 1px solid rgba(22,36,61,0.16); border-radius: 11px; padding: 13px 15px; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
     .fin-in:focus { border-color: var(--copper); box-shadow: 0 0 0 3px rgba(176,121,63,0.14); }
-    .fin-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .fin-hp-wrap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .fin-hp { width: 1px; height: 1px; opacity: 0; }
     .ct-error { font-size: 13.5px; color: var(--red); }
     .ct-error[hidden] { display: none; }
+    .ct-privacy { font-size: 12px; line-height: 1.5; color: var(--text-3); text-align: center; margin: 2px 0 0; }
+    .ct-privacy a { color: var(--text-2); }
     .ct-submit { margin-top: 6px; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: 16px; font-weight: 600; color: #fff; background: var(--copper); border: none; padding: 15px 24px; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 22px rgba(176,121,63,0.28); transition: transform .18s ease; }
     .ct-submit:hover { transform: translateY(-2px); }
     .ct-subnote { font-size: 12.5px; color: var(--text-2); text-align: center; margin: 4px 0 0; }
@@ -72,6 +89,7 @@
 </head>
 <body>
 
+<a class="skip-link" href="#inhoud">Naar de inhoud</a>
 <nav class="nav">
   <a href="index.html" class="nav__brand"><span class="nav__logo"><span></span></span><span class="nav__wordmark">Finsera</span></a>
   <div class="nav__links">
@@ -81,7 +99,7 @@
     <a href="Cases.html" class="nav__link" data-i18n="navCases">Cases</a>
     <a href="Blog.html" class="nav__link" data-i18n="navBlog">Blog</a>
     <div class="lang-toggle"><button type="button" class="lang-toggle__btn" data-lang="nl">NL</button><button type="button" class="lang-toggle__btn" data-lang="en">EN</button></div>
-    <a href="Contact.html" class="nav__cta" data-i18n="navCta">Plan een gesprek</a>
+    <a href="Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
   <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg></button>
   <div class="nav__mobile" data-mobile hidden>
@@ -91,11 +109,11 @@
     <a href="Cases.html" data-i18n="navCases">Cases</a>
     <a href="Blog.html" data-i18n="navBlog">Blog</a>
     <div class="nav__mobile-langs"><button type="button" class="lang-toggle__btn" data-lang="nl">NL</button><button type="button" class="lang-toggle__btn" data-lang="en">EN</button></div>
-    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Plan een gesprek</a>
+    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
-<main>
+<main id="inhoud">
   <section class="ct-hero">
     <div class="eyebrow" data-i18n="eyebrow">Plan een gesprek</div>
     <h1 data-i18n="h1">Plan een discovery call</h1>
@@ -156,15 +174,17 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B0793F" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
                 <span id="ctSummary"></span>
               </div>
-              <div class="ct-fields">
-                <div class="ct-field"><label data-i18n="fName">Naam</label><input class="fin-in" id="ctName" data-ph="phName" placeholder="Je naam"></div>
-                <div class="ct-field"><label data-i18n="fCompany">Bedrijf</label><input class="fin-in" id="ctCompany" data-ph="phCompany" placeholder="Bedrijfsnaam"></div>
-                <div class="ct-field"><label data-i18n="fEmail">E-mailadres</label><input class="fin-in" type="email" id="ctEmail" placeholder="naam@bedrijf.nl"></div>
-                <input class="fin-hp" id="ctHp" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <div class="ct-error" id="ctError" hidden data-i18n="error">Vul je naam en een geldig e-mailadres in.</div>
-                <button type="button" class="ct-submit" id="ctSubmit" data-i18n="submit">Bevestig je afspraak</button>
+              <form class="ct-fields" id="ctForm" novalidate>
+                <div class="ct-field"><label for="ctName" data-i18n="fName">Naam</label><input class="fin-in" id="ctName" name="name" type="text" autocomplete="name" required data-ph="phName" placeholder="Je naam"></div>
+                <div class="ct-field"><label for="ctCompany" data-i18n="fCompany">Bedrijf</label><input class="fin-in" id="ctCompany" name="company" type="text" autocomplete="organization" data-ph="phCompany" placeholder="Bedrijfsnaam"></div>
+                <div class="ct-field"><label for="ctEmail" data-i18n="fEmail">E-mailadres</label><input class="fin-in" id="ctEmail" name="email" type="email" autocomplete="email" required placeholder="naam@bedrijf.nl"></div>
+                <!-- honeypot: onzichtbaar voor mensen, ingevuld door bots -->
+                <div class="fin-hp-wrap" aria-hidden="true"><label for="ctHp">Laat dit veld leeg</label><input class="fin-hp" id="ctHp" name="hp" type="text" tabindex="-1" autocomplete="off"></div>
+                <div class="ct-error" id="ctError" role="alert" hidden data-i18n="error">Vul je naam en een geldig e-mailadres in.</div>
+                <button type="submit" class="ct-submit" id="ctSubmit" data-i18n="submit">Bevestig je afspraak</button>
                 <p class="ct-subnote" data-i18n="subnote">Verstuur — we reageren binnen één werkdag.</p>
-              </div>
+                <p class="ct-privacy"><span data-i18n="ctPrivacy">We gebruiken je gegevens alleen om contact op te nemen over deze aanvraag.</span> <a href="Privacyverklaring.html" data-i18n="ctPrivacyLink">Privacyverklaring</a></p>
+              </form>
             </div>
           </div>
 
@@ -211,14 +231,13 @@
           <a href="mailto:info@finsera.nl" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>info@finsera.nl</a>
           <a href="tel:+31615860942" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>06 - 15 86 09 42</a>
           <span class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>KvK 93587953</span>
-          <a href="#" class="footer__contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>LinkedIn</a>
         </div>
       </div>
     </div>
   </div>
   <div class="footer__bottom">
     <span>&copy; 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
-    <span class="footer__legal"><a href="#" data-i18n="footPrivacy">Privacyverklaring</a> &middot; <a href="#" data-i18n="footTerms">Algemene voorwaarden</a></span>
+    <span class="footer__legal"><a href="Privacyverklaring.html" data-i18n="footPrivacy">Privacyverklaring</a></span>
   </div>
 </footer>
 
@@ -232,7 +251,9 @@ window.FINSERA_PAGE = {
     pickDay: 'Kies een dag om beschikbare tijden te zien.', back: 'Ander moment',
     fName: 'Naam', fCompany: 'Bedrijf', fEmail: 'E-mailadres', phName: 'Je naam', phCompany: 'Bedrijfsnaam',
     error: 'Vul je naam en een geldig e-mailadres in.', submit: 'Bevestig je afspraak',
-    subnote: 'Verstuur — we reageren binnen één werkdag.', thanks: 'Bedankt!', thanksMsg: 'We nemen binnen één werkdag contact met je op.'
+    subnote: 'Verstuur — we reageren binnen één werkdag.', thanks: 'Bedankt!', thanksMsg: 'We nemen binnen één werkdag contact met je op.',
+    sending: 'Versturen…', sendFailed: 'Versturen lukte niet. Mail ons direct op',
+    ctPrivacy: 'We gebruiken je gegevens alleen om contact op te nemen over deze aanvraag.', ctPrivacyLink: 'Privacyverklaring'
   },
   en: {
     eyebrow: 'Book a call', h1: 'Book a discovery call',
@@ -242,12 +263,17 @@ window.FINSERA_PAGE = {
     pickDay: 'Pick a day to see available times.', back: 'Other time',
     fName: 'Name', fCompany: 'Company', fEmail: 'Email', phName: 'Your name', phCompany: 'Company name',
     error: 'Enter your name and a valid email address.', submit: 'Confirm your appointment',
-    subnote: 'Submit — we reply within one business day.', thanks: 'Thank you!', thanksMsg: 'We will contact you within one business day.'
+    subnote: 'Submit — we reply within one business day.', thanks: 'Thank you!', thanksMsg: 'We will contact you within one business day.',
+    sending: 'Sending…', sendFailed: 'Sending failed. Email us directly at',
+    ctPrivacy: 'We only use your details to get in touch about this request.', ctPrivacyLink: 'Privacy statement'
   }
 };
 </script>
 <script src="js/shared.js"></script>
 <script src="js/contact.js"></script>
 <script src="js/reveal.js"></script>
+<!-- Vercel Web Analytics: cookieloos en geaggregeerd, dus geen cookiebanner nodig.
+     Aanzetten in Vercel: Project -> Analytics. Zonder dat blijft dit een 404 zonder effect. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

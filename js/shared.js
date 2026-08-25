@@ -7,13 +7,13 @@
 
   var SHARED = {
     nl: {
-      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een gesprek',
+      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
       cta: 'Vraag de diagnose aan',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring', footTerms: 'Algemene voorwaarden'
     },
     en: {
-      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book a call',
+      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
       cta: 'Request the diagnosis',
       footTagline: 'A financial foundation that grows with your organisation.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy', footTerms: 'Terms and conditions'
@@ -61,10 +61,24 @@
   var burger = document.querySelector('[data-burger]');
   var mobile = document.querySelector('[data-mobile]');
   if (burger && mobile) {
-    burger.addEventListener('click', function () {
-      var open = mobile.hasAttribute('hidden');
+    function setMenu(open) {
       if (open) mobile.removeAttribute('hidden'); else mobile.setAttribute('hidden', '');
       burger.setAttribute('aria-expanded', String(open));
+    }
+    burger.addEventListener('click', function () {
+      setMenu(mobile.hasAttribute('hidden'));
+    });
+    // Sluiten bij het volgen van een link — anders blijft het menu open
+    // over de nieuwe pagina heen op browsers die de pagina cachen.
+    mobile.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    // En met Escape, zodat je er met het toetsenbord uit komt.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !mobile.hasAttribute('hidden')) {
+        setMenu(false);
+        burger.focus();
+      }
     });
   }
 
