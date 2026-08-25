@@ -26,14 +26,39 @@
 <a class="skip-link" href="#inhoud">Naar de inhoud</a>
 
 <nav class="nav">
-  <a href="/" class="nav__brand"><span class="nav__logo"><span></span></span><span class="nav__wordmark">Finsera</span></a>
-  <div class="nav__links">
-    <a href="/" class="nav__link">Home</a>
-    <a href="/Over.html" class="nav__link">Over Finsera</a>
-    <a href="/Diensten.html" class="nav__link">Diensten</a>
-    <a href="/Cases.html" class="nav__link">Cases</a>
-    <a href="/Blog.html" class="nav__link">Blog</a>
-    <a href="/Contact.html" class="nav__cta">Vraag de diagnose aan</a>
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand">
+      <img class="nav__mark" src="img/logo/finsera-merkteken.svg" alt="" width="20" height="20" onerror="this.remove()">
+      <span class="nav__wordmark">Finsera</span>
+    </a>
+    <div class="nav__links">
+      <a href="index.html" class="nav__link" data-i18n="navHome">Home</a>
+      <a href="Over.html" class="nav__link" data-i18n="navOver">Over Finsera</a>
+      <a href="Diensten.html" class="nav__link" data-i18n="navDiensten">Diensten</a>
+      <a href="Cases.html" class="nav__link" data-i18n="navCases">Cases</a>
+      <a href="Blog.html" class="nav__link" data-i18n="navBlog">Blog</a>
+      <div class="lang-toggle">
+        <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
+        <span class="lang-toggle__sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
+      </div>
+      <a href="Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
+    </div>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="8" x2="21" y2="8"></line><line x1="3" y1="16" x2="21" y2="16"></line></svg>
+    </button>
+  </div>
+  <div class="nav__mobile" data-mobile hidden>
+    <a href="index.html" data-i18n="navHome">Home</a>
+    <a href="Over.html" data-i18n="navOver">Over Finsera</a>
+    <a href="Diensten.html" data-i18n="navDiensten">Diensten</a>
+    <a href="Cases.html" data-i18n="navCases">Cases</a>
+    <a href="Blog.html" data-i18n="navBlog">Blog</a>
+    <div class="nav__mobile-langs">
+      <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
+      <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
+    </div>
+    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
