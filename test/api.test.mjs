@@ -312,6 +312,16 @@ await t('book: boekt gewoon door via de terugvalroute', async () => {
   assert.equal(r.payload.via, 'calendar');
   assert.equal(aangemaakteEvents.length, 1);
 });
+await t('book: mislukte notificatiemail houdt de boeking niet tegen', async () => {
+  // Resend is in de test onbereikbaar, dus de notificatie faalt gegarandeerd.
+  // De afspraak staat dan al in de agenda en moet gewoon bevestigd worden.
+  configureer(true); mailConfig(true); resetTokenCache(); graphGedrag = 'ok'; aangemaakteEvents = [];
+  const r = await roep(book, { method: 'POST', body: GELDIG });
+  assert.equal(r.statusCode, 200);
+  assert.equal(r.payload.via, 'calendar');
+  assert.equal(aangemaakteEvents.length, 1);
+  mailConfig(false);
+});
 await t('book: bezet via de terugvalroute -> 409', async () => {
   resetTokenCache(); graphGedrag = 'raop_bezet'; aangemaakteEvents = [];
   const r = await roep(book, { method: 'POST', body: GELDIG });
