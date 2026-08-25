@@ -1105,3 +1105,143 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .svc2 { grid-template-columns: 1fr; }
 }
 
+/* ==========================================================================
+   DIENSTEN — richting A ("kantoor/jaarverslag")
+   Pagina-specifieke laag voor Diensten.html: hero als serif-statement,
+   sectiekoppen op het index-stramien (hairline + mono-nummer + Fraunces),
+   route zonder chevrons, en de product-mocks zonder pills/schaduwen en
+   met kleine radii. Raakt index.html niet (alles onder .page-hero,
+   .diensten of .route gescoped).
+   ========================================================================== */
+
+/* -- hero: groot Fraunces-statement, in lijn met de homepage-hero -------- */
+.page-hero { max-width: none; margin: 0; padding: clamp(52px, 8vh, 96px) 0 0; }
+.page-hero__kicker {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+  margin-bottom: clamp(22px, 3vw, 40px);
+}
+.page-hero__title {
+  font-family: var(--serif);
+  font-weight: 330;
+  font-size: clamp(46px, 8vw, 104px);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  margin: 0;
+}
+.page-hero__title::after { content: '.'; }
+.page-hero__intro {
+  margin: clamp(22px, 3vw, 34px) 0 0;
+  font-size: 17px;
+  line-height: 1.68;
+  color: var(--ink-70);
+  max-width: 54ch;
+}
+
+/* -- sol/route op deze pagina -------------------------------------------- */
+.sol .route { margin-top: clamp(36px, 5vw, 60px); }
+.route__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(28px, 4vw, 56px); }
+.route__tile { border-top: 1px solid var(--hair); padding: 24px 0 4px; }
+.route__icon { margin-bottom: 18px; }
+.route__head { align-items: baseline; gap: 14px; }
+.route__marker {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--copper);
+}
+.route__title { font-family: var(--serif); font-weight: 480; font-size: clamp(18px, 2vw, 21px); letter-spacing: -0.005em; }
+.route__benefit {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+  margin-bottom: 10px;
+}
+.route__desc { font-size: 14.5px; color: var(--ink-70); max-width: 40ch; }
+
+/* -- diensten-container op het wrap-stramien ----------------------------- */
+.diensten { max-width: var(--wrap); padding-left: var(--pad); padding-right: var(--pad); }
+
+/* -- servicekoppen: hairline + mono-nummer + Fraunces --------------------- */
+.diensten .svc--light { border-top-color: var(--hair); }
+.diensten .sect-head--svc { border-top: 0; padding-top: 0; margin-bottom: 6px; }
+.diensten .sect-head--svc .svc__title {
+  font-family: var(--serif);
+  font-weight: 420;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 20em;
+}
+.diensten .svc--dark .sect-head--svc .svc__title { color: var(--band-paper); }
+.diensten .svc--dark .sect-num { color: var(--gold-soft); }
+.diensten .svc__benefit {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin: 0 0 18px;
+}
+.diensten .svc--dark .svc__benefit { color: var(--gold-soft); }
+.diensten .svc__part-title { font-weight: 480; font-size: 18px; }
+.diensten .svc__tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+
+/* -- navy AI-blok: contrastmoment, maar strak (radius <= 4px) ------------ */
+.diensten .svc--dark { border-radius: var(--r-md); }
+.diensten .svc__collapse { border-radius: var(--r-md); }
+.diensten .aiuse { border-radius: var(--r-md); }
+.diensten .aiuse__training { border-radius: var(--r-md); }
+.diensten .aiuse h4 { font-weight: 480; font-size: 15.5px; }
+
+/* -- product-mocks: geen schaduwen, kleine radii, chips als hairlines ---- */
+.diensten .dash { border-radius: var(--r-md); box-shadow: none; border: 1px solid rgba(22, 36, 61, 0.28); }
+.diensten .dash__kpi, .diensten .dash__panel { border-radius: var(--r-sm); }
+.diensten .report { border-radius: var(--r-md); box-shadow: none; border: 1px solid var(--hair); background: #FFFDF9; }
+.diensten .report__toggle { border-radius: var(--r-sm); background: var(--paper-deep); }
+.diensten .report__tab { border-radius: var(--r-sm); }
+.diensten .report__tab.is-on { box-shadow: none; background: #FFFDF9; border: 1px solid var(--hair); padding: 5px 13px; }
+.diensten .svc__chip {
+  border-radius: var(--r-sm);
+  background: none;
+  border: 1px solid var(--hair);
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ink-70);
+}
+.diensten .svc__tool-ic { border-radius: var(--r-sm); }
+.diensten .svc__strip-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+.diensten .svc--dark .svc__strip-label { color: rgba(247, 246, 243, 0.6); }
+
+@media (max-width: 760px) {
+  .route__tiles { grid-template-columns: 1fr; row-gap: 4px; }
+  .route__tile { padding-bottom: 22px; }
+}
+
