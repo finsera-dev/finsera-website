@@ -13,8 +13,8 @@
    bezoeker dat hij een afspraak heeft terwijl die nergens staat.
    ========================================================================== */
 
-import { isConfigured, organizer, graph, TIMEZONE, GraphError } from './_graph.js';
-import { SLOT_MINUTES, localStamp, busyBlocks, overlaps } from './_slots.js';
+import { isConfigured, mailboxes, availabilityMode, graph, TIMEZONE, GraphError } from './_graph.js';
+import { SLOT_MINUTES, localStamp, blocksBySchedule, whoIsFree } from './_slots.js';
 
 const MAX = { name: 120, company: 160, email: 160, slot: 32 };
 
@@ -70,27 +70,36 @@ export default async function handler(req, res) {
 
   /* ------------------------------------------------- 1. agenda-afspraak -- */
   if (isConfigured() && slot) {
+    const boxes = mailboxes();
+    const mode = availabilityMode();
     try {
       const end = endOf(slot);
 
       // Opnieuw controleren of het moment nog vrij is. Tussen het laden van
       // de pagina en het versturen kan er iets in de agenda zijn gezet.
       const check = await graph(
-        `/users/${encodeURIComponent(organizer())}/calendar/getSchedule`,
+        `/users/${encodeURIComponent(boxes[0])}/calendar/getSchedule`,
         {
           method: 'POST',
           body: {
-            schedules: [organizer()],
+            schedules: boxes,
             startTime: { dateTime: slot, timeZone: TIMEZONE },
             endTime: { dateTime: end, timeZone: TIMEZONE },
             availabilityViewInterval: 30
           }
         }
       );
-      const taken = busyBlocks(check).some(b => overlaps({ start: slot, end }, b));
-      if (taken) {
+
+      const free = whoIsFree({ start: slot, end }, blocksBySchedule(check, boxes), boxes);
+      const genoeg = mode === 'any' ? free.length > 0 : free.length === boxes.length;
+      if (!genoeg) {
         return res.status(409).json({ error: 'slot_taken' });
       }
+
+      // In 'all'-modus staat de afspraak bij de organisator en zijn de
+      // anderen genodigde. In 'any'-modus komt hij bij de eerste die vrij is.
+      const host = mode === 'any' ? free[0] : boxes[0];
+      const collegas = boxes.filter(m => m !== host && free.includes(m));
 
       const subject = lang === 'en'
         ? `Discovery call — Finsera & ${name}${company ? ` (${company})` : ''}`
@@ -100,7 +109,7 @@ export default async function handler(req, res) {
         ? 'Thirty minutes, no obligation. We look at your numbers, your processes and where the quickest gains are.'
         : 'Dertig minuten, vrijblijvend. We kijken naar je cijfers, je processen en waar de snelste winst zit.';
 
-      const event = await graph(`/users/${encodeURIComponent(organizer())}/events`, {
+      const event = await graph(`/users/${encodeURIComponent(host)}/events`, {
         method: 'POST',
         body: {
           subject,
@@ -118,7 +127,8 @@ export default async function handler(req, res) {
           start: { dateTime: slot, timeZone: TIMEZONE },
           end: { dateTime: end, timeZone: TIMEZONE },
           attendees: [
-            { emailAddress: { address: email, name }, type: 'required' }
+            { emailAddress: { address: email, name }, type: 'required' },
+            ...collegas.map(m => ({ emailAddress: { address: m }, type: 'required' }))
           ],
           isOnlineMeeting: true,
           onlineMeetingProvider: 'teamsForBusiness',

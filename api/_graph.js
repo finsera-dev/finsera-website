@@ -50,6 +50,21 @@ export function organizer() {
   return process.env.MS_ORGANIZER_UPN;
 }
 
+/** Alle mailboxen waarvan we de agenda meewegen: de organisator plus
+ *  eventuele collega's uit MS_ALSO_UPNS (komma-gescheiden). */
+export function mailboxes() {
+  const extra = (process.env.MS_ALSO_UPNS || '')
+    .split(',').map(s => s.trim()).filter(Boolean);
+  return [organizer(), ...extra].filter(Boolean);
+}
+
+/** 'all'  = alleen momenten waarop iedereen vrij is (standaard).
+ *  'any'  = momenten waarop ten minste een van jullie vrij is; de afspraak
+ *           komt dan in de agenda van degene die kan. */
+export function availabilityMode() {
+  return process.env.MS_AVAILABILITY_MODE === 'any' ? 'any' : 'all';
+}
+
 // Tokens zijn ongeveer een uur geldig. Serverless functions blijven tussen
 // aanroepen door soms warm, dus cachen scheelt een tokenverzoek per boeking.
 let cached = { token: null, expires: 0 };

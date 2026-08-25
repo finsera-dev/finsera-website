@@ -138,4 +138,68 @@ t('venster begint vandaag en loopt voorbij de horizon', () => {
   assert.equal(w.end, '2026-09-17T00:00:00');
 });
 
+
+/* --------------------------------------------- twee agenda's ------------ */
+const { blocksBySchedule, freeSlotsMulti, whoIsFree } =
+  await import('../api/_slots.js');
+
+console.log('\ntwee agenda\'s');
+const TWEE = {
+  value: [
+    { scheduleId: 'oner@finsera.nl', scheduleItems: [
+      { status: 'busy', start: { dateTime: '2026-08-27T09:00:00.0000000' }, end: { dateTime: '2026-08-27T09:30:00.0000000' } }
+    ]},
+    { scheduleId: 'tomas@finsera.nl', scheduleItems: [
+      { status: 'busy', start: { dateTime: '2026-08-27T11:00:00.0000000' }, end: { dateTime: '2026-08-27T11:30:00.0000000' } }
+    ]}
+  ]
+};
+const BOXES = ['oner@finsera.nl', 'tomas@finsera.nl'];
+
+t('blokken worden per mailbox gescheiden', () => {
+  const by = blocksBySchedule(TWEE, BOXES);
+  assert.deepEqual(Object.keys(by), BOXES);
+  assert.equal(by['oner@finsera.nl'].length, 1);
+  assert.equal(by['tomas@finsera.nl'][0].start, '2026-08-27T11:00:00');
+});
+t('zonder scheduleId valt hij terug op de gevraagde volgorde', () => {
+  const zonder = { value: [{ scheduleItems: [] }, { scheduleItems: [] }] };
+  assert.deepEqual(Object.keys(blocksBySchedule(zonder, BOXES)), BOXES);
+});
+t('whoIsFree noemt alleen wie echt kan', () => {
+  const by = blocksBySchedule(TWEE, BOXES);
+  assert.deepEqual(whoIsFree({ start: '2026-08-27T09:00:00', end: '2026-08-27T09:30:00' }, by, BOXES),
+                   ['tomas@finsera.nl']);
+  assert.deepEqual(whoIsFree({ start: '2026-08-27T14:00:00', end: '2026-08-27T14:30:00' }, by, BOXES), BOXES);
+});
+
+const KAND = candidateSlots(new Date(2026, 7, 26, 8, 0), 3);
+const BY = blocksBySchedule(TWEE, BOXES);
+
+t('modus all: een bezette agenda blokkeert het moment', () => {
+  const vrij = freeSlotsMulti(KAND, BY, BOXES, 'all');
+  const heeft = (d, x) => vrij.some(s => s.date === d && s.time === x);
+  assert.equal(heeft('2026-08-27', '09:00'), false, 'Oner is bezet, toch aangeboden');
+  assert.equal(heeft('2026-08-27', '11:00'), false, 'Tomas is bezet, toch aangeboden');
+  assert.equal(heeft('2026-08-27', '15:00'), true, 'beiden vrij, toch niet aangeboden');
+});
+t('modus any: het moment blijft staan zolang een van beiden kan', () => {
+  const vrij = freeSlotsMulti(KAND, BY, BOXES, 'any');
+  const s09 = vrij.find(s => s.date === '2026-08-27' && s.time === '09:00');
+  assert.ok(s09, '09:00 verdwenen terwijl Tomas kan');
+  assert.deepEqual(s09.free, ['tomas@finsera.nl'], 'verkeerde persoon als beschikbaar gemarkeerd');
+  const s11 = vrij.find(s => s.date === '2026-08-27' && s.time === '11:00');
+  assert.deepEqual(s11.free, ['oner@finsera.nl']);
+});
+t('modus all zet iedereen in de free-lijst', () => {
+  const vrij = freeSlotsMulti(KAND, BY, BOXES, 'all');
+  assert.deepEqual(vrij[0].free, BOXES);
+});
+t('een agenda: gedraagt zich als voorheen', () => {
+  const solo = blocksBySchedule({ value: [TWEE.value[0]] }, [BOXES[0]]);
+  const vrij = freeSlotsMulti(KAND, solo, [BOXES[0]], 'all');
+  assert.equal(vrij.some(s => s.date === '2026-08-27' && s.time === '09:00'), false);
+  assert.equal(vrij.some(s => s.date === '2026-08-27' && s.time === '11:00'), true);
+});
+
 console.log(`\n${pass} controles geslaagd${process.exitCode ? ' — MET FOUTEN' : ''}\n`);

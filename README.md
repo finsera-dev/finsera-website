@@ -31,6 +31,8 @@ zowel Production als Preview.
 | `MS_CLIENT_ID` | Application (client) ID van de app-registratie |
 | `MS_CLIENT_SECRET` | Client secret van die app-registratie |
 | `MS_ORGANIZER_UPN` | De mailbox waarin de afspraken landen, bijv. `oner@finsera.nl` |
+| `MS_ALSO_UPNS` | Optioneel. Extra agenda's die meewegen, komma-gescheiden |
+| `MS_AVAILABILITY_MODE` | Optioneel. `all` (iedereen vrij, standaard) of `any` (ten minste een) |
 
 Zonder deze vier valt de site terug op vaste tijden met handmatige
 bevestiging. Dat is geen storing; het formulier blijft gewoon werken.
@@ -48,7 +50,8 @@ toont het formulier het e-mailadres. Nooit een valse bevestiging.
 
 ## Azure: de app-registratie opzetten
 
-Eenmalig, ongeveer een kwartier.
+Eenmalig, ongeveer twintig minuten. Een uitgebreidere klikroute met
+foutentabel staat op de gedeelde setup-pagina; hieronder de korte versie.
 
 1. **Azure Portal → Microsoft Entra ID → App registrations → New
    registration.** Naam bijvoorbeeld `Finsera website booking`. Geen redirect
@@ -77,6 +80,18 @@ Eenmalig, ongeveer een kwartier.
 7. **Test het.** Open `/api/slots` in de browser. Staat er `"configured":
    true` met dagen erin, dan werkt de koppeling. Staat er `false`, kijk dan
    in de Vercel-logs — daar staat waaróm.
+
+### Een of meerdere agenda's
+
+Zonder `MS_ALSO_UPNS` kijkt de site naar een agenda. Zet je er meer in, dan
+worden ze in dezelfde Graph-aanroep meegenomen en bepaalt
+`MS_AVAILABILITY_MODE` wat er gebeurt:
+
+- **`all`** (standaard) — alleen momenten waarop iedereen vrij is. De afspraak
+  komt in de agenda van `MS_ORGANIZER_UPN`, de anderen worden uitgenodigd.
+  Past bij de contactpagina, die de foto's van beiden toont.
+- **`any`** — momenten waarop ten minste een van jullie kan. De afspraak komt
+  in de agenda van degene die op dat moment vrij is.
 
 ### Hoe de beschikbaarheid tot stand komt
 

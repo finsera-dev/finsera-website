@@ -63,11 +63,15 @@ export function candidateSlots(now, horizonDays) {
  *  bij die laatste is iemand bereikbaar, alleen niet op kantoor. */
 const BLOCKING = new Set(['busy', 'oof', 'tentative']);
 
-/** Zet de scheduleItems uit Graph om naar blokken lokale wandkloktijd. */
-export function busyBlocks(scheduleResponse) {
-  const blocks = [];
+/** Blokken per mailbox: { "oner@...": [{start,end}], "tomas@...": [...] }.
+ *  Graph geeft de schedules terug in dezelfde volgorde als gevraagd; we
+ *  gebruiken scheduleId, met de gevraagde volgorde als terugval. */
+export function blocksBySchedule(scheduleResponse, requested) {
+  const out = {};
   const entries = (scheduleResponse && scheduleResponse.value) || [];
-  for (const entry of entries) {
+  entries.forEach((entry, i) => {
+    const id = entry.scheduleId || (requested && requested[i]) || String(i);
+    const blocks = [];
     for (const item of entry.scheduleItems || []) {
       const status = String(item.status || 'busy').toLowerCase();
       if (!BLOCKING.has(status)) continue;
@@ -78,8 +82,14 @@ export function busyBlocks(scheduleResponse) {
       // zodat de stringvergelijking blijft kloppen.
       blocks.push({ start: s.slice(0, 19), end: e.slice(0, 19) });
     }
-  }
-  return blocks;
+    out[id] = blocks;
+  });
+  return out;
+}
+
+/** Alle bezette blokken op een hoop, ongeacht van wie. */
+export function busyBlocks(scheduleResponse) {
+  return Object.values(blocksBySchedule(scheduleResponse)).flat();
 }
 
 /** Twee blokken overlappen als de een begint voordat de ander eindigt. */
@@ -90,6 +100,30 @@ export function overlaps(slot, block) {
 /** Kandidaten minus alles waar de agenda al vol zit. */
 export function freeSlots(candidates, blocks) {
   return candidates.filter(slot => !blocks.some(b => overlaps(slot, b)));
+}
+
+/** Wie is er vrij op dit moment? */
+export function whoIsFree(slot, byMailbox, mailboxes) {
+  return mailboxes.filter(m => !(byMailbox[m] || []).some(b => overlaps(slot, b)));
+}
+
+/** Beschikbaarheid over meerdere agenda's.
+ *
+ *  mode 'all' — alleen momenten waarop iedereen vrij is. Passend als jullie
+ *               samen het gesprek voeren.
+ *  mode 'any' — momenten waarop ten minste een van jullie kan. De afspraak
+ *               komt in de agenda van de eerste die vrij is.
+ *
+ *  Geeft de slots terug met een `free`-lijst, zodat de boeking later weet in
+ *  wiens agenda hij hoort. */
+export function freeSlotsMulti(candidates, byMailbox, mailboxes, mode) {
+  const out = [];
+  for (const slot of candidates) {
+    const free = whoIsFree(slot, byMailbox, mailboxes);
+    const ok = mode === 'any' ? free.length > 0 : free.length === mailboxes.length;
+    if (ok) out.push({ ...slot, free });
+  }
+  return out;
 }
 
 /** Groepeer per dag, zodat de frontend zowel de eerstvolgende momenten als

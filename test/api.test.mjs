@@ -31,12 +31,17 @@ const mock = http.createServer((req, res) => {
     }
     if (req.url.includes('getSchedule')) {
       if (graphGedrag === 'graph_down') return fout(503, { error: { code: 'ServiceUnavailable' } });
-      if (graphGedrag === 'bezet') {
-        return json({ value: [{ scheduleItems: [
-          { status: 'busy', start: { dateTime: '2026-12-02T09:00:00.0000000' }, end: { dateTime: '2026-12-02T09:30:00.0000000' } }
-        ] }] });
+      const bezet = [{ status: 'busy', start: { dateTime: '2026-12-02T09:00:00.0000000' }, end: { dateTime: '2026-12-02T09:30:00.0000000' } }];
+      const gevraagd = (JSON.parse(body || '{}').schedules) || ['oner@finsera.nl'];
+      if (graphGedrag === 'bezet') return json({ value: [{ scheduleId: gevraagd[0], scheduleItems: bezet }] });
+      if (graphGedrag === 'een_bezet') {
+        // eerste mailbox bezet, tweede vrij
+        return json({ value: gevraagd.map((id, i) => ({ scheduleId: id, scheduleItems: i === 0 ? bezet : [] })) });
       }
-      return json({ value: [{ scheduleItems: [] }] });
+      if (graphGedrag === 'beiden_bezet') {
+        return json({ value: gevraagd.map(id => ({ scheduleId: id, scheduleItems: bezet })) });
+      }
+      return json({ value: gevraagd.map(id => ({ scheduleId: id, scheduleItems: [] })) });
     }
     if (req.url.includes('/events')) {
       if (graphGedrag === 'event_fout') return fout(403, { error: { code: 'ErrorAccessDenied' } });
@@ -213,6 +218,49 @@ await t('XSS in de naam wordt geëscaped in de omschrijving', async () => {
   assert.ok(!c.includes('<script>'), 'ongeëscapete script-tag in de afspraak');
   assert.ok(c.includes('&lt;script&gt;'));
 });
+
+
+console.log('\n/api/book — twee agenda\'s');
+await t('modus all: beiden vrij, afspraak bij de organisator, collega genodigd', async () => {
+  configureer(true); process.env.MS_ALSO_UPNS='tomas@finsera.nl'; delete process.env.MS_AVAILABILITY_MODE;
+  resetTokenCache(); graphGedrag='ok'; aangemaakteEvents=[];
+  const r = await roep(book, { method:'POST', body: GELDIG });
+  assert.equal(r.statusCode, 200);
+  assert.match(laatsteRequest.url, /oner%40finsera\.nl\/events/);
+  const adressen = aangemaakteEvents[0].attendees.map(a => a.emailAddress.address);
+  assert.ok(adressen.includes('test@voorbeeld.nl'), 'bezoeker niet uitgenodigd');
+  assert.ok(adressen.includes('tomas@finsera.nl'), 'collega niet uitgenodigd');
+});
+await t('modus all: een van beiden bezet -> 409', async () => {
+  configureer(true); process.env.MS_ALSO_UPNS='tomas@finsera.nl'; delete process.env.MS_AVAILABILITY_MODE;
+  resetTokenCache(); graphGedrag='een_bezet'; aangemaakteEvents=[];
+  const r = await roep(book, { method:'POST', body: GELDIG });
+  assert.equal(r.statusCode, 409);
+  assert.equal(aangemaakteEvents.length, 0);
+});
+await t('modus any: een bezet -> afspraak landt bij degene die kan', async () => {
+  configureer(true); process.env.MS_ALSO_UPNS='tomas@finsera.nl'; process.env.MS_AVAILABILITY_MODE='any';
+  resetTokenCache(); graphGedrag='een_bezet'; aangemaakteEvents=[];
+  const r = await roep(book, { method:'POST', body: GELDIG });
+  assert.equal(r.statusCode, 200);
+  assert.match(laatsteRequest.url, /tomas%40finsera\.nl\/events/, 'afspraak bij de bezette persoon gezet');
+  const adressen = aangemaakteEvents[0].attendees.map(a => a.emailAddress.address);
+  assert.ok(!adressen.includes('tomas@finsera.nl'), 'gastheer ook als genodigde toegevoegd');
+});
+await t('modus any: allebei bezet -> alsnog 409', async () => {
+  process.env.MS_AVAILABILITY_MODE='any'; resetTokenCache(); graphGedrag='beiden_bezet'; aangemaakteEvents=[];
+  const r = await roep(book, { method:'POST', body: GELDIG });
+  assert.equal(r.statusCode, 409);
+});
+await t('/api/slots vraagt beide mailboxen tegelijk op', async () => {
+  configureer(true); process.env.MS_ALSO_UPNS='tomas@finsera.nl'; delete process.env.MS_AVAILABILITY_MODE;
+  resetTokenCache(); graphGedrag='ok';
+  const r = await roep(slots, { method:'GET' });
+  assert.equal(r.payload.configured, true);
+  const verzonden = JSON.parse(laatsteRequest.body).schedules;
+  assert.deepEqual(verzonden, ['oner@finsera.nl','tomas@finsera.nl']);
+});
+delete process.env.MS_ALSO_UPNS; delete process.env.MS_AVAILABILITY_MODE;
 
 mock.close();
 console.log(`\n${pass} controles geslaagd${process.exitCode ? ' — MET FOUTEN' : ''}\n`);

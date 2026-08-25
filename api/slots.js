@@ -12,8 +12,8 @@
    formulier aan, ook niet als Graph eruit ligt.
    ========================================================================== */
 
-import { isConfigured, organizer, graph, TIMEZONE, GraphError } from './_graph.js';
-import { candidateSlots, busyBlocks, freeSlots, groupByDay, window_, HORIZON_DAYS } from './_slots.js';
+import { isConfigured, mailboxes, availabilityMode, graph, TIMEZONE, GraphError } from './_graph.js';
+import { candidateSlots, blocksBySchedule, freeSlotsMulti, groupByDay, window_, HORIZON_DAYS } from './_slots.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -32,13 +32,17 @@ export default async function handler(req, res) {
   const now = new Date();
   const win = window_(now, HORIZON_DAYS);
 
+  const boxes = mailboxes();
+
   try {
+    // getSchedule accepteert meerdere mailboxen in een aanroep, dus de
+    // agenda's van iedereen worden in een keer opgehaald.
     const schedule = await graph(
-      `/users/${encodeURIComponent(organizer())}/calendar/getSchedule`,
+      `/users/${encodeURIComponent(boxes[0])}/calendar/getSchedule`,
       {
         method: 'POST',
         body: {
-          schedules: [organizer()],
+          schedules: boxes,
           startTime: { dateTime: win.start, timeZone: TIMEZONE },
           endTime: { dateTime: win.end, timeZone: TIMEZONE },
           availabilityViewInterval: 30
@@ -46,7 +50,12 @@ export default async function handler(req, res) {
       }
     );
 
-    const free = freeSlots(candidateSlots(now, HORIZON_DAYS), busyBlocks(schedule));
+    const free = freeSlotsMulti(
+      candidateSlots(now, HORIZON_DAYS),
+      blocksBySchedule(schedule, boxes),
+      boxes,
+      availabilityMode()
+    );
     return res.status(200).json({ configured: true, days: groupByDay(free) });
   } catch (err) {
     // Bewust geen 500: de frontend valt terug op vaste tijden. Wel loggen,
