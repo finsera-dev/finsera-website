@@ -27,7 +27,6 @@
       heroSub: 'Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.',
       heroSubLead: 'Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.',
       heroCta1: 'Vraag de diagnose aan',
-      heroCta2: 'Bekijk onze aanpak',
       heroTrust: 'Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet',
       nDatabron: 'Databron', nRapport: 'Rapportage', nDetail: 'Detailniveau', nDashboard: 'Dashboard', live: 'live',
       detailLow: 'samenvatting', detailHigh: 'detail',
@@ -38,34 +37,21 @@
       varActual: 'Actueel', varBudget: 'Budget', varPrior: 'Vorig jr', varVsBudget: 'vs. budget',
       denomOmzet: 'Omzet per klant', denomMarge: 'Marge per lijn', denomCashflow: 'DSO (dagen)', denomKlanten: 'Omzet per klant', denomVerzuim: 'Verzuim per FTE',
       painEyebrow: 'Herken je dit?',
-      painHeading: 'Tien signalen dat je organisatie haar financiële structuur is ontgroeid.',
-      painTik: 'Vink aan wat je herkent.',
+      painHeading: 'Vier signalen dat je organisatie haar financiële structuur is ontgroeid.',
       painLeadsTo: 'Waar dit toe leidt',
-      painSignalSingular: 'signaal herkend', painSignalPlural: 'signalen herkend',
-      painHint: 'Vanaf drie signalen zie je het patroon.',
-      painSynthLabel: 'Patroon herkend',
-      painSynthBody: 'Je herkent meerdere signalen, en dat is geen toeval. Het zijn symptomen van één oorzaak: een financieel fundament dat is meegegroeid met losse oplossingen. Precies waar onze diagnose voor bestaat.',
       bridge: 'Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.',
-      solEyebrow: 'Onze oplossing',
-      solHeading: 'Geen losse quick fixes, maar één samenhangende aanpak.',
-      solIntro: 'Van betrouwbare cijfers tot intelligente automatisering.',
-      card1Title: 'Managementrapportages & Dashboards',
-      card2Title: 'AI-strategie & implementatie',
-      card3Title: 'Interim controller (op afstand)',
       aanpakEyebrow: 'Onze aanpak',
       aanpakHeading: 'Eerst grip op je fundament. Daarna slim automatiseren.',
       aanpakIntro: 'We bouwen een financieel fundament dat met je organisatie meegroeit. Geen losse dashboards of AI-proefjes, maar één samenhangende aanpak die rust en overzicht brengt, afgestemd op waar je nu staat.',
       route1Title: 'Diagnose', route1Benefit: 'Een uitvoerbaar adviesrapport', route1Desc: 'We brengen cijfers, processen en datastromen in kaart, en maken het verschil zichtbaar tussen hoe het nu werkt en hoe het zou moeten.',
       route2Title: 'Dashboard & rapportage', route2Benefit: 'Grip op je fundament', route2Desc: 'We brengen je databronnen samen tot één betrouwbare bron van waarheid, zodat je kunt sturen op cijfers die kloppen.',
-      route3Title: 'AI-strategie', route3Benefit: 'Efficiënter werken met AI', route3Desc: 'Pas als de basis klopt, automatiseren we gericht wat tijd kost en steeds terugkomt, zodat je team tijd overhoudt.',
-      diagEyebrow: 'Zo starten we', diagTitle: 'Diagnose & strategisch adviesrapport',
+      route3Title: 'AI-strategie', route3Benefit: 'Efficiënter werken met AI', route3Desc: 'Pas als de basis klopt, automatiseren we gericht wat tijd kost en steeds terugkomt, zodat je team tijd overhoudt.', diagTitle: 'Diagnose & strategisch adviesrapport',
       diagBenefit: 'Een concreet plan voor direct meer grip',
       diagBodyShort: 'In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.',
       diagBodyMore: 'We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.',
       diagReadMore: 'Meer lezen', diagReadLess: 'Minder lezen',
       diagCheck1: 'Binnen 2–4 weken', diagCheck2: 'Verwachtingen en scope vooraf vastgelegd', diagCheck3: 'Concrete quick wins én prioriteiten', diagCheck4: 'Direct toepasbaar',
       dienstenEyebrow: 'Onze diensten', dienstenHeading: 'Twee diensten die op elkaar voortbouwen.',
-      dienstenIntro: 'Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.',
       svc1Title: 'Dashboard & managementrapportage', svc1Benefit: 'Grip op je fundament',
       svc1Intro: 'Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. We brengen financiële én niet-financiële data samen en geven er betekenis aan, zodat finance, directie en operatie naar dezelfde cijfers kijken. Je weet direct waar het goed gaat en waar bijsturen nodig is.',
       dashTitle: 'Het dashboard', dashTag: 'dagelijks · wekelijks', dashRealtime: 'realtime', dashTrend: 'Omzettrend',
@@ -96,16 +82,6 @@
       aiTool5: 'Automatisering',
       svc2Foot: 'Staat je fundament al stevig en wil je vooral repeterend werk automatiseren? Dan starten we daar.',
       diagReportLabel: 'Adviesrapport', diagScan: 'analyse loopt',
-      diagBody: 'Binnen 2 tot 4 weken een helder, praktisch rapport van wat je kunt verbeteren en hoe. Geen theorie, maar concrete use-cases die je direct kunt uitrollen: zelf, met Finsera, of met een andere partij. En vaak laten we al tijdens de eerste meetings betere rapportages zien, terwijl het onderzoek nog loopt.',
-      diagChip1a: '2–4 weken', diagChip2a: 'Direct toepasbaar', diagChip3a: 'Vrijblijvend',
-      step1Title: 'Diagnose', step1Body: 'We brengen je financiële opzet, processen en datastromen in kaart.',
-      step2Title: 'Rapportage', step2Body: 'Betrouwbare cijfers en managementrapportages waar je op kunt sturen.',
-      step3Title: 'Optimalisatie', step3Body: 'Intelligente automatisering en AI, alleen waar het aantoonbaar waarde oplevert.',
-      demoEyebrow: 'Visuele demo', demoTitle: 'Van Excel-chaos naar realtime inzicht.',
-      demoStack: 'Verkoop_2026_v3.xlsx', demoStackNote: 'handmatig samengevoegd', demoSourceLabel: 'één bron van waarheid', demoPowerbi: 'Power BI · Finsera-dashboard', demoRealtime: 'realtime',
-      demoKpi1: 'Omzet', demoKpi2: 'Marge', demoKpi3: 'EBITDA', demoKpi4: 'Ind. kosten',
-      demoTrend: 'Omzettrend', demoDept: 'Per afdeling', demoMix: 'Marge-mix',
-      solHub: 'Eén betrouwbaar fundament', solHubSub: 'Realtime inzicht, één bron van waarheid',
       casesEyebrow: 'Cases', casesTitle: 'Resultaten uit de praktijk', casesRead: 'Lees case',
       case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge.', case1Result: 'Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding', case1ChartLabel: 'Marge per merk',
@@ -121,20 +97,7 @@
       teamRole1: 'Financial & business consultant',
       teamRole2: 'Data analyst & ontwikkelaar',
       teamLinkedin: 'LinkedIn',
-      revSoon: 'Onze eerste trajecten lopen nog. Zodra klanten akkoord geven op een citaat, plaatsen we het hier — met naam en al. Liever niets dan iets wat we zelf verzonnen hebben.', revSoonCta: 'Zelf ervaren wat we doen',
-      revEyebrow: 'Wat klanten zeggen', revTitle: 'Vertrouwen, opgebouwd in de praktijk.',
-      revIntro: 'We bouwen onze reviews op terwijl we onze klantcases afronden. Heb je met ons gewerkt? We horen graag je ervaring.',
-      revFormTitle: 'Deel je ervaring', revFormIntro: 'Je review helpt andere directies de juiste keuze te maken.',
-      revName: 'Naam', revCompany: 'Bedrijf (optioneel)', revRating: 'Beoordeling', revMessage: 'Je ervaring', revSubmit: 'Review versturen',
-      revPlaceholderMsg: 'Waar heeft Finsera je bij geholpen, en wat leverde het op?',
       revThanks: 'Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.',
-      tstm1: '„De maandrapportage staat nu op een doordacht budget en we sturen op marge per merk, niet meer alleen op omzet.”',
-      tstm1By: 'Directie · e-commerce (±15 mln omzet)',
-      tstm2: '„Van losse Excel-lijsten naar één betrouwbaar dashboard — we weten nu precies waar we staan, met cijfers die kloppen.”',
-      tstm2By: 'Business controller · zorg',
-      tstm3: '„Aantoonbaar in control: AO/IB opgezet en kwartaalrapportage met financiële én niet-financiële data.”',
-      tstm3By: 'Bestuur · zorginstelling',
-      tstmNote: 'Weergegeven resultaten zijn geanonimiseerd; naamsvermelding volgt zodra klanten daarmee akkoord gaan.',
       ctaTitle: 'Klaar voor grip op je cijfers?',
       ctaText: 'Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
@@ -172,7 +135,6 @@
       heroSub: 'Finsera helps growing mid-market companies professionalise their financial steering: from reliable management reporting and real-time dashboards to AI-driven automation.',
       heroSubLead: 'First a grip on the foundation. Then the leverage of AI and automation.',
       heroCta1: 'Request the diagnosis',
-      heroCta2: 'See our approach',
       heroTrust: 'For growing companies · 10–50 employees · €10M–€50M revenue',
       nDatabron: 'Data source', nRapport: 'Report', nDetail: 'Detail level', nDashboard: 'Dashboard', live: 'live',
       detailLow: 'summary', detailHigh: 'detail',
@@ -183,34 +145,21 @@
       varActual: 'Actual', varBudget: 'Budget', varPrior: 'Prior yr', varVsBudget: 'vs. budget',
       denomOmzet: 'Revenue / client', denomMarge: 'Margin / line', denomCashflow: 'DSO (days)', denomKlanten: 'Revenue / client', denomVerzuim: 'Absence / FTE',
       painEyebrow: 'Sound familiar?',
-      painHeading: 'Ten signs your organisation has outgrown its financial structure.',
-      painTik: 'Tick what you recognise.',
+      painHeading: 'Four signs your organisation has outgrown its financial structure.',
       painLeadsTo: 'Where this leads',
-      painSignalSingular: 'signal recognised', painSignalPlural: 'signals recognised',
-      painHint: 'From three signals you see the pattern.',
-      painSynthLabel: 'Pattern recognised',
-      painSynthBody: 'You recognise several signals, and that’s no coincidence. They’re symptoms of one cause: a financial foundation that grew along with piecemeal fixes. Exactly what our diagnosis is for.',
       bridge: 'Finsera doesn’t solve these problems with yet another tool, but by redesigning your financial foundation.',
-      solEyebrow: 'Our solution',
-      solHeading: 'No isolated quick fixes, but one coherent approach.',
-      solIntro: 'From reliable numbers to intelligent automation.',
-      card1Title: 'Management reporting & dashboards',
-      card2Title: 'AI strategy & implementation',
-      card3Title: 'Interim controller (remote)',
       aanpakEyebrow: 'Our approach',
       aanpakHeading: 'First a grip on your foundation. Then automate smartly.',
       aanpakIntro: 'We build a financial foundation that grows with your organisation. Not loose dashboards or AI experiments, but one coherent approach that brings calm and overview, tailored to where you stand today.',
       route1Title: 'Diagnosis', route1Benefit: 'An actionable advisory report', route1Desc: 'We map your numbers, processes and data flows, and make the gap visible between how it works now and how it should.',
       route2Title: 'Dashboard & reporting', route2Benefit: 'A grip on your foundation', route2Desc: 'We bring your data sources together into one reliable source of truth, so you can steer on numbers that hold.',
-      route3Title: 'AI strategy', route3Benefit: 'Work more efficiently with AI', route3Desc: 'Only once the basics hold do we automate, targeting what costs time and keeps recurring, so your team gains time back.',
-      diagEyebrow: 'How we start', diagTitle: 'Diagnosis & strategic advisory report',
+      route3Title: 'AI strategy', route3Benefit: 'Work more efficiently with AI', route3Desc: 'Only once the basics hold do we automate, targeting what costs time and keeps recurring, so your team gains time back.', diagTitle: 'Diagnosis & strategic advisory report',
       diagBenefit: 'A concrete plan for immediate grip',
       diagBodyShort: 'In the diagnosis we map precisely how your financial steering is set up today: numbers, processes, systems and data flows.',
       diagBodyMore: 'We place the current situation next to the desired one, and show where it chafes, what that costs and how dashboards and management reporting can align better with your goals. No thick report for the drawer, but a directly applicable plan that finance, management and IT can run with right away.',
       diagReadMore: 'Read more', diagReadLess: 'Read less',
       diagCheck1: 'Within 2–4 weeks', diagCheck2: 'Expectations and scope set upfront', diagCheck3: 'Concrete quick wins and priorities', diagCheck4: 'Ready to apply',
       dienstenEyebrow: 'Our services', dienstenHeading: 'Two services that build on each other.',
-      dienstenIntro: 'First a grip on your numbers with dashboards and management reporting. Then targeted automation, on a foundation that holds.',
       svc1Title: 'Dashboard & management reporting', svc1Benefit: 'A grip on your foundation',
       svc1Intro: 'From loose exports and Excel lists to one reliable source of truth. We bring financial and non-financial data together and give it meaning, so finance, management and operations look at the same numbers. You know straight away where things go well and where steering is needed.',
       dashTitle: 'The dashboard', dashTag: 'daily · weekly', dashRealtime: 'real-time', dashTrend: 'Revenue trend',
@@ -241,16 +190,6 @@
       aiTool5: 'Automation',
       svc2Foot: 'Is your foundation already solid and do you mainly want to automate repetitive work? Then that’s where we start.',
       diagReportLabel: 'Advisory report', diagScan: 'analysing',
-      diagBody: 'Within 2 to 4 weeks, a clear, practical report of what you can improve and how. No theory, but concrete use cases you can roll out right away: yourself, with Finsera, or with another party. And we often show better reporting during the first meetings, while the research is still running.',
-      diagChip1a: '2–4 weeks', diagChip2a: 'Ready to apply', diagChip3a: 'No obligation',
-      step1Title: 'Diagnosis', step1Body: 'We map your financial setup, processes and data flows.',
-      step2Title: 'Reporting', step2Body: 'Reliable numbers and management reports you can steer with.',
-      step3Title: 'Optimisation', step3Body: 'Intelligent automation and AI, only where it demonstrably adds value.',
-      demoEyebrow: 'Visual demo', demoTitle: 'From Excel chaos to real-time insight.',
-      demoStack: 'Verkoop_2026_v3.xlsx', demoStackNote: 'manually merged', demoSourceLabel: 'one source of truth', demoPowerbi: 'Power BI · Finsera dashboard', demoRealtime: 'real-time',
-      demoKpi1: 'Revenue', demoKpi2: 'Margin', demoKpi3: 'EBITDA', demoKpi4: 'Indirect cost',
-      demoTrend: 'Revenue trend', demoDept: 'Per department', demoMix: 'Margin mix',
-      solHub: 'One reliable foundation', solHubSub: 'Real-time insight, one source of truth',
       casesEyebrow: 'Cases', casesTitle: 'Results in practice', casesRead: 'Read case',
       case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin.', case1Result: 'Data from webshop, marketing and bookkeeping brought together in one Power BI environment.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping', case1ChartLabel: 'Margin per brand',
@@ -266,20 +205,7 @@
       teamRole1: 'Financial & business consultant',
       teamRole2: 'Data analyst & developer',
       teamLinkedin: 'LinkedIn',
-      revSoon: 'Our first engagements are still running. The moment a client approves a quote, it goes here — with their name on it. We would rather show nothing than something we wrote ourselves.', revSoonCta: 'Find out for yourself',
-      revEyebrow: 'What clients say', revTitle: 'Trust, built in practice.',
-      revIntro: 'We build up our reviews as we complete our client cases. Have you worked with us? We’d love to hear about your experience.',
-      revFormTitle: 'Share your experience', revFormIntro: 'Your review helps other boards make the right choice.',
-      revName: 'Name', revCompany: 'Company (optional)', revRating: 'Rating', revMessage: 'Your experience', revSubmit: 'Send review',
-      revPlaceholderMsg: 'What did Finsera help you with, and what did it deliver?',
       revThanks: 'Thank you! Your review has opened in your email app — click send to finish.',
-      tstm1: '“Monthly reporting now runs on a well-considered budget, and we steer on margin per brand instead of revenue alone.”',
-      tstm1By: 'Board · e-commerce (±€15M revenue)',
-      tstm2: '“From scattered Excel lists to one reliable dashboard — we now know exactly where we stand, on numbers that hold.”',
-      tstm2By: 'Business controller · healthcare',
-      tstm3: '“Demonstrably in control: internal-control manual set up and quarterly reporting with financial and non-financial data.”',
-      tstm3By: 'Board · healthcare organisation',
-      tstmNote: 'Results shown are anonymised; names will be added once clients agree to attribution.',
       ctaTitle: 'Ready for control over your numbers?',
       ctaText: 'No temporary patches or loose tools, but a foundation that grows with your organisation. Let’s explore in one conversation where the processes get stuck now and where the biggest gains are, tailored to where you stand today.',
       footTagline: 'A financial foundation that grows with your organisation.',
@@ -310,8 +236,6 @@
 
   /* --------------------------------------------------- state for widgets -- */
   var state = {
-    selected: {},          // pain points
-    active: 0,             // active pain row
     sources: { excel: true, erp: true, crm: true },
     metric: 'omzet',
     detail: 1,             // 1 = samenvatting (boardroom), 2 = detail (controller)
@@ -455,7 +379,6 @@
       b.classList.toggle('is-on', b.getAttribute('data-lang') === lang);
     });
     renderPainList();
-    renderPainPanel();
     renderGraph();
     updateDiagToggle();
     renderDashBreak();
@@ -489,54 +412,27 @@
     });
   }
 
-  /* ----------------------------------------------------- pain selector ---- */
+  /* --------------------------------------------------------- pain cards --- */
+  // Vier signalen als statische kaarten. Dit was een aanvinklijst met tien
+  // signalen en een telring; die vroeg te veel van een bezoeker die al warm
+  // binnenkomt en alleen nog wil weten of het klikt.
+  var PAIN_SHOWN = 4;
   var painListEl = $('#painList');
   function renderPainList() {
     if (!painListEl) return;
-    var data = t().painData;
     painListEl.innerHTML = '';
-    data.forEach(function (d, i) {
-      // Een <button> met aria-pressed in plaats van een <div>: de lijst is
-      // een reeks aan/uit-keuzes en moet met het toetsenbord te bedienen zijn.
-      var row = document.createElement('button');
-      row.type = 'button';
-      row.className = 'pain__row';
-      row.setAttribute('aria-pressed', state.selected[i] ? 'true' : 'false');
-      if (state.active === i) row.classList.add('is-active');
-      if (state.selected[i]) row.classList.add('is-selected');
-      row.innerHTML =
-        '<span class="pain__check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>' +
-        '<span class="pain__quote"></span>';
-      row.querySelector('.pain__quote').textContent = d[0];
-      row.addEventListener('click', function () {
-        state.selected[i] = !state.selected[i];
-        state.active = i;
-        renderPainList();
-        renderPainPanel();
-      });
-      painListEl.appendChild(row);
+    t().painData.slice(0, PAIN_SHOWN).forEach(function (d) {
+      var card = document.createElement('article');
+      card.className = 'pain__card';
+      card.innerHTML =
+        '<div class="pain__card-quote"></div>' +
+        '<div class="pain__card-label"></div>' +
+        '<p class="pain__card-desc"></p>';
+      card.querySelector('.pain__card-quote').textContent = d[0];
+      card.querySelector('.pain__card-label').textContent = t().painLeadsTo;
+      card.querySelector('.pain__card-desc').textContent = d[1];
+      painListEl.appendChild(card);
     });
-  }
-
-  function renderPainPanel() {
-    var data = t().painData;
-    var count = Object.keys(state.selected).filter(function (k) { return state.selected[k]; }).length;
-    var countEl = $('#painCount');
-    if (countEl) countEl.textContent = count;
-    var ring = $('#painRing');
-    if (ring) ring.setAttribute('stroke-dashoffset', (326.7 * (1 - count / 10)).toFixed(1));
-    var cap = $('#painCaption');
-    if (cap) cap.textContent = (count === 1) ? t().painSignalSingular : t().painSignalPlural;
-    var q = $('#painQuote'), de = $('#painDesc');
-    if (q) q.textContent = data[state.active][0];
-    if (de) de.textContent = data[state.active][1];
-    var tailored = $('#painTailored'), hint = $('#painHint'), panel = $('.pain__panel');
-    var serious = count >= 3;       // drempel: vanaf drie signalen wordt het serieus
-    if (tailored && hint) {
-      if (serious) { tailored.removeAttribute('hidden'); hint.setAttribute('hidden', ''); }
-      else { tailored.setAttribute('hidden', ''); hint.removeAttribute('hidden'); }
-    }
-    if (panel) panel.classList.toggle('is-serious', serious);
   }
 
   /* ------------------------------------------------------- hero graph ----- */
@@ -770,54 +666,6 @@
       if (open) aiUse.removeAttribute('hidden'); else aiUse.setAttribute('hidden', '');
       aiUseToggle.setAttribute('aria-expanded', String(open));
       aiUseToggle.classList.toggle('is-open', open);
-    });
-  }
-
-  /* ------------------------------------------------- review form (mailto) - */
-  // Static-site friendly: the form composes an e-mail to Finsera. Swap the
-  // mailto for a real form endpoint (Formspree/Web3Forms) when available.
-  var REVIEW_EMAIL = 'info@finsera.nl';
-  var reviewForm = $('#reviewForm');
-  if (reviewForm) {
-    var starsWrap = $('#revStars');
-    var ratingInput = $('#revRatingInput');
-    function paintStars(v) {
-      $all('.rev__star', starsWrap).forEach(function (s) {
-        s.classList.toggle('is-on', +s.getAttribute('data-val') <= v);
-      });
-    }
-    if (starsWrap && ratingInput) {
-      paintStars(+ratingInput.value);
-      starsWrap.addEventListener('click', function (e) {
-        var b = e.target.closest ? e.target.closest('.rev__star') : null;
-        if (!b) return;
-        ratingInput.value = b.getAttribute('data-val');
-        paintStars(+ratingInput.value);
-      });
-    }
-    reviewForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!reviewForm.reportValidity()) return;
-      var fd = new FormData(reviewForm);
-      var name = (fd.get('name') || '').toString().trim();
-      var company = (fd.get('company') || '').toString().trim();
-      var rating = (fd.get('rating') || '5').toString();
-      var message = (fd.get('message') || '').toString().trim();
-      var subject = 'Review Finsera — ' + name + (company ? ' (' + company + ')' : '');
-      var body = [
-        'Naam: ' + name,
-        company ? ('Bedrijf: ' + company) : null,
-        'Beoordeling: ' + rating + '/5',
-        '',
-        message
-      ].filter(function (l) { return l !== null; }).join('\n');
-      window.location.href = 'mailto:' + REVIEW_EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-      var thanks = $('#revThanks');
-      if (thanks) thanks.removeAttribute('hidden');
-      reviewForm.reset();
-      if (ratingInput) { ratingInput.value = '5'; paintStars(5); }
     });
   }
 

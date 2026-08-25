@@ -13,18 +13,17 @@
 
   var SELECTORS = [
     // Home
-    '.pain__head', '.pain__grid', '.pain__bridge',
+    '.pain__head', '.pain__cards', '.pain__bridge',
     '.sol__head', '.sol__box', '.diag', '.method__step',
-    '.demo__head', '.demo__row', '.cases__head', '.cases__viewport', '.cta__box',
+    '.cases__head', '.cases__viewport', '.cta__box',
     '.team__intro', '.team__card',
-    '.rev__head', '.tstm', '.rev__anon-note',
     '.page-hero__inner', '.svc2__card', '.diensten__foot',
     // Over
     '.over-band__inner', '.over-team__head', '.over-card', '.over-quote__inner', '.over-cta',
     // Cases
     '.cs-card', '.cs-note',
     // Blog
-    '.bl-empty',
+    '.bl-card',
     // Contact
     '.ct-card'
   ];
