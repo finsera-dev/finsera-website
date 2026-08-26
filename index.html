@@ -22,6 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.finsera.nl/img/og-finsera.jpg">
 
+  <link rel="preload" href="fonts/Archivo-normal-400800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Fraunces-normal-300800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/IBM-Plex-Mono-normal-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -109,71 +110,72 @@
 <main id="inhoud" class="main">
 
   <!-- ====================================================== HERO ========= -->
-  <header class="hero">
-    <div class="wrap">
-      <p class="hero__kicker" data-i18n="heroEyebrow">Financiële rapportage, dashboards en automatisering voor groeiend MKB</p>
-      <h1 class="hero__h1">
-        <span class="hero__h1-a" data-i18n="heroH1a">Grip op je cijfers</span>
-        <span class="hero__h1-b"><em data-i18n="heroH1b">Ruimte om strategisch te leiden</em></span>
+  <!-- "Licht met gradient": zachte meerkleurige gradient-grond, centrale
+       glazen dashboardkaart, twee zwevende glass-statkaartjes met échte
+       inhoud. Kop in Archivo; één sleutelwoord krijgt een navy→koper
+       gradient (zie inline script onderaan de pagina). -->
+  <header class="hero2">
+    <div class="hero2__glow" aria-hidden="true"></div>
+    <div class="wrap hero2__wrap">
+      <p class="hero2__kicker" data-i18n="heroEyebrow">Financiële rapportage, dashboards en automatisering voor groeiend MKB</p>
+      <h1 class="hero2__h1">
+        <span class="hero2__h1-a" data-i18n="heroH1a">Grip op je cijfers</span>
+        <span class="hero2__h1-b" data-i18n="heroH1b">Ruimte om strategisch te leiden</span>
       </h1>
+      <p class="hero2__sub"><span data-i18n="heroSub">Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.</span> <strong class="hero2__lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</strong></p>
+      <div class="hero2__cta">
+        <a href="Contact.html" class="btn" data-i18n="heroCta1">Vraag de diagnose aan</a>
+      </div>
 
-      <div class="hero__foot">
-        <div class="hero__left">
-        <div class="hero__intro">
-          <p class="hero__sub"><span data-i18n="heroSub">Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.</span> <strong class="hero__lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</strong></p>
-          <a href="Contact.html" class="btn" data-i18n="heroCta1">Vraag de diagnose aan</a>
-        </div>
-        <div class="hero__meta">
-          <span class="hero__meta-line" data-i18n="heroTrust">Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet</span>
-        </div>
-        </div>
+      <!-- Het beeldobject: glazen paneel met het echte demo-dashboard.
+           Foto-slot: geef #heroPhoto een src en verwijder [hidden]; het
+           beeld vult dan de stage achter het paneel (CSS-haak: #heroPhoto). -->
+      <div class="hero2__stage">
+        <img id="heroPhoto" class="hero2__photo" hidden alt="" decoding="async">
 
-      <!-- interactive node graph -->
-      <div class="graph">
-       <div class="graph__inner" id="graphInner">
-        <svg class="graph__wires" viewBox="0 0 560 520" preserveAspectRatio="none">
-          <path d="M250 84 C300 84 286 180 336 180" fill="none" stroke="rgba(143,95,42,0.5)" stroke-width="1.4"></path>
-          <path d="M250 260 C295 260 300 260 336 260" fill="none" stroke="rgba(143,95,42,0.5)" stroke-width="1.4"></path>
-          <path d="M270 440 C322 440 320 340 336 340" fill="none" stroke="rgba(143,95,42,0.5)" stroke-width="1.4"></path>
-        </svg>
-
-        <!-- Node A: data source -->
-        <div class="graph__node graph__node--a">
-          <div class="graph__node-title" data-i18n="nDatabron">Databron</div>
-          <div class="graph__chips" id="sourceChips"></div>
-          <span class="graph__port"></span>
-        </div>
-
-        <!-- Node B: report -->
-        <div class="graph__node graph__node--b">
-          <div class="graph__node-title" data-i18n="nRapport">Rapportage</div>
-          <div class="graph__metrics" id="metricOptions"></div>
-          <span class="graph__port"></span>
-        </div>
-
-        <!-- Node C: detail -->
-        <div class="graph__node graph__node--c">
-          <div class="graph__node-title" data-i18n="nDetail">Detailniveau</div>
-          <div class="graph__detail">
-            <input type="range" min="1" max="2" step="1" value="1" id="detailRange">
-            <div class="graph__detail-labels"><span data-i18n="detailLow">samenvatting</span><span data-i18n="detailHigh">detail</span></div>
-          </div>
-          <span class="graph__port"></span>
-        </div>
-
-        <!-- Output: dashboard -->
-        <div class="graph__out" data-anim>
-          <div class="graph__out-head">
-            <span class="title" data-i18n="nDashboard">Dashboard</span>
+        <figure class="hero2__panel">
+          <div class="hero2__panel-head">
+            <span class="hero2__panel-title" data-i18n="nDashboard">Dashboard</span>
             <span class="graph__live" data-i18n="live">live</span>
           </div>
-          <div class="graph__out-body" id="graphOutBody"></div>
-          <span class="graph__out-port" style="top:30%"></span>
-          <span class="graph__out-port" style="top:50%"></span>
-          <span class="graph__out-port" style="top:65%"></span>
+          <div class="hero2__panel-body">
+            <aside class="hero2__rail">
+              <div class="hero2__rail-group">
+                <span class="hero2__rail-title" data-i18n="nRapport">Rapportage</span>
+                <div class="graph__metrics" id="metricOptions"></div>
+              </div>
+              <div class="hero2__rail-group">
+                <span class="hero2__rail-title" data-i18n="nDatabron">Databron</span>
+                <div class="graph__chips" id="sourceChips"></div>
+              </div>
+              <div class="hero2__rail-group hero2__rail-group--detail">
+                <span class="hero2__rail-title" data-i18n="nDetail">Detailniveau</span>
+                <div class="graph__detail">
+                  <input type="range" min="1" max="2" step="1" value="1" id="detailRange">
+                  <div class="graph__detail-labels"><span data-i18n="detailLow">samenvatting</span><span data-i18n="detailHigh">detail</span></div>
+                </div>
+              </div>
+            </aside>
+            <div class="hero2__dash">
+              <div class="graph__out-body" id="graphOutBody"></div>
+            </div>
+          </div>
+        </figure>
+
+        <!-- zwevend statkaartje 1: doelgroep (echte inhoud) -->
+        <div class="hero2__card hero2__card--fit">
+          <span class="hero2__card-dot" aria-hidden="true"></span>
+          <span class="hero2__card-text" data-i18n="heroTrust">Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet</span>
         </div>
-       </div>
-      </div>
+
+        <!-- zwevend statkaartje 2: wie je spreekt (echte inhoud) -->
+        <div class="hero2__card hero2__card--who">
+          <span class="hero2__card-avatars" aria-hidden="true">
+            <img src="img/team/oner-yucel.jpg" alt="" width="72" height="72" decoding="sync" onerror="this.remove()">
+            <img src="img/team/tomas-van-der-laan.jpg" alt="" width="72" height="72" decoding="sync" onerror="this.remove()">
+          </span>
+          <span class="hero2__card-text" data-i18n="ctaWho">Je spreekt direct met Öner of Tomas.</span>
+        </div>
       </div>
     </div>
   </header>
@@ -199,6 +201,80 @@
       </div>
     </div>
   </section>
+  <!-- ============================== WAT WE BOUWEN: bronnen → datalaag → dashboard
+       Studio-productstijl; #dlPhoto is het slot voor een aangeleverd beeld. -->
+  <section class="dl">
+    <div class="wrap dl-grid">
+      <div class="dl-copy">
+        <p class="dl-kicker"><span class="dl-kicker-rule" aria-hidden="true"></span><span data-i18n="dlEyebrow">Wat we bouwen</span></p>
+        <h2 class="dl-h2"><span data-i18n="dlTitleA">Grip op je cijfers.</span> <span class="dl-h2-accent" data-i18n="dlTitleB">Ruimte om te sturen.</span></h2>
+        <p class="dl-body" data-i18n="dlBody">Verkoop via bol, betalingen in Mollie, ERP in AFAS, boekhouding in Exact Online &mdash; vier systemen, vier waarheden. Finsera bouwt de tussenlaag: &eacute;&eacute;n datalaag op maat, aangevuld met AI, die alles samenbrengt in het dashboard waar jij &eacute;cht op kunt sturen.</p>
+        <p class="dl-lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</p>
+        <a href="Contact.html" class="btn dl-btn"><span data-i18n="heroCta1">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="dl-stage">
+        <img id="dlPhoto" class="dl-photo" alt="" hidden>
+        <div class="dl-panel">
+          <div class="dl-panel-head" aria-hidden="true">
+            <span data-i18n="dlColA">Bronnen</span><span data-i18n="dlColB">Finsera &middot; AI</span><span data-i18n="dlColC">E&eacute;n dashboard</span>
+          </div>
+          <div class="dl-flow">
+            <div class="dl-sources">
+              <!-- Bronnen. Elke tegel heeft een leeg <img>-slot: zet daar het
+                   officiële logobestand in (img/bron/<naam>.svg) en de
+                   naamtegel verdwijnt automatisch achter het logo. -->
+              <div class="dl-src" style="--merk:#E1251B">
+                <span class="dl-src-ic" aria-hidden="true"><img class="dl-src-logo" alt="" hidden><span class="dl-src-wm">E</span></span>
+                <span class="dl-src-tx"><strong>Exact Online</strong><em data-i18n="dlSrc1">boekhouding</em></span>
+              </div>
+              <div class="dl-src" style="--merk:#1B3A6B">
+                <span class="dl-src-ic" aria-hidden="true"><img class="dl-src-logo" alt="" hidden><span class="dl-src-wm">A</span></span>
+                <span class="dl-src-tx"><strong>AFAS</strong><em data-i18n="dlSrc2">ERP &middot; HR</em></span>
+              </div>
+              <div class="dl-src" style="--merk:#0000A4">
+                <span class="dl-src-ic" aria-hidden="true"><img class="dl-src-logo" alt="" hidden><span class="dl-src-wm">b</span></span>
+                <span class="dl-src-tx"><strong>bol</strong><em data-i18n="dlSrc3">verkoopkanaal</em></span>
+              </div>
+              <div class="dl-src" style="--merk:#2B2B2B">
+                <span class="dl-src-ic" aria-hidden="true"><img class="dl-src-logo" alt="" hidden><span class="dl-src-wm">M</span></span>
+                <span class="dl-src-tx"><strong>Mollie</strong><em data-i18n="dlSrc4">betalingen</em></span>
+              </div>
+            </div>
+
+            <div class="dl-corewrap" aria-hidden="true">
+              <span class="dl-wire dl-wire--in"></span>
+              <div class="dl-core">
+                <span class="dl-core-ring"></span>
+                <span class="dl-core-f">F</span>
+                <span class="dl-core-cap" data-i18n="dlCore">datalaag op maat</span>
+                <span class="dl-core-ai">+ AI</span>
+              </div>
+              <span class="dl-wire dl-wire--out"></span>
+            </div>
+
+            <div class="dl-dash">
+              <div class="dl-dash-head"><em data-i18n="dlMonth">Augustus &middot; overzicht</em><span class="dl-live"><i></i>live</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#1F8A4C"></span><span class="dl-klabel" data-i18n="dlK1">Omzet MTD</span><span class="dl-kval" data-count="428910" data-pre="&euro; ">&euro; 428.910</span><span class="dl-kdelta dl-up">&#9650; 8,4%</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#3E6FA8"></span><span class="dl-klabel" data-i18n="dlK2">Brutomarge</span><span class="dl-kval" data-count="37,2" data-post="%">37,2%</span><span class="dl-kdelta dl-up">&#9650; 1,8pp</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#C0563F"></span><span class="dl-klabel" data-i18n="dlK3">Cashpositie</span><span class="dl-kval" data-count="612" data-pre="&euro; " data-post="k">&euro; 612k</span><span class="dl-kdelta dl-down">&#9660; 3,1%</span></div>
+              <div class="dl-chart">
+                <div class="dl-chart-cap"><span data-i18n="dlChart">Omzet vs. begroting</span><span class="dl-chart-meta">12m &middot; &euro;k</span></div>
+                <svg viewBox="0 0 220 64" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 50 L22 44 L42 47 L62 38 L82 41 L102 30 L122 34 L142 24 L162 27 L182 16 L202 20 L218 10 L218 64 L2 64 Z" fill="rgba(143,95,42,0.10)"/>
+                  <path d="M2 46 L42 40 L82 34 L122 28 L162 22 L218 14" fill="none" stroke="#B0793F" stroke-width="1.4" stroke-dasharray="4 4"/>
+                  <path class="dl-line" d="M2 50 L22 44 L42 47 L62 38 L82 41 L102 30 L122 34 L142 24 L162 27 L182 16 L202 20 L218 10" fill="none" stroke="#16243D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="218" cy="10" r="2.6" fill="#16243D"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="dl-foot" aria-hidden="true"><span data-i18n="dlFootA">4 bronnen</span> <span class="dl-foot-arrow">&rarr;</span> <span data-i18n="dlFootB">1 dashboard</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ============================================ AANPAK + DIAGNOSE ====== -->
   <section id="oplossing" class="sol">
@@ -407,6 +483,81 @@
 
 <script src="js/reveal.js"></script>
 <script src="js/app.js"></script>
+<!-- Het datalaag-paneel komt één keer tot leven zodra het in beeld scrolt:
+     onderdelen rijzen op, de grafieklijn tekent zich, de kengetallen tellen
+     op. Daarna blijft alleen de rustige stroom over. -->
+<script>
+(function () {
+  var panel = document.querySelector('.dl-panel');
+  if (!panel) return;
+  var still = false;
+  try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  if (still || !('IntersectionObserver' in window)) { panel.classList.add('is-live'); return; }
+
+  function tel(el) {
+    var doel = el.getAttribute('data-count');
+    if (!doel) return;
+    var decimalen = doel.indexOf(',') > -1 ? doel.split(',')[1].length : 0;
+    var eind = parseFloat(doel.replace('.', '').replace(',', '.'));
+    var pre = el.getAttribute('data-pre') || '', post = el.getAttribute('data-post') || '';
+    var slot = el.textContent, start = null, duur = 1100;
+    function toon(v) {
+      var t = v.toFixed(decimalen).replace('.', ',');
+      var d = t.split(','), heel = d[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      el.textContent = pre + (d.length > 1 ? heel + ',' + d[1] : heel) + post;
+    }
+    function stap(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / duur);
+      toon(eind * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(stap); else el.textContent = slot;
+    }
+    toon(0);
+    requestAnimationFrame(stap);
+  }
+
+  var io = new IntersectionObserver(function (rijen) {
+    rijen.forEach(function (rij) {
+      if (!rij.isIntersecting) return;
+      panel.classList.add('is-live');
+      setTimeout(function () {
+        panel.querySelectorAll('.dl-kval[data-count]').forEach(function (el, i) {
+          setTimeout(function () { tel(el); }, i * 110);
+        });
+      }, 550);
+      io.disconnect();
+    });
+  }, { threshold: 0.3 });
+  io.observe(panel);
+})();
+</script>
+<script>
+/* Gradient-woord in de hero-kop: het laatste woord van heroH1a ("cijfers" /
+   "numbers") krijgt een navy→koper gradient. applyLang() in app.js vervangt
+   textContent bij een taalwissel; de MutationObserver wikkelt het woord dan
+   opnieuw in. */
+(function () {
+  'use strict';
+  var el = document.querySelector('.hero2__h1-a');
+  if (!el) return;
+  function wrapLastWord() {
+    if (el.querySelector('.hero2__grad')) return;
+    var text = el.textContent || '';
+    var i = text.lastIndexOf(' ');
+    if (i < 0 || i === text.length - 1) return;
+    el.textContent = '';
+    el.appendChild(document.createTextNode(text.slice(0, i + 1)));
+    var s = document.createElement('span');
+    s.className = 'hero2__grad';
+    s.textContent = text.slice(i + 1);
+    el.appendChild(s);
+  }
+  wrapLastWord();
+  try {
+    new MutationObserver(wrapLastWord).observe(el, { childList: true, characterData: true, subtree: true });
+  } catch (e) {}
+})();
+</script>
 <!-- Vercel Web Analytics: cookieloos en geaggregeerd, dus geen cookiebanner nodig.
      Aanzetten in Vercel: Project -> Analytics. Zonder dat blijft dit een 404 zonder effect. -->
 <script defer src="/_vercel/insights/script.js"></script>

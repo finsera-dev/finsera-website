@@ -76,3 +76,12 @@
   font-display: swap;
   src: url('../fonts/IBM-Plex-Mono-normal-500.woff2') format('woff2');
 }
+
+/* Archivo — variabele vetheid voor de hero-kop (400–800) */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/Archivo-normal-400800.woff2') format('woff2');
+}

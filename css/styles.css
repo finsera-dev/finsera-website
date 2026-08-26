@@ -1400,3 +1400,507 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .graph__node--b { left: 3%; top: 6%; width: 44%; }
   .graph__out { left: 51%; top: 6%; width: 46%; }
 }
+
+/* ==========================================================================
+   HERO 2 — "Licht met gradient".
+   Zachte meerkleurige gradient-grond binnen de huisstijl (ivoor → licht
+   navy-grijs, warme kopergloed rechtsboven), grote Archivo-kop met één
+   gradient-woord, centraal glazen dashboardpaneel en twee zwevende
+   glass-statkaartjes met echte inhoud.
+   ========================================================================== */
+.hero2 {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 6vh, 64px) 0 0;
+  background:
+    radial-gradient(1000px 620px at 88% -6%, rgba(201, 161, 78, 0.20), transparent 62%),
+    radial-gradient(820px 560px at 6% 16%, rgba(176, 121, 63, 0.10), transparent 58%),
+    radial-gradient(1300px 700px at 50% 78%, rgba(22, 36, 61, 0.085), transparent 62%),
+    linear-gradient(180deg, #FCFBF8 0%, #F4F3F1 48%, #FAF7F1 100%);
+}
+/* extra zachte gloed, los van de section-achtergrond zodat hij kan blenden */
+.hero2__glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(560px 380px at 72% 30%, rgba(201, 161, 78, 0.12), transparent 65%),
+    radial-gradient(480px 380px at 22% 72%, rgba(22, 36, 61, 0.05), transparent 65%);
+}
+.hero2__wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+.hero2__kicker {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--copper);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(22, 36, 61, 0.10);
+  border-radius: 999px;
+  padding: 7px 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hero2__h1 {
+  font-family: 'Archivo', var(--sans);
+  font-weight: 800;
+  font-size: clamp(38px, 4.8vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 26px 0 0;
+  text-wrap: balance;
+}
+.hero2__h1-a, .hero2__h1-b { display: block; }
+.hero2__h1-b { margin-top: 0.06em; }
+.hero2__h1-a::after, .hero2__h1-b::after { content: '.'; color: var(--ink); }
+.hero2__grad {
+  background: linear-gradient(96deg, #16243D 0%, #8F5F2A 40%, #B0793F 66%, #C9A14E 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero2__sub {
+  max-width: 62ch;
+  margin: 22px auto 0;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.65;
+  color: var(--ink-70);
+  text-wrap: pretty;
+}
+.hero2__lead { display: block; margin-top: 10px; color: var(--ink); font-weight: 600; }
+.hero2__cta { margin-top: 28px; }
+
+/* ------------------------------------------------- stage + glazen paneel -- */
+.hero2__stage {
+  position: relative;
+  width: min(880px, 100%);
+  margin: clamp(34px, 4.6vh, 52px) auto 0;
+  padding-bottom: clamp(40px, 6vh, 72px);
+}
+/* foto-slot: geef #heroPhoto een src, haal [hidden] weg → beeld vult de
+   stage als achtergrond, het glazen paneel blijft ervoor zweven */
+.hero2__photo { display: none; }
+.hero2__photo:not([hidden]) {
+  display: block;
+  position: absolute; inset: -8% -6% 4% -6%;
+  width: 112%; height: auto; max-width: none;
+  border-radius: 28px;
+  object-fit: cover;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.hero2__panel {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  outline: 1px solid rgba(22, 36, 61, 0.08);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  box-shadow:
+    0 48px 90px -38px rgba(22, 36, 61, 0.34),
+    0 10px 28px -14px rgba(22, 36, 61, 0.14);
+  overflow: hidden;
+}
+/* reflectie over het glas */
+.hero2__panel::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.28) 100%);
+  pointer-events: none;
+}
+.hero2__panel-head {
+  position: relative;
+  display: flex; align-items: center; justify-content: flex-start; gap: 14px;
+  padding: 13px 20px;
+  border-bottom: 1px solid rgba(22, 36, 61, 0.10);
+}
+.hero2__panel-title {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-55);
+}
+.hero2__panel-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 216px minmax(0, 1fr);
+}
+.hero2__rail {
+  display: flex; flex-direction: column; gap: 18px;
+  padding: 18px 20px 52px;
+  border-right: 1px solid rgba(22, 36, 61, 0.10);
+  text-align: left;
+}
+.hero2__rail-title {
+  display: block;
+  font-family: var(--mono); font-size: 9.5px; font-weight: 500;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-55);
+  margin-bottom: 8px;
+}
+.hero2 .graph__metrics { padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.hero2 .graph__chips { padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.hero2 .graph__chip { background: rgba(255, 255, 255, 0.55); }
+.hero2 .graph__chip.is-on { background: var(--ink); color: var(--paper); }
+.hero2 .graph__detail { padding: 0; max-width: 150px; }
+.hero2__dash { text-align: left; display: flex; flex-direction: column; }
+.hero2 .graph__out-body { padding: 18px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+.hero2 .gph-viz { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.hero2 .gph-chart { flex: 1; height: auto; min-height: 76px; max-height: 250px; }
+.hero2 .gph-chart--var { flex: 1; height: auto; min-height: 64px; max-height: 130px; max-width: 340px; }
+.hero2 .gph-var-legend { max-width: 340px; }
+.hero2 .graph__tags { margin-top: auto; padding-top: 16px; }
+.hero2 .graph__kpi-label { font-size: 11px; }
+.hero2 .graph__kpi-value {
+  font-family: 'Archivo', var(--sans);
+  font-weight: 750;
+  font-size: clamp(30px, 3.2vw, 42px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.hero2 .graph__kpi-sub { font-size: 11.5px; margin-bottom: 4px; }
+.hero2 .gph-viz { margin-top: 12px; }
+
+/* ------------------------------------------------- zwevende glasskaartjes - */
+.hero2__card {
+  position: absolute;
+  z-index: 2;
+  display: flex; align-items: center; gap: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  outline: 1px solid rgba(22, 36, 61, 0.08);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 24px 48px -22px rgba(22, 36, 61, 0.30);
+  padding: 12px 18px;
+  text-align: left;
+}
+.hero2__card-text { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.45; text-wrap: balance; }
+.hero2__card--fit { top: -22px; right: -56px; }
+.hero2__card--fit .hero2__card-text { font-family: var(--mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.02em; color: var(--ink-70); text-wrap: normal; white-space: nowrap; }
+.hero2__card-dot {
+  flex: none; width: 9px; height: 9px; border-radius: 999px;
+  background: linear-gradient(135deg, #B0793F, #C9A14E);
+  box-shadow: 0 0 0 4px rgba(201, 161, 78, 0.18);
+}
+.hero2__card--who { bottom: clamp(14px, 3.5vh, 40px); left: -56px; max-width: 280px; }
+.hero2__card-avatars { display: flex; flex: none; }
+.hero2__card-avatars img {
+  width: 40px; height: 40px; border-radius: 999px; object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 8px rgba(22, 36, 61, 0.18);
+}
+.hero2__card-avatars img + img { margin-left: -12px; }
+
+/* --------------------------------------------------------- entreemoment --- */
+@keyframes hero2Rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.hero2__kicker { animation: hero2Rise .55s cubic-bezier(.22,1,.36,1) both; }
+.hero2__h1     { animation: hero2Rise .6s  cubic-bezier(.22,1,.36,1) .08s both; }
+.hero2__sub    { animation: hero2Rise .6s  cubic-bezier(.22,1,.36,1) .16s both; }
+.hero2__cta    { animation: hero2Rise .6s  cubic-bezier(.22,1,.36,1) .24s both; }
+.hero2__panel  { animation: hero2Rise .7s  cubic-bezier(.22,1,.36,1) .34s both; }
+.hero2__card--fit { animation: hero2Rise .6s cubic-bezier(.22,1,.36,1) .55s both; }
+.hero2__card--who { animation: hero2Rise .6s cubic-bezier(.22,1,.36,1) .68s both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero2__kicker, .hero2__h1, .hero2__sub, .hero2__cta,
+  .hero2__panel, .hero2__card--fit, .hero2__card--who { animation: none !important; }
+}
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 1080px) {
+  .hero2__card--fit { right: -12px; }
+  .hero2__card--who { left: -12px; }
+}
+@media (max-width: 900px) {
+  /* mobiele compositie: kop → intro/CTA → paneel → kaartjes gestapeld */
+  .hero2__stage { padding-bottom: clamp(28px, 5vh, 44px); }
+  .hero2__card { position: static; margin: 14px auto 0; width: fit-content; max-width: 100%; }
+  .hero2__card--fit { order: 2; }
+  .hero2__card--fit .hero2__card-text { white-space: normal; }
+  .hero2__panel-body { grid-template-columns: 1fr; }
+  .hero2__rail {
+    order: 2;
+    padding: 18px 20px 20px;
+    border-right: 0;
+    border-top: 1px solid rgba(22, 36, 61, 0.10);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px;
+  }
+  .hero2__rail-group--detail { grid-column: 1 / -1; }
+  .hero2 .graph__metrics { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; }
+  .hero2__dash { order: 1; }
+}
+@media (max-width: 560px) {
+  .hero2__h1 { font-size: clamp(30px, 9.2vw, 40px); }
+  .hero2__kicker { font-size: 10px; letter-spacing: 0.12em; max-width: 100%; }
+  .hero2__rail { grid-template-columns: 1fr; padding: 16px 18px 18px; }
+  .hero2 .graph__out-body { padding: 16px 18px 18px; }
+  .hero2__card--fit .hero2__card-text { font-size: 10.5px; }
+}
+/* ============================== DL: bronnen → datalaag → dashboard =======
+   Studio-productstijl: fysiek ogende tegels met zachte studioschaduwen op
+   een warm paneel; zelfde beeldtaal als de hero-fotocompositie. */
+.dl { background: #FDFCF9; border-top: 1px solid var(--hair-soft, rgba(22,36,61,.1)); padding: clamp(56px, 8vw, 104px) 0; }
+.dl-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.dl-h2 { font-family: 'Archivo', var(--sans); font-weight: 780; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.015em; color: var(--ink, #16243D); margin: 14px 0 20px; }
+.dl-h2 span { display: block; }
+.dl-h2-accent { color: #8F5F2A; }
+.dl-body { color: rgba(22,36,61,.74); max-width: 46ch; margin: 0 0 16px; }
+.dl-lead { font-weight: 600; color: var(--ink, #16243D); max-width: 44ch; margin: 0 0 26px; }
+.dl-btn { display: inline-flex; align-items: center; gap: 10px; }
+
+/* paneel als productfoto: warm vlak, studio-sweep, gelaagde schaduw */
+.dl-stage { position: relative; }
+.dl-photo:not([hidden]) { width: 100%; border-radius: 10px; box-shadow: 0 30px 60px rgba(22,36,61,.16); }
+.dl-photo:not([hidden]) + .dl-panel { display: none; }
+.dl-panel { position: relative; background:
+    radial-gradient(120% 90% at 50% 0%, #FFFFFF 0%, #FAF7F1 58%, #F1EDE4 100%);
+  border: 1px solid rgba(22,36,61,.08); border-radius: 10px;
+  box-shadow: 0 34px 64px rgba(22,36,61,.13), 0 6px 16px rgba(22,36,61,.06);
+  padding: clamp(18px, 2.4vw, 30px); }
+.dl-panel-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(22,36,61,.5); margin-bottom: 20px; }
+.dl-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: clamp(10px, 1.6vw, 22px); align-items: center; }
+
+/* bron-tegels: fysiek, zwevend */
+.dl-sources { display: flex; flex-direction: column; gap: 14px; }
+.dl-src { position: relative; display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid rgba(22,36,61,.07); border-radius: 8px; padding: 12px 14px;
+  box-shadow: 0 14px 26px rgba(22,36,61,.09), 0 2px 6px rgba(22,36,61,.05); }
+.dl-src:nth-child(2) { transform: translateX(8px); }
+.dl-src-ic { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,.14); }
+.dl-src-ic--xl { background: #1F8A4C; }
+.dl-src-ic--erp { background: #3E6FA8; }
+.dl-src-ic--ex { background: #C0563F; }
+.dl-src-eur { color: #fff; font-weight: 800; font-size: 16px; }
+.dl-src-tx { display: flex; flex-direction: column; line-height: 1.25; }
+.dl-src-tx strong { font-size: 14px; color: var(--ink, #16243D); }
+.dl-src-tx em { font-style: normal; font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(22,36,61,.5); }
+.dl-src-dot { position: absolute; right: 12px; top: 12px; width: 6px; height: 6px; border-radius: 999px; }
+
+/* kern: datalaag-schijf met AI-chip */
+.dl-corewrap { position: relative; display: flex; align-items: center; }
+.dl-wire { width: clamp(10px, 1.6vw, 24px); border-top: 2px dashed rgba(143,95,42,.5); }
+.dl-core { position: relative; width: clamp(96px, 10vw, 124px); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(90% 90% at 32% 26%, #FFFFFF 0%, #F4EFE6 55%, #E8E1D2 100%);
+  box-shadow: 0 18px 34px rgba(22,36,61,.14), inset 0 2px 4px #fff, inset 0 -6px 12px rgba(22,36,61,.07);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.dl-core-ring { position: absolute; inset: -9px; border: 1px dashed rgba(143,95,42,.45); border-radius: 50%; }
+.dl-core-f { font-family: var(--serif, Georgia); font-size: 26px; font-weight: 600; color: var(--ink, #16243D); }
+.dl-core-cap { font-family: var(--mono); font-size: 7.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(22,36,61,.55); text-align: center; max-width: 9ch; line-height: 1.5; }
+.dl-core-ai { position: absolute; top: -7px; right: -13px; background: #8F5F2A; color: #fff; font-family: var(--mono); font-size: 9px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; box-shadow: 0 6px 14px rgba(143,95,42,.35); }
+
+/* dashboard-kaart */
+.dl-dash { background: #fff; border: 1px solid rgba(22,36,61,.08); border-radius: 10px; padding: 16px 16px 14px;
+  box-shadow: 0 20px 40px rgba(22,36,61,.12), 0 3px 8px rgba(22,36,61,.05); }
+.dl-dash-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(22,36,61,.08); padding-bottom: 10px; margin-bottom: 10px; }
+.dl-dash-head em { font-style: normal; font-weight: 650; font-size: 14px; color: var(--ink, #16243D); }
+.dl-live { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #1F8A4C; }
+.dl-live i { width: 6px; height: 6px; border-radius: 999px; background: #1F8A4C; }
+.dl-krow { display: grid; grid-template-columns: auto 1fr auto auto; align-items: baseline; gap: 8px; padding: 6px 0; font-size: 13.5px; }
+.dl-kdot { width: 6px; height: 6px; border-radius: 999px; align-self: center; }
+.dl-klabel { color: rgba(22,36,61,.66); }
+.dl-kval { font-weight: 700; color: var(--ink, #16243D); font-variant-numeric: tabular-nums; }
+.dl-kdelta { font-family: var(--mono); font-size: 10px; }
+.dl-up { color: #1F8A4C; } .dl-down { color: #C0563F; }
+.dl-chart { margin-top: 10px; border: 1px solid rgba(22,36,61,.08); border-radius: 8px; padding: 10px 10px 6px; background: #FEFDFB; }
+.dl-chart-cap { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.dl-chart-cap span:first-child { font-size: 12px; font-weight: 650; color: var(--ink, #16243D); }
+.dl-chart-meta { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: rgba(22,36,61,.45); }
+.dl-chart svg { width: 100%; height: 58px; display: block; }
+.dl-foot { display: flex; justify-content: center; gap: 10px; margin: 18px 0 0; font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(22,36,61,.55); }
+.dl-foot-arrow { color: #8F5F2A; }
+
+@media (max-width: 980px) {
+  .dl-grid { grid-template-columns: 1fr; }
+  .dl-flow { grid-template-columns: 1fr; justify-items: center; }
+  .dl-sources { flex-direction: row; width: 100%; justify-content: space-between; gap: 10px; }
+  .dl-src { flex: 1; flex-direction: column; text-align: center; gap: 8px; padding: 12px 8px; }
+  .dl-src:nth-child(2) { transform: none; }
+  .dl-src-dot { display: none; }
+  .dl-corewrap { transform: rotate(90deg); margin: 4px 0; }
+  .dl-corewrap .dl-core { transform: rotate(-90deg); }
+  .dl-dash { width: 100%; }
+}
+
+/* dl: ademruimte in het dashboardkaartje */
+@media (min-width: 981px) {
+  .dl-flow { grid-template-columns: minmax(0, 0.9fr) auto minmax(230px, 1.3fr); }
+}
+.dl-dash-head em, .dl-klabel, .dl-kval, .dl-kdelta, .dl-chart-cap span:first-child, .dl-chart-meta { white-space: nowrap; }
+.dl-krow { font-size: 13px; gap: 7px; }
+.dl-kval { font-size: 13.5px; }
+.dl-src-tx em { white-space: nowrap; }
+@media (max-width: 1180px) and (min-width: 981px) {
+  .dl-src-tx em { display: none; }
+  .dl-core-cap { display: none; }
+}
+
+/* dl mobiel: min-content temmen zodat het raster binnen de viewport blijft */
+@media (max-width: 980px) {
+  .dl-grid, .dl-flow { grid-template-columns: minmax(0, 1fr); }
+  .dl-src-tx em { display: none; }
+  .dl-src { padding: 10px 6px; }
+  .dl-klabel { white-space: normal; }
+  .dl-chart-cap span:first-child { white-space: normal; }
+}
+
+/* dl desktop: bronkolom krijgt een vloer zodat tegels niet over de schijf schuiven */
+@media (min-width: 981px) {
+  .dl-flow { grid-template-columns: minmax(196px, 0.85fr) auto minmax(240px, 1.25fr); }
+  .dl-src { overflow: hidden; }
+  .dl-src:nth-child(2) { transform: translateX(6px); }
+  .dl-panel { padding-left: clamp(14px, 1.6vw, 22px); padding-right: clamp(14px, 1.6vw, 22px); }
+}
+
+/* ============================== DL: leven in het paneel ==================
+   De data moet zichtbaar stromen: marcherende stippels van bron naar
+   datalaag, een langzaam draaiende ring, een ademende schijf en cijfers
+   die één keer optellen. Alles staat uit onder prefers-reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* stippellijnen als marcherende stroom (border → achtergrond zodat hij beweegt) */
+  .dl-wire { border-top: 0; height: 2px; border-radius: 2px;
+    background-image: repeating-linear-gradient(90deg, rgba(143,95,42,.62) 0 5px, transparent 5px 11px);
+    background-size: 11px 2px; }
+  .dl-wire--in  { animation: dlFlow 1.1s linear infinite; }
+  .dl-wire--out { animation: dlFlow 1.1s linear infinite .25s; }
+  @keyframes dlFlow { to { background-position-x: 11px; } }
+
+  /* pakketje dat over de inkomende lijn naar de schijf reist */
+  .dl-wire--in::after, .dl-wire--out::after {
+    content: ""; position: absolute; top: 50%; width: 5px; height: 5px; border-radius: 999px;
+    background: #8F5F2A; box-shadow: 0 0 0 3px rgba(143,95,42,.16);
+    transform: translateY(-50%); }
+  .dl-wire--in::after  { animation: dlPacketIn 2.6s cubic-bezier(.4,0,.2,1) infinite; }
+  .dl-wire--out::after { animation: dlPacketOut 2.6s cubic-bezier(.4,0,.2,1) infinite 1.3s; }
+  @keyframes dlPacketIn  { 0% { left: -2px; opacity: 0; } 15% { opacity: 1; } 75%, 100% { left: 100%; opacity: 0; } }
+  @keyframes dlPacketOut { 0% { left: -2px; opacity: 0; } 15% { opacity: 1; } 75%, 100% { left: 100%; opacity: 0; } }
+
+  /* de ring draait traag; de schijf ademt licht */
+  .dl-core-ring { animation: dlSpin 26s linear infinite; }
+  @keyframes dlSpin { to { transform: rotate(360deg); } }
+  .dl-core { animation: dlBreathe 6s ease-in-out infinite; }
+  @keyframes dlBreathe {
+    0%, 100% { box-shadow: 0 18px 34px rgba(22,36,61,.14), inset 0 2px 4px #fff, inset 0 -6px 12px rgba(22,36,61,.07); }
+    50%      { box-shadow: 0 20px 40px rgba(143,95,42,.20), inset 0 2px 4px #fff, inset 0 -6px 12px rgba(22,36,61,.07); }
+  }
+  .dl-core-ai { animation: dlChip 6s ease-in-out infinite; }
+  @keyframes dlChip { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+
+  /* bronnen: elk stipje licht om beurten op — er komt data binnen */
+  .dl-src-dot { animation: dlPing 3.6s ease-in-out infinite; }
+  .dl-src:nth-child(2) .dl-src-dot { animation-delay: 1.2s; }
+  .dl-src:nth-child(3) .dl-src-dot { animation-delay: 2.4s; }
+  @keyframes dlPing { 0%, 70%, 100% { opacity: .45; transform: scale(1); } 12% { opacity: 1; transform: scale(1.5); } }
+
+  /* live-lampje in het dashboard */
+  .dl-live i { animation: dlPing 2.4s ease-in-out infinite; }
+
+  /* brontegel reageert op aanwijzen */
+  .dl-src { transition: transform .22s cubic-bezier(.4,0,.2,1), box-shadow .22s ease; }
+  .dl-src:hover { transform: translateY(-3px); box-shadow: 0 20px 34px rgba(22,36,61,.13), 0 3px 8px rgba(22,36,61,.06); }
+  .dl-src:nth-child(2):hover { transform: translateX(6px) translateY(-3px); }
+
+  /* eenmalige entree zodra de sectie in beeld komt */
+  .dl-panel .dl-src, .dl-panel .dl-corewrap, .dl-panel .dl-dash { opacity: 0; transform: translateY(12px); }
+  .dl-panel.is-live .dl-src, .dl-panel.is-live .dl-corewrap, .dl-panel.is-live .dl-dash {
+    opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
+  .dl-panel.is-live .dl-src:nth-child(2) { transform: translateX(8px); transition-delay: .1s; }
+  .dl-panel.is-live .dl-src:nth-child(3) { transition-delay: .2s; }
+  .dl-panel.is-live .dl-corewrap { transition-delay: .3s; }
+  .dl-panel.is-live .dl-dash { transition-delay: .45s; }
+
+  /* de grafieklijn tekent zichzelf één keer */
+  .dl-panel.is-live .dl-chart .dl-line { stroke-dasharray: 300; stroke-dashoffset: 300; animation: dlDraw 1.4s ease-out .7s forwards; }
+  @keyframes dlDraw { to { stroke-dashoffset: 0; } }
+}
+
+/* het pakketje reist binnen zijn eigen lijn, niet over het hele blok */
+.dl-wire { position: relative; }
+
+/* ============ DL: rustiger, en merktegels met logo-slot ==================
+   Alle knipperende en pulserende elementen zijn eruit. Wat overblijft is
+   één trage, doorlopende stroom van bron naar dashboard — verder staat
+   het paneel stil. */
+@media (prefers-reduced-motion: no-preference) {
+  /* uit: bronstipjes, live-lampje, ademende schijf, deinend AI-chipje, draaiende ring */
+  .dl-src-dot, .dl-live i, .dl-core, .dl-core-ai, .dl-core-ring { animation: none !important; }
+  .dl-core { box-shadow: 0 18px 34px rgba(22,36,61,.14), inset 0 2px 4px #fff, inset 0 -6px 12px rgba(22,36,61,.07); }
+
+  /* de stroom: traag en met pauze, één pakketje tegelijk */
+  .dl-wire--in  { animation: dlFlow 2.6s linear infinite; }
+  .dl-wire--out { animation: dlFlow 2.6s linear infinite .6s; }
+  .dl-wire--in::after  { animation: dlPacketIn 5.2s cubic-bezier(.45,0,.25,1) infinite; }
+  .dl-wire--out::after { animation: dlPacketOut 5.2s cubic-bezier(.45,0,.25,1) infinite 1.1s; }
+  @keyframes dlPacketIn  { 0% { left: -2px; opacity: 0; } 8% { opacity: 1; } 34% { left: 100%; opacity: 0; } 100% { left: 100%; opacity: 0; } }
+  @keyframes dlPacketOut { 0% { left: -2px; opacity: 0; } 8% { opacity: 1; } 34% { left: 100%; opacity: 0; } 100% { left: 100%; opacity: 0; } }
+}
+
+/* merktegels: vierkant logovlak met de merkkleur als dunne accentrand */
+.dl-src-dot { display: none; }
+.dl-src { gap: 13px; padding: 12px 15px; }
+.dl-src-ic { position: relative; width: 38px; height: 38px; border-radius: 8px; background: #fff;
+  border: 1px solid rgba(22,36,61,.10); box-shadow: none; overflow: hidden; }
+.dl-src-ic::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--merk, #8F5F2A); }
+.dl-src-logo { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.dl-src-logo:not([hidden]) + .dl-src-wm { display: none; }
+.dl-src-wm { font-family: 'Archivo', var(--sans); font-weight: 780; font-size: 13px; letter-spacing: -0.02em;
+  color: var(--merk, #16243D); line-height: 1; }
+.dl-src-tx strong { font-size: 13.5px; }
+.dl-sources { gap: 11px; }
+@media (min-width: 981px) {
+  .dl-src:nth-child(2), .dl-src:nth-child(4) { transform: translateX(7px); }
+  .dl-src:nth-child(2):hover, .dl-src:nth-child(4):hover { transform: translateX(7px) translateY(-3px); }
+  .dl-panel.is-live .dl-src:nth-child(2), .dl-panel.is-live .dl-src:nth-child(4) { transform: translateX(7px); }
+  .dl-panel.is-live .dl-src:nth-child(4) { transition-delay: .3s; }
+  .dl-panel.is-live .dl-corewrap { transition-delay: .4s; }
+  .dl-panel.is-live .dl-dash { transition-delay: .55s; }
+}
+@media (max-width: 980px) {
+  .dl-sources { flex-wrap: wrap; }
+  .dl-src { flex: 1 1 44%; }
+}
+
+/* dl desktop: het paneel krijgt meer breedte en elke kolom een ondergrens,
+   zodat de datalaag-schijf niet meer wordt platgedrukt door vier tegels. */
+@media (min-width: 981px) {
+  .dl-grid { grid-template-columns: minmax(0, 4.2fr) minmax(0, 7.8fr); }
+  .dl-flow { grid-template-columns: minmax(178px, 0.8fr) minmax(148px, auto) minmax(238px, 1.25fr); gap: 12px; }
+  .dl-core { width: clamp(92px, 8vw, 112px); }
+  .dl-wire { width: clamp(8px, 1.1vw, 17px); }
+}
+
+/* logoplaatshouder: één letter in de merkkleur, netjes gecentreerd.
+   Zodra het echte logobestand in het <img>-slot staat, verdwijnt hij. */
+.dl-src-wm { font-size: 17px; font-weight: 800; }
+.dl-src-ic { display: inline-flex; align-items: center; justify-content: center; }
+
+/* het lege logo-slot mag niet meetellen: de generieke img-regel
+   (display:block) verslaat anders het hidden-attribuut. */
+.dl-src-logo[hidden] { display: none !important; }
+
+/* mobiel: de stroom loopt van boven naar beneden, zonder de hele
+   kern te kantelen (dat zette het AI-chipje op zijn kant). */
+@media (max-width: 980px) {
+  .dl-corewrap { transform: none; flex-direction: column; align-items: center; gap: 0; margin: 2px 0; }
+  .dl-corewrap .dl-core { transform: none; }
+  .dl-wire { width: 2px; height: 22px; border-top: 0;
+    background-image: repeating-linear-gradient(180deg, rgba(143,95,42,.62) 0 5px, transparent 5px 11px);
+    background-size: 2px 11px; }
+  .dl-wire--in::after, .dl-wire--out::after { left: 50%; top: auto; transform: translateX(-50%); }
+}
+@media (max-width: 980px) and (prefers-reduced-motion: no-preference) {
+  .dl-wire--in, .dl-wire--out { animation: dlFlowY 2.6s linear infinite; }
+  .dl-wire--out { animation-delay: .6s; }
+  @keyframes dlFlowY { to { background-position-y: 11px; } }
+  .dl-wire--in::after  { animation: dlPacketY 5.2s cubic-bezier(.45,0,.25,1) infinite; }
+  .dl-wire--out::after { animation: dlPacketY 5.2s cubic-bezier(.45,0,.25,1) infinite 1.1s; }
+  @keyframes dlPacketY { 0% { top: -2px; opacity: 0; } 8% { opacity: 1; } 34% { top: 100%; opacity: 0; } 100% { top: 100%; opacity: 0; } }
+}
+
+/* DL-kicker in de stijl van de overige sectielabels op deze pagina. */
+.dl-kicker { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 11.5px;
+  font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--copper); margin: 0 0 4px; }
+.dl-kicker-rule { width: 26px; height: 1px; background: currentColor; opacity: .8; flex-shrink: 0; }
+.dl-btn { margin-top: 4px; }
