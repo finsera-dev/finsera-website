@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.finsera.nl/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/Diensten.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/diensten</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/Over.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/over</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/Cases.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/cases</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/Contact.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/contact</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/Blog.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/blog</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

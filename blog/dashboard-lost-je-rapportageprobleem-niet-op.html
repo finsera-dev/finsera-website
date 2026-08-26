@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Een dashboard lost je rapportageprobleem niet op — Finsera</title>
   <meta name="description" content="Waarom bedrijven die eerst een dashboard bouwen vaak twee keer betalen, en wat er wél eerst moet staan: definities, bronnen, proces en eigenaarschap.">
-  <link rel="canonical" href="https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op.html">
+  <link rel="canonical" href="https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph / Twitter -->
@@ -17,7 +17,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Een dashboard lost je rapportageprobleem niet op">
   <meta property="og:description" content="Waarom bedrijven die eerst een dashboard bouwen vaak twee keer betalen, en wat er wél eerst moet staan.">
-  <meta property="og:url" content="https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op.html">
+  <meta property="og:url" content="https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op">
   <meta property="og:image" content="https://www.finsera.nl/img/og-finsera.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -57,37 +57,76 @@
     .art-cta__box { background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%); border-radius: 22px; padding: clamp(28px,4vw,44px); }
     .art-cta__box h2 { font-family: var(--serif); font-size: clamp(21px,2.4vw,27px); font-weight: 700; color: var(--bg); margin: 0 0 12px; line-height: 1.25; text-wrap: balance; }
     .art-cta__box p { font-size: 16px; line-height: 1.6; color: rgba(247,246,243,.78); margin: 0 0 24px; text-wrap: pretty; }
+
+    .art-author { max-width: 760px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) clamp(40px,5vw,56px); }
+    .art-author__box { display: flex; gap: 18px; align-items: flex-start; border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px,3vw,28px); background: rgba(255,255,255,.6); }
+    .art-author__photo { width: 64px; height: 64px; border-radius: 999px; overflow: hidden; flex-shrink: 0; background: linear-gradient(150deg,#B0793F,#8a5d2e); }
+    .art-author__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
+    .art-author__name { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--navy); margin: 0 0 2px; }
+    .art-author__role { font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--copper); margin: 0 0 10px; }
+    .art-author__bio { font-size: 15px; line-height: 1.62; color: var(--text-2); margin: 0 0 10px; text-wrap: pretty; }
+    .art-author__link { font-size: 14px; font-weight: 600; color: var(--copper); text-decoration: none; }
+    .art-author__link:hover { text-decoration: underline; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op#webpage",
+        "url": "https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op",
+        "name": "Een dashboard lost je rapportageprobleem niet op — Finsera",
+        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
+        "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "inLanguage": "nl-NL"
+      }      ,
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op#artikel",
+        "headline": "Een dashboard lost je rapportageprobleem niet op",
+        "description": "Waarom bedrijven die eerst een dashboard bouwen vaak twee keer betalen, en wat er wél eerst moet staan: definities, bronnen, proces en eigenaarschap.",
+        "datePublished": "2026-08-25",
+        "dateModified": "2026-08-25",
+        "inLanguage": "nl-NL",
+        "author": { "@id": "https://www.finsera.nl/over#oner-yucel" },
+        "publisher": { "@id": "https://www.finsera.nl/#organisatie" },
+        "image": "https://www.finsera.nl/img/og-finsera.jpg",
+        "mainEntityOfPage": { "@id": "https://www.finsera.nl/blog/dashboard-lost-je-rapportageprobleem-niet-op#webpage" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <a class="skip-link" href="#inhoud">Naar de inhoud</a>
 
 <nav class="nav">
-  <a href="../index.html" class="nav__brand"><span class="nav__logo"><span></span></span><span class="nav__wordmark">Finsera</span></a>
+  <a href="/" class="nav__brand"><span class="nav__logo"><span></span></span><span class="nav__wordmark">Finsera</span></a>
   <div class="nav__links">
-    <a href="../index.html" class="nav__link" data-i18n="navHome">Home</a>
-    <a href="../Over.html" class="nav__link" data-i18n="navOver">Over Finsera</a>
-    <a href="../Diensten.html" class="nav__link" data-i18n="navDiensten">Diensten</a>
-    <a href="../Cases.html" class="nav__link" data-i18n="navCases">Cases</a>
-    <a href="../Blog.html" class="nav__link is-active" data-i18n="navBlog">Blog</a>
-    <a href="../Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
+    <a href="/" class="nav__link" data-i18n="navHome">Home</a>
+    <a href="/over" class="nav__link" data-i18n="navOver">Over Finsera</a>
+    <a href="/diensten" class="nav__link" data-i18n="navDiensten">Diensten</a>
+    <a href="/cases" class="nav__link" data-i18n="navCases">Cases</a>
+    <a href="/blog" class="nav__link is-active" data-i18n="navBlog">Blog</a>
+    <a href="/contact" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
   <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg></button>
   <div class="nav__mobile" data-mobile hidden>
-    <a href="../index.html" data-i18n="navHome">Home</a>
-    <a href="../Over.html" data-i18n="navOver">Over Finsera</a>
-    <a href="../Diensten.html" data-i18n="navDiensten">Diensten</a>
-    <a href="../Cases.html" data-i18n="navCases">Cases</a>
-    <a href="../Blog.html" data-i18n="navBlog">Blog</a>
-    <a href="../Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
+    <a href="/" data-i18n="navHome">Home</a>
+    <a href="/over" data-i18n="navOver">Over Finsera</a>
+    <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+    <a href="/cases" data-i18n="navCases">Cases</a>
+    <a href="/blog" data-i18n="navBlog">Blog</a>
+    <a href="/contact" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
 <main id="inhoud">
   <article>
     <header class="art-hero">
-      <a class="art-back" href="../Blog.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>Alle inzichten</a>
+      <a class="art-back" href="/blog"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>Alle inzichten</a>
       <h1>Een dashboard lost je rapportageprobleem niet op</h1>
       <p class="art-lead">Bijna elk groeiend bedrijf dat bij ons aanklopt heeft hetzelfde plan: er moet een dashboard komen. Vaak is dat precies de verkeerde eerste stap — en betaal je er twee keer voor.</p>
       <div class="art-meta">
@@ -171,11 +210,23 @@
       <p>De bedrijven waar dit goed werkt, zijn zonder uitzondering de bedrijven die eerst de saaie vragen hebben beantwoord. Wat meten we, waar komt het vandaan, wie is ervoor verantwoordelijk. Daarna is het dashboard bouwen het makkelijke deel — en, belangrijker, wordt het ook echt gebruikt.</p>
     </div>
 
+    <aside class="art-author">
+      <div class="art-author__box">
+        <div class="art-author__photo"><img src="../img/team/oner-yucel.jpg" alt="Portret van Öner Yücel, Financial &amp; business consultant en medeoprichter van Finsera" width="128" height="128" loading="lazy" decoding="async"></div>
+        <div>
+          <p class="art-author__name">Öner Yücel</p>
+          <p class="art-author__role">Financial &amp; business consultant en medeoprichter van Finsera</p>
+          <p class="art-author__bio">Öner heeft ruim tien jaar ervaring in accountancy, audit en control — onder meer bij de Belastingdienst/Douane en als interim finance manager. Bij Finsera richt hij zich op managementrapportage, financiële processen en interne beheersing bij groeiende middelgrote bedrijven.</p>
+          <a class="art-author__link" href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener">Öner op LinkedIn &rarr;</a>
+        </div>
+      </div>
+    </aside>
+
     <div class="art-cta">
       <div class="art-cta__box">
         <h2>Benieuwd of jouw fundament klopt?</h2>
         <p>In een gesprek van dertig minuten lopen we door je huidige opzet en zeggen we eerlijk waar het schuurt. Vrijblijvend, en zonder verkooppraatje.</p>
-        <a href="../Contact.html" class="btn-gold">Plan een gesprek</a>
+        <a href="/contact" class="btn-gold">Plan een gesprek</a>
       </div>
     </div>
   </article>
@@ -189,17 +240,17 @@
         <span class="footer__wordmark">Finsera</span>
       </div>
       <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
-      <a href="../Contact.html" class="footer__cta"><span data-i18n="cta">Vraag de diagnose aan</span> <span>&rarr;</span></a>
+      <a href="/contact" class="footer__cta"><span data-i18n="cta">Vraag de diagnose aan</span> <span>&rarr;</span></a>
     </div>
     <div class="footer__cols">
       <div>
         <div class="footer__col-title" data-i18n="footNav">Navigatie</div>
         <div class="footer__col-links">
-          <a href="../index.html" data-i18n="navHome">Home</a>
-          <a href="../Over.html" data-i18n="navOver">Over Finsera</a>
-          <a href="../Diensten.html" data-i18n="navDiensten">Diensten</a>
-          <a href="../Cases.html">Cases</a>
-          <a href="../Blog.html">Blog</a>
+          <a href="/" data-i18n="navHome">Home</a>
+          <a href="/over" data-i18n="navOver">Over Finsera</a>
+          <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+          <a href="/cases">Cases</a>
+          <a href="/blog">Blog</a>
         </div>
       </div>
       <div>
@@ -214,7 +265,7 @@
   </div>
   <div class="footer__bottom">
     <span>&copy; 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
-    <span class="footer__legal"><a href="../Privacyverklaring.html" data-i18n="footPrivacy">Privacyverklaring</a></span>
+    <span class="footer__legal"><a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a></span>
   </div>
 </footer>
 
