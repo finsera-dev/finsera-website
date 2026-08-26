@@ -1803,7 +1803,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .dl-src:nth-child(2):hover { transform: translateX(6px) translateY(-3px); }
 
   /* eenmalige entree zodra de sectie in beeld komt */
-  .dl-panel .dl-src, .dl-panel .dl-corewrap, .dl-panel .dl-dash { opacity: 0; transform: translateY(12px); }
+  .dl-panel.is-armed:not(.is-live) .dl-src,
+  .dl-panel.is-armed:not(.is-live) .dl-corewrap,
+  .dl-panel.is-armed:not(.is-live) .dl-dash { opacity: 0; transform: translateY(12px); }
   .dl-panel.is-live .dl-src, .dl-panel.is-live .dl-corewrap, .dl-panel.is-live .dl-dash {
     opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
   .dl-panel.is-live .dl-src:nth-child(2) { transform: translateX(8px); transition-delay: .1s; }
