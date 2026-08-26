@@ -91,9 +91,6 @@
       .obanner__h1 { max-width: none; }
     }
 
-    /* de openingsalinea die eerder in de hero stond */
-    .over-lead { max-width: 900px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) var(--pad) clamp(16px, 3vw, 32px); }
-    .over-lead p { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.62; color: var(--text-2); margin: 0; text-wrap: pretty; }
     .over-band { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .over-band__inner { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
     .over-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); }
@@ -224,10 +221,6 @@
     </div>
   </header>
 
-  <section class="over-lead">
-    <p data-i18n="intro">Finsera is opgericht vanuit een ongebruikelijke combinatie: jarenlange ervaring met compliance en interne beheersing, hands-on ondernemerschap, en een accountancy-achtergrond in audit en rapportage. Precies het snijvlak waar groeiende bedrijven vastlopen: tussen de cijfers, de processen en de technologie.</p>
-  </section>
-
   <section class="over-band">
     <div class="over-band__inner over-2col">
       <div>
@@ -335,6 +328,8 @@
 <script>
 window.FINSERA_PAGE = {
   nl: {
+    // 'intro' staat niet meer op de pagina; de alinea is geparkeerd voor
+    // mogelijk hergebruik elders. Zie docs/geparkeerde-teksten.md.
     eyebrow: 'Over ons',
     h1a: 'Op het snijvlak van', h1b: 'cijfers, processen en technologie.',
     bannerSub: 'Finsera is twee mensen, en dat is een keuze. Je werkt altijd rechtstreeks met degenen die het werk ook doen — geen accountmanager, geen tussenlaag.',
