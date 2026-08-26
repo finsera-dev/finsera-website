@@ -2191,3 +2191,117 @@ body {
   border-top: 1px solid var(--hair-soft);
 }
 .svc__close .btn { flex: none; display: inline-flex; align-items: center; gap: 9px; }
+
+/* ==========================================================================
+   KLANTEN AAN HET WOORD — reviewkaarten met een donkere resultaatbalk
+   Overgenomen van het aangeleverde voorstel, op de eigen tokens: koper in
+   plaats van de losse accentkleur, geen tweede fontkoppeling, en de radii en
+   hairlines van de rest van de site. De initialen-cirkels zijn vervangen door
+   de echte portretten die al in img/cases staan.
+   ========================================================================== */
+.rev { padding-top: clamp(64px, 9vw, 130px); }
+.rev__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 1.8vw, 24px);
+  margin-top: clamp(30px, 4vw, 48px);
+}
+@media (max-width: 900px) { .rev__grid { grid-template-columns: 1fr; } }
+
+.rev__card {
+  display: flex; flex-direction: column;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--hair-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.rev__top { flex: 1; padding: clamp(24px, 2.8vw, 34px) clamp(22px, 2.6vw, 34px) clamp(20px, 2.4vw, 28px); }
+
+.rev__sector {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  margin: 0 0 clamp(16px, 2vw, 22px);
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-55);
+}
+.rev__tag {
+  background: rgba(143, 95, 42, 0.12);
+  color: var(--copper);
+  padding: 4px 10px; border-radius: 4px;
+}
+
+/* Alleen zichtbaar zodra er een goedgekeurd citaat in staat. */
+.rev__quote { margin: 0 0 18px; padding-left: 16px; border-left: 2px solid var(--copper); }
+.rev__quote p {
+  margin: 0; font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: clamp(18px, 1.7vw, 21px); line-height: 1.4; color: var(--ink);
+}
+
+.rev__lead {
+  margin: 0; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(18px, 1.65vw, 21px); line-height: 1.36;
+  letter-spacing: -0.01em; color: var(--ink);
+  max-width: 42ch; text-wrap: pretty;
+}
+
+.rev__by {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: clamp(20px, 2.4vw, 26px); padding-top: 18px;
+  border-top: 1px dashed var(--hair-soft);
+}
+.rev__avatar {
+  width: 52px; height: 52px; flex: none;
+  border-radius: 999px; object-fit: cover; object-position: 46% 30%;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 12px -4px rgba(22, 36, 61, 0.28);
+}
+.rev__who { display: flex; flex-direction: column; gap: 3px; }
+.rev__who b { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.rev__who em {
+  font-style: normal; font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-55);
+}
+
+/* De resultaatbalk loopt vol-bloed onderin de kaart: een stempel, geen kader. */
+.rev__stat {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 8px 20px;
+  padding: clamp(16px, 1.9vw, 20px) clamp(22px, 2.6vw, 34px);
+  background: var(--navy-band); color: var(--band-paper);
+}
+.rev__stat-lab {
+  grid-column: 1; font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--band-paper-70);
+}
+.rev__stat-val {
+  grid-column: 1; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(19px, 1.7vw, 23px); line-height: 1.16; text-wrap: balance;
+}
+.rev__stat-val em { font-style: italic; color: var(--gold-soft); }
+.rev__stat-lnk {
+  grid-column: 2; grid-row: 1 / span 2; align-self: center;
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  font-size: 13px; font-weight: 500; color: var(--band-paper);
+  text-decoration: none;
+  padding: 8px 15px; border-radius: 999px;
+  border: 1px solid var(--band-hair);
+  transition: background .2s ease, border-color .2s ease;
+}
+.rev__stat-lnk:hover { background: var(--copper); border-color: var(--copper); }
+@media (max-width: 520px) {
+  .rev__stat { grid-template-columns: 1fr; }
+  .rev__stat-lnk { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
+}
+
+.rev__foot {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 20px 40px;
+  margin-top: clamp(30px, 4vw, 44px);
+  padding-top: clamp(24px, 3vw, 34px);
+  border-top: 1px solid var(--hair-soft);
+}
+.rev__note {
+  margin: 0; font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-55);
+}
+.rev__foot .btn { flex: none; display: inline-flex; align-items: center; gap: 9px; }

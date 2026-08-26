@@ -396,41 +396,69 @@
     </div>
   </section>
 
-  <!-- ====================================================== CASES ======== -->
-  <section class="cases">
+  <!-- ================================== KLANTEN AAN HET WOORD ============
+       Reviewkaarten: portret en naam van de klant boven, een donkere balk met
+       het resultaat onderaan. Het citaatblok per kaart staat bewust op
+       [hidden] met lege i18n-sleutels: er komt hier alleen een citaat te
+       staan als de klant het zelf heeft goedgekeurd. Haal dan [hidden] weg en
+       vul review1Quote / review2Quote in beide woordenlijsten. -->
+  <section id="reviews" class="rev">
     <div class="wrap">
       <div class="sect-head">
         <span class="sect-num">03</span>
         <h2 class="sect-h2" data-i18n="casesTitle">Resultaten uit de praktijk</h2>
       </div>
+      <p class="sect-intro" data-i18n="revIntro">Twee klanten, en wat er in hun eigen omgeving veranderde.</p>
 
-      <div class="cases__list">
-        <article class="case">
-          <div class="case__meta">
-            <span class="case__tag" data-i18n="case1Tag">E-commerce</span>
-            <span class="case__srcs"><span data-i18n="case1Chip1">Webshop</span> · <span data-i18n="case1Chip2">Marketing</span> · <span data-i18n="case1Chip3">Boekhouding</span></span>
-            <svg class="case__viz" viewBox="0 0 132 56" aria-hidden="true"><line x1="2" y1="40" x2="118" y2="40" stroke="rgba(22,36,61,0.22)" stroke-width="1" stroke-dasharray="3 3"/><rect x="6" y="18" width="9" height="22" fill="#8F5F2A"/><rect x="21" y="10" width="9" height="30" fill="#8F5F2A"/><rect x="36" y="24" width="9" height="16" fill="#8F5F2A"/><rect x="51" y="40" width="9" height="8" fill="rgba(22,36,61,0.35)"/><rect x="66" y="16" width="9" height="24" fill="#8F5F2A"/><rect x="81" y="40" width="9" height="5" fill="rgba(22,36,61,0.35)"/><rect x="96" y="9" width="9" height="31" fill="#8F5F2A"/></svg>
+      <div class="rev__grid">
+        <article class="rev__card">
+          <div class="rev__top">
+            <p class="rev__sector"><span class="rev__tag" data-i18n="case1Tag">E-commerce</span> <span data-i18n="case1Sector">Paardensport</span></p>
+            <blockquote class="rev__quote" hidden>
+              <p data-i18n="review1Quote"></p>
+            </blockquote>
+            <p class="rev__lead" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
+            <div class="rev__by">
+              <img class="rev__avatar" src="img/cases/dochorse-charlotte-van-der-pauw.webp" alt="" width="1080" height="676" decoding="async" loading="lazy">
+              <span class="rev__who">
+                <b data-i18n="case1Person">Charlotte van der Pauw</b>
+                <em>DocHorse</em>
+              </span>
+            </div>
           </div>
-          <div class="case__body">
-            <h3 class="case__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h3>
-            <p class="case__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.</p>
-            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+          <div class="rev__stat">
+            <span class="rev__stat-lab" data-i18n="revResultLabel">Resultaat</span>
+            <span class="rev__stat-val"><span data-i18n="case1StatA">Marge-inzicht per merk in</span> <em data-i18n="case1StatB">&eacute;&eacute;n dashboard</em></span>
+            <a class="rev__stat-lnk" href="/cases"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
-        <article class="case">
-          <div class="case__meta">
-            <span class="case__tag" data-i18n="case2Tag">Zorg</span>
-            <span class="case__srcs"><span data-i18n="case2Chip1">Boekhouding</span> · <span data-i18n="case2Chip2">Cliëntdata</span></span>
-            <span class="case__badge" data-i18n="case2Badge">AO/IB · audit-proof</span>
-            <svg class="case__viz" viewBox="0 0 132 56" aria-hidden="true"><line x1="2" y1="48" x2="130" y2="48" stroke="rgba(22,36,61,0.22)" stroke-width="1"/><rect x="14" y="16" width="9" height="32" fill="#8F5F2A"/><rect x="26" y="24" width="9" height="24" fill="rgba(22,36,61,0.55)"/><rect x="38" y="28" width="9" height="20" fill="rgba(22,36,61,0.25)"/><rect x="76" y="10" width="9" height="38" fill="#8F5F2A"/><rect x="88" y="20" width="9" height="28" fill="rgba(22,36,61,0.55)"/><rect x="100" y="25" width="9" height="23" fill="rgba(22,36,61,0.25)"/></svg>
+        <article class="rev__card">
+          <div class="rev__top">
+            <p class="rev__sector"><span class="rev__tag" data-i18n="case2Tag">Zorg</span> <span data-i18n="case2Badge">AO/IB &middot; audit-proof</span></p>
+            <blockquote class="rev__quote" hidden>
+              <p data-i18n="review2Quote"></p>
+            </blockquote>
+            <p class="rev__lead" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
+            <div class="rev__by">
+              <img class="rev__avatar" src="img/cases/duce-miriam-twilt-mendonca.webp" alt="" width="1200" height="1200" decoding="async" loading="lazy">
+              <span class="rev__who">
+                <b data-i18n="case2Person">Miriam Twilt-Mendon&ccedil;a</b>
+                <em>DUCE</em>
+              </span>
+            </div>
           </div>
-          <div class="case__body">
-            <h3 class="case__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h3>
-            <p class="case__result" data-i18n="case2Result">Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.</p>
-            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+          <div class="rev__stat">
+            <span class="rev__stat-lab" data-i18n="revResultLabel">Resultaat</span>
+            <span class="rev__stat-val"><span data-i18n="case2StatA">Van achteraf constateren naar</span> <em data-i18n="case2StatB">bijsturen per periode</em></span>
+            <a class="rev__stat-lnk" href="/cases"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
+      </div>
+
+      <div class="rev__foot">
+        <p class="rev__note" data-i18n="revNote">Resultaten uit de eigen omgeving van de klant</p>
+        <a href="/cases" class="btn"><span data-i18n="revAll">Bekijk alle cases</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
