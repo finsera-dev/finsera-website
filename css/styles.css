@@ -2409,3 +2409,8 @@ body {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px;
   font-size: 15.5px; color: var(--ink-70);
 }
+
+/* Het oorspronkelijke merkteken: een kompasroos met dunne punten, die meer
+   ruimte nodig heeft dan het eerdere schijfje om leesbaar te blijven. */
+.nav__mark { width: 27px; height: 27px; }
+.footer__mark { width: 25px; height: 25px; }
