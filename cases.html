@@ -95,6 +95,44 @@
     .caseref__quote p { font-family: var(--serif); font-weight: 380; font-size: clamp(18px, 1.8vw, 21px); line-height: 1.42; color: var(--ink); margin: 0; text-wrap: pretty; }
     .caseref__quote footer { margin-top: 10px; font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-55); }
     .caseref .link-arrow { margin-top: clamp(20px, 2.6vw, 28px); }
+
+    /* -- casestory: het uitgeschreven verhaal onder elke referentie -------- */
+    .casestory { padding: clamp(28px, 3.6vw, 44px) 0 clamp(40px, 5vw, 64px); max-width: 78ch; }
+    .casestory__label {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--ink-55);
+      margin: clamp(34px, 4vw, 46px) 0 12px;
+    }
+    .casestory__label:first-child { margin-top: 0; }
+    .casestory p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-70); text-wrap: pretty; }
+    .casestory p strong { color: var(--ink); font-weight: 600; }
+    .casestory__list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 11px; }
+    .casestory__list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start;
+      font-size: 16px; line-height: 1.55; color: var(--ink-70); }
+    .casestory__list b { color: var(--ink); font-weight: 600; }
+    .casestory__tick { color: var(--copper); font-weight: 700; line-height: 1.5; }
+    .casestory__tiles {
+      margin: clamp(26px, 3.4vw, 38px) 0 0; display: grid; gap: 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden;
+    }
+    .casestory__tile { padding: 18px clamp(16px, 2vw, 22px); border-left: 1px solid var(--hair); }
+    .casestory__tile:first-child { border-left: 0; }
+    .casestory__tile b { display: block; font-size: 15.5px; font-weight: 600; color: var(--ink); }
+    .casestory__tile span {
+      display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px;
+      line-height: 1.5; color: var(--ink-55);
+    }
+    .casestory__chips { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .casestory__chips span {
+      font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--ink-55);
+      border: 1px solid var(--hair); border-radius: 5px; padding: 5px 9px;
+    }
+    @media (max-width: 720px) {
+      .casestory__tiles { grid-template-columns: 1fr; }
+      .casestory__tile { border-left: 0; border-top: 1px solid var(--hair); }
+      .casestory__tile:first-child { border-top: 0; }
+    }
     @media (max-width: 820px) {
       .caseref, .caseref--flip { grid-template-columns: 1fr; }
       .caseref--flip .caseref__photo { order: 0; }
@@ -205,6 +243,34 @@
           </div>
         </article>
 
+        <div class="casestory">
+          <p class="casestory__label" data-i18n="storySituatie">De situatie</p>
+          <p data-i18n="c1Situatie">De omzet groeide, de voorraad groeide mee — maar niemand kon zeggen wélk merk daadwerkelijk geld opleverde. De cijfers zaten verspreid over de webshop, de boekhouding, Google Analytics en Meta. Vier bronnen, vier waarheden. De maandrapportage was een handmatige exercitie die pas halverwege de volgende maand klaar was, en tegen die tijd waren de beslissingen al genomen.</p>
+          <p class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</p>
+          <p data-i18n="c1Gedaan">Eerst het fundament: een liquiditeitsbegroting en een jaarbegroting tot op artikel- en kanaalniveau, zodat er iets was om aan af te meten. Daarna de maandrapportage opnieuw ingericht. Vervolgens alle bronsystemen samengebracht in één datawarehouse, dat elke nacht de Power BI-omgeving voedt — van scratch gebouwd, geen template.</p>
+          <ul class="casestory__list">
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P1b">Operationele pagina</b> <span data-i18n="c1P1">voor de directie — dagelijks en wekelijks te checken</span></span></li>
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P2b">Merkanalyse</b> <span data-i18n="c1P2">— omzet, inkoopwaarde en marge per merk, naast elkaar</span></span></li>
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P3b">Marketingpagina</b> <span data-i18n="c1P3">— advertentiekosten afgezet tegen marge, niet tegen omzet</span></span></li>
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P4b">Liquiditeits- en jaarbegroting</b> <span data-i18n="c1P4">als vaste meetlat</span></span></li>
+          </ul>
+          <p class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</p>
+          <p data-i18n="c1Oplevert">De directie opent ’s ochtends één pagina in plaats van vier systemen. Merken die hard liepen maar nauwelijks bijdroegen zijn zichtbaar geworden — en daarmee bespreekbaar. Advertentiebudget wordt beoordeeld op wat er onder de streep overblijft. De maandafsluiting is een controle geworden in plaats van een zoektocht.</p>
+          <div class="casestory__tiles">
+            <div class="casestory__tile"><b data-i18n="c1TileA">4 bronsystemen</b><span data-i18n="c1TileASub">samengebracht tot één rapportage</span></div>
+            <div class="casestory__tile"><b data-i18n="c1TileB">3 dashboardpagina’s</b><span data-i18n="c1TileBSub">directie, merk, marketing</span></div>
+            <div class="casestory__tile"><b data-i18n="c1TileC">Dagelijks actueel</b><span data-i18n="c1TileCSub">in plaats van maandelijks achteraf</span></div>
+          </div>
+          <p class="casestory__chips">
+            <span>Magento</span>
+            <span>Exact Online</span>
+            <span>Google Analytics</span>
+            <span>Meta Ads</span>
+            <span>Datawarehouse</span>
+            <span>Power BI</span>
+          </p>
+        </div>
+
         <!-- Case 02 — DUCE. Zelfde afspraak voor het citaatblok
              (case2Quote / case2QuoteBy), goed te keuren door Miriam. -->
         <article class="caseref caseref--flip">
@@ -232,6 +298,32 @@
             <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
+
+        <div class="casestory">
+          <p class="casestory__label" data-i18n="storySituatie">De situatie</p>
+          <p data-i18n="c2Situatie">Meerdere locaties, één administratie die met de organisatie was meegegroeid zonder ooit opnieuw te zijn ingericht. De begroting was een optelsom op hoofdlijnen — bruikbaar voor de bank, niet om op te sturen. De kwartaalrapportage kwam laat en riep meer vragen op dan zij beantwoordde. En bij een controle bleek “zo doen we dat hier” geen antwoord.</p>
+          <p class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</p>
+          <p data-i18n="c2Gedaan">De begroting per locatie opnieuw opgebouwd, tot op het detailniveau waarop een locatiemanager daadwerkelijk beslissingen neemt. De financiële administratie heringericht — rekeningschema, kostenplaatsen en boekingsgang — zodat de cijfers per locatie kloppen zonder handwerk achteraf.</p>
+          <ul class="casestory__list">
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P1b">Kwartaalrapportage</b> <span data-i18n="c2P1">vanaf nul opgezet: financiële cijfers naast de belangrijkste niet-financiële stuurinformatie</span></span></li>
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P2b">AO/IB-handboek</b> <span data-i18n="c2P2">geschreven — processen, bevoegdheden en controles vastgelegd en toetsbaar</span></span></li>
+            <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P3b">Adviesrapport</b> <span data-i18n="c2P3">met concrete vervolgstappen die het team zelf uitvoert</span></span></li>
+          </ul>
+          <p class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</p>
+          <p data-i18n="c2Oplevert">Elke locatie is nu te lezen als realisatie tegenover budget én tegenover de vorige periode. Afwijkingen komen boven tafel in het kwartaal zelf, niet bij de jaarrekening. De werkwijze staat op papier, dus bij een controle is de vraag “hoe borgt u dit?” een documentverwijzing geworden. En het vervolg ligt bij de organisatie zelf — dat was expliciet de opdracht.</p>
+          <div class="casestory__tiles">
+            <div class="casestory__tile"><b data-i18n="c2TileA">Per locatie</b><span data-i18n="c2TileASub">begroting, realisatie en analyse</span></div>
+            <div class="casestory__tile"><b data-i18n="c2TileB">AO/IB vastgelegd</b><span data-i18n="c2TileBSub">processen toetsbaar voor de accountant</span></div>
+            <div class="casestory__tile"><b data-i18n="c2TileC">Zelfstandig verder</b><span data-i18n="c2TileCSub">overdracht in plaats van afhankelijkheid</span></div>
+          </div>
+          <p class="casestory__chips">
+            <span>Begroting per locatie</span>
+            <span>Rekeningschema</span>
+            <span>Kostenplaatsen</span>
+            <span>AO/IB-handboek</span>
+            <span>Kwartaalrapportage</span>
+          </p>
+        </div>
 
       </div>
     </div>
@@ -293,6 +385,28 @@
 <script>
 window.FINSERA_PAGE = {
   nl: {
+    // Uitgeschreven cases. Woordelijk overgenomen uit de door de eigenaar
+    // aangeleverde tekst; niets hiervan is door mij verzonnen.
+    storySituatie: 'De situatie', storyGedaan: 'Wat we hebben gedaan', storyOplevert: 'Wat het oplevert',
+    c1Situatie: 'De omzet groeide, de voorraad groeide mee \u2014 maar niemand kon zeggen w\u00e9lk merk daadwerkelijk geld opleverde. De cijfers zaten verspreid over de webshop, de boekhouding, Google Analytics en Meta. Vier bronnen, vier waarheden. De maandrapportage was een handmatige exercitie die pas halverwege de volgende maand klaar was, en tegen die tijd waren de beslissingen al genomen.',
+    c1Gedaan: 'Eerst het fundament: een liquiditeitsbegroting en een jaarbegroting tot op artikel- en kanaalniveau, zodat er iets was om aan af te meten. Daarna de maandrapportage opnieuw ingericht. Vervolgens alle bronsystemen samengebracht in \u00e9\u00e9n datawarehouse, dat elke nacht de Power BI-omgeving voedt \u2014 van scratch gebouwd, geen template.',
+    c1P1b: 'Operationele pagina', c1P1: 'voor de directie \u2014 dagelijks en wekelijks te checken',
+    c1P2b: 'Merkanalyse', c1P2: '\u2014 omzet, inkoopwaarde en marge per merk, naast elkaar',
+    c1P3b: 'Marketingpagina', c1P3: '\u2014 advertentiekosten afgezet tegen marge, niet tegen omzet',
+    c1P4b: 'Liquiditeits- en jaarbegroting', c1P4: 'als vaste meetlat',
+    c1Oplevert: 'De directie opent \u2019s ochtends \u00e9\u00e9n pagina in plaats van vier systemen. Merken die hard liepen maar nauwelijks bijdroegen zijn zichtbaar geworden \u2014 en daarmee bespreekbaar. Advertentiebudget wordt beoordeeld op wat er onder de streep overblijft. De maandafsluiting is een controle geworden in plaats van een zoektocht.',
+    c1TileA: '4 bronsystemen', c1TileASub: 'samengebracht tot \u00e9\u00e9n rapportage',
+    c1TileB: '3 dashboardpagina\u2019s', c1TileBSub: 'directie, merk, marketing',
+    c1TileC: 'Dagelijks actueel', c1TileCSub: 'in plaats van maandelijks achteraf',
+    c2Situatie: 'Meerdere locaties, \u00e9\u00e9n administratie die met de organisatie was meegegroeid zonder ooit opnieuw te zijn ingericht. De begroting was een optelsom op hoofdlijnen \u2014 bruikbaar voor de bank, niet om op te sturen. De kwartaalrapportage kwam laat en riep meer vragen op dan zij beantwoordde. En bij een controle bleek \u201czo doen we dat hier\u201d geen antwoord.',
+    c2Gedaan: 'De begroting per locatie opnieuw opgebouwd, tot op het detailniveau waarop een locatiemanager daadwerkelijk beslissingen neemt. De financi\u00eble administratie heringericht \u2014 rekeningschema, kostenplaatsen en boekingsgang \u2014 zodat de cijfers per locatie kloppen zonder handwerk achteraf.',
+    c2P1b: 'Kwartaalrapportage', c2P1: 'vanaf nul opgezet: financi\u00eble cijfers naast de belangrijkste niet-financi\u00eble stuurinformatie',
+    c2P2b: 'AO/IB-handboek', c2P2: 'geschreven \u2014 processen, bevoegdheden en controles vastgelegd en toetsbaar',
+    c2P3b: 'Adviesrapport', c2P3: 'met concrete vervolgstappen die het team zelf uitvoert',
+    c2Oplevert: 'Elke locatie is nu te lezen als realisatie tegenover budget \u00e9n tegenover de vorige periode. Afwijkingen komen boven tafel in het kwartaal zelf, niet bij de jaarrekening. De werkwijze staat op papier, dus bij een controle is de vraag \u201choe borgt u dit?\u201d een documentverwijzing geworden. En het vervolg ligt bij de organisatie zelf \u2014 dat was expliciet de opdracht.',
+    c2TileA: 'Per locatie', c2TileASub: 'begroting, realisatie en analyse',
+    c2TileB: 'AO/IB vastgelegd', c2TileBSub: 'processen toetsbaar voor de accountant',
+    c2TileC: 'Zelfstandig verder', c2TileCSub: 'overdracht in plaats van afhankelijkheid',
     casesEyebrow: 'Cases',
     h1: 'Resultaten uit de praktijk', intro: 'Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.',
     casesTalk: 'Bespreek jouw situatie',
@@ -308,6 +422,26 @@ window.FINSERA_PAGE = {
     note: 'Uitgebreide cases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.'
   },
   en: {
+    storySituatie: 'The situation', storyGedaan: 'What we did', storyOplevert: 'What it delivers',
+    c1Situatie: 'Revenue was growing and stock grew with it \u2014 but nobody could say which brand actually made money. The figures were spread across the webshop, the bookkeeping, Google Analytics and Meta. Four sources, four truths. The monthly report was a manual exercise that was only ready halfway through the following month, by which time the decisions had already been made.',
+    c1Gedaan: 'First the foundation: a cash-flow budget and an annual budget down to product and channel level, so there was something to measure against. Then the monthly report was rebuilt. After that all source systems were brought together in a single data warehouse that feeds the Power BI environment every night \u2014 built from scratch, not from a template.',
+    c1P1b: 'Operational page', c1P1: 'for the management team \u2014 to check daily and weekly',
+    c1P2b: 'Brand analysis', c1P2: '\u2014 revenue, purchase value and margin per brand, side by side',
+    c1P3b: 'Marketing page', c1P3: '\u2014 advertising spend measured against margin, not against revenue',
+    c1P4b: 'Cash-flow and annual budget', c1P4: 'as a fixed yardstick',
+    c1Oplevert: 'In the morning the management team opens one page instead of four systems. Brands that sold well but barely contributed have become visible \u2014 and therefore discussable. Advertising budget is judged on what is left at the bottom line. The monthly close has become a check instead of a search.',
+    c1TileA: '4 source systems', c1TileASub: 'brought together into one report',
+    c1TileB: '3 dashboard pages', c1TileBSub: 'management, brand, marketing',
+    c1TileC: 'Up to date daily', c1TileCSub: 'instead of monthly in hindsight',
+    c2Situatie: 'Several locations, one set of books that had grown with the organisation without ever being set up again. The budget was a high-level total \u2014 usable for the bank, not to steer on. The quarterly report came late and raised more questions than it answered. And during an audit, \u201cthat is how we do things here\u201d turned out not to be an answer.',
+    c2Gedaan: 'The budget was rebuilt per location, down to the level of detail at which a location manager actually makes decisions. The financial administration was redesigned \u2014 chart of accounts, cost centres and posting flow \u2014 so the figures per location add up without manual work afterwards.',
+    c2P1b: 'Quarterly report', c2P1: 'built from scratch: financial figures alongside the most important non-financial steering information',
+    c2P2b: 'Internal control manual', c2P2: 'written \u2014 processes, authorisations and controls documented and auditable',
+    c2P3b: 'Advisory report', c2P3: 'with concrete next steps the team carries out itself',
+    c2Oplevert: 'Every location can now be read as actuals against budget and against the previous period. Deviations surface within the quarter itself, not at the annual accounts. The way of working is on paper, so during an audit the question \u201chow do you safeguard this?\u201d has become a document reference. And the follow-up sits with the organisation itself \u2014 that was explicitly the assignment.',
+    c2TileA: 'Per location', c2TileASub: 'budget, actuals and analysis',
+    c2TileB: 'Controls documented', c2TileBSub: 'processes auditable for the accountant',
+    c2TileC: 'Independently onward', c2TileCSub: 'handover instead of dependency',
     casesEyebrow: 'Cases',
     h1: 'Results in practice', intro: 'No theoretical promises, but what our approach delivers in practice.',
     casesTalk: 'Discuss your situation',
