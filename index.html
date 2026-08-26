@@ -100,6 +100,56 @@
         "inLanguage": "nl-NL"
       },
       {
+        "@type": "FAQPage",
+        "@id": "https://www.finsera.nl/#faq",
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/#website"
+        },
+        "inLanguage": "nl-NL",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Voor welk soort bedrijven werken jullie?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MKB tussen 10 en 50 medewerkers, in vrijwel iedere sector. De rode draad is dat het bedrijf uit de improviseerfase groeit en toe is aan grip: één plek waar de cijfers kloppen en waar het MT op stuurt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe snel staat er iets bruikbaars?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meestal binnen 4 tot 6 weken na de diagnose. We werken in korte sprints met wekelijkse demo’s, dus je ziet elke week wat erbij komt — geen half jaar wachten op één oplevering."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vervangen jullie onze controller of accountant?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee, we versterken ze. We zorgen dat de data en de processen eronder kloppen, zodat je bestaande finance-team weer strategisch kan werken in plaats van fouten te zoeken."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Werken jullie met vaste of losse tarieven?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Een vaste projectprijs voor de bouwfase, zodat er geen verrassingen zijn. Daarna een licht doorlopend abonnement voor onderhoud en sparring, opzegbaar per maand."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Waar draaien de dashboards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meestal in Power BI of een lichte omgeving op maat in Azure. De data blijft bij jou; wij bouwen de laag ertussen, AVG-conform en met heldere documentatie."
+            }
+          }
+        ]
+      },
+      {
         "@type": "Person",
         "@id": "https://www.finsera.nl/over#oner-yucel",
         "name": "Öner Yücel",
@@ -129,7 +179,7 @@
 <nav class="nav">
   <div class="nav__inner">
     <a href="/" class="nav__brand">
-      <img class="nav__mark" src="img/logo/finsera-merkteken.svg" alt="" width="20" height="20" onerror="this.remove()">
+      <img class="nav__mark" src="img/logo/finsera-merkteken-origineel.png" alt="" width="27" height="27" onerror="this.remove()">
       <span class="nav__wordmark">Finsera</span>
     </a>
 
@@ -464,45 +514,92 @@
   </section>
 
   <!-- ================================== DIAGNOSE ALS SLOT ================
-       De diagnose is het eerste product dat Finsera verkoopt, dus staat de
-       band nu als afsluiter onderaan in plaats van halverwege. Hij heeft de
-       rol van de oude slot-CTA overgenomen: de koperen knop en de regel
-       "je spreekt direct met Oner of Tomas" zijn meeverhuisd. -->
+       De diagnose is het eerste product dat Finsera verkoopt en staat daarom
+       als afsluiter onderaan. De kaartvorm komt uit de eerdere versie van de
+       site (commit 2d51005^): donkere kaart met gouden gloed, een scanlijn
+       die door het adviesrapport loopt, en vinkjes met de doorlooptijd. -->
   <section id="oplossing" class="sol sol--slot">
-    <div class="diag">
-      <div class="wrap diag__grid">
-        <div class="diag__main">
-          <p class="diag__kicker" data-i18n="diagEyebrowTop">Zo starten we · de diagnose</p>
-          <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
-          <p class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</p>
-          <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen ›</button></p>
-          <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.</p>
-          <a href="/contact" class="ctax__btn diag__cta" data-i18n="diagCta">Vraag de diagnose aan</a>
-          <div class="diag__who">
-            <span class="diag__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
-            <span data-i18n="ctaWho">Je spreekt direct met &Ouml;ner of Tomas.</span>
+    <div class="wrap">
+      <div class="diag diag--feature">
+        <div class="diag__halo" aria-hidden="true"></div>
+        <div class="diag__grid">
+          <div class="diag__main">
+            <div class="diag__eyebrow" data-i18n="diagEyebrowTop">Zo starten we &middot; de diagnose</div>
+            <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
+            <div class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</div>
+            <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financi&euml;le sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen &rsaquo;</button></p>
+            <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat j&oacute;uw bedrijf nodig heeft &mdash; en in welke volgorde.</p>
+            <a href="/contact" class="btn-gold" data-i18n="diagCta">Vraag de diagnose aan</a>
           </div>
-        </div>
 
-        <div class="diag__side">
-          <div class="diag__report-head">
-            <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
-            <span class="diag__report-sub" data-i18n="diagReportSub">De opbouw</span>
+          <div class="diag__visual">
+            <div class="diag__report">
+              <div class="diag__scanline" aria-hidden="true"></div>
+              <div class="diag__report-head">
+                <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
+                <span class="diag__report-status"><span class="dot" aria-hidden="true"></span><span data-i18n="diagScan">analyse loopt</span></span>
+              </div>
+              <div class="diag__lines" aria-hidden="true">
+                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold"></span></div>
+                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w84"></span></div>
+                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold2"></span></div>
+                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w68"></span></div>
+              </div>
+              <div class="diag__chart" aria-hidden="true">
+                <div class="b b1"></div><div class="b b2"></div><div class="b b3"></div><div class="b b4"></div><div class="b b5"></div>
+              </div>
+            </div>
+            <ul class="diag__checks">
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck1">Binnen 2&ndash;4 weken</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck3">Concrete quick wins &eacute;n prioriteiten</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck4">Direct toepasbaar</span></li>
+            </ul>
           </div>
-          <ol class="diag__toc">
-            <li data-i18n="diagToc1">Datastromen en systemen in kaart</li>
-            <li data-i18n="diagToc2">Cijfers naast definities: waar het schuurt</li>
-            <li data-i18n="diagToc3">Quick wins die direct tijd opleveren</li>
-            <li data-i18n="diagToc4">Prioriteiten en volgorde voor de komende maanden</li>
-          </ol>
-          <ul class="diag__checks">
-            <li data-i18n="diagCheck1">Binnen 2–4 weken</li>
-            <li data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</li>
-            <li data-i18n="diagCheck3">Concrete quick wins én prioriteiten</li>
-            <li data-i18n="diagCheck4">Direct toepasbaar</li>
-          </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================================================ VEELGESTELDE VRAGEN =
+       Native <details>/<summary>: werkt zonder JavaScript, is met het
+       toetsenbord te bedienen en krijgt van de browser de juiste rollen mee.
+       Het name-attribuut maakt er in moderne browsers een accordeon van waarin
+       er één tegelijk openstaat; browsers die dat nog niet kennen laten er
+       meerdere openstaan, wat prima werkt. -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <p class="faq__kicker"><span class="faq__kicker-rule" aria-hidden="true"></span><span data-i18n="faqEyebrow">Veelgestelde vragen</span></p>
+      <h2 class="faq__h2" data-i18n="faqHeading">Wat vaak eerst gevraagd wordt.</h2>
+
+      <div class="faq__list">
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ1">Voor welk soort bedrijven werken jullie?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA1">MKB tussen 10 en 50 medewerkers, in vrijwel iedere sector. De rode draad is dat het bedrijf uit de improviseerfase groeit en toe is aan grip: &eacute;&eacute;n plek waar de cijfers kloppen en waar het MT op stuurt.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ2">Hoe snel staat er iets bruikbaars?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA2">Meestal binnen 4 tot 6 weken na de diagnose. We werken in korte sprints met wekelijkse demo&rsquo;s, dus je ziet elke week wat erbij komt &mdash; geen half jaar wachten op &eacute;&eacute;n oplevering.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ3">Vervangen jullie onze controller of accountant?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA3">Nee, we versterken ze. We zorgen dat de data en de processen eronder kloppen, zodat je bestaande finance-team weer strategisch kan werken in plaats van fouten te zoeken.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ4">Werken jullie met vaste of losse tarieven?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA4">Een vaste projectprijs voor de bouwfase, zodat er geen verrassingen zijn. Daarna een licht doorlopend abonnement voor onderhoud en sparring, opzegbaar per maand.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ5">Waar draaien de dashboards?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA5">Meestal in Power BI of een lichte omgeving op maat in Azure. De data blijft bij jou; wij bouwen de laag ertussen, AVG-conform en met heldere documentatie.</p></div>
+        </details>
+      </div>
+
+      <p class="faq__foot"><span data-i18n="faqFoot">Staat je vraag er niet bij?</span> <a href="/contact" class="link-arrow"><span data-i18n="faqFootCta">Stel hem gerust</span> <span aria-hidden="true">&rarr;</span></a></p>
     </div>
   </section>
 
@@ -514,11 +611,15 @@
     <div class="footer__top">
       <div class="footer__brand">
         <div class="footer__brand-row">
-          <img class="footer__mark" src="img/logo/finsera-merkteken.svg" alt="" width="18" height="18" onerror="this.remove()">
+          <img class="footer__mark" src="img/logo/finsera-merkteken-origineel.png" alt="" width="25" height="25" onerror="this.remove()">
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+        <div class="footer__who">
+          <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
+          <span data-i18n="ctaWho">Je spreekt direct met &Ouml;ner of Tomas.</span>
+        </div>
       </div>
       <div class="footer__cols">
         <div>
