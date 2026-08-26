@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 
 # Juridische pagina's hoeven niet in de index
-Disallow: /Privacyverklaring.html
+Disallow: /privacyverklaring
 
 Sitemap: https://www.finsera.nl/sitemap.xml

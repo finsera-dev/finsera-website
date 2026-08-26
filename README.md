@@ -123,9 +123,9 @@ bevestiging ziet voor een afspraak die nergens staat.
 ## Structuur
 
 ```
-index.html, Over.html, Diensten.html,     de pagina's
-Cases.html, Blog.html, Contact.html
-Privacyverklaring.html, 404.html
+index.html, over.html, diensten.html,     de pagina's (bestandsnamen in
+cases.html, blog.html, contact.html      kleine letters; Vercel serveert ze
+privacyverklaring.html, 404.html         zonder .html via cleanUrls)
 api/slots.js                              beschikbare momenten uit de agenda
 api/book.js                               afspraak inplannen (of mailen)
 api/_graph.js                             Microsoft Graph: token en aanroepen
@@ -134,13 +134,37 @@ test/                                     tests, zonder netwerk
 css/styles.css                            alle styling
 css/fonts.css                             @font-face voor de self-hosted fonts
 fonts/                                    Inter + Space Grotesk (woff2, variabel)
-js/app.js                                 home + Diensten: i18n en widgets
+js/app.js                                 home + diensten: i18n en widgets
 js/shared.js                              nav, footer, taalwissel op overige pagina's
 js/contact.js                             agenda en formulier
 js/reveal.js                              scroll-animaties
 img/team/                                 portretfoto's (4:5 of 3:4, JPEG)
 img/og-finsera.jpg                        deelafbeelding voor LinkedIn
 ```
+
+## URL's
+
+Alle pagina's hebben schone URL's zonder `.html` en volledig in kleine letters
+(`/diensten`, `/over`, `/cases`, `/contact`, `/blog`, `/privacyverklaring`).
+`cleanUrls` in `vercel.json` doet dat; de oude adressen met hoofdletter en
+extensie staan daar als **301** in `redirects`. Interne links zijn
+root-relatief (`/diensten`), want vanaf een schone artikel-URL als
+`/blog/<slug>` klopt een relatief pad niet meer.
+
+Voeg je een pagina toe: bestandsnaam in kleine letters, link ernaar met
+`/naam`, en zet `/naam` in `sitemap.xml`.
+
+## Gestructureerde data
+
+JSON-LD volgt een tweelaagse opzet. `index.html` bevat de enige volledige
+definitie van de organisatie (`@id` `https://www.finsera.nl/#organisatie`),
+de `WebSite` en beide personen. Andere pagina's herhalen dat niet, maar
+verwijzen ernaar via datzelfde `@id`; `diensten.html` voegt drie
+`Service`-blokken toe, `blog/<slug>.html` een `BlogPosting` met de auteur
+als `@id`-verwijzing.
+
+Voeg je een artikel toe, zet de auteur dan op `.../over#oner-yucel` of
+`.../over#tomas-van-der-laan` — niet als losse `Person` opnieuw gedefinieerd.
 
 ## Domein
 
@@ -180,8 +204,8 @@ werk de `unicode-range` in `css/fonts.css` bij.
 
 ## Nog open
 
-- **Casepagina's** bestaan niet; "Bespreek jouw situatie" op Cases.html wijst
-  daarom naar Contact.
+- **Casepagina's** bestaan niet; "Bespreek jouw situatie" op /cases wijst
+  daarom naar /contact.
 - **Engelse versie** heeft geen eigen URL's en geen `hreflang`, en wordt dus
   niet door Google geïndexeerd. Vereist `/en/`-pagina's.
 - **Algemene voorwaarden** zijn er niet; de link is uit de footer gehaald.
@@ -194,4 +218,4 @@ werk de `unicode-range` in `css/fonts.css` bij.
 
 Kopieer `blog/dashboard-lost-je-rapportageprobleem-niet-op.html`, pas de
 titel, meta-tags, canonical, datum en inhoud aan, en voeg een kaart toe in de
-`.bl-list` van `Blog.html`. Zet de nieuwe URL ook in `sitemap.xml`.
+`.bl-list` van `blog.html`. Zet de nieuwe URL ook in `sitemap.xml`.

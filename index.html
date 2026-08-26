@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Finsera — Grip op je cijfers. Ruimte om strategisch te leiden.</title>
-  <meta name="description" content="Finsera helpt snelgroeiende middelgrote bedrijven aan echte financiële inzichtelijkheid: professionele managementrapportages, intelligente dashboards en AI-gedreven automatisering.">
+  <title>Managementrapportage, Power BI dashboards en AI voor het MKB | Finsera</title>
+  <meta name="description" content="Finsera bouwt het financiële fundament van groeiende MKB-bedrijven: betrouwbare managementrapportage, Power BI dashboards en AI-automatisering. Vraag de diagnose aan.">
   <link rel="canonical" href="https://www.finsera.nl/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -32,31 +32,92 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://www.finsera.nl/#organisatie",
-    "name": "Finsera",
-    "description": "Boutique financiële procesoptimalisatie en consultancy voor snelgroeiende Nederlandse middelgrote bedrijven.",
-    "url": "https://www.finsera.nl/",
-    "image": "https://www.finsera.nl/img/og-finsera.jpg",
-    "email": "info@finsera.nl",
-    "telephone": "+31641413836",
-    "identifier": { "@type": "PropertyValue", "name": "KvK", "value": "93587953" },
-    "address": { "@type": "PostalAddress", "addressCountry": "NL" },
-    "areaServed": { "@type": "Country", "name": "Nederland" },
-    "priceRange": "$$$",
-    "knowsLanguage": ["nl", "en"],
-    "knowsAbout": ["Managementrapportage", "Power BI dashboards", "Financiële automatisering", "AI-strategie", "Interim controller"],
-    "founder": [
-      { "@type": "Person", "name": "Öner Yücel", "jobTitle": "Financial & business consultant", "sameAs": "https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" },
-      { "@type": "Person", "name": "Tomas van der Laan", "jobTitle": "Data analyst & ontwikkelaar", "sameAs": "https://www.linkedin.com/in/tomasvdlaan/" }
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "email": "info@finsera.nl",
-      "telephone": "+31641413836",
-      "availableLanguage": ["nl", "en"]
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.finsera.nl/#organisatie",
+        "name": "Finsera",
+        "legalName": "Finsera",
+        "alternateName": "Finsera Nederland",
+        "description": "Finsera helpt groeiende middelgrote Nederlandse bedrijven aan echte financiële inzichtelijkheid via professionele managementrapportage, Power BI dashboards en AI-gedreven automatisering voor het MKB.",
+        "url": "https://www.finsera.nl/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.finsera.nl/#logo",
+          "url": "https://www.finsera.nl/img/og-finsera.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "image": { "@id": "https://www.finsera.nl/#logo" },
+        "email": "info@finsera.nl",
+        "telephone": "+31641413836",
+        "identifier": [
+          { "@type": "PropertyValue", "name": "KvK", "value": "93587953" }
+        ],
+        "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+        "areaServed": { "@type": "Country", "name": "Nederland" },
+        "knowsLanguage": ["nl", "en"],
+        "knowsAbout": [
+          "Managementrapportage",
+          "Power BI dashboards",
+          "Business intelligence voor het MKB",
+          "Financiële automatisering",
+          "AI-strategie",
+          "Interim controller"
+        ],
+        "founder": [
+          { "@id": "https://www.finsera.nl/over#oner-yucel" },
+          { "@id": "https://www.finsera.nl/over#tomas-van-der-laan" }
+        ],
+        "employee": [
+          { "@id": "https://www.finsera.nl/over#oner-yucel" },
+          { "@id": "https://www.finsera.nl/over#tomas-van-der-laan" }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@finsera.nl",
+          "telephone": "+31641413836",
+          "areaServed": "NL",
+          "availableLanguage": ["nl", "en"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.finsera.nl/#website",
+        "url": "https://www.finsera.nl/",
+        "name": "Finsera",
+        "inLanguage": "nl-NL",
+        "publisher": { "@id": "https://www.finsera.nl/#organisatie" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.finsera.nl/#webpage",
+        "url": "https://www.finsera.nl/",
+        "name": "Managementrapportage, Power BI dashboards en AI voor het MKB | Finsera",
+        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
+        "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "inLanguage": "nl-NL"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.finsera.nl/over#oner-yucel",
+        "name": "Öner Yücel",
+        "jobTitle": "Financial & business consultant",
+        "worksFor": { "@id": "https://www.finsera.nl/#organisatie" },
+        "knowsAbout": ["Financial control", "Accountancy", "Audit", "Compliance", "Managementrapportage"],
+        "sameAs": ["https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.finsera.nl/over#tomas-van-der-laan",
+        "name": "Tomas van der Laan",
+        "jobTitle": "Data analyst & ontwikkelaar",
+        "worksFor": { "@id": "https://www.finsera.nl/#organisatie" },
+        "knowsAbout": ["Data-architectuur", "Power BI", "Data-engineering", "AI-automatisering"],
+        "sameAs": ["https://www.linkedin.com/in/tomasvdlaan/"]
+      }
+    ]
   }
   </script>
 </head>
@@ -67,17 +128,17 @@
 <!-- ======================================================== NAV ========== -->
 <nav class="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__brand">
+    <a href="/" class="nav__brand">
       <img class="nav__mark" src="img/logo/finsera-merkteken.svg" alt="" width="20" height="20" onerror="this.remove()">
       <span class="nav__wordmark">Finsera</span>
     </a>
 
     <div class="nav__links">
-      <a href="index.html" class="nav__link is-active" data-i18n="navHome">Home</a>
-      <a href="Over.html" class="nav__link" data-i18n="navOver">Over Finsera</a>
-      <a href="Diensten.html" class="nav__link" data-i18n="navDiensten">Diensten</a>
-      <a href="Cases.html" class="nav__link" data-i18n="navCases">Cases</a>
-      <a href="Blog.html" class="nav__link" data-i18n="navBlog">Blog</a>
+      <a href="/" class="nav__link is-active" data-i18n="navHome">Home</a>
+      <a href="/over" class="nav__link" data-i18n="navOver">Over Finsera</a>
+      <a href="/diensten" class="nav__link" data-i18n="navDiensten">Diensten</a>
+      <a href="/cases" class="nav__link" data-i18n="navCases">Cases</a>
+      <a href="/blog" class="nav__link" data-i18n="navBlog">Blog</a>
 
       <div class="lang-toggle">
         <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
@@ -85,7 +146,7 @@
         <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
       </div>
 
-      <a href="Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
+      <a href="/contact" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
     </div>
 
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
@@ -94,16 +155,16 @@
   </div>
 
   <div class="nav__mobile" data-mobile hidden>
-    <a href="index.html" data-i18n="navHome">Home</a>
-    <a href="Over.html" data-i18n="navOver">Over Finsera</a>
-    <a href="Diensten.html" data-i18n="navDiensten">Diensten</a>
-    <a href="Cases.html" data-i18n="navCases">Cases</a>
-    <a href="Blog.html" data-i18n="navBlog">Blog</a>
+    <a href="/" data-i18n="navHome">Home</a>
+    <a href="/over" data-i18n="navOver">Over Finsera</a>
+    <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+    <a href="/cases" data-i18n="navCases">Cases</a>
+    <a href="/blog" data-i18n="navBlog">Blog</a>
     <div class="nav__mobile-langs">
       <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
       <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
     </div>
-    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
+    <a href="/contact" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
@@ -124,7 +185,7 @@
       </h1>
       <p class="hero2__sub"><span data-i18n="heroSub">Finsera helpt groeiende middelgrote bedrijven hun financiële sturing professionaliseren: van betrouwbare managementrapportage en realtime dashboards tot AI-gedreven automatisering.</span> <strong class="hero2__lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</strong></p>
       <div class="hero2__cta">
-        <a href="Contact.html" class="btn" data-i18n="heroCta1">Vraag de diagnose aan</a>
+        <a href="/contact" class="btn" data-i18n="heroCta1">Vraag de diagnose aan</a>
       </div>
 
       <!-- Het beeldobject: glazen paneel met het echte demo-dashboard.
@@ -195,7 +256,7 @@
       <div class="pain__bridge">
         <p class="pain__bridge-text" data-i18n="bridge">Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.</p>
         <div class="pain__bridge-acties">
-          <a href="Contact.html" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+          <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
           <span class="pain__bridge-alt"><span data-i18n="bridgeAlt">of bel meteen even:</span> <a href="tel:+31641413836">06&nbsp;-&nbsp;41&nbsp;41&nbsp;38&nbsp;36</a></span>
         </div>
       </div>
@@ -210,7 +271,7 @@
         <h2 class="dl-h2"><span data-i18n="dlTitleA">Grip op je cijfers.</span> <span class="dl-h2-accent" data-i18n="dlTitleB">Ruimte om te sturen.</span></h2>
         <p class="dl-body" data-i18n="dlBody">Verkoop via bol, betalingen in Mollie, ERP in AFAS, boekhouding in Exact Online &mdash; vier systemen, vier waarheden. Finsera bouwt de tussenlaag: &eacute;&eacute;n datalaag op maat, aangevuld met AI, die alles samenbrengt in het dashboard waar jij &eacute;cht op kunt sturen.</p>
         <p class="dl-lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</p>
-        <a href="Contact.html" class="btn dl-btn"><span data-i18n="heroCta1">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact" class="btn dl-btn"><span data-i18n="heroCta1">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
 
       <div class="dl-stage">
@@ -295,7 +356,7 @@
           <p class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</p>
           <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen ›</button></p>
           <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.</p>
-          <a href="Contact.html" class="btn btn--paper" data-i18n="diagCta">Vraag de diagnose aan</a>
+          <a href="/contact" class="btn btn--paper" data-i18n="diagCta">Vraag de diagnose aan</a>
         </div>
 
         <div class="diag__side">
@@ -330,14 +391,14 @@
       <p class="sect-intro" data-i18n="svcShortIntro">Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.</p>
 
       <div class="svc__cols">
-        <a class="svc__item" href="Diensten.html#dashboard">
+        <a class="svc__item" href="/diensten#dashboard">
           <span class="svc__num">I</span>
           <span class="svc__tag" data-i18n="svc1Benefit">Grip op je fundament</span>
           <h3 class="svc__title" data-i18n="svc1Title">Dashboard &amp; managementrapportage</h3>
           <p class="svc__text" data-i18n="svc1Short">Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.</p>
           <span class="svc__more link-arrow"><span data-i18n="svc1More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></span>
         </a>
-        <a class="svc__item" href="Diensten.html#ai">
+        <a class="svc__item" href="/diensten#ai">
           <span class="svc__num">II</span>
           <span class="svc__tag" data-i18n="svc2Benefit">Efficiënter werken met AI</span>
           <h3 class="svc__title" data-i18n="svc2Title">AI-strategie</h3>
@@ -347,7 +408,7 @@
       </div>
 
       <p class="svc__bespoke" data-i18n="svcBespoke">Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.</p>
-      <p class="svc__foot"><a href="Diensten.html" class="link-arrow"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a></p>
+      <p class="svc__foot"><a href="/diensten" class="link-arrow"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a></p>
     </div>
   </section>
 
@@ -359,7 +420,7 @@
         <h2 class="team__h2"><span data-i18n="teamTitleA">Twee mensen. Eén doel:</span> <em data-i18n="teamTitleB">jouw bedrijf gezonder maken.</em></h2>
         <p data-i18n="teamIntro1">Finsera is bewust klein. Je hebt geen accountmanager, geen junior en geen tussenlaag — je hebt óns. Öner brengt de finance-diepgang van jaren als controller mee. Tomas bouwt de tech: van data-integraties tot het dashboard waar je écht op stuurt.</p>
         <p data-i18n="teamIntro2">Samen zijn we de brug tussen finance, IT en de dagelijkse operatie. We werken persoonlijk, we werken rustig, en we werken alleen als we écht waarde toevoegen.</p>
-        <a href="Over.html" class="link-arrow team__cta"><span data-i18n="teamCta">Ontmoet ons</span> <span aria-hidden="true">&rarr;</span></a>
+        <a href="/over" class="link-arrow team__cta"><span data-i18n="teamCta">Ontmoet ons</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
 
       <div class="team__people">
@@ -401,7 +462,7 @@
           <div class="case__body">
             <h3 class="case__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h3>
             <p class="case__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.</p>
-            <a href="Cases.html" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
@@ -415,7 +476,7 @@
           <div class="case__body">
             <h3 class="case__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h3>
             <p class="case__result" data-i18n="case2Result">Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.</p>
-            <a href="Cases.html" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
       </div>
@@ -430,7 +491,7 @@
       <div class="ctax__inner">
         <h2 data-i18n="ctaTitle">Klaar voor grip op je cijfers?</h2>
         <p data-i18n="ctaText">Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.</p>
-        <a href="Contact.html" class="ctax__btn" data-i18n="cta">Vraag de diagnose aan</a>
+        <a href="/contact" class="ctax__btn" data-i18n="cta">Vraag de diagnose aan</a>
         <div class="ctax__who">
           <span class="ctax__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
           <span data-i18n="ctaWho">Je spreekt direct met Öner of Tomas.</span>
@@ -451,17 +512,17 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
-        <a href="Contact.html" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="footer__cols">
         <div>
           <div class="footer__col-title" data-i18n="footNav">Navigatie</div>
           <div class="footer__col-links">
-            <a href="index.html" data-i18n="navHome">Home</a>
-            <a href="Over.html" data-i18n="navOver">Over Finsera</a>
-            <a href="Diensten.html" data-i18n="navDiensten">Diensten</a>
-            <a href="Cases.html">Cases</a>
-            <a href="Blog.html">Blog</a>
+            <a href="/" data-i18n="navHome">Home</a>
+            <a href="/over" data-i18n="navOver">Over Finsera</a>
+            <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+            <a href="/cases">Cases</a>
+            <a href="/blog">Blog</a>
           </div>
         </div>
         <div>
@@ -476,7 +537,7 @@
     </div>
     <div class="footer__bottom">
       <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
-      <a href="Privacyverklaring.html" data-i18n="footPrivacy">Privacyverklaring</a>
+      <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>
 </footer>

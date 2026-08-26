@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cases — Resultaten uit de praktijk | Finsera</title>
   <meta name="description" content="Geen theoretische beloftes, maar wat de aanpak van Finsera in de praktijk oplevert voor groeiende bedrijven in e-commerce en zorg.">
-  <link rel="canonical" href="https://www.finsera.nl/Cases.html">
+  <link rel="canonical" href="https://www.finsera.nl/cases">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph / Twitter -->
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Cases — Resultaten uit de praktijk | Finsera">
   <meta property="og:description" content="Wat de aanpak van Finsera in de praktijk oplevert voor groeiende bedrijven in e-commerce en zorg.">
-  <meta property="og:url" content="https://www.finsera.nl/Cases.html">
+  <meta property="og:url" content="https://www.finsera.nl/cases">
   <meta property="og:image" content="https://www.finsera.nl/img/og-finsera.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -48,44 +48,60 @@
       .cs-cases .case__viz { flex-basis: 100%; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.finsera.nl/cases#webpage",
+        "url": "https://www.finsera.nl/cases",
+        "name": "Cases — Resultaten uit de praktijk | Finsera",
+        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
+        "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "inLanguage": "nl-NL"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <a class="skip-link" href="#inhoud">Naar de inhoud</a>
 <nav class="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__brand">
+    <a href="/" class="nav__brand">
       <img class="nav__mark" src="img/logo/finsera-merkteken.svg" alt="" width="20" height="20" onerror="this.remove()">
       <span class="nav__wordmark">Finsera</span>
     </a>
     <div class="nav__links">
-      <a href="index.html" class="nav__link" data-i18n="navHome">Home</a>
-      <a href="Over.html" class="nav__link" data-i18n="navOver">Over Finsera</a>
-      <a href="Diensten.html" class="nav__link" data-i18n="navDiensten">Diensten</a>
-      <a href="Cases.html" class="nav__link is-active" data-i18n="navCases">Cases</a>
-      <a href="Blog.html" class="nav__link" data-i18n="navBlog">Blog</a>
+      <a href="/" class="nav__link" data-i18n="navHome">Home</a>
+      <a href="/over" class="nav__link" data-i18n="navOver">Over Finsera</a>
+      <a href="/diensten" class="nav__link" data-i18n="navDiensten">Diensten</a>
+      <a href="/cases" class="nav__link is-active" data-i18n="navCases">Cases</a>
+      <a href="/blog" class="nav__link" data-i18n="navBlog">Blog</a>
       <div class="lang-toggle">
         <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
         <span class="lang-toggle__sep" aria-hidden="true">/</span>
         <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
       </div>
-      <a href="Contact.html" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
+      <a href="/contact" class="nav__cta" data-i18n="navCta">Vraag de diagnose aan</a>
     </div>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" data-burger>
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="8" x2="21" y2="8"></line><line x1="3" y1="16" x2="21" y2="16"></line></svg>
     </button>
   </div>
   <div class="nav__mobile" data-mobile hidden>
-    <a href="index.html" data-i18n="navHome">Home</a>
-    <a href="Over.html" data-i18n="navOver">Over Finsera</a>
-    <a href="Diensten.html" data-i18n="navDiensten">Diensten</a>
-    <a href="Cases.html" data-i18n="navCases">Cases</a>
-    <a href="Blog.html" data-i18n="navBlog">Blog</a>
+    <a href="/" data-i18n="navHome">Home</a>
+    <a href="/over" data-i18n="navOver">Over Finsera</a>
+    <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+    <a href="/cases" data-i18n="navCases">Cases</a>
+    <a href="/blog" data-i18n="navBlog">Blog</a>
     <div class="nav__mobile-langs">
       <button type="button" class="lang-toggle__btn" data-lang="nl">NL</button>
       <button type="button" class="lang-toggle__btn" data-lang="en">EN</button>
     </div>
-    <a href="Contact.html" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
+    <a href="/contact" class="nav__mobile-cta" data-i18n="navCta">Vraag de diagnose aan</a>
   </div>
 </nav>
 
@@ -111,7 +127,7 @@
           <div class="case__body">
             <h2 class="case__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h2>
             <p class="case__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
-            <a href="Contact.html" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
+            <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
         <article class="case">
@@ -125,7 +141,7 @@
           <div class="case__body">
             <h2 class="case__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h2>
             <p class="case__result" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
-            <a href="Contact.html" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
+            <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
       </div>
@@ -136,7 +152,7 @@
     <div class="wrap">
       <div class="cs-note__box">
         <p data-i18n="note">Uitgebreide cases volgen binnenkort. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.</p>
-        <a href="Contact.html" class="btn" data-i18n="cta">Vraag de diagnose aan</a>
+        <a href="/contact" class="btn" data-i18n="cta">Vraag de diagnose aan</a>
       </div>
     </div>
   </section>
@@ -151,17 +167,17 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
-        <a href="Contact.html" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
+        <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="footer__cols">
         <div>
           <div class="footer__col-title" data-i18n="footNav">Navigatie</div>
           <div class="footer__col-links">
-            <a href="index.html" data-i18n="navHome">Home</a>
-            <a href="Over.html" data-i18n="navOver">Over Finsera</a>
-            <a href="Diensten.html" data-i18n="navDiensten">Diensten</a>
-            <a href="Cases.html">Cases</a>
-            <a href="Blog.html">Blog</a>
+            <a href="/" data-i18n="navHome">Home</a>
+            <a href="/over" data-i18n="navOver">Over Finsera</a>
+            <a href="/diensten" data-i18n="navDiensten">Diensten</a>
+            <a href="/cases">Cases</a>
+            <a href="/blog">Blog</a>
           </div>
         </div>
         <div>
@@ -176,7 +192,7 @@
     </div>
     <div class="footer__bottom">
       <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
-      <a href="Privacyverklaring.html" data-i18n="footPrivacy">Privacyverklaring</a>
+      <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>
 </footer>
