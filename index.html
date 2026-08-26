@@ -330,42 +330,6 @@
     </div>
   </section>
 
-  <!-- ============================================ AANPAK + DIAGNOSE ====== -->
-  <section id="oplossing" class="sol">
-    <!-- de navy diagnose-band -->
-    <div class="diag">
-      <div class="wrap diag__grid">
-        <div class="diag__main">
-          <p class="diag__kicker" data-i18n="diagEyebrowTop">Zo starten we · de diagnose</p>
-          <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
-          <p class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</p>
-          <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen ›</button></p>
-          <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.</p>
-          <a href="/contact" class="btn btn--paper" data-i18n="diagCta">Vraag de diagnose aan</a>
-        </div>
-
-        <div class="diag__side">
-          <div class="diag__report-head">
-            <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
-            <span class="diag__report-sub" data-i18n="diagReportSub">De opbouw</span>
-          </div>
-          <ol class="diag__toc">
-            <li data-i18n="diagToc1">Datastromen en systemen in kaart</li>
-            <li data-i18n="diagToc2">Cijfers naast definities: waar het schuurt</li>
-            <li data-i18n="diagToc3">Quick wins die direct tijd opleveren</li>
-            <li data-i18n="diagToc4">Prioriteiten en volgorde voor de komende maanden</li>
-          </ol>
-          <ul class="diag__checks">
-            <li data-i18n="diagCheck1">Binnen 2–4 weken</li>
-            <li data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</li>
-            <li data-i18n="diagCheck3">Concrete quick wins én prioriteiten</li>
-            <li data-i18n="diagCheck4">Direct toepasbaar</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========================================== DIENSTEN ================= -->
   <section id="diensten" class="svc">
     <div class="wrap">
@@ -436,21 +400,46 @@
     </div>
   </section>
 
-  <!-- ====================================================== CTA ========== -->
-  <!-- Slot-CTA: exact overgenomen van de hoofdversie (vaste keuze van de eigenaar).
-       Gescopede ctax-klassen zodat de variant-stijlen dit blok niet raken. -->
-  <section class="ctax">
-    <div class="ctax__box">
-      <div class="ctax__inner">
-        <h2 data-i18n="ctaTitle">Klaar voor grip op je cijfers?</h2>
-        <p data-i18n="ctaText">Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.</p>
-        <a href="/contact" class="ctax__btn" data-i18n="cta">Vraag de diagnose aan</a>
-        <div class="ctax__who">
-          <span class="ctax__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
-          <span data-i18n="ctaWho">Je spreekt direct met Öner of Tomas.</span>
+  <!-- ================================== DIAGNOSE ALS SLOT ================
+       De diagnose is het eerste product dat Finsera verkoopt, dus staat de
+       band nu als afsluiter onderaan in plaats van halverwege. Hij heeft de
+       rol van de oude slot-CTA overgenomen: de koperen knop en de regel
+       "je spreekt direct met Oner of Tomas" zijn meeverhuisd. -->
+  <section id="oplossing" class="sol sol--slot">
+    <div class="diag">
+      <div class="wrap diag__grid">
+        <div class="diag__main">
+          <p class="diag__kicker" data-i18n="diagEyebrowTop">Zo starten we · de diagnose</p>
+          <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
+          <p class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</p>
+          <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen ›</button></p>
+          <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.</p>
+          <a href="/contact" class="ctax__btn diag__cta" data-i18n="diagCta">Vraag de diagnose aan</a>
+          <div class="diag__who">
+            <span class="diag__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
+            <span data-i18n="ctaWho">Je spreekt direct met &Ouml;ner of Tomas.</span>
+          </div>
+        </div>
+
+        <div class="diag__side">
+          <div class="diag__report-head">
+            <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
+            <span class="diag__report-sub" data-i18n="diagReportSub">De opbouw</span>
+          </div>
+          <ol class="diag__toc">
+            <li data-i18n="diagToc1">Datastromen en systemen in kaart</li>
+            <li data-i18n="diagToc2">Cijfers naast definities: waar het schuurt</li>
+            <li data-i18n="diagToc3">Quick wins die direct tijd opleveren</li>
+            <li data-i18n="diagToc4">Prioriteiten en volgorde voor de komende maanden</li>
+          </ol>
+          <ul class="diag__checks">
+            <li data-i18n="diagCheck1">Binnen 2–4 weken</li>
+            <li data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</li>
+            <li data-i18n="diagCheck3">Concrete quick wins én prioriteiten</li>
+            <li data-i18n="diagCheck4">Direct toepasbaar</li>
+          </ul>
         </div>
       </div>
-    </div>
   </section>
 
 </main>
