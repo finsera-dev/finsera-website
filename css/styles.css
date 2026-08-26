@@ -1912,3 +1912,59 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--copper); margin: 0 0 4px; }
 .dl-kicker-rule { width: 26px; height: 1px; background: currentColor; opacity: .8; flex-shrink: 0; }
 .dl-btn { margin-top: 4px; }
+
+/* ==========================================================================
+   HERO — foto naast de datalaag-visual
+   De hero-stage is een tweeluik: links de foto van Öner en Tomas, rechts het
+   datalaag-paneel (bronnen → datalaag + AI → één dashboard) dat eerder in de
+   losse sectie "Wat we bouwen" stond. Onder 900px stapelt het geheel: eerst
+   het paneel (met de gestapelde datalaag-indeling uit de basis), dan de foto.
+   ========================================================================== */
+.hero2__stage {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 4.6fr) minmax(0, 6.4fr);
+  gap: 16px 20px;
+  align-items: start;
+  grid-template-areas:
+    "photo dl"
+    "fit   dl";
+}
+.hero2__photo:not([hidden]) {
+  grid-area: photo;
+  position: static; inset: auto;
+  width: 100%; height: auto; max-width: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover; object-position: 50% 34%;
+  border-radius: 20px; opacity: 1;
+  box-shadow:
+    0 48px 90px -38px rgba(22, 36, 61, 0.34),
+    0 10px 28px -14px rgba(22, 36, 61, 0.14);
+}
+.hero2__dlwrap { grid-area: dl; position: relative; text-align: left; }
+.hero2__card--fit {
+  grid-area: fit; align-self: start;
+  position: static; top: auto; right: auto;
+}
+.hero2__card--fit .hero2__card-text { white-space: normal; }
+
+/* Het paneel iets compacter dan in de oude sectie, zodat de drie sporen in de
+   smallere herokolom passen. Alleen boven 900px: daaronder geldt de gestapelde
+   datalaag-indeling die al in het .dl-blok staat. */
+@media (min-width: 901px) {
+  .hero2__dlwrap .dl-flow {
+    grid-template-columns: minmax(152px, 0.85fr) minmax(132px, auto) minmax(206px, 1.2fr);
+    gap: 10px;
+  }
+  .hero2__dlwrap .dl-core { width: clamp(80px, 7vw, 98px); }
+  .hero2__dlwrap .dl-src { padding: 9px 10px; }
+}
+
+@media (max-width: 900px) {
+  .hero2__stage {
+    grid-template-columns: 1fr;
+    grid-template-areas: "dl" "photo" "fit";
+  }
+  .hero2__photo:not([hidden]) { aspect-ratio: 16 / 10; }
+  .hero2__card--fit { justify-self: center; }
+}

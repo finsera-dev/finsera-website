@@ -188,74 +188,16 @@
         <a href="/contact" class="btn" data-i18n="heroCta1">Vraag de diagnose aan</a>
       </div>
 
-      <!-- Het beeldobject: glazen paneel met het echte demo-dashboard.
-           Foto-slot: geef #heroPhoto een src en verwijder [hidden]; het
-           beeld vult dan de stage achter het paneel (CSS-haak: #heroPhoto). -->
+      <!-- Het beeldobject: links de foto van Öner en Tomas, rechts de
+           datalaag-visual (bronnen → datalaag + AI → één dashboard).
+           #heroPhoto is het fotoslot; vervang het bestand om het beeld
+           te wisselen. Het paneel komt één keer tot leven via het script
+           onderaan deze pagina. -->
       <div class="hero2__stage">
-        <img id="heroPhoto" class="hero2__photo" hidden alt="" decoding="async">
+        <img id="heroPhoto" class="hero2__photo" src="img/team/samen.webp" alt="Öner en Tomas bespreken samen een rapportage" width="1536" height="672" decoding="async">
 
-        <figure class="hero2__panel">
-          <div class="hero2__panel-head">
-            <span class="hero2__panel-title" data-i18n="nDashboard">Dashboard</span>
-            <span class="graph__live" data-i18n="live">live</span>
-          </div>
-          <div class="hero2__panel-body">
-            <aside class="hero2__rail">
-              <div class="hero2__rail-group">
-                <span class="hero2__rail-title" data-i18n="nRapport">Rapportage</span>
-                <div class="graph__metrics" id="metricOptions"></div>
-              </div>
-              <div class="hero2__rail-group">
-                <span class="hero2__rail-title" data-i18n="nDatabron">Databron</span>
-                <div class="graph__chips" id="sourceChips"></div>
-              </div>
-              <div class="hero2__rail-group hero2__rail-group--detail">
-                <span class="hero2__rail-title" data-i18n="nDetail">Detailniveau</span>
-                <div class="graph__detail">
-                  <input type="range" min="1" max="2" step="1" value="1" id="detailRange">
-                  <div class="graph__detail-labels"><span data-i18n="detailLow">samenvatting</span><span data-i18n="detailHigh">detail</span></div>
-                </div>
-              </div>
-            </aside>
-            <div class="hero2__dash">
-              <div class="graph__out-body" id="graphOutBody"></div>
-            </div>
-          </div>
-        </figure>
-
-        <!-- zwevend statkaartje 1: doelgroep (echte inhoud) -->
-        <div class="hero2__card hero2__card--fit">
-          <span class="hero2__card-dot" aria-hidden="true"></span>
-          <span class="hero2__card-text" data-i18n="heroTrust">Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet</span>
-        </div>
-
-        <!-- zwevend statkaartje 2: wie je spreekt (echte inhoud) -->
-        <div class="hero2__card hero2__card--who">
-          <span class="hero2__card-avatars" aria-hidden="true">
-            <img src="img/team/oner-yucel.jpg" alt="" width="72" height="72" decoding="sync" onerror="this.remove()">
-            <img src="img/team/tomas-van-der-laan.jpg" alt="" width="72" height="72" decoding="sync" onerror="this.remove()">
-          </span>
-          <span class="hero2__card-text" data-i18n="ctaWho">Je spreekt direct met Öner of Tomas.</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============================== WAT WE BOUWEN: bronnen → datalaag → dashboard
-       Studio-productstijl; #dlPhoto is het slot voor een aangeleverd beeld. -->
-  <section class="dl">
-    <div class="wrap dl-grid">
-      <div class="dl-copy">
-        <p class="dl-kicker"><span class="dl-kicker-rule" aria-hidden="true"></span><span data-i18n="dlEyebrow">Wat we bouwen</span></p>
-        <h2 class="dl-h2"><span data-i18n="dlTitleA">Grip op je cijfers.</span> <span class="dl-h2-accent" data-i18n="dlTitleB">Ruimte om te sturen.</span></h2>
-        <p class="dl-body" data-i18n="dlBody">Verkoop via bol, betalingen in Mollie, ERP in AFAS, boekhouding in Exact Online &mdash; vier systemen, vier waarheden. Finsera bouwt de tussenlaag: &eacute;&eacute;n datalaag op maat, aangevuld met AI, die alles samenbrengt in het dashboard waar jij &eacute;cht op kunt sturen.</p>
-        <p class="dl-lead" data-i18n="heroSubLead">Eerst grip op het fundament. Daarna de hefboom van AI en automatisering.</p>
-        <a href="/contact" class="btn dl-btn"><span data-i18n="heroCta1">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
-      </div>
-
-      <div class="dl-stage">
-        <img id="dlPhoto" class="dl-photo" alt="" hidden>
-        <div class="dl-panel">
+        <div class="hero2__dlwrap">
+          <div class="dl-panel">
           <div class="dl-panel-head" aria-hidden="true">
             <span data-i18n="dlColA">Bronnen</span><span data-i18n="dlColB">Finsera &middot; AI</span><span data-i18n="dlColC">E&eacute;n dashboard</span>
           </div>
@@ -311,12 +253,19 @@
           </div>
           <p class="dl-foot" aria-hidden="true"><span data-i18n="dlFootA">4 bronnen</span> <span class="dl-foot-arrow">&rarr;</span> <span data-i18n="dlFootB">1 dashboard</span></p>
         </div>
-      </div>
+        </div>
+
+        <!-- zwevend statkaartje 1: doelgroep (echte inhoud) -->
+        <div class="hero2__card hero2__card--fit">
+          <span class="hero2__card-dot" aria-hidden="true"></span>
+          <span class="hero2__card-text" data-i18n="heroTrust">Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet</span>
+        </div>
+
+              </div>
     </div>
-  </section>
+  </header>
 
-
-  <!-- ============================================ AANPAK + DIAGNOSE ====== -->
+    <!-- ============================================ AANPAK + DIAGNOSE ====== -->
   <section id="oplossing" class="sol">
     <div class="wrap">
       <div class="sect-head">
