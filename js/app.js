@@ -38,6 +38,7 @@
       painEyebrow: 'Herken je dit?',
       painHeading: 'Vier signalen dat je organisatie haar financiële structuur is ontgroeid.',
       painLeadsTo: 'Waar dit toe leidt',
+      painGevolg: 'Je beslist op gevoel, je stuurt pas bij als het moment om in te grijpen al voorbij is, en één fout of één uitval legt je rapportage stil. Wat ooit \u2018goed genoeg\u2019 was, remt nu je groei in plaats van die te dragen.',
       bridge: 'Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.',
       aanpakEyebrow: 'Onze aanpak',
       aanpakHeading: 'Eerst grip op je fundament. Daarna slim automatiseren.',
@@ -162,6 +163,7 @@
       painEyebrow: 'Sound familiar?',
       painHeading: 'Four signs your organisation has outgrown its financial structure.',
       painLeadsTo: 'Where this leads',
+      painGevolg: 'You decide on gut feeling, you only adjust once the moment to intervene has passed, and one error or one absence brings your reporting to a halt. What was once \u2018good enough\u2019 now slows your growth instead of carrying it.',
       bridge: 'Finsera doesn’t solve these problems with yet another tool, but by redesigning your financial foundation.',
       aanpakEyebrow: 'Our approach',
       aanpakHeading: 'First a grip on your foundation. Then automate smartly.',
@@ -450,19 +452,33 @@
   // binnenkomt en alleen nog wil weten of het klikt.
   var PAIN_SHOWN = 4;
   var painListEl = $('#painList');
+  // Vier gekaderde signalen met een icoon. Het gevolg stond eerst per citaat
+  // in een tweede kolom, maar vier keer "waar dit toe leidt" verzwakt elk
+  // afzonderlijk punt; de gevolgen staan nu gebundeld in één zin onder de rij
+  // (painGevolg). De iconen horen bij de volgorde van painData, niet bij de
+  // taal, en staan daarom hier los van de woordenlijsten.
+  var PAIN_ICONS = [
+    // cijfers niet vertrouwen: vraagteken
+    '<circle cx="12" cy="12" r="8.4"/><path d="M9.7 9.5a2.4 2.4 0 1 1 3.1 2.7c-.6.2-.9.7-.9 1.3v.4"/><circle cx="11.9" cy="16.5" r=".85" fill="currentColor" stroke="none"/>',
+    // te laat: klok
+    '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3.1 1.9"/>',
+    // Excel en handwerk: raster
+    '<rect x="3.6" y="4.6" width="16.8" height="14.8" rx="1.4"/><path d="M3.6 9.5h16.8M3.6 14.5h16.8M9.4 4.6v14.8M15 4.6v14.8"/>',
+    // groei versus structuur: stijgende lijn boven een gestippeld fundament
+    '<path d="M3.5 19.6h17" stroke-dasharray="3 3"/><path d="M5.6 15.8l4.2-4.6 3.3 2.9L19.4 6.6"/><path d="M19.4 6.6h-4.1M19.4 6.6v4.1"/>'
+  ];
   function renderPainList() {
     if (!painListEl) return;
     painListEl.innerHTML = '';
-    t().painData.slice(0, PAIN_SHOWN).forEach(function (d) {
+    t().painData.slice(0, PAIN_SHOWN).forEach(function (d, i) {
       var card = document.createElement('article');
       card.className = 'pain__card';
       card.innerHTML =
-        '<div class="pain__card-quote"></div>' +
-        '<div class="pain__card-label"></div>' +
-        '<p class="pain__card-desc"></p>';
+        '<span class="pain__card-ic" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" ' +
+        'stroke-linecap="round" stroke-linejoin="round">' + (PAIN_ICONS[i] || '') + '</svg>' +
+        '</span><p class="pain__card-quote"></p>';
       card.querySelector('.pain__card-quote').textContent = d[0];
-      card.querySelector('.pain__card-label').textContent = t().painLeadsTo;
-      card.querySelector('.pain__card-desc').textContent = d[1];
       painListEl.appendChild(card);
     });
   }
