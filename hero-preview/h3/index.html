@@ -248,15 +248,15 @@
 
             <div class="dl-dash">
               <div class="dl-dash-head"><em data-i18n="dlMonth">Augustus &middot; overzicht</em><span class="dl-live"><i></i>live</span></div>
-              <div class="dl-krow"><span class="dl-kdot" style="background:#1F8A4C"></span><span class="dl-klabel" data-i18n="dlK1">Omzet MTD</span><span class="dl-kval">&euro; 428.910</span><span class="dl-kdelta dl-up">&#9650; 8,4%</span></div>
-              <div class="dl-krow"><span class="dl-kdot" style="background:#3E6FA8"></span><span class="dl-klabel" data-i18n="dlK2">Brutomarge</span><span class="dl-kval">37,2%</span><span class="dl-kdelta dl-up">&#9650; 1,8pp</span></div>
-              <div class="dl-krow"><span class="dl-kdot" style="background:#C0563F"></span><span class="dl-klabel" data-i18n="dlK3">Cashpositie</span><span class="dl-kval">&euro; 612k</span><span class="dl-kdelta dl-down">&#9660; 3,1%</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#1F8A4C"></span><span class="dl-klabel" data-i18n="dlK1">Omzet MTD</span><span class="dl-kval" data-count="428910" data-pre="&euro; ">&euro; 428.910</span><span class="dl-kdelta dl-up">&#9650; 8,4%</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#3E6FA8"></span><span class="dl-klabel" data-i18n="dlK2">Brutomarge</span><span class="dl-kval" data-count="37,2" data-post="%">37,2%</span><span class="dl-kdelta dl-up">&#9650; 1,8pp</span></div>
+              <div class="dl-krow"><span class="dl-kdot" style="background:#C0563F"></span><span class="dl-klabel" data-i18n="dlK3">Cashpositie</span><span class="dl-kval" data-count="612" data-pre="&euro; " data-post="k">&euro; 612k</span><span class="dl-kdelta dl-down">&#9660; 3,1%</span></div>
               <div class="dl-chart">
                 <div class="dl-chart-cap"><span data-i18n="dlChart">Omzet vs. begroting</span><span class="dl-chart-meta">12m &middot; &euro;k</span></div>
                 <svg viewBox="0 0 220 64" preserveAspectRatio="none" aria-hidden="true">
                   <path d="M2 50 L22 44 L42 47 L62 38 L82 41 L102 30 L122 34 L142 24 L162 27 L182 16 L202 20 L218 10 L218 64 L2 64 Z" fill="rgba(143,95,42,0.10)"/>
                   <path d="M2 46 L42 40 L82 34 L122 28 L162 22 L218 14" fill="none" stroke="#B0793F" stroke-width="1.4" stroke-dasharray="4 4"/>
-                  <path d="M2 50 L22 44 L42 47 L62 38 L82 41 L102 30 L122 34 L142 24 L162 27 L182 16 L202 20 L218 10" fill="none" stroke="#16243D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path class="dl-line" d="M2 50 L22 44 L42 47 L62 38 L82 41 L102 30 L122 34 L142 24 L162 27 L182 16 L202 20 L218 10" fill="none" stroke="#16243D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                   <circle cx="218" cy="10" r="2.6" fill="#16243D"/>
                 </svg>
               </div>
@@ -476,6 +476,55 @@
 
 <script src="js/reveal.js"></script>
 <script src="js/app.js"></script>
+<!-- Het datalaag-paneel komt één keer tot leven zodra het in beeld scrolt:
+     onderdelen rijzen op, de grafieklijn tekent zich, de kengetallen tellen
+     op. Daarna blijft alleen de rustige stroom over. -->
+<script>
+(function () {
+  var panel = document.querySelector('.dl-panel');
+  if (!panel) return;
+  var still = false;
+  try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  if (still || !('IntersectionObserver' in window)) { panel.classList.add('is-live'); return; }
+
+  function tel(el) {
+    var doel = el.getAttribute('data-count');
+    if (!doel) return;
+    var decimalen = doel.indexOf(',') > -1 ? doel.split(',')[1].length : 0;
+    var eind = parseFloat(doel.replace('.', '').replace(',', '.'));
+    var pre = el.getAttribute('data-pre') || '', post = el.getAttribute('data-post') || '';
+    var slot = el.textContent, start = null, duur = 1100;
+    function toon(v) {
+      var t = v.toFixed(decimalen).replace('.', ',');
+      var d = t.split(','), heel = d[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      el.textContent = pre + (d.length > 1 ? heel + ',' + d[1] : heel) + post;
+    }
+    function stap(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / duur);
+      toon(eind * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(stap); else el.textContent = slot;
+    }
+    toon(0);
+    requestAnimationFrame(stap);
+  }
+
+  var io = new IntersectionObserver(function (rijen) {
+    rijen.forEach(function (rij) {
+      if (!rij.isIntersecting) return;
+      panel.classList.add('is-live');
+      setTimeout(function () {
+        panel.querySelectorAll('.dl-kval[data-count]').forEach(function (el, i) {
+          setTimeout(function () { tel(el); }, i * 110);
+        });
+      }, 550);
+      io.disconnect();
+    });
+  }, { threshold: 0.3 });
+  io.observe(panel);
+})();
+</script>
+
 <!-- Vercel Web Analytics: cookieloos en geaggregeerd, dus geen cookiebanner nodig.
      Aanzetten in Vercel: Project -> Analytics. Zonder dat blijft dit een 404 zonder effect. -->
 <script defer src="/_vercel/insights/script.js"></script>
