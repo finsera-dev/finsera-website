@@ -308,8 +308,20 @@
            serif-citaten, afwisselend groot en klein, met hairlines. -->
       <div class="pain__list" id="painList"></div>
 
+      <!-- De gevolgen stonden eerst per citaat in een tweede kolom. Vier keer
+           dezelfde kop verzwakte elk punt; ze staan nu gebundeld in één zin. -->
+      <div class="pain__gevolg">
+        <span class="pain__gevolg-label" data-i18n="painLeadsTo">Waar dit toe leidt</span>
+        <p class="pain__gevolg-text" data-i18n="painGevolg">Je beslist op gevoel, je stuurt pas bij als het moment om in te grijpen al voorbij is, en &eacute;&eacute;n fout of &eacute;&eacute;n uitval legt je rapportage stil. Wat ooit &lsquo;goed genoeg&rsquo; was, remt nu je groei in plaats van die te dragen.</p>
+      </div>
+
+      <!-- Het antwoord op de vier signalen. De kop en de intro stonden eerst
+           als losse sectie hieronder; ze horen bij dit kader, want ze
+           beantwoorden precies wat hierboven benoemd is. -->
       <div class="pain__bridge">
+        <h3 class="pain__bridge-title" data-i18n="aanpakHeading">Eerst grip op je fundament. Daarna slim automatiseren.</h3>
         <p class="pain__bridge-text" data-i18n="bridge">Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.</p>
+        <p class="pain__bridge-intro" data-i18n="aanpakIntro">Geen losse dashboards of AI-proefjes, maar &eacute;&eacute;n samenhangende aanpak die met je organisatie meegroeit &mdash; rust en overzicht, afgestemd op waar je nu staat.</p>
         <div class="pain__bridge-acties">
           <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
           <span class="pain__bridge-alt"><span data-i18n="bridgeAlt">of bel meteen even:</span> <a href="tel:+31641413836">06&nbsp;-&nbsp;41&nbsp;41&nbsp;38&nbsp;36</a></span>
@@ -318,17 +330,145 @@
     </div>
   </section>
 
-  <!-- ============================================ AANPAK + DIAGNOSE ====== -->
-  <section id="oplossing" class="sol">
+  <!-- ========================================== DIENSTEN =================
+       Twee kaarten met een fasestrip erboven: eerst het fundament, daarna de
+       hefboom. De opmaak volgt het voorstel van de eigenaar; kleuren, letters
+       en radii komen uit de eigen tokens, niet uit de aangeleverde losse set. -->
+  <section id="diensten" class="svc">
     <div class="wrap">
       <div class="sect-head">
         <span class="sect-num">02</span>
-        <h2 class="sect-h2" data-i18n="aanpakHeading">Eerst grip op je fundament. Daarna slim automatiseren.</h2>
+        <h2 class="sect-h2" data-i18n="dienstenHeading">Twee diensten die op elkaar voortbouwen.</h2>
       </div>
-      <p class="sect-intro" data-i18n="aanpakIntro">We bouwen een financieel fundament dat met je organisatie meegroeit. Geen losse dashboards of AI-proefjes, maar één samenhangende aanpak die rust en overzicht brengt, afgestemd op waar je nu staat.</p>
-    </div>
+      <p class="sect-intro" data-i18n="svcShortIntro">Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.</p>
 
-    <!-- de navy diagnose-band -->
+      <!-- Fasestrip: alleen decoratief, daarom aria-hidden en verborgen op smal -->
+      <div class="svc__strip" aria-hidden="true">
+        <span class="svc__strip-label svc__strip-label--l"><span data-i18n="svcPhaseA">Eerst &middot; fundament</span></span>
+        <span class="svc__strip-arrow">&rarr;</span>
+        <span class="svc__strip-label svc__strip-label--r"><span data-i18n="svcPhaseB">Daarna &middot; hefboom</span></span>
+      </div>
+
+      <div class="svc__grid">
+        <article class="scard">
+          <div class="scard__top">
+            <span class="scard__num">01 / <span data-i18n="svcC1Meta">Dashboard &amp; rapportage</span></span>
+            <span class="scard__dur" data-i18n="svcC1Phase">Fase 1</span>
+          </div>
+          <h3 class="scard__title"><span data-i18n="svcC1TitleA">Dashboard &amp;</span> <em data-i18n="svcC1TitleB">managementrapportage</em></h3>
+          <p class="scard__text" data-i18n="svc1Short">Van losse exports en Excel-lijsten naar &eacute;&eacute;n betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.</p>
+          <ul class="scard__list">
+            <li data-i18n="svcC1B1">Datalaag op maat, op je eigen bronnen</li>
+            <li data-i18n="svcC1B2">Power BI of dashboards op maat</li>
+            <li data-i18n="svcC1B3">KPI-framework met definities die kloppen</li>
+            <li data-i18n="svcC1B4">Verankerd in het ritme van je MT</li>
+          </ul>
+          <div class="scard__foot">
+            <a class="scard__link" href="/diensten#dashboard"><span data-i18n="svc1More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></a>
+            <span class="scard__hint" data-i18n="svcC1Hint">Startpunt</span>
+          </div>
+        </article>
+
+        <article class="scard">
+          <div class="scard__top">
+            <span class="scard__num">02 / <span data-i18n="svcC2Meta">AI &amp; automatisering</span></span>
+            <span class="scard__dur" data-i18n="svcC2Phase">Fase 2 &middot; doorlopend</span>
+          </div>
+          <h3 class="scard__title"><em data-i18n="svcC2TitleA">AI-strategie</em> <span data-i18n="svcC2TitleB">&amp; gerichte automatisering</span></h3>
+          <p class="scard__text" data-i18n="svc2Short">Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt &mdash; met oog voor privacy, betrouwbaarheid en menselijk toezicht.</p>
+          <ul class="scard__list">
+            <li data-i18n="svcC2B1">Procesanalyse samen met je team</li>
+            <li data-i18n="svcC2B2">AI-agents op maat voor terugkerend werk</li>
+            <li data-i18n="svcC2B3">Signalering en alerts bij afwijkingen</li>
+            <li data-i18n="svcC2B4">Menselijk toezicht standaard ingebouwd</li>
+          </ul>
+          <div class="scard__foot">
+            <a class="scard__link" href="/diensten#ai"><span data-i18n="svc2More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></a>
+            <span class="scard__hint" data-i18n="svcC2Hint">Vervolg op fase 1</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="svc__close">
+        <p class="svc__bespoke" data-i18n="svcBespoke">Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.</p>
+        <a href="/diensten" class="btn"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================== KLANTEN AAN HET WOORD ============
+       Reviewkaarten: portret en naam van de klant boven, een donkere balk met
+       het resultaat onderaan. Het citaatblok per kaart staat bewust op
+       [hidden] met lege i18n-sleutels: er komt hier alleen een citaat te
+       staan als de klant het zelf heeft goedgekeurd. Haal dan [hidden] weg en
+       vul review1Quote / review2Quote in beide woordenlijsten. -->
+  <section id="reviews" class="rev">
+    <div class="wrap">
+      <div class="sect-head">
+        <span class="sect-num">03</span>
+        <h2 class="sect-h2" data-i18n="casesTitle">Resultaten uit de praktijk</h2>
+      </div>
+      <p class="sect-intro" data-i18n="revIntro">Twee klanten, en wat er in hun eigen omgeving veranderde.</p>
+
+      <div class="rev__grid">
+        <article class="rev__card">
+          <div class="rev__top">
+            <p class="rev__sector"><span class="rev__tag" data-i18n="case1Tag">E-commerce</span> <span data-i18n="case1Sector">Paardensport</span></p>
+            <blockquote class="rev__quote" hidden>
+              <p data-i18n="review1Quote"></p>
+            </blockquote>
+            <p class="rev__lead" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
+            <div class="rev__by">
+              <img class="rev__avatar" src="img/cases/dochorse-charlotte-van-der-pauw.webp" alt="" width="1080" height="676" decoding="async" loading="lazy">
+              <span class="rev__who">
+                <b data-i18n="case1Person">Charlotte van der Pauw</b>
+                <em>DocHorse</em>
+              </span>
+            </div>
+          </div>
+          <div class="rev__stat">
+            <span class="rev__stat-lab" data-i18n="revResultLabel">Resultaat</span>
+            <span class="rev__stat-val"><span data-i18n="case1StatA">Marge-inzicht per merk in</span> <em data-i18n="case1StatB">&eacute;&eacute;n dashboard</em></span>
+            <a class="rev__stat-lnk" href="/cases"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="rev__card">
+          <div class="rev__top">
+            <p class="rev__sector"><span class="rev__tag" data-i18n="case2Tag">Zorg</span> <span data-i18n="case2Badge">AO/IB &middot; audit-proof</span></p>
+            <blockquote class="rev__quote" hidden>
+              <p data-i18n="review2Quote"></p>
+            </blockquote>
+            <p class="rev__lead" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
+            <div class="rev__by">
+              <img class="rev__avatar" src="img/cases/duce-miriam-twilt-mendonca.webp" alt="" width="1200" height="1200" decoding="async" loading="lazy">
+              <span class="rev__who">
+                <b data-i18n="case2Person">Miriam Twilt-Mendon&ccedil;a</b>
+                <em>DUCE</em>
+              </span>
+            </div>
+          </div>
+          <div class="rev__stat">
+            <span class="rev__stat-lab" data-i18n="revResultLabel">Resultaat</span>
+            <span class="rev__stat-val"><span data-i18n="case2StatA">Van achteraf constateren naar</span> <em data-i18n="case2StatB">bijsturen per periode</em></span>
+            <a class="rev__stat-lnk" href="/cases"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="rev__foot">
+        <p class="rev__note" data-i18n="revNote">Resultaten uit de eigen omgeving van de klant</p>
+        <a href="/cases" class="btn"><span data-i18n="revAll">Bekijk alle cases</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================== DIAGNOSE ALS SLOT ================
+       De diagnose is het eerste product dat Finsera verkoopt, dus staat de
+       band nu als afsluiter onderaan in plaats van halverwege. Hij heeft de
+       rol van de oude slot-CTA overgenomen: de koperen knop en de regel
+       "je spreekt direct met Oner of Tomas" zijn meeverhuisd. -->
+  <section id="oplossing" class="sol sol--slot">
     <div class="diag">
       <div class="wrap diag__grid">
         <div class="diag__main">
@@ -337,7 +477,11 @@
           <p class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</p>
           <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financiële sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen ›</button></p>
           <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat jóuw bedrijf nodig heeft — en in welke volgorde.</p>
-          <a href="/contact" class="btn btn--paper" data-i18n="diagCta">Vraag de diagnose aan</a>
+          <a href="/contact" class="ctax__btn diag__cta" data-i18n="diagCta">Vraag de diagnose aan</a>
+          <div class="diag__who">
+            <span class="diag__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
+            <span data-i18n="ctaWho">Je spreekt direct met &Ouml;ner of Tomas.</span>
+          </div>
         </div>
 
         <div class="diag__side">
@@ -359,94 +503,6 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========================================== DIENSTEN ================= -->
-  <section id="diensten" class="svc">
-    <div class="wrap">
-      <div class="sect-head">
-        <span class="sect-num">03</span>
-        <h2 class="sect-h2" data-i18n="dienstenHeading">Twee diensten die op elkaar voortbouwen.</h2>
-      </div>
-      <p class="sect-intro" data-i18n="svcShortIntro">Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.</p>
-
-      <div class="svc__cols">
-        <a class="svc__item" href="/diensten#dashboard">
-          <span class="svc__num">I</span>
-          <span class="svc__tag" data-i18n="svc1Benefit">Grip op je fundament</span>
-          <h3 class="svc__title" data-i18n="svc1Title">Dashboard &amp; managementrapportage</h3>
-          <p class="svc__text" data-i18n="svc1Short">Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.</p>
-          <span class="svc__more link-arrow"><span data-i18n="svc1More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="svc__item" href="/diensten#ai">
-          <span class="svc__num">II</span>
-          <span class="svc__tag" data-i18n="svc2Benefit">Efficiënter werken met AI</span>
-          <h3 class="svc__title" data-i18n="svc2Title">AI-strategie</h3>
-          <p class="svc__text" data-i18n="svc2Short">Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt — met oog voor privacy, betrouwbaarheid en menselijk toezicht.</p>
-          <span class="svc__more link-arrow"><span data-i18n="svc2More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></span>
-        </a>
-      </div>
-
-      <p class="svc__bespoke" data-i18n="svcBespoke">Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.</p>
-      <p class="svc__foot"><a href="/diensten" class="link-arrow"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a></p>
-    </div>
-  </section>
-
-  <!-- ====================================================== CASES ======== -->
-  <section class="cases">
-    <div class="wrap">
-      <div class="sect-head">
-        <span class="sect-num">04</span>
-        <h2 class="sect-h2" data-i18n="casesTitle">Resultaten uit de praktijk</h2>
-      </div>
-
-      <div class="cases__list">
-        <article class="case">
-          <div class="case__meta">
-            <span class="case__tag" data-i18n="case1Tag">E-commerce</span>
-            <span class="case__srcs"><span data-i18n="case1Chip1">Webshop</span> · <span data-i18n="case1Chip2">Marketing</span> · <span data-i18n="case1Chip3">Boekhouding</span></span>
-            <svg class="case__viz" viewBox="0 0 132 56" aria-hidden="true"><line x1="2" y1="40" x2="118" y2="40" stroke="rgba(22,36,61,0.22)" stroke-width="1" stroke-dasharray="3 3"/><rect x="6" y="18" width="9" height="22" fill="#8F5F2A"/><rect x="21" y="10" width="9" height="30" fill="#8F5F2A"/><rect x="36" y="24" width="9" height="16" fill="#8F5F2A"/><rect x="51" y="40" width="9" height="8" fill="rgba(22,36,61,0.35)"/><rect x="66" y="16" width="9" height="24" fill="#8F5F2A"/><rect x="81" y="40" width="9" height="5" fill="rgba(22,36,61,0.35)"/><rect x="96" y="9" width="9" height="31" fill="#8F5F2A"/></svg>
-          </div>
-          <div class="case__body">
-            <h3 class="case__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h3>
-            <p class="case__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.</p>
-            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-
-        <article class="case">
-          <div class="case__meta">
-            <span class="case__tag" data-i18n="case2Tag">Zorg</span>
-            <span class="case__srcs"><span data-i18n="case2Chip1">Boekhouding</span> · <span data-i18n="case2Chip2">Cliëntdata</span></span>
-            <span class="case__badge" data-i18n="case2Badge">AO/IB · audit-proof</span>
-            <svg class="case__viz" viewBox="0 0 132 56" aria-hidden="true"><line x1="2" y1="48" x2="130" y2="48" stroke="rgba(22,36,61,0.22)" stroke-width="1"/><rect x="14" y="16" width="9" height="32" fill="#8F5F2A"/><rect x="26" y="24" width="9" height="24" fill="rgba(22,36,61,0.55)"/><rect x="38" y="28" width="9" height="20" fill="rgba(22,36,61,0.25)"/><rect x="76" y="10" width="9" height="38" fill="#8F5F2A"/><rect x="88" y="20" width="9" height="28" fill="rgba(22,36,61,0.55)"/><rect x="100" y="25" width="9" height="23" fill="rgba(22,36,61,0.25)"/></svg>
-          </div>
-          <div class="case__body">
-            <h3 class="case__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h3>
-            <p class="case__result" data-i18n="case2Result">Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.</p>
-            <a href="/cases" class="link-arrow"><span data-i18n="casesRead">Bekijk cases</span> <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================== CTA ========== -->
-  <!-- Slot-CTA: exact overgenomen van de hoofdversie (vaste keuze van de eigenaar).
-       Gescopede ctax-klassen zodat de variant-stijlen dit blok niet raken. -->
-  <section class="ctax">
-    <div class="ctax__box">
-      <div class="ctax__inner">
-        <h2 data-i18n="ctaTitle">Klaar voor grip op je cijfers?</h2>
-        <p data-i18n="ctaText">Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.</p>
-        <a href="/contact" class="ctax__btn" data-i18n="cta">Vraag de diagnose aan</a>
-        <div class="ctax__who">
-          <span class="ctax__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async"></span>
-          <span data-i18n="ctaWho">Je spreekt direct met Öner of Tomas.</span>
-        </div>
-      </div>
-    </div>
   </section>
 
 </main>

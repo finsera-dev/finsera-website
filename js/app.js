@@ -19,6 +19,21 @@
       svc2Short: 'Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt — met oog voor privacy, betrouwbaarheid en menselijk toezicht.',
       svcMore: 'Meer over onze diensten',
       svc1More: 'Bekijk deze dienst', svc2More: 'Bekijk deze dienst',
+      svcPhaseA: 'Eerst · fundament', svcPhaseB: 'Daarna · hefboom',
+      svcC1Meta: 'Dashboard & rapportage', svcC1Phase: 'Fase 1',
+      svcC1TitleA: 'Dashboard &', svcC1TitleB: 'managementrapportage',
+      svcC1B1: 'Datalaag op maat, op je eigen bronnen',
+      svcC1B2: 'Power BI of dashboards op maat',
+      svcC1B3: 'KPI-framework met definities die kloppen',
+      svcC1B4: 'Verankerd in het ritme van je MT',
+      svcC1Hint: 'Startpunt',
+      svcC2Meta: 'AI & automatisering', svcC2Phase: 'Fase 2 · doorlopend',
+      svcC2TitleA: 'AI-strategie', svcC2TitleB: '& gerichte automatisering',
+      svcC2B1: 'Procesanalyse samen met je team',
+      svcC2B2: 'AI-agents op maat voor terugkerend werk',
+      svcC2B3: 'Signalering en alerts bij afwijkingen',
+      svcC2B4: 'Menselijk toezicht standaard ingebouwd',
+      svcC2Hint: 'Vervolg op fase 1',
       dienstenPageEyebrow: 'Onze diensten', dienstenPageTitle: 'Managementrapportage, dashboards en AI voor het MKB',
       dienstenPageIntro: 'Eén diagnose als startpunt, plus twee diensten die op elkaar voortbouwen. Hieronder in detail wat je van elk mag verwachten.',
       routeSectionEyebrow: 'Onze aanpak', routeSectionTitle: 'Van diagnose naar fundament naar AI.',
@@ -38,10 +53,11 @@
       painEyebrow: 'Herken je dit?',
       painHeading: 'Vier signalen dat je organisatie haar financiële structuur is ontgroeid.',
       painLeadsTo: 'Waar dit toe leidt',
+      painGevolg: 'Je beslist op gevoel, je stuurt pas bij als het moment om in te grijpen al voorbij is, en één fout of één uitval legt je rapportage stil. Wat ooit \u2018goed genoeg\u2019 was, remt nu je groei in plaats van die te dragen.',
       bridge: 'Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.',
       aanpakEyebrow: 'Onze aanpak',
       aanpakHeading: 'Eerst grip op je fundament. Daarna slim automatiseren.',
-      aanpakIntro: 'We bouwen een financieel fundament dat met je organisatie meegroeit. Geen losse dashboards of AI-proefjes, maar één samenhangende aanpak die rust en overzicht brengt, afgestemd op waar je nu staat.',
+      aanpakIntro: 'Geen losse dashboards of AI-proefjes, maar één samenhangende aanpak die met je organisatie meegroeit — rust en overzicht, afgestemd op waar je nu staat.',
       route1Title: 'Diagnose', route1Benefit: 'Een uitvoerbaar adviesrapport', route1Desc: 'We brengen cijfers, processen en datastromen in kaart, en maken het verschil zichtbaar tussen hoe het nu werkt en hoe het zou moeten.',
       route2Title: 'Dashboard & rapportage', route2Benefit: 'Grip op je fundament', route2Desc: 'We brengen je databronnen samen tot één betrouwbare bron van waarheid, zodat je kunt sturen op cijfers die kloppen.',
       route3Title: 'AI-strategie', route3Benefit: 'Efficiënter werken met AI', route3Desc: 'Pas als de basis klopt, automatiseren we gericht wat tijd kost en steeds terugkomt, zodat je team tijd overhoudt.', diagTitle: 'Diagnose & strategisch adviesrapport',
@@ -99,6 +115,16 @@
       ctaTitleD: 'Weten wat bij jou de grootste winst oplevert?',
       ctaTextD: 'De diagnose laat zien welke van deze twee diensten nú het meest oplevert — en in welke volgorde. Eén gesprek is genoeg om te zien of het klikt.',
       casesEyebrow: 'Cases', casesTitle: 'Resultaten uit de praktijk', casesRead: 'Bekijk cases',
+      revIntro: 'Twee klanten, en wat er in hun eigen omgeving veranderde.',
+      revResultLabel: 'Resultaat', revNote: 'Resultaten uit de eigen omgeving van de klant',
+      revAll: 'Bekijk alle cases',
+      case1Person: 'Charlotte van der Pauw', case1Sector: 'Paardensport',
+      case1StatA: 'Van sturen op omzet naar', case1StatB: 'sturen op marge',
+      case2Person: 'Miriam Twilt-Mendonça',
+      case2StatA: 'Van achteraf constateren naar', case2StatB: 'aantoonbaar in control',
+      // Vul deze pas met een citaat dat de klant zelf heeft goedgekeurd en
+      // haal dan [hidden] van het blockquote in index.html weg.
+      review1Quote: '', review2Quote: '',
       case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge.', case1Result: 'Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding', case1ChartLabel: 'Marge per merk',
       case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control.', case2Result: 'Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.',
@@ -143,6 +169,21 @@
       svc2Short: 'Only once the foundation holds do we automate what costs time and keeps recurring — with an eye for privacy, reliability and human oversight.',
       svcMore: 'More about our services',
       svc1More: 'View this service', svc2More: 'View this service',
+      svcPhaseA: 'First · foundation', svcPhaseB: 'Then · leverage',
+      svcC1Meta: 'Dashboard & reporting', svcC1Phase: 'Phase 1',
+      svcC1TitleA: 'Dashboard &', svcC1TitleB: 'management reporting',
+      svcC1B1: 'A bespoke data layer on your own sources',
+      svcC1B2: 'Power BI or bespoke dashboards',
+      svcC1B3: 'A KPI framework with definitions that hold',
+      svcC1B4: 'Anchored in your management rhythm',
+      svcC1Hint: 'Starting point',
+      svcC2Meta: 'AI & automation', svcC2Phase: 'Phase 2 · ongoing',
+      svcC2TitleA: 'AI strategy', svcC2TitleB: '& targeted automation',
+      svcC2B1: 'Process analysis together with your team',
+      svcC2B2: 'Bespoke AI agents for recurring work',
+      svcC2B3: 'Signalling and alerts on deviations',
+      svcC2B4: 'Human oversight built in as standard',
+      svcC2Hint: 'Follows phase 1',
       dienstenPageEyebrow: 'Our services', dienstenPageTitle: 'Management reporting, dashboards and AI for mid-market companies',
       dienstenPageIntro: 'One diagnosis as the starting point, plus two services that build on each other. Below, in detail, what to expect from each.',
       routeSectionEyebrow: 'Our approach', routeSectionTitle: 'From diagnosis to foundation to AI.',
@@ -162,10 +203,11 @@
       painEyebrow: 'Sound familiar?',
       painHeading: 'Four signs your organisation has outgrown its financial structure.',
       painLeadsTo: 'Where this leads',
+      painGevolg: 'You decide on gut feeling, you only adjust once the moment to intervene has passed, and one error or one absence brings your reporting to a halt. What was once \u2018good enough\u2019 now slows your growth instead of carrying it.',
       bridge: 'Finsera doesn’t solve these problems with yet another tool, but by redesigning your financial foundation.',
       aanpakEyebrow: 'Our approach',
       aanpakHeading: 'First a grip on your foundation. Then automate smartly.',
-      aanpakIntro: 'We build a financial foundation that grows with your organisation. Not loose dashboards or AI experiments, but one coherent approach that brings calm and overview, tailored to where you stand today.',
+      aanpakIntro: 'Not loose dashboards or AI experiments, but one coherent approach that grows with your organisation — calm and overview, tailored to where you stand today.',
       route1Title: 'Diagnosis', route1Benefit: 'An actionable advisory report', route1Desc: 'We map your numbers, processes and data flows, and make the gap visible between how it works now and how it should.',
       route2Title: 'Dashboard & reporting', route2Benefit: 'A grip on your foundation', route2Desc: 'We bring your data sources together into one reliable source of truth, so you can steer on numbers that hold.',
       route3Title: 'AI strategy', route3Benefit: 'Work more efficiently with AI', route3Desc: 'Only once the basics hold do we automate, targeting what costs time and keeps recurring, so your team gains time back.', diagTitle: 'Diagnosis & strategic advisory report',
@@ -223,6 +265,14 @@
       ctaTitleD: 'Want to know where your biggest gain is?',
       ctaTextD: 'The diagnosis shows which of these two services delivers most right now — and in what order. One conversation is enough to see if it clicks.',
       casesEyebrow: 'Cases', casesTitle: 'Results in practice', casesRead: 'View cases',
+      revIntro: 'Two clients, and what changed in their own environment.',
+      revResultLabel: 'Result', revNote: 'Results from the client’s own environment',
+      revAll: 'View all cases',
+      case1Person: 'Charlotte van der Pauw', case1Sector: 'Equestrian',
+      case1StatA: 'From steering on revenue to', case1StatB: 'steering on margin',
+      case2Person: 'Miriam Twilt-Mendonça',
+      case2StatA: 'From finding out afterwards to', case2StatB: 'demonstrably in control',
+      review1Quote: '', review2Quote: '',
       case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin.', case1Result: 'Data from webshop, marketing and bookkeeping brought together in one Power BI environment.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping', case1ChartLabel: 'Margin per brand',
       case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control.', case2Result: 'Financial figures and client data in one report, set against budget and the previous period.',
@@ -450,19 +500,33 @@
   // binnenkomt en alleen nog wil weten of het klikt.
   var PAIN_SHOWN = 4;
   var painListEl = $('#painList');
+  // Vier gekaderde signalen met een icoon. Het gevolg stond eerst per citaat
+  // in een tweede kolom, maar vier keer "waar dit toe leidt" verzwakt elk
+  // afzonderlijk punt; de gevolgen staan nu gebundeld in één zin onder de rij
+  // (painGevolg). De iconen horen bij de volgorde van painData, niet bij de
+  // taal, en staan daarom hier los van de woordenlijsten.
+  var PAIN_ICONS = [
+    // cijfers niet vertrouwen: vraagteken
+    '<circle cx="12" cy="12" r="8.4"/><path d="M9.7 9.5a2.4 2.4 0 1 1 3.1 2.7c-.6.2-.9.7-.9 1.3v.4"/><circle cx="11.9" cy="16.5" r=".85" fill="currentColor" stroke="none"/>',
+    // te laat: klok
+    '<circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3.1 1.9"/>',
+    // Excel en handwerk: raster
+    '<rect x="3.6" y="4.6" width="16.8" height="14.8" rx="1.4"/><path d="M3.6 9.5h16.8M3.6 14.5h16.8M9.4 4.6v14.8M15 4.6v14.8"/>',
+    // groei versus structuur: stijgende lijn boven een gestippeld fundament
+    '<path d="M3.5 19.6h17" stroke-dasharray="3 3"/><path d="M5.6 15.8l4.2-4.6 3.3 2.9L19.4 6.6"/><path d="M19.4 6.6h-4.1M19.4 6.6v4.1"/>'
+  ];
   function renderPainList() {
     if (!painListEl) return;
     painListEl.innerHTML = '';
-    t().painData.slice(0, PAIN_SHOWN).forEach(function (d) {
+    t().painData.slice(0, PAIN_SHOWN).forEach(function (d, i) {
       var card = document.createElement('article');
       card.className = 'pain__card';
       card.innerHTML =
-        '<div class="pain__card-quote"></div>' +
-        '<div class="pain__card-label"></div>' +
-        '<p class="pain__card-desc"></p>';
+        '<span class="pain__card-ic" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" ' +
+        'stroke-linecap="round" stroke-linejoin="round">' + (PAIN_ICONS[i] || '') + '</svg>' +
+        '</span><p class="pain__card-quote"></p>';
       card.querySelector('.pain__card-quote').textContent = d[0];
-      card.querySelector('.pain__card-label').textContent = t().painLeadsTo;
-      card.querySelector('.pain__card-desc').textContent = d[1];
       painListEl.appendChild(card);
     });
   }
