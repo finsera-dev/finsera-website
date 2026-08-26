@@ -503,7 +503,44 @@
       });
       html += '</div>';
       body.innerHTML = html;
+      animateKpiOnce(body);
     }
+  }
+
+  /* Eén kalm optel-moment voor het KPI-cijfer bij de eerste render; daarna
+     rust. Respecteert reduced-motion en draait nooit opnieuw. */
+  var kpiCounted = false;
+  function animateKpiOnce(body) {
+    if (kpiCounted) return;
+    kpiCounted = true;
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    } catch (e) { return; }
+    var el = body.querySelector('.graph__kpi-value');
+    if (!el) return;
+    var final = el.textContent;
+    var m = final.match(/([0-9][0-9.,]*)/);
+    if (!m) return;
+    var numStr = m[1];
+    var decimals = (numStr.match(/,(\d+)$/) || [, ''])[1].length;
+    var target = parseFloat(numStr.replace(/\./g, '').replace(',', '.'));
+    if (!isFinite(target)) return;
+    var t0 = null, DUR = 900;
+    function fmt(v) {
+      var s = v.toFixed(decimals).replace('.', ',');
+      // duizendtallen terug (alleen relevant voor waarden als 1.840)
+      var parts = s.split(','), int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      return final.replace(numStr, parts.length > 1 ? int + ',' + parts[1] : int);
+    }
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased);
+      if (p < 1 && document.contains(el)) requestAnimationFrame(step);
+      else if (document.contains(el)) el.textContent = final;
+    }
+    requestAnimationFrame(step);
   }
 
   if (rangeEl) {
