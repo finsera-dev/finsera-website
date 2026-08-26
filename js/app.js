@@ -8,7 +8,7 @@
   /* --------------------------------------------------------------- i18n --- */
   var I18N = {
     nl: {
-      navHome: 'Home', navOver: 'Over Finsera', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
+      navHome: 'Home', navOver: 'Over ons', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
       cta: 'Vraag de diagnose aan',
       diagCta: 'Vraag de diagnose aan',
       diagEyebrowTop: 'Zo starten we · de diagnose',
@@ -133,7 +133,7 @@
       ]
     },
     en: {
-      navHome: 'Home', navOver: 'About', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
+      navHome: 'Home', navOver: 'About us', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
       cta: 'Request the diagnosis',
       diagCta: 'Request the diagnosis',
       diagEyebrowTop: 'How we start · the diagnosis',
