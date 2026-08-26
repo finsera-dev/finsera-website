@@ -1652,3 +1652,118 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hm-shot--b { width: 47%; top: 26%; right: -2%; }
 .hm-scene--photo .hm-tile--dash { right: 30%; bottom: 2%; }
 @media (min-width: 901px) { .hm-grid { align-items: center; } }
+
+/* ============================== DL: bronnen → datalaag → dashboard =======
+   Studio-productstijl: fysiek ogende tegels met zachte studioschaduwen op
+   een warm paneel; zelfde beeldtaal als de hero-fotocompositie. */
+.dl { background: #FDFCF9; border-top: 1px solid var(--hair-soft, rgba(22,36,61,.1)); padding: clamp(56px, 8vw, 104px) 0; }
+.dl-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.dl-h2 { font-family: 'Archivo', var(--sans); font-weight: 780; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.06; letter-spacing: -0.015em; color: var(--ink, #16243D); margin: 14px 0 20px; }
+.dl-h2 span { display: block; }
+.dl-h2-accent { color: #8F5F2A; }
+.dl-body { color: rgba(22,36,61,.74); max-width: 46ch; margin: 0 0 16px; }
+.dl-lead { font-weight: 600; color: var(--ink, #16243D); max-width: 44ch; margin: 0 0 26px; }
+.dl-btn { display: inline-flex; align-items: center; gap: 10px; }
+
+/* paneel als productfoto: warm vlak, studio-sweep, gelaagde schaduw */
+.dl-stage { position: relative; }
+.dl-photo:not([hidden]) { width: 100%; border-radius: 10px; box-shadow: 0 30px 60px rgba(22,36,61,.16); }
+.dl-photo:not([hidden]) + .dl-panel { display: none; }
+.dl-panel { position: relative; background:
+    radial-gradient(120% 90% at 50% 0%, #FFFFFF 0%, #FAF7F1 58%, #F1EDE4 100%);
+  border: 1px solid rgba(22,36,61,.08); border-radius: 10px;
+  box-shadow: 0 34px 64px rgba(22,36,61,.13), 0 6px 16px rgba(22,36,61,.06);
+  padding: clamp(18px, 2.4vw, 30px); }
+.dl-panel-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(22,36,61,.5); margin-bottom: 20px; }
+.dl-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr); gap: clamp(10px, 1.6vw, 22px); align-items: center; }
+
+/* bron-tegels: fysiek, zwevend */
+.dl-sources { display: flex; flex-direction: column; gap: 14px; }
+.dl-src { position: relative; display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid rgba(22,36,61,.07); border-radius: 8px; padding: 12px 14px;
+  box-shadow: 0 14px 26px rgba(22,36,61,.09), 0 2px 6px rgba(22,36,61,.05); }
+.dl-src:nth-child(2) { transform: translateX(8px); }
+.dl-src-ic { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,.14); }
+.dl-src-ic--xl { background: #1F8A4C; }
+.dl-src-ic--erp { background: #3E6FA8; }
+.dl-src-ic--ex { background: #C0563F; }
+.dl-src-eur { color: #fff; font-weight: 800; font-size: 16px; }
+.dl-src-tx { display: flex; flex-direction: column; line-height: 1.25; }
+.dl-src-tx strong { font-size: 14px; color: var(--ink, #16243D); }
+.dl-src-tx em { font-style: normal; font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(22,36,61,.5); }
+.dl-src-dot { position: absolute; right: 12px; top: 12px; width: 6px; height: 6px; border-radius: 999px; }
+
+/* kern: datalaag-schijf met AI-chip */
+.dl-corewrap { position: relative; display: flex; align-items: center; }
+.dl-wire { width: clamp(10px, 1.6vw, 24px); border-top: 2px dashed rgba(143,95,42,.5); }
+.dl-core { position: relative; width: clamp(96px, 10vw, 124px); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(90% 90% at 32% 26%, #FFFFFF 0%, #F4EFE6 55%, #E8E1D2 100%);
+  box-shadow: 0 18px 34px rgba(22,36,61,.14), inset 0 2px 4px #fff, inset 0 -6px 12px rgba(22,36,61,.07);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.dl-core-ring { position: absolute; inset: -9px; border: 1px dashed rgba(143,95,42,.45); border-radius: 50%; }
+.dl-core-f { font-family: var(--serif, Georgia); font-size: 26px; font-weight: 600; color: var(--ink, #16243D); }
+.dl-core-cap { font-family: var(--mono); font-size: 7.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(22,36,61,.55); text-align: center; max-width: 9ch; line-height: 1.5; }
+.dl-core-ai { position: absolute; top: -7px; right: -13px; background: #8F5F2A; color: #fff; font-family: var(--mono); font-size: 9px; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px; box-shadow: 0 6px 14px rgba(143,95,42,.35); }
+
+/* dashboard-kaart */
+.dl-dash { background: #fff; border: 1px solid rgba(22,36,61,.08); border-radius: 10px; padding: 16px 16px 14px;
+  box-shadow: 0 20px 40px rgba(22,36,61,.12), 0 3px 8px rgba(22,36,61,.05); }
+.dl-dash-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(22,36,61,.08); padding-bottom: 10px; margin-bottom: 10px; }
+.dl-dash-head em { font-style: normal; font-weight: 650; font-size: 14px; color: var(--ink, #16243D); }
+.dl-live { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #1F8A4C; }
+.dl-live i { width: 6px; height: 6px; border-radius: 999px; background: #1F8A4C; }
+.dl-krow { display: grid; grid-template-columns: auto 1fr auto auto; align-items: baseline; gap: 8px; padding: 6px 0; font-size: 13.5px; }
+.dl-kdot { width: 6px; height: 6px; border-radius: 999px; align-self: center; }
+.dl-klabel { color: rgba(22,36,61,.66); }
+.dl-kval { font-weight: 700; color: var(--ink, #16243D); font-variant-numeric: tabular-nums; }
+.dl-kdelta { font-family: var(--mono); font-size: 10px; }
+.dl-up { color: #1F8A4C; } .dl-down { color: #C0563F; }
+.dl-chart { margin-top: 10px; border: 1px solid rgba(22,36,61,.08); border-radius: 8px; padding: 10px 10px 6px; background: #FEFDFB; }
+.dl-chart-cap { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.dl-chart-cap span:first-child { font-size: 12px; font-weight: 650; color: var(--ink, #16243D); }
+.dl-chart-meta { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: rgba(22,36,61,.45); }
+.dl-chart svg { width: 100%; height: 58px; display: block; }
+.dl-foot { display: flex; justify-content: center; gap: 10px; margin: 18px 0 0; font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(22,36,61,.55); }
+.dl-foot-arrow { color: #8F5F2A; }
+
+@media (max-width: 980px) {
+  .dl-grid { grid-template-columns: 1fr; }
+  .dl-flow { grid-template-columns: 1fr; justify-items: center; }
+  .dl-sources { flex-direction: row; width: 100%; justify-content: space-between; gap: 10px; }
+  .dl-src { flex: 1; flex-direction: column; text-align: center; gap: 8px; padding: 12px 8px; }
+  .dl-src:nth-child(2) { transform: none; }
+  .dl-src-dot { display: none; }
+  .dl-corewrap { transform: rotate(90deg); margin: 4px 0; }
+  .dl-corewrap .dl-core { transform: rotate(-90deg); }
+  .dl-dash { width: 100%; }
+}
+
+/* dl: ademruimte in het dashboardkaartje */
+@media (min-width: 981px) {
+  .dl-flow { grid-template-columns: minmax(0, 0.9fr) auto minmax(230px, 1.3fr); }
+}
+.dl-dash-head em, .dl-klabel, .dl-kval, .dl-kdelta, .dl-chart-cap span:first-child, .dl-chart-meta { white-space: nowrap; }
+.dl-krow { font-size: 13px; gap: 7px; }
+.dl-kval { font-size: 13.5px; }
+.dl-src-tx em { white-space: nowrap; }
+@media (max-width: 1180px) and (min-width: 981px) {
+  .dl-src-tx em { display: none; }
+  .dl-core-cap { display: none; }
+}
+
+/* dl mobiel: min-content temmen zodat het raster binnen de viewport blijft */
+@media (max-width: 980px) {
+  .dl-grid, .dl-flow { grid-template-columns: minmax(0, 1fr); }
+  .dl-src-tx em { display: none; }
+  .dl-src { padding: 10px 6px; }
+  .dl-klabel { white-space: normal; }
+  .dl-chart-cap span:first-child { white-space: normal; }
+}
+
+/* dl desktop: bronkolom krijgt een vloer zodat tegels niet over de schijf schuiven */
+@media (min-width: 981px) {
+  .dl-flow { grid-template-columns: minmax(196px, 0.85fr) auto minmax(240px, 1.25fr); }
+  .dl-src { overflow: hidden; }
+  .dl-src:nth-child(2) { transform: translateX(6px); }
+  .dl-panel { padding-left: clamp(14px, 1.6vw, 22px); padding-right: clamp(14px, 1.6vw, 22px); }
+}
