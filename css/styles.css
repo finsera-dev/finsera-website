@@ -2425,3 +2425,60 @@ body {
    ruimte nodig heeft dan het eerdere schijfje om leesbaar te blijven. */
 .nav__mark { width: 27px; height: 27px; }
 .footer__mark { width: 25px; height: 25px; }
+
+/* ==========================================================================
+   PAGINABANNER — foto-hero voor de contentpagina's
+   Dezelfde vorm als de bannerhero op "Over ons": foto over de volle breedte
+   met een navy scrim eroverheen, tekst linksonder. Per pagina verschilt de
+   uitsnede (object-position) zodat dezelfde foto niet identiek terugkomt.
+   ========================================================================== */
+.pbanner { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-band); }
+.pbanner__photo {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;
+}
+.pbanner__scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(94deg, rgba(22,36,61,.95) 0%, rgba(22,36,61,.86) 34%, rgba(22,36,61,.48) 64%, rgba(22,36,61,.20) 100%),
+    linear-gradient(0deg, rgba(22,36,61,.55) 0%, rgba(22,36,61,0) 42%);
+}
+.pbanner__inner {
+  position: relative; z-index: 2;
+  max-width: var(--wrap); margin: 0 auto;
+  padding: clamp(84px, 13vh, 148px) var(--pad) clamp(52px, 8vh, 96px);
+  min-height: clamp(360px, 50vh, 540px);
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.pbanner__kicker {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold-soft); margin: 0 0 clamp(18px, 3vh, 28px);
+}
+.pbanner__rule { width: 30px; height: 1px; background: var(--gold-soft); flex: none; }
+.pbanner__h1 {
+  font-family: var(--serif); font-weight: 330;
+  font-size: clamp(38px, 5.8vw, 76px); line-height: 1.03; letter-spacing: -.024em;
+  color: var(--band-paper); margin: 0; max-width: 15ch;
+  overflow-wrap: break-word; hyphens: auto; text-wrap: balance;
+}
+.pbanner__h1::after { content: '.'; }
+.pbanner__intro {
+  margin: clamp(18px, 3vh, 26px) 0 0; max-width: 54ch;
+  font-size: clamp(16px, 1.3vw, 18px); line-height: 1.64;
+  color: var(--band-paper-70); text-wrap: pretty;
+}
+/* Per pagina een andere uitsnede van dezelfde foto. */
+.pbanner--diensten .pbanner__photo { object-position: 62% 28%; }
+.pbanner--cases    .pbanner__photo { object-position: 34% 34%; }
+.pbanner--blog     .pbanner__photo { object-position: 50% 22%; }
+.pbanner--contact  .pbanner__photo { object-position: 44% 40%; }
+@media (max-width: 720px) {
+  .pbanner__photo { object-position: 62% 26%; }
+  .pbanner__scrim {
+    background: linear-gradient(0deg, rgba(22,36,61,.96) 0%, rgba(22,36,61,.86) 44%, rgba(22,36,61,.50) 78%, rgba(22,36,61,.58) 100%);
+  }
+  .pbanner__inner { min-height: clamp(400px, 62vh, 560px); }
+  .pbanner__h1 { max-width: none; font-size: clamp(30px, 7.6vw, 42px); }
+}
