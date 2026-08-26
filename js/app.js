@@ -82,7 +82,24 @@
       aiTool5: 'Automatisering',
       svc2Foot: 'Staat je fundament al stevig en wil je vooral repeterend werk automatiseren? Dan starten we daar.',
       diagReportLabel: 'Adviesrapport', diagScan: 'analyse loopt',
-      casesEyebrow: 'Cases', casesTitle: 'Resultaten uit de praktijk', casesRead: 'Lees case',
+      diagReportSub: 'De opbouw',
+      diagToc1: 'Datastromen en systemen in kaart',
+      diagToc2: 'Cijfers naast definities: waar het schuurt',
+      diagToc3: 'Quick wins die direct tijd opleveren',
+      diagToc4: 'Prioriteiten en volgorde voor de komende maanden',
+      bridgeAlt: 'of bel meteen even:',
+      dlEyebrow: 'Wat we bouwen',
+      dlTitleA: 'Grip op je cijfers.', dlTitleB: 'Ruimte om te sturen.',
+      dlBody: 'Verkoop via bol, betalingen in Mollie, ERP in AFAS, boekhouding in Exact Online — vier systemen, vier waarheden. Finsera bouwt de tussenlaag: één datalaag op maat, aangevuld met AI, die alles samenbrengt in het dashboard waar jij écht op kunt sturen.',
+      dlColA: 'Bronnen', dlColB: 'Finsera · AI', dlColC: 'Eén dashboard',
+      dlSrc1: 'boekhouding', dlSrc2: 'ERP · HR', dlSrc3: 'verkoopkanaal', dlSrc4: 'betalingen',
+      dlCore: 'datalaag op maat', dlMonth: 'Augustus · overzicht',
+      dlK1: 'Omzet MTD', dlK2: 'Brutomarge', dlK3: 'Cashpositie',
+      dlChart: 'Omzet vs. begroting', dlFootA: '4 bronnen', dlFootB: '1 dashboard',
+      ctaWho: 'Je spreekt direct met Öner of Tomas.',
+      ctaTitleD: 'Weten wat bij jou de grootste winst oplevert?',
+      ctaTextD: 'De diagnose laat zien welke van deze twee diensten nú het meest oplevert — en in welke volgorde. Eén gesprek is genoeg om te zien of het klikt.',
+      casesEyebrow: 'Cases', casesTitle: 'Resultaten uit de praktijk', casesRead: 'Bekijk cases',
       case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge.', case1Result: 'Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding', case1ChartLabel: 'Marge per merk',
       case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control.', case2Result: 'Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.',
@@ -190,7 +207,24 @@
       aiTool5: 'Automation',
       svc2Foot: 'Is your foundation already solid and do you mainly want to automate repetitive work? Then that’s where we start.',
       diagReportLabel: 'Advisory report', diagScan: 'analysing',
-      casesEyebrow: 'Cases', casesTitle: 'Results in practice', casesRead: 'Read case',
+      diagReportSub: 'What’s inside',
+      diagToc1: 'Data flows and systems mapped',
+      diagToc2: 'Numbers versus definitions: where it grinds',
+      diagToc3: 'Quick wins that free up time right away',
+      diagToc4: 'Priorities and sequence for the months ahead',
+      bridgeAlt: 'or simply call:',
+      dlEyebrow: 'What we build',
+      dlTitleA: 'Control over your numbers.', dlTitleB: 'Room to steer.',
+      dlBody: 'Sales through bol, payments in Mollie, ERP in AFAS, bookkeeping in Exact Online — four systems, four versions of the truth. Finsera builds the layer in between: one bespoke data layer, augmented with AI, that brings everything together in the dashboard you can actually steer by.',
+      dlColA: 'Sources', dlColB: 'Finsera · AI', dlColC: 'One dashboard',
+      dlSrc1: 'bookkeeping', dlSrc2: 'ERP · HR', dlSrc3: 'sales channel', dlSrc4: 'payments',
+      dlCore: 'bespoke data layer', dlMonth: 'August · overview',
+      dlK1: 'Revenue MTD', dlK2: 'Gross margin', dlK3: 'Cash position',
+      dlChart: 'Revenue vs. budget', dlFootA: '4 sources', dlFootB: '1 dashboard',
+      ctaWho: 'You’ll speak directly with Öner or Tomas.',
+      ctaTitleD: 'Want to know where your biggest gain is?',
+      ctaTextD: 'The diagnosis shows which of these two services delivers most right now — and in what order. One conversation is enough to see if it clicks.',
+      casesEyebrow: 'Cases', casesTitle: 'Results in practice', casesRead: 'View cases',
       case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin.', case1Result: 'Data from webshop, marketing and bookkeeping brought together in one Power BI environment.',
       case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping', case1ChartLabel: 'Margin per brand',
       case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control.', case2Result: 'Financial figures and client data in one report, set against budget and the previous period.',
@@ -485,7 +519,44 @@
       });
       html += '</div>';
       body.innerHTML = html;
+      animateKpiOnce(body);
     }
+  }
+
+  /* Eén kalm optel-moment voor het KPI-cijfer bij de eerste render; daarna
+     rust. Respecteert reduced-motion en draait nooit opnieuw. */
+  var kpiCounted = false;
+  function animateKpiOnce(body) {
+    if (kpiCounted) return;
+    kpiCounted = true;
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    } catch (e) { return; }
+    var el = body.querySelector('.graph__kpi-value');
+    if (!el) return;
+    var final = el.textContent;
+    var m = final.match(/([0-9][0-9.,]*)/);
+    if (!m) return;
+    var numStr = m[1];
+    var decimals = (numStr.match(/,(\d+)$/) || [, ''])[1].length;
+    var target = parseFloat(numStr.replace(/\./g, '').replace(',', '.'));
+    if (!isFinite(target)) return;
+    var t0 = null, DUR = 900;
+    function fmt(v) {
+      var s = v.toFixed(decimals).replace('.', ',');
+      // duizendtallen terug (alleen relevant voor waarden als 1.840)
+      var parts = s.split(','), int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      return final.replace(numStr, parts.length > 1 ? int + ',' + parts[1] : int);
+    }
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased);
+      if (p < 1 && document.contains(el)) requestAnimationFrame(step);
+      else if (document.contains(el)) el.textContent = final;
+    }
+    requestAnimationFrame(step);
   }
 
   if (rangeEl) {

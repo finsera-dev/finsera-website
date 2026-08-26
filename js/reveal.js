@@ -12,12 +12,14 @@
   } catch (e) {}
 
   var SELECTORS = [
-    // Home
-    '.pain__head', '.pain__cards', '.pain__bridge',
-    '.sol__head', '.sol__box', '.diag', '.method__step',
-    '.cases__head', '.cases__viewport', '.cta__box',
-    '.team__intro', '.team__card',
-    '.page-hero__inner', '.svc2__card', '.diensten__foot',
+    // Home (richting A)
+    '.sect-head', '.pain__card', '.pain__bridge', '.graph',
+    '.diag', '.svc__col', '.case', '.ctax__inner',
+    '.team__intro', '.team__person',
+    // Oudere paginaklassen (blijven werken waar ze nog voorkomen)
+    '.pain__head', '.pain__cards',
+    '.sol__head', '.cases__head', '.cta__box',
+    '.page-hero__inner', '.svc2__card', '.diensten__foot', '.route__tile',
     // Over
     '.over-band__inner', '.over-team__head', '.over-card', '.over-quote__inner', '.over-cta',
     // Cases
