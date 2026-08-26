@@ -129,11 +129,14 @@
         <p class="hm-trust" data-i18n="heroTrust">Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet</p>
       </div>
 
-      <!-- kolom 2: productobject — tegels op sokkels, studio-stijl -->
-      <div class="hm-stage" aria-hidden="true">
+      <!-- kolom 2: foto-compositie — gestaffelde portretten met zwevend
+           KPI-kaartje; #heroPhoto blijft het slot voor een gegenereerd
+           objectbeeld dat de hele compositie kan vervangen. -->
+      <div class="hm-stage">
         <img id="heroPhoto" class="hm-photo" alt="" hidden>
-        <div class="hm-scene">
-          <!-- lichte tegel met mini-dashboard, zwevend boven de lage sokkel -->
+        <div class="hm-scene hm-scene--photo" aria-hidden="true">
+          <figure class="hm-shot hm-shot--a"><img src="img/team/oner-yucel.jpg" alt="" width="640" height="800" decoding="async"></figure>
+          <figure class="hm-shot hm-shot--b"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="640" height="800" decoding="async"></figure>
           <div class="hm-tile hm-tile--dash">
             <div class="hm-dash-head"><span class="hm-dash-label" data-i18n="mOmzet">Omzet</span><span class="hm-dash-live"></span></div>
             <div class="hm-dash-kpi">&euro;18,4M</div>
@@ -143,16 +146,7 @@
               <circle cx="146" cy="7" r="2.4" fill="#B0793F"/>
             </svg>
           </div>
-          <!-- navy Finsera-tegel met gegraveerd kompas-merkteken -->
-          <div class="hm-tile hm-tile--brand">
-            <span class="hm-mark hm-mark--lo"></span>
-            <span class="hm-mark hm-mark--hi"></span>
-          </div>
-          <!-- sokkels -->
-          <div class="hm-plinth hm-plinth--tall"></div>
-          <div class="hm-plinth hm-plinth--low"></div>
           <span class="hm-ground hm-ground--a"></span>
-          <span class="hm-ground hm-ground--b"></span>
         </div>
       </div>
 
