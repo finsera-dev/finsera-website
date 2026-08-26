@@ -330,7 +330,10 @@
     </div>
   </section>
 
-  <!-- ========================================== DIENSTEN ================= -->
+  <!-- ========================================== DIENSTEN =================
+       Twee kaarten met een fasestrip erboven: eerst het fundament, daarna de
+       hefboom. De opmaak volgt het voorstel van de eigenaar; kleuren, letters
+       en radii komen uit de eigen tokens, niet uit de aangeleverde losse set. -->
   <section id="diensten" class="svc">
     <div class="wrap">
       <div class="sect-head">
@@ -339,25 +342,57 @@
       </div>
       <p class="sect-intro" data-i18n="svcShortIntro">Eerst grip op je cijfers met dashboards en managementrapportage. Daarna gerichte automatisering, op een fundament dat klopt.</p>
 
-      <div class="svc__cols">
-        <a class="svc__item" href="/diensten#dashboard">
-          <span class="svc__num">I</span>
-          <span class="svc__tag" data-i18n="svc1Benefit">Grip op je fundament</span>
-          <h3 class="svc__title" data-i18n="svc1Title">Dashboard &amp; managementrapportage</h3>
-          <p class="svc__text" data-i18n="svc1Short">Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.</p>
-          <span class="svc__more link-arrow"><span data-i18n="svc1More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="svc__item" href="/diensten#ai">
-          <span class="svc__num">II</span>
-          <span class="svc__tag" data-i18n="svc2Benefit">Efficiënter werken met AI</span>
-          <h3 class="svc__title" data-i18n="svc2Title">AI-strategie</h3>
-          <p class="svc__text" data-i18n="svc2Short">Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt — met oog voor privacy, betrouwbaarheid en menselijk toezicht.</p>
-          <span class="svc__more link-arrow"><span data-i18n="svc2More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></span>
-        </a>
+      <!-- Fasestrip: alleen decoratief, daarom aria-hidden en verborgen op smal -->
+      <div class="svc__strip" aria-hidden="true">
+        <span class="svc__strip-label svc__strip-label--l"><span data-i18n="svcPhaseA">Eerst &middot; fundament</span></span>
+        <span class="svc__strip-arrow">&rarr;</span>
+        <span class="svc__strip-label svc__strip-label--r"><span data-i18n="svcPhaseB">Daarna &middot; hefboom</span></span>
       </div>
 
-      <p class="svc__bespoke" data-i18n="svcBespoke">Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.</p>
-      <p class="svc__foot"><a href="/diensten" class="link-arrow"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a></p>
+      <div class="svc__grid">
+        <article class="scard">
+          <div class="scard__top">
+            <span class="scard__num">01 / <span data-i18n="svcC1Meta">Dashboard &amp; rapportage</span></span>
+            <span class="scard__dur" data-i18n="svcC1Phase">Fase 1</span>
+          </div>
+          <h3 class="scard__title"><span data-i18n="svcC1TitleA">Dashboard &amp;</span> <em data-i18n="svcC1TitleB">managementrapportage</em></h3>
+          <p class="scard__text" data-i18n="svc1Short">Van losse exports en Excel-lijsten naar &eacute;&eacute;n betrouwbare bron van waarheid. Finance, directie en operatie kijken naar dezelfde cijfers en sturen op wat er toe doet.</p>
+          <ul class="scard__list">
+            <li data-i18n="svcC1B1">Datalaag op maat, op je eigen bronnen</li>
+            <li data-i18n="svcC1B2">Power BI of dashboards op maat</li>
+            <li data-i18n="svcC1B3">KPI-framework met definities die kloppen</li>
+            <li data-i18n="svcC1B4">Verankerd in het ritme van je MT</li>
+          </ul>
+          <div class="scard__foot">
+            <a class="scard__link" href="/diensten#dashboard"><span data-i18n="svc1More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></a>
+            <span class="scard__hint" data-i18n="svcC1Hint">Startpunt</span>
+          </div>
+        </article>
+
+        <article class="scard">
+          <div class="scard__top">
+            <span class="scard__num">02 / <span data-i18n="svcC2Meta">AI &amp; automatisering</span></span>
+            <span class="scard__dur" data-i18n="svcC2Phase">Fase 2 &middot; doorlopend</span>
+          </div>
+          <h3 class="scard__title"><em data-i18n="svcC2TitleA">AI-strategie</em> <span data-i18n="svcC2TitleB">&amp; gerichte automatisering</span></h3>
+          <p class="scard__text" data-i18n="svc2Short">Pas als het fundament staat, automatiseren we gericht wat tijd kost en steeds terugkomt &mdash; met oog voor privacy, betrouwbaarheid en menselijk toezicht.</p>
+          <ul class="scard__list">
+            <li data-i18n="svcC2B1">Procesanalyse samen met je team</li>
+            <li data-i18n="svcC2B2">AI-agents op maat voor terugkerend werk</li>
+            <li data-i18n="svcC2B3">Signalering en alerts bij afwijkingen</li>
+            <li data-i18n="svcC2B4">Menselijk toezicht standaard ingebouwd</li>
+          </ul>
+          <div class="scard__foot">
+            <a class="scard__link" href="/diensten#ai"><span data-i18n="svc2More">Bekijk deze dienst</span> <span aria-hidden="true">&rarr;</span></a>
+            <span class="scard__hint" data-i18n="svcC2Hint">Vervolg op fase 1</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="svc__close">
+        <p class="svc__bespoke" data-i18n="svcBespoke">Geen generieke tool past feilloos op jouw bedrijf. Daarom bouwen we alles op maat: op jouw systemen, jouw processen en jouw definities.</p>
+        <a href="/diensten" class="btn"><span data-i18n="svcMore">Meer over onze diensten</span> <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </section>
 
