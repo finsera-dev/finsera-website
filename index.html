@@ -100,6 +100,56 @@
         "inLanguage": "nl-NL"
       },
       {
+        "@type": "FAQPage",
+        "@id": "https://www.finsera.nl/#faq",
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/#website"
+        },
+        "inLanguage": "nl-NL",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Voor welk soort bedrijven werken jullie?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MKB tussen 10 en 50 medewerkers, in vrijwel iedere sector. De rode draad is dat het bedrijf uit de improviseerfase groeit en toe is aan grip: één plek waar de cijfers kloppen en waar het MT op stuurt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe snel staat er iets bruikbaars?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meestal binnen 4 tot 6 weken na de diagnose. We werken in korte sprints met wekelijkse demo’s, dus je ziet elke week wat erbij komt — geen half jaar wachten op één oplevering."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vervangen jullie onze controller of accountant?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee, we versterken ze. We zorgen dat de data en de processen eronder kloppen, zodat je bestaande finance-team weer strategisch kan werken in plaats van fouten te zoeken."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Werken jullie met vaste of losse tarieven?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Een vaste projectprijs voor de bouwfase, zodat er geen verrassingen zijn. Daarna een licht doorlopend abonnement voor onderhoud en sparring, opzegbaar per maand."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Waar draaien de dashboards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meestal in Power BI of een lichte omgeving op maat in Azure. De data blijft bij jou; wij bouwen de laag ertussen, AVG-conform en met heldere documentatie."
+            }
+          }
+        ]
+      },
+      {
         "@type": "Person",
         "@id": "https://www.finsera.nl/over#oner-yucel",
         "name": "Öner Yücel",
@@ -508,6 +558,48 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================================================ VEELGESTELDE VRAGEN =
+       Native <details>/<summary>: werkt zonder JavaScript, is met het
+       toetsenbord te bedienen en krijgt van de browser de juiste rollen mee.
+       Het name-attribuut maakt er in moderne browsers een accordeon van waarin
+       er één tegelijk openstaat; browsers die dat nog niet kennen laten er
+       meerdere openstaan, wat prima werkt. -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <p class="faq__kicker"><span class="faq__kicker-rule" aria-hidden="true"></span><span data-i18n="faqEyebrow">Veelgestelde vragen</span></p>
+      <h2 class="faq__h2" data-i18n="faqHeading">Wat vaak eerst gevraagd wordt.</h2>
+
+      <div class="faq__list">
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ1">Voor welk soort bedrijven werken jullie?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA1">MKB tussen 10 en 50 medewerkers, in vrijwel iedere sector. De rode draad is dat het bedrijf uit de improviseerfase groeit en toe is aan grip: &eacute;&eacute;n plek waar de cijfers kloppen en waar het MT op stuurt.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ2">Hoe snel staat er iets bruikbaars?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA2">Meestal binnen 4 tot 6 weken na de diagnose. We werken in korte sprints met wekelijkse demo&rsquo;s, dus je ziet elke week wat erbij komt &mdash; geen half jaar wachten op &eacute;&eacute;n oplevering.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ3">Vervangen jullie onze controller of accountant?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA3">Nee, we versterken ze. We zorgen dat de data en de processen eronder kloppen, zodat je bestaande finance-team weer strategisch kan werken in plaats van fouten te zoeken.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ4">Werken jullie met vaste of losse tarieven?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA4">Een vaste projectprijs voor de bouwfase, zodat er geen verrassingen zijn. Daarna een licht doorlopend abonnement voor onderhoud en sparring, opzegbaar per maand.</p></div>
+        </details>
+
+        <details class="faq__item" name="faq">
+          <summary class="faq__q"><span data-i18n="faqQ5">Waar draaien de dashboards?</span><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="faqA5">Meestal in Power BI of een lichte omgeving op maat in Azure. De data blijft bij jou; wij bouwen de laag ertussen, AVG-conform en met heldere documentatie.</p></div>
+        </details>
+      </div>
+
+      <p class="faq__foot"><span data-i18n="faqFoot">Staat je vraag er niet bij?</span> <a href="/contact" class="link-arrow"><span data-i18n="faqFootCta">Stel hem gerust</span> <span aria-hidden="true">&rarr;</span></a></p>
     </div>
   </section>
 

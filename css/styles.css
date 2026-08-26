@@ -2340,3 +2340,72 @@ body {
   box-shadow: 0 3px 9px -3px rgba(22, 36, 61, 0.28);
 }
 .footer__who-avatars img + img { margin-left: -12px; }
+
+/* ==========================================================================
+   VEELGESTELDE VRAGEN
+   Accordeon op native <details>/<summary>: werkt zonder JavaScript, is met het
+   toetsenbord te bedienen en de browser levert de juiste rollen. De sectie
+   staat op het diepere papier, zodat hij zich losmaakt van de rest en de
+   pagina onderaan een rustige afsluiting krijgt.
+   ========================================================================== */
+.faq {
+  background: var(--paper-deep);
+  border-top: 1px solid var(--hair-soft);
+  padding: clamp(56px, 8vw, 104px) 0 clamp(60px, 8vw, 108px);
+}
+.faq__kicker {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 clamp(18px, 2.4vw, 26px);
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-55);
+}
+.faq__kicker-rule { width: 30px; height: 1px; background: var(--copper); flex: none; }
+.faq__h2 {
+  font-family: var(--serif); font-weight: 380;
+  font-size: clamp(30px, 4.4vw, 56px); line-height: 1.05;
+  letter-spacing: -0.018em; color: var(--ink);
+  margin: 0 0 clamp(28px, 4vw, 48px); max-width: 24ch; text-wrap: balance;
+}
+
+.faq__list { border-top: 1px solid var(--hair); }
+.faq__item { border-bottom: 1px solid var(--hair); }
+.faq__q {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: clamp(18px, 2.2vw, 24px) 0;
+  cursor: pointer; list-style: none;
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(18px, 1.9vw, 23px); line-height: 1.28;
+  letter-spacing: -0.01em; color: var(--ink);
+  transition: color .18s ease;
+}
+/* de standaard driehoekjes van de browser weg */
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::marker { content: ''; }
+.faq__q:hover { color: var(--copper); }
+
+/* plus dat bij openen een min wordt */
+.faq__ic { position: relative; width: 15px; height: 15px; flex: none; }
+.faq__ic::before,
+.faq__ic::after {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 15px; height: 1.5px; background: var(--copper); border-radius: 2px;
+  transition: transform .22s cubic-bezier(.2,.7,.2,1), opacity .22s ease;
+}
+.faq__ic::after { transform: rotate(90deg); }
+.faq__item[open] .faq__ic::after { transform: rotate(0deg); opacity: 0; }
+
+.faq__a { padding: 0 0 clamp(20px, 2.4vw, 26px); }
+.faq__a p {
+  margin: 0; max-width: 64ch;
+  font-size: clamp(15.5px, 1.35vw, 16.5px); line-height: 1.68;
+  color: var(--ink-70); text-wrap: pretty;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .faq__item[open] .faq__a { animation: faqOpen .28s cubic-bezier(.2,.7,.2,1); }
+  @keyframes faqOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+}
+
+.faq__foot {
+  margin: clamp(28px, 3.4vw, 40px) 0 0;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px;
+  font-size: 15.5px; color: var(--ink-70);
+}
