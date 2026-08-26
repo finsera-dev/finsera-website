@@ -1467,11 +1467,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   position: relative;
   overflow: hidden;
   padding: clamp(40px, 6vh, 64px) 0 0;
+}
+/* De grond van de hero staat op een pseudo-element dat onderaan wegvalt, zodat
+   hij overloopt in de kleurgang van de body in plaats van af te snijden met een
+   zichtbare horizontale naad. Zonder mask-ondersteuning blijft de hero gewoon
+   staan, alleen zonder de vervaging. */
+.hero2::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
     radial-gradient(1000px 620px at 88% -6%, rgba(201, 161, 78, 0.20), transparent 62%),
     radial-gradient(820px 560px at 6% 16%, rgba(176, 121, 63, 0.10), transparent 58%),
     radial-gradient(1300px 700px at 50% 78%, rgba(22, 36, 61, 0.085), transparent 62%),
     linear-gradient(180deg, #FCFBF8 0%, #F4F3F1 48%, #FAF7F1 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0) 100%);
 }
 /* extra zachte gloed, los van de section-achtergrond zodat hij kan blenden */
 .hero2__glow {
@@ -1479,6 +1489,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background:
     radial-gradient(560px 380px at 72% 30%, rgba(201, 161, 78, 0.12), transparent 65%),
     radial-gradient(480px 380px at 22% 72%, rgba(22, 36, 61, 0.05), transparent 65%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0, 0, 0, 0) 100%);
 }
 .hero2__wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
 
@@ -2024,3 +2036,29 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 2px solid #23375C;
 }
 .diag__who-avatars img + img { margin-left: -12px; }
+
+/* ==========================================================================
+   DOORLOPENDE KLEUR OVER DE PAGINA
+   De hero heeft een warme gradient; daaronder liep de pagina over in één vlak
+   ivoor. Deze zachte gloedvlekken op de body zetten die kleurgang door tot aan
+   het slot: koper en goud waar de aandacht ligt, een koele navy-zweem bij de
+   overgangen. Ze staan op de body en niet op de secties, zodat de kleur door
+   de sectiegrenzen heen loopt in plaats van per blok te verspringen. Alle
+   percentages zijn van de volledige paginahoogte, dus de gang schaalt mee met
+   een langere of kortere pagina.
+   ========================================================================== */
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1000px 560px at 96% 12%, rgba(201, 161, 78, 0.21), transparent 62%),
+    radial-gradient(820px 520px at 2% 26%, rgba(176, 121, 63, 0.14), transparent 60%),
+    radial-gradient(1150px 620px at 84% 44%, rgba(201, 161, 78, 0.17), transparent 62%),
+    radial-gradient(980px 580px at 6% 60%, rgba(22, 36, 61, 0.09), transparent 62%),
+    radial-gradient(1250px 660px at 70% 78%, rgba(176, 121, 63, 0.13), transparent 62%),
+    radial-gradient(900px 520px at 14% 94%, rgba(201, 161, 78, 0.12), transparent 62%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+/* De kaarten en kaders blijven iets lichter dan de ondergrond, zodat ze op de
+   getinte vlakken blijven oplichten in plaats van erin weg te vallen. */
+.pain__card { background: rgba(253, 252, 249, 0.86); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
