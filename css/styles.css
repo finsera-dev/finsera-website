@@ -260,50 +260,89 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .pain { padding: clamp(48px, 7vw, 96px) 0 0; }
 
 /* app.js rendert: article.pain__card > .pain__card-ic (svg) + .pain__card-quote.
-   Vier gekaderde signalen in een 2x2-raster; de gevolgen staan gebundeld in
-   .pain__gevolg eronder en het antwoord van Finsera in .pain__bridge. */
+
+   Twee indelingen, om en om via één breekpunt:
+   - tot 1024px: alle vier de signalen in één kader, als lijst met het icoon
+     naast de tekst. Rustiger te scannen op een smal scherm.
+   - vanaf 1024px: vier losse kaartjes naast elkaar op één rij.
+   Het gevolg staat in beide gevallen in een eigen kader eronder, en het
+   antwoord van Finsera daar weer onder.
+   De kaders zijn licht doorschijnend, zodat ze op de getinte ondergrond van
+   de body blijven oplichten in plaats van erin weg te vallen. */
 .pain__list {
-  margin-top: clamp(30px, 4vw, 52px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(14px, 1.6vw, 20px);
+  margin-top: clamp(26px, 3.4vw, 44px);
+  background: rgba(253, 252, 249, 0.86);
+  border: 1px solid var(--hair-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 .pain__card {
   display: flex;
-  flex-direction: column;
-  gap: clamp(16px, 2vw, 24px);
-  background: #FDFCF9;
-  border: 1px solid var(--hair-soft);
-  border-radius: 10px;
-  padding: clamp(22px, 2.8vw, 32px);
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(14px, 1.6vw, 18px);
+  border-top: 1px solid var(--hair-soft);
+  padding: clamp(14px, 1.7vw, 19px) clamp(18px, 2.2vw, 26px);
 }
+.pain__card:first-child { border-top: 0; }
 .pain__card-ic {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px; flex: none;
+  width: 34px; height: 34px; flex: none;
   border: 1px solid var(--hair-soft);
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--paper);
   color: var(--copper);
 }
-.pain__card-ic svg { width: 21px; height: 21px; display: block; }
+.pain__card-ic svg { width: 17px; height: 17px; display: block; }
 .pain__card-quote {
   margin: 0;
   font-family: var(--serif);
   font-style: italic;
   font-weight: 380;
-  line-height: 1.24;
+  line-height: 1.3;
   letter-spacing: -0.01em;
-  font-size: clamp(19px, 1.9vw, 25px);
+  font-size: clamp(16.5px, 1.55vw, 19.5px);
   color: var(--ink);
   text-wrap: pretty;
 }
 
-/* De gevolgen: één blok, met een koperen accentlijn zodat het losstaat van
-   de vier kaarten zonder er zelf een kaart van te maken. */
+/* Vanaf 1024px: vier losse kaartjes naast elkaar. */
+@media (min-width: 1024px) {
+  .pain__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 1.2vw, 14px);
+    background: none;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .pain__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 1.4vw, 16px);
+    background: rgba(253, 252, 249, 0.86);
+    border: 1px solid var(--hair-soft);
+    border-radius: 9px;
+    padding: clamp(16px, 1.9vw, 22px) clamp(15px, 1.7vw, 19px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  .pain__card-quote { font-size: clamp(15px, 1.25vw, 17px); line-height: 1.28; }
+}
+
+/* De gevolgen: één kader onder de signalen, in het diepere papier zodat het
+   zich onderscheidt van de signalen erboven. */
 .pain__gevolg {
-  margin-top: clamp(26px, 3.4vw, 40px);
-  border-left: 2px solid var(--copper);
-  padding-left: clamp(18px, 2.4vw, 28px);
+  margin-top: clamp(16px, 2vw, 22px);
+  padding: clamp(20px, 2.4vw, 28px) clamp(22px, 2.6vw, 32px);
+  background: var(--paper-deep);
+  border: 1px solid var(--hair-soft);
+  border-radius: 10px;
 }
 .pain__gevolg-label {
   display: block;
@@ -317,10 +356,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .pain__gevolg-text {
   margin: 0;
-  font-size: clamp(16.5px, 1.5vw, 19px);
+  font-size: clamp(16px, 1.45vw, 18px);
   line-height: 1.6;
   color: var(--ink-70);
-  max-width: 58ch;
+  max-width: 70ch;
   text-wrap: pretty;
 }
 
@@ -369,9 +408,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: var(--ink-70);
 }
 .pain__bridge-acties a[href^="tel"] { color: var(--ink); text-decoration-color: var(--hair); }
-@media (max-width: 760px) {
-  .pain__list { grid-template-columns: 1fr; }
-}
 
 /* ------------------------------------------------------ aanpak + diag --- */
 .sol { padding-top: clamp(34px, 4.4vw, 62px); }
@@ -2059,6 +2095,3 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
-/* De kaarten en kaders blijven iets lichter dan de ondergrond, zodat ze op de
-   getinte vlakken blijven oplichten in plaats van erin weg te vallen. */
-.pain__card { background: rgba(253, 252, 249, 0.86); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
