@@ -26,31 +26,26 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .cs-hero { max-width: 920px; margin: 0 auto; padding: clamp(56px,9vw,104px) clamp(20px,5vw,64px) clamp(36px,5vw,56px); }
-    .cs-hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(38px,5vw,60px); line-height: 1.04; letter-spacing: -0.03em; color: var(--navy); margin: 0 0 28px; text-wrap: balance; }
-    .cs-hero p { font-size: clamp(17px,1.4vw,20px); line-height: 1.62; color: var(--text-2); margin: 0; max-width: 680px; text-wrap: pretty; }
-    .cs-grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px); }
-    .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .cs-card { background: #fff; border: 1px solid rgba(22,36,61,0.08); border-radius: var(--r-lg); overflow: hidden; transition: border-color .2s ease; }
-    .cs-card:hover { border-color: rgba(176,121,63,0.45); }
-    .cs-card__top { height: 200px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 22px; }
-    .cs-card__top--navy { background: linear-gradient(135deg,#23375C,#16243D); }
-    .cs-card__top--copper { background: linear-gradient(135deg,#B0793F,#8a5d2e); }
-    .cs-card__top svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .cs-tag { position: relative; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border-radius: 999px; }
-    .cs-tag--gold { color: var(--gold); background: rgba(22,36,61,0.4); }
-    .cs-tag--navy { color: var(--navy); background: rgba(247,246,243,0.85); }
-    .cs-card__body { padding: 30px; display: flex; flex-direction: column; }
-    .cs-card__body h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--navy); margin: 0 0 12px; line-height: 1.25; }
-    .cs-card__body p { font-size: 15px; color: var(--text-2); margin: 0; line-height: 1.55; }
-    .cs-card__body .cases__read { margin-top: 18px; }
-    .cs-note { max-width: 1200px; margin: 0 auto; padding: clamp(48px,7vw,80px) clamp(20px,5vw,64px) clamp(72px,9vw,112px); }
-    /* Slotmededeling zonder doos: een serif-zin boven een regel. De twee
-       donkere case-tegels blijven zo de enige kaarten op deze pagina. */
-    .cs-note__box { border-top: 1px solid var(--line); padding: clamp(36px,5vw,56px) 0 0; display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between; }
-    .cs-note__box p { font-family: var(--serif); font-size: clamp(19px,2.2vw,26px); line-height: 1.38; color: var(--navy); font-weight: 600; margin: 0; max-width: 680px; text-wrap: pretty; }
-    .cs-note__box a { flex-shrink: 0; }
-    @media (max-width: 760px) { .cs-grid { grid-template-columns: 1fr; } }
+    /* "Kantoor/jaarverslag"-richting: geen kaarten, wel hairlines, mono-labels
+       en Fraunces-koppen. De case-rijen hergebruiken de .case-klassen van de
+       homepage, hier alleen genummerd (01/02) en met een eigen bovenlijn. */
+    .cs-hero { padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 5.5vw, 68px); }
+    .cs-kicker { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); margin: 0 0 24px; }
+    .cs-h1 { font-family: var(--serif); font-weight: 350; font-size: clamp(40px, 6vw, 76px); line-height: 1.04; letter-spacing: -0.018em; margin: 0; max-width: 14em; }
+    .cs-h1::after { content: '.'; }
+    .cs-intro { margin: 20px 0 0; max-width: 58ch; color: var(--ink-70); font-size: clamp(16.5px, 1.3vw, 18px); text-wrap: pretty; }
+    .cs-cases { border-top: 1px solid var(--hair); }
+    .cs-cases .case:first-child { padding-top: clamp(30px, 4vw, 52px); }
+    .cs-cases .case__num { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.18em; color: var(--ink-55); }
+    /* Slotmededeling zonder doos: een rustige serif-zin boven een hairline,
+       met de knop ernaast. */
+    .cs-note { padding: clamp(48px, 7vw, 88px) 0 clamp(72px, 9vw, 112px); }
+    .cs-note__box { border-top: 1px solid var(--hair); padding-top: clamp(30px, 4.5vw, 48px); display: flex; flex-wrap: wrap; gap: 26px 56px; align-items: baseline; justify-content: space-between; }
+    .cs-note__box p { font-family: var(--serif); font-weight: 380; font-size: clamp(20px, 2.3vw, 27px); line-height: 1.34; margin: 0; max-width: 26em; text-wrap: pretty; }
+    .cs-note__box .btn { flex-shrink: 0; }
+    @media (max-width: 900px) {
+      .cs-cases .case__meta { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
+    }
   </style>
 </head>
 <body>
@@ -94,90 +89,52 @@
 </nav>
 
 <main id="inhoud">
-  <section class="cs-hero">
-    <div class="eyebrow">Cases</div>
-    <h1 data-i18n="h1">Resultaten uit de praktijk</h1>
-    <p data-i18n="intro">Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.</p>
-  </section>
+  <header class="cs-hero">
+    <div class="wrap">
+      <p class="cs-kicker">Cases</p>
+      <h1 class="cs-h1" data-i18n="h1">Resultaten uit de praktijk</h1>
+      <p class="cs-intro" data-i18n="intro">Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.</p>
+    </div>
+  </header>
 
-  <section class="cs-grid-wrap">
-    <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cases__visual cases__visual--navy">
-          <div class="cases__visual-top"><span class="cases__tag cases__tag--gold" data-i18n="case1Tag">E-commerce</span></div>
-          <div class="cases__chips">
-            <span class="cases__chip" data-i18n="case1Chip1">Webshop</span>
-            <span class="cases__chip" data-i18n="case1Chip2">Marketing</span>
-            <span class="cases__chip" data-i18n="case1Chip3">Boekhouding</span>
+  <section class="cs-list">
+    <div class="wrap">
+      <div class="cs-cases">
+        <article class="case">
+          <div class="case__meta">
+            <span class="case__num">01</span>
+            <span class="case__tag" data-i18n="case1Tag">E-commerce</span>
+            <span class="case__srcs"><span data-i18n="case1Chip1">Webshop</span> &middot; <span data-i18n="case1Chip2">Marketing</span> &middot; <span data-i18n="case1Chip3">Boekhouding</span></span>
           </div>
-          <div class="cases__chartwrap">
-            <div class="cases__chart-label" data-i18n="case1ChartLabel">Marge per merk</div>
-            <div class="cases__chart">
-              <svg viewBox="0 0 280 150" preserveAspectRatio="xMidYMid meet">
-                <rect x="8" y="57" width="20" height="33" rx="2" fill="#B0793F"></rect>
-                <rect x="40" y="40" width="20" height="50" rx="2" fill="#B0793F"></rect>
-                <rect x="72" y="67" width="20" height="23" rx="2" fill="#B0793F"></rect>
-                <rect x="104" y="90" width="20" height="15" rx="2" fill="#C0563F"></rect>
-                <rect x="136" y="56" width="20" height="34" rx="2" fill="#B0793F"></rect>
-                <rect x="168" y="90" width="20" height="8" rx="2" fill="#C0563F"></rect>
-                <rect x="200" y="39" width="20" height="51" rx="2" fill="#B0793F"></rect>
-                <line x1="4" y1="90" x2="214" y2="90" stroke="rgba(247,246,243,0.35)" stroke-width="1.2" stroke-dasharray="5 4"></line>
-                <text x="218" y="93" fill="rgba(247,246,243,0.55)" font-size="9" font-family="Inter, sans-serif">break-even</text>
-              </svg>
-            </div>
+          <div class="case__body">
+            <h2 class="case__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h2>
+            <p class="case__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
+            <a href="Contact.html" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
-        </div>
-        <div class="cs-card__body">
-          <h3 data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h3>
-          <p data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
-          <a href="Contact.html" class="cases__read"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span>&rarr;</span></a>
-        </div>
-      </div>
-      <div class="cs-card">
-        <div class="cases__visual cases__visual--navy">
-          <div class="cases__visual-top">
-            <span class="cases__tag cases__tag--navy" data-i18n="case2Tag">Zorg</span>
-            <span class="cases__badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="case2Badge">AO/IB &middot; audit-proof</span></span>
+        </article>
+        <article class="case">
+          <div class="case__meta">
+            <span class="case__num">02</span>
+            <span class="case__tag" data-i18n="case2Tag">Zorg</span>
+            <span class="case__srcs"><span data-i18n="case2Chip1">Boekhouding</span> &middot; <span data-i18n="case2Chip2">Cli&euml;ntdata</span></span>
+            <span class="case__badge" data-i18n="case2Badge">AO/IB &middot; audit-proof</span>
           </div>
-          <div class="cases__chips">
-            <span class="cases__chip" data-i18n="case2Chip1">Boekhouding</span>
-            <span class="cases__chip" data-i18n="case2Chip2">Cli&euml;ntdata</span>
+          <div class="case__body">
+            <h2 class="case__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h2>
+            <p class="case__result" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
+            <a href="Contact.html" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <div class="cases__chartwrap">
-            <div class="cases__chart-label" data-i18n="case2ChartLabel">Realisatie vs norm</div>
-            <div class="cases__legend">
-              <span><i class="copper"></i><span data-i18n="case2Leg1">Realisatie</span></span>
-              <span><i class="budget"></i><span data-i18n="case2Leg2">Budget</span></span>
-              <span><i class="prev"></i><span data-i18n="case2Leg3">Vorige periode</span></span>
-            </div>
-            <div class="cases__chart">
-              <svg viewBox="0 0 280 150" preserveAspectRatio="xMidYMid meet">
-                <rect x="52" y="44" width="16" height="74" rx="2" fill="#B0793F"></rect>
-                <rect x="72" y="59" width="16" height="59" rx="2" fill="#5C7CA8"></rect>
-                <rect x="92" y="68" width="16" height="50" rx="2" fill="rgba(247,246,243,0.32)"></rect>
-                <rect x="172" y="32" width="16" height="86" rx="2" fill="#B0793F"></rect>
-                <rect x="192" y="53" width="16" height="65" rx="2" fill="#5C7CA8"></rect>
-                <rect x="212" y="64" width="16" height="54" rx="2" fill="rgba(247,246,243,0.32)"></rect>
-                <line x1="4" y1="118" x2="276" y2="118" stroke="rgba(247,246,243,0.18)" stroke-width="1"></line>
-                <text x="72" y="134" text-anchor="middle" fill="rgba(247,246,243,0.55)" font-size="10" font-family="Inter, sans-serif">Q1</text>
-                <text x="192" y="134" text-anchor="middle" fill="rgba(247,246,243,0.55)" font-size="10" font-family="Inter, sans-serif">Q2</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="cs-card__body">
-          <h3 data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h3>
-          <p data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
-          <a href="Contact.html" class="cases__read"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span>&rarr;</span></a>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="cs-note">
-    <div class="cs-note__box">
-      <p data-i18n="note">Uitgebreide cases volgen binnenkort. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.</p>
-      <a href="Contact.html" class="btn-copper" data-i18n="cta">Vraag de diagnose aan</a>
+    <div class="wrap">
+      <div class="cs-note__box">
+        <p data-i18n="note">Uitgebreide cases volgen binnenkort. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.</p>
+        <a href="Contact.html" class="btn" data-i18n="cta">Vraag de diagnose aan</a>
+      </div>
     </div>
   </section>
 </main>
@@ -227,21 +184,19 @@ window.FINSERA_PAGE = {
     h1: 'Resultaten uit de praktijk', intro: 'Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.',
     casesTalk: 'Bespreek jouw situatie',
     case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge.', case1Result: 'Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.',
-    case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding', case1ChartLabel: 'Marge per merk',
+    case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding',
     case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control.', case2Result: 'Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.',
-    case2Chip1: 'Boekhouding', case2Chip2: 'Cliëntdata', case2ChartLabel: 'Realisatie vs norm', case2Badge: 'AO/IB · audit-proof',
-    case2Leg1: 'Realisatie', case2Leg2: 'Budget', case2Leg3: 'Vorige periode',
+    case2Chip1: 'Boekhouding', case2Chip2: 'Cliëntdata', case2Badge: 'AO/IB · audit-proof',
     note: 'Uitgebreide cases volgen binnenkort. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.'
   },
   en: {
     h1: 'Results in practice', intro: 'No theoretical promises, but what our approach delivers in practice.',
     casesTalk: 'Discuss your situation',
     case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin.', case1Result: 'Data from webshop, marketing and bookkeeping brought together in one Power BI environment.',
-    case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping', case1ChartLabel: 'Margin per brand',
+    case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping',
     case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control.', case2Result: 'Financial figures and client data in one report, set against budget and the previous period.',
-    case2Chip1: 'Bookkeeping', case2Chip2: 'Client data', case2ChartLabel: 'Actual vs norm', case2Badge: 'AO/IB · audit-proof',
-    case2Leg1: 'Actual', case2Leg2: 'Budget', case2Leg3: 'Previous period',
-    note: 'Detailed cases coming soon. Curious what we can do for your organisation? Book an introductory call.'
+    case2Chip1: 'Bookkeeping', case2Chip2: 'Client data', case2Badge: 'AO/IB · audit-proof',
+    note: 'Detailed cases coming soon. Curious what we can do for your organisation? Request the diagnosis.'
   }
 };
 </script>
