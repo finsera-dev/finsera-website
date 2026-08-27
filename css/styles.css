@@ -885,9 +885,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .ctax__btn { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; font-family: 'Inter', system-ui, sans-serif; font-size: 17px; font-weight: 600; color: #fff; background: #8a5d2e; padding: 16px 32px; border-radius: var(--r-btn); border: 0; transition: background .18s ease; }
 .ctax__btn:hover { background: #B0793F; }
 .ctax__who { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; }
-.ctax__who-avatars { display: flex; }
-.ctax__who-avatars img { width: 44px; height: 44px; border-radius: 999px; object-fit: cover; object-position: center 20%; border: 2px solid #23375C; filter: none; mix-blend-mode: normal; }
-.ctax__who-avatars img + img { margin-left: -12px; }
 .ctax__who > span:last-child { font-family: 'Inter', system-ui, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0; text-transform: none; color: rgba(247, 246, 243, 0.72); font-style: normal; }
 
 /* ==========================================================================
