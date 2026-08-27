@@ -365,16 +365,57 @@
         <p class="pain__gevolg-text" data-i18n="painGevolg">Je beslist op gevoel, je stuurt pas bij als het moment om in te grijpen al voorbij is, en &eacute;&eacute;n fout of &eacute;&eacute;n uitval legt je rapportage stil. Wat ooit &lsquo;goed genoeg&rsquo; was, remt nu je groei in plaats van die te dragen.</p>
       </div>
 
-      <!-- Het antwoord op de vier signalen. De kop en de intro stonden eerst
-           als losse sectie hieronder; ze horen bij dit kader, want ze
-           beantwoorden precies wat hierboven benoemd is. -->
-      <div class="pain__bridge">
-        <h3 class="pain__bridge-title" data-i18n="aanpakHeading">Eerst grip op je fundament. Daarna slim automatiseren.</h3>
-        <p class="pain__bridge-text" data-i18n="bridge">Finsera lost deze problemen niet op met nóg een tool, maar door je financiële fundament opnieuw in te richten.</p>
-        <p class="pain__bridge-intro" data-i18n="aanpakIntro">Geen losse dashboards of AI-proefjes, maar &eacute;&eacute;n samenhangende aanpak die met je organisatie meegroeit &mdash; rust en overzicht, afgestemd op waar je nu staat.</p>
-        <div class="pain__bridge-acties">
-          <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
-          <span class="pain__bridge-alt"><span data-i18n="bridgeAlt">of bel meteen even:</span> <a href="tel:+31641413836">06&nbsp;-&nbsp;41&nbsp;41&nbsp;38&nbsp;36</a></span>
+    </div>
+  </section>
+
+  <!-- ================================== DIAGNOSE: HET AANBOD ============
+       Staat direct na de vier signalen: op het moment dat de bezoeker zich
+       herkent, volgt de kleinste concrete vervolgstap. De herkaderende zin
+       ("niet nog een tool") opent de kaart; de diensten hieronder zijn waar
+       de diagnose toe leidt. Kaartvorm uit commit 2d51005^: donkere kaart met
+       gouden gloed, een scanlijn door het adviesrapport en vinkjes. -->
+  <section id="oplossing" class="sol sol--kaart">
+    <div class="wrap">
+      <div class="diag diag--feature">
+        <div class="diag__halo" aria-hidden="true"></div>
+        <div class="diag__grid">
+          <div class="diag__main">
+            <div class="diag__eyebrow" data-i18n="diagEyebrowTop">Zo starten we &middot; de diagnose</div>
+            <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
+            <div class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</div>
+            <p class="diag__bridge" data-i18n="bridge">Finsera lost deze problemen niet op met n&oacute;g een tool, maar door je financi&euml;le fundament opnieuw in te richten.</p>
+            <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financi&euml;le sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen &rsaquo;</button></p>
+            <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat j&oacute;uw bedrijf nodig heeft &mdash; en in welke volgorde.</p>
+            <div class="diag__acties">
+              <a href="/contact" class="btn-gold" data-i18n="diagCta">Vraag de diagnose aan</a>
+              <span class="diag__bel"><span data-i18n="bridgeAlt">of bel meteen even:</span> <a href="tel:+31641413836">06&nbsp;-&nbsp;41&nbsp;41&nbsp;38&nbsp;36</a></span>
+            </div>
+          </div>
+
+          <div class="diag__visual">
+            <div class="diag__report">
+              <div class="diag__scanline" aria-hidden="true"></div>
+              <div class="diag__report-head">
+                <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
+                <span class="diag__report-status"><span class="dot" aria-hidden="true"></span><span data-i18n="diagScan">analyse loopt</span></span>
+              </div>
+              <div class="diag__lines" aria-hidden="true">
+                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold"></span></div>
+                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w84"></span></div>
+                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold2"></span></div>
+                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w68"></span></div>
+              </div>
+              <div class="diag__chart" aria-hidden="true">
+                <div class="b b1"></div><div class="b b2"></div><div class="b b3"></div><div class="b b4"></div><div class="b b5"></div>
+              </div>
+            </div>
+            <ul class="diag__checks">
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck1">Binnen 2&ndash;4 weken</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck3">Concrete quick wins &eacute;n prioriteiten</span></li>
+              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck4">Direct toepasbaar</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -509,54 +550,6 @@
       <div class="rev__foot">
         <p class="rev__note" data-i18n="revNote">Resultaten uit de eigen omgeving van de klant</p>
         <a href="/cases" class="btn"><span data-i18n="revAll">Bekijk alle cases</span> <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================== DIAGNOSE ALS SLOT ================
-       De diagnose is het eerste product dat Finsera verkoopt en staat daarom
-       als afsluiter onderaan. De kaartvorm komt uit de eerdere versie van de
-       site (commit 2d51005^): donkere kaart met gouden gloed, een scanlijn
-       die door het adviesrapport loopt, en vinkjes met de doorlooptijd. -->
-  <section id="oplossing" class="sol sol--slot">
-    <div class="wrap">
-      <div class="diag diag--feature">
-        <div class="diag__halo" aria-hidden="true"></div>
-        <div class="diag__grid">
-          <div class="diag__main">
-            <div class="diag__eyebrow" data-i18n="diagEyebrowTop">Zo starten we &middot; de diagnose</div>
-            <h3 class="diag__title" data-i18n="diagTitle">Diagnose &amp; strategisch adviesrapport</h3>
-            <div class="diag__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</div>
-            <p class="diag__body"><span data-i18n="diagBodyShort">In de diagnose brengen we haarscherp in beeld hoe je financi&euml;le sturing nu is ingericht: cijfers, processen, systemen en datastromen.</span><span class="diag__more" id="diagMore" hidden> <span data-i18n="diagBodyMore">We leggen de huidige situatie naast de gewenste, en laten zien waar het schuurt, wat dat kost en hoe dashboard en managementrapportage beter aansluiten op je doelen. Geen dik rapport voor in de la, maar een direct toepasbaar plan waar finance, directie en IT meteen mee verder kunnen.</span></span> <button type="button" class="diag__readmore" id="diagToggle">Meer lezen &rsaquo;</button></p>
-            <p class="diag__bespoke" data-i18n="diagBespoke">De diagnose bepaalt wat j&oacute;uw bedrijf nodig heeft &mdash; en in welke volgorde.</p>
-            <a href="/contact" class="btn-gold" data-i18n="diagCta">Vraag de diagnose aan</a>
-          </div>
-
-          <div class="diag__visual">
-            <div class="diag__report">
-              <div class="diag__scanline" aria-hidden="true"></div>
-              <div class="diag__report-head">
-                <span class="diag__report-label" data-i18n="diagReportLabel">Adviesrapport</span>
-                <span class="diag__report-status"><span class="dot" aria-hidden="true"></span><span data-i18n="diagScan">analyse loopt</span></span>
-              </div>
-              <div class="diag__lines" aria-hidden="true">
-                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold"></span></div>
-                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w84"></span></div>
-                <div class="diag__line"><span class="pt pt--gold"></span><span class="bar bar--gold2"></span></div>
-                <div class="diag__line"><span class="pt pt--dim"></span><span class="bar bar--dim bar--w68"></span></div>
-              </div>
-              <div class="diag__chart" aria-hidden="true">
-                <div class="b b1"></div><div class="b b2"></div><div class="b b3"></div><div class="b b4"></div><div class="b b5"></div>
-              </div>
-            </div>
-            <ul class="diag__checks">
-              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck1">Binnen 2&ndash;4 weken</span></li>
-              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck2">Verwachtingen en scope vooraf vastgelegd</span></li>
-              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck3">Concrete quick wins &eacute;n prioriteiten</span></li>
-              <li><span class="diag__check-ic" aria-hidden="true">&#10003;</span><span data-i18n="diagCheck4">Direct toepasbaar</span></li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   </section>

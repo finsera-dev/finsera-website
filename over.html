@@ -91,9 +91,6 @@
       .obanner__h1 { max-width: none; }
     }
 
-    /* de openingsalinea die eerder in de hero stond */
-    .over-lead { max-width: 900px; margin: 0 auto; padding: clamp(52px, 7vw, 88px) var(--pad) clamp(16px, 3vw, 32px); }
-    .over-lead p { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.62; color: var(--text-2); margin: 0; text-wrap: pretty; }
     .over-band { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .over-band__inner { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
     .over-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); }
@@ -120,14 +117,29 @@
     .over-card__link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--navy); text-decoration: none; transition: color .18s ease; }
     .over-card__link svg { color: #0A66C2; flex-shrink: 0; }
     .over-card__link:hover { color: var(--copper); }
-    .over-quote { background: var(--navy); position: relative; overflow: hidden; }
-    .over-quote__inner { position: relative; max-width: 920px; margin: 0 auto; padding: clamp(64px,9vw,116px) clamp(20px,5vw,64px); text-align: center; }
+    /* Het citaat staat als kader in de pagina in plaats van als band over de
+       volle breedte, in dezelfde vorm als de diagnose-kaart op de homepage. */
+    .over-quote { padding: 0 var(--pad); }
+    .over-quote__inner {
+      position: relative; overflow: hidden;
+      background: var(--navy); border-radius: 24px;
+      max-width: 900px; margin: 0 auto;
+      padding: clamp(52px, 7vw, 88px) clamp(28px, 5vw, 72px); text-align: center;
+    }
     .over-quote__mark { font-family: var(--serif); font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-    .over-quote__text { font-family: var(--serif); font-weight: 600; font-size: clamp(22px,2.8vw,34px); line-height: 1.38; color: var(--bg); margin: 0; text-wrap: balance; }
+    .over-quote__text { font-family: var(--serif); font-weight: 600; font-size: clamp(21px,2.5vw,31px); line-height: 1.38; color: var(--bg); margin: 0 auto; max-width: 21ch; text-wrap: balance; }
     /* Een citaat zonder afzender leest als vulling; met afzender als overtuiging. */
     .over-quote__attr { margin-top: 22px; font-size: 14.5px; font-weight: 600; color: rgba(247,246,243,0.65); }
     .over-cta { max-width: 1200px; margin: 0 auto; padding: clamp(64px,9vw,104px) clamp(20px,5vw,64px); text-align: center; }
     .over-cta h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px,3.6vw,42px); line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 28px; text-wrap: balance; }
+    /* Omgekeerde knop: wit met navy tekst, bij hover navy met witte tekst. */
+    .over-cta__btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: var(--sans); font-weight: 600; font-size: 15px; letter-spacing: -0.01em;
+      padding: 15px 30px; border-radius: var(--r-btn);
+      background: #fff; color: var(--navy); border: 1px solid var(--navy);
+      text-decoration: none; transition: background .18s ease, color .18s ease, transform .18s ease; }
+    .over-cta__btn:hover, .over-cta__btn:focus-visible { background: var(--navy); color: #fff; transform: translateY(-1px); }
+    @media (prefers-reduced-motion: reduce) { .over-cta__btn { transition: none; } .over-cta__btn:hover { transform: none; } }
     @media (max-width: 820px) { .over-2col, .over-team__grid { grid-template-columns: 1fr; } }
   </style>
   <script type="application/ld+json">
@@ -224,10 +236,6 @@
     </div>
   </header>
 
-  <section class="over-lead">
-    <p data-i18n="intro">Finsera is opgericht vanuit een ongebruikelijke combinatie: jarenlange ervaring met compliance en interne beheersing, hands-on ondernemerschap, en een accountancy-achtergrond in audit en rapportage. Precies het snijvlak waar groeiende bedrijven vastlopen: tussen de cijfers, de processen en de technologie.</p>
-  </section>
-
   <section class="over-band">
     <div class="over-band__inner over-2col">
       <div>
@@ -285,7 +293,7 @@
 
   <section class="over-cta">
     <h2 data-i18n="ctaHeading">Benieuwd wat we voor jouw organisatie kunnen betekenen?</h2>
-    <a href="/contact" class="btn-copper" data-i18n="cta">Plan een discovery call</a>
+    <a href="/contact" class="over-cta__btn" data-i18n="ctaOver">Laten we kennis maken</a>
   </section>
 </main>
 
@@ -335,6 +343,8 @@
 <script>
 window.FINSERA_PAGE = {
   nl: {
+    // 'intro' staat niet meer op de pagina; de alinea is geparkeerd voor
+    // mogelijk hergebruik elders. Zie docs/geparkeerde-teksten.md.
     eyebrow: 'Over ons',
     h1a: 'Op het snijvlak van', h1b: 'cijfers, processen en technologie.',
     bannerSub: 'Finsera is twee mensen, en dat is een keuze. Je werkt altijd rechtstreeks met degenen die het werk ook doen — geen accountmanager, geen tussenlaag.',
@@ -349,7 +359,10 @@ window.FINSERA_PAGE = {
     team: 'Finsera is twee mensen, en dat is een keuze. Öner brengt de finance-diepgang van jaren als controller mee, Tomas bouwt de data-architectuur en de dashboards. Je werkt dus altijd rechtstreeks met degenen die het werk ook doen: geen accountmanager, geen tussenlaag. Bewust boutique, dus selectief in opdrachten en persoonlijk in aanpak.',
     role1sub: 'Financial & business consultant', role2sub: 'Data analyst & ontwikkelaar',
     teamLinkedin: 'LinkedIn',
-    ctaHeading: 'Benieuwd wat we voor jouw organisatie kunnen betekenen?'
+    ctaHeading: 'Benieuwd wat we voor jouw organisatie kunnen betekenen?',
+    // Eigen sleutel: de gedeelde 'cta' blijft 'Vraag de diagnose aan', hier
+    // bewust persoonlijker van toon.
+    ctaOver: 'Laten we kennis maken'
   },
   en: {
     eyebrow: 'About us',
@@ -366,7 +379,8 @@ window.FINSERA_PAGE = {
     team: 'Finsera is two people, and that is a deliberate choice. Öner brings the finance depth of years as a controller, Tomas builds the data architecture and the dashboards. You always work directly with the people doing the work: no account manager, no layer in between. Deliberately boutique, so selective in assignments and personal in approach.',
     role1sub: 'Financial & business consultant', role2sub: 'Data analyst & developer',
     teamLinkedin: 'LinkedIn',
-    ctaHeading: 'Curious what we can do for your organisation?'
+    ctaHeading: 'Curious what we can do for your organisation?',
+    ctaOver: "Let's get acquainted"
   }
 };
 </script>
