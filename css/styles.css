@@ -2477,7 +2477,7 @@ body {
 /* Per pagina een andere uitsnede van dezelfde foto. */
 .pbanner--diensten .pbanner__photo { object-position: 62% 28%; }
 .pbanner--cases    .pbanner__photo { object-position: 34% 34%; }
-.pbanner--blog     .pbanner__photo { object-position: 50% 22%; }
+.pbanner--blog     .pbanner__photo { object-position: 50% 0%; }
 .pbanner--contact  .pbanner__photo { object-position: 44% 40%; }
 @media (max-width: 720px) {
   .pbanner__photo { object-position: 62% 26%; }
