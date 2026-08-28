@@ -1510,7 +1510,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero2 {
   position: relative;
   overflow: hidden;
-  padding: clamp(40px, 6vh, 64px) 0 0;
+  padding: clamp(22px, 3.4vh, 38px) 0 0;
 }
 /* De grond van de hero staat op een pseudo-element dat onderaan wegvalt, zodat
    hij overloopt in de kleurgang van de body in plaats van af te snijden met een
@@ -1545,7 +1545,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: 1.04;
   letter-spacing: -0.035em;
   color: var(--ink);
-  margin: 26px 0 0;
+  /* De kop is het eerste element in de hero; de marge die hier stond hield
+     afstand tot de weggehaalde kicker en zou nu bovenop de padding stapelen. */
+  margin: 0;
   text-wrap: balance;
 }
 .hero2__h1-a, .hero2__h1-b { display: block; }
