@@ -31,65 +31,9 @@
        mono-kicker met koperen streep, Archivo-kop met gouden accent,
        hairlines in plaats van kaders. Op mobiel kantelt de scrim naar
        onder, zodat de tekst altijd op het donkerste deel valt. */
-    .obanner { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-band); }
-    .obanner__photo {
-      position: absolute; inset: 0; z-index: 0;
-      width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
-    }
-    .obanner__scrim {
-      position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background:
-        linear-gradient(94deg, rgba(22,36,61,.95) 0%, rgba(22,36,61,.86) 34%, rgba(22,36,61,.48) 64%, rgba(22,36,61,.20) 100%),
-        linear-gradient(0deg, rgba(22,36,61,.55) 0%, rgba(22,36,61,0) 42%);
-    }
-    .obanner__inner {
-      position: relative; z-index: 2;
-      max-width: var(--wrap); margin: 0 auto;
-      padding: clamp(84px, 13vh, 148px) var(--pad) clamp(56px, 9vh, 104px);
-      min-height: clamp(400px, 58vh, 620px);
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .obanner__kicker {
-      display: flex; align-items: center; gap: 12px;
-      font-family: var(--mono); font-size: 11.5px; font-weight: 500;
-      letter-spacing: .16em; text-transform: uppercase;
-      color: var(--gold-soft); margin: 0 0 clamp(18px, 3vh, 28px);
-    }
-    .obanner__rule { width: 30px; height: 1px; background: var(--gold-soft); flex: none; }
-    .obanner__h1 {
-      font-family: 'Archivo', var(--sans); font-weight: 800;
-      font-size: clamp(34px, 4.6vw, 62px); line-height: 1.04; letter-spacing: -.035em;
-      color: var(--band-paper); margin: 0; max-width: 17ch; text-wrap: balance;
-    }
-    .obanner__grad {
-      background: linear-gradient(96deg, #C9A96A 0%, #E0BE84 52%, #F2EDE3 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .obanner__sub {
-      margin: clamp(18px, 3vh, 26px) 0 0; max-width: 52ch;
-      font-size: clamp(16px, 1.3vw, 18px); line-height: 1.62;
-      color: var(--band-paper-70); text-wrap: pretty;
-    }
-    .obanner__names {
-      display: flex; flex-wrap: wrap; gap: 10px clamp(20px, 3vw, 40px);
-      margin-top: clamp(26px, 4vh, 40px); padding-top: 18px;
-      border-top: 1px solid var(--band-hair);
-    }
-    .obanner__name { display: flex; flex-direction: column; gap: 3px; }
-    .obanner__name b { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--band-paper); }
-    .obanner__name span {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      letter-spacing: .05em; text-transform: uppercase; color: var(--band-paper-70);
-    }
-    @media (max-width: 720px) {
-      .obanner__photo { object-position: 62% 26%; }
-      .obanner__scrim {
-        background:
-          linear-gradient(0deg, rgba(22,36,61,.96) 0%, rgba(22,36,61,.86) 44%, rgba(22,36,61,.52) 76%, rgba(22,36,61,.60) 100%);
-      }
-      .obanner__inner { min-height: clamp(440px, 72vh, 640px); }
-      .obanner__h1 { max-width: none; }
-    }
+    /* De banner van deze pagina gebruikt .pbanner uit styles.css
+       (variant .pbanner--over), zodat alle pagina's dezelfde hoogte houden. */
+
 
     .over-band { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .over-band__inner { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
@@ -366,17 +310,14 @@
 </nav>
 
 <main id="inhoud">
-  <header class="obanner">
-    <img class="obanner__photo" src="img/team/samen.webp" alt="Öner Yücel en Tomas van der Laan bespreken samen een rapportage" width="1536" height="672" decoding="async">
-    <div class="obanner__scrim" aria-hidden="true"></div>
-    <div class="obanner__inner">
-      <p class="obanner__kicker"><span class="obanner__rule" aria-hidden="true"></span><span data-i18n="eyebrow">Over ons</span></p>
-      <h1 class="obanner__h1"><span data-i18n="h1a">Grip op cijfers door</span> <span class="obanner__grad" data-i18n="h1b">structuur, data en technologie.</span></h1>
-      <p class="obanner__sub" data-i18n="bannerSub">Een boutique consultancybureau voor financi&euml;le procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip krijgen op hun cijfers &mdash; niet door m&eacute;&eacute;r mensen of m&eacute;&eacute;r rapportages, maar door een slimme inrichting van data, processen en technologie.</p>
-      <div class="obanner__names">
-        <span class="obanner__name"><b>&Ouml;ner Y&uuml;cel</b><span data-i18n="role1sub">Financial &amp; business consultant</span></span>
-        <span class="obanner__name"><b>Tomas van der Laan</b><span data-i18n="role2sub">Data analyst &amp; ontwikkelaar</span></span>
-      </div>
+  <header class="pbanner pbanner--over">
+    <img class="pbanner__photo" src="img/team/samen.webp" alt="Öner Yücel en Tomas van der Laan bespreken samen een rapportage" width="1536" height="672" decoding="async">
+    <div class="pbanner__scrim" aria-hidden="true"></div>
+    <div class="pbanner__inner">
+      <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="eyebrow">Over ons</span></p>
+      <h1 class="pbanner__h1"><span data-i18n="h1a">Grip op cijfers door</span> <span class="pbanner__grad" data-i18n="h1b">structuur, data en technologie.</span></h1>
+      <p class="pbanner__intro" data-i18n="bannerSub">Een boutique consultancybureau voor financi&euml;le procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip krijgen op hun cijfers &mdash; niet door m&eacute;&eacute;r mensen of m&eacute;&eacute;r rapportages, maar door een slimme inrichting van data, processen en technologie.</p>
+      <p class="pbanner__names"><b>&Ouml;ner Y&uuml;cel</b> &middot; <span data-i18n="role1sub">Financial &amp; business consultant</span> &nbsp;&mdash;&nbsp; <b>Tomas van der Laan</b> &middot; <span data-i18n="role2sub">Data analyst &amp; ontwikkelaar</span></p>
     </div>
   </header>
 
