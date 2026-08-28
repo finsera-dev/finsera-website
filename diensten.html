@@ -34,19 +34,42 @@
         "@id": "https://www.finsera.nl/diensten#webpage",
         "url": "https://www.finsera.nl/diensten",
         "name": "Diensten: managementrapportage, Power BI dashboards en AI-automatisering | Finsera",
-        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
-        "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/#website"
+        },
+        "about": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
         "inLanguage": "nl-NL"
-      }      ,
+      },
       {
         "@type": "Service",
         "@id": "https://www.finsera.nl/diensten#diagnose",
         "name": "Financiële diagnose en adviesrapportage",
         "serviceType": "Financial process assessment",
         "description": "We brengen cijfers, processen en datastromen in kaart en leveren een uitvoerbaar adviesrapport: het verschil tussen hoe het nu werkt en hoe het zou moeten werken.",
-        "provider": { "@id": "https://www.finsera.nl/#organisatie" },
-        "areaServed": { "@type": "Country", "name": "Nederland" },
-        "audience": { "@type": "BusinessAudience", "name": "Groeiend MKB (10-50 medewerkers, EUR 10-50 mln omzet)" },
+        "provider": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Snelgroeiend MKB en mid-market",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10,
+            "maxValue": 50
+          },
+          "yearlyRevenue": {
+            "@type": "QuantitativeValue",
+            "minValue": 5000000,
+            "maxValue": 100000000,
+            "unitText": "EUR"
+          }
+        },
         "url": "https://www.finsera.nl/diensten"
       },
       {
@@ -55,9 +78,28 @@
         "name": "Dashboard & managementrapportage",
         "serviceType": "Financial reporting and business intelligence",
         "description": "We koppelen bronsystemen zoals ERP, boekhouding en CRM tot één betrouwbare bron van waarheid en ontsluiten die via dashboards en managementrapportage, onder meer in Power BI.",
-        "provider": { "@id": "https://www.finsera.nl/#organisatie" },
-        "areaServed": { "@type": "Country", "name": "Nederland" },
-        "audience": { "@type": "BusinessAudience", "name": "Groeiend MKB (10-50 medewerkers, EUR 10-50 mln omzet)" },
+        "provider": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Snelgroeiend MKB en mid-market",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10,
+            "maxValue": 50
+          },
+          "yearlyRevenue": {
+            "@type": "QuantitativeValue",
+            "minValue": 5000000,
+            "maxValue": 100000000,
+            "unitText": "EUR"
+          }
+        },
         "url": "https://www.finsera.nl/diensten#dashboard"
       },
       {
@@ -66,10 +108,160 @@
         "name": "AI-strategie en automatisering",
         "serviceType": "AI business automation",
         "description": "We richten efficiëntere workflows in met AI-tooling en automatiseren repeterend werk rond facturen, declaraties en contractverwerking — pas nadat het financiële fundament klopt.",
-        "provider": { "@id": "https://www.finsera.nl/#organisatie" },
-        "areaServed": { "@type": "Country", "name": "Nederland" },
-        "audience": { "@type": "BusinessAudience", "name": "Groeiend MKB (10-50 medewerkers, EUR 10-50 mln omzet)" },
+        "provider": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Snelgroeiend MKB en mid-market",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10,
+            "maxValue": 50
+          },
+          "yearlyRevenue": {
+            "@type": "QuantitativeValue",
+            "minValue": 5000000,
+            "maxValue": 100000000,
+            "unitText": "EUR"
+          }
+        },
         "url": "https://www.finsera.nl/diensten#ai"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.finsera.nl/diensten#faq",
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/diensten#webpage"
+        },
+        "inLanguage": "nl-NL",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wat kost het?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Projecten voeren we uit tegen een vaste projectprijs, vooraf afgesproken op basis van de diagnose. Voor doorlopend beheer en doorontwikkeling van dashboards werken we met een abonnement. Omdat elk traject maatwerk is, noemen we pas een bedrag als we weten wat er nodig is."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe lang duurt het?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "De diagnose duurt twee tot vier weken. Daarna staat een werkend dashboard er meestal binnen vier tot zes weken. We werken met wekelijkse demo’s, zodat je tussentijds ziet wat er gebouwd wordt en direct kunt bijsturen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "We hebben al een dashboard. Wat dan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dan beginnen we daar. Vaak ontbreekt niet het dashboard maar de betrouwbare rapportage eronder — of andersom. We bouwen voort op wat er staat en herstellen wat niet klopt, in plaats van alles opnieuw te doen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vervangen jullie onze boekhouder of controller?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. We vervangen geen bestaande functies, we versterken ze. Je administratie blijft waar die is; wij zorgen dat de data eruit stroomt naar bruikbare stuurinformatie. Heb je tijdelijk senior financiële sturing nodig, dan bieden we aanvullend interim controller services op afstand."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Van wie is wat jullie bouwen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Van jou. We bouwen op Power BI en Microsoft Azure, binnen je eigen licenties en tenancy waar dat kan. Geen vendor lock-in: alles wat we opleveren is van jou en gedocumenteerd, zodat je er zelf mee verder kunt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Moeten we met alle drie beginnen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. De diagnose staat op zichzelf, en veel klanten doen daarna alleen de rapportage. Automatiseren heeft pas zin als het fundament klopt — anders gaan de problemen alleen sneller."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.finsera.nl/#organisatie",
+        "name": "Finsera",
+        "legalName": "Finsera",
+        "alternateName": "Finsera Nederland",
+        "description": "Finsera helpt groeiende middelgrote Nederlandse bedrijven aan echte financiële inzichtelijkheid via professionele managementrapportage, Power BI dashboards en AI-gedreven automatisering voor het MKB.",
+        "url": "https://www.finsera.nl/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.finsera.nl/#logo",
+          "url": "https://www.finsera.nl/img/og-finsera.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "image": {
+          "@id": "https://www.finsera.nl/#logo"
+        },
+        "email": "info@finsera.nl",
+        "telephone": "+31641413836",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "name": "KvK",
+            "value": "93587953"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NL"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "knowsLanguage": [
+          "nl",
+          "en"
+        ],
+        "knowsAbout": [
+          "Managementrapportage",
+          "Power BI dashboards",
+          "Business intelligence voor het MKB",
+          "Financiële automatisering",
+          "AI-strategie",
+          "Interim controller"
+        ],
+        "founder": {
+          "@id": "https://www.finsera.nl/over#oner-yucel"
+        },
+        "employee": [
+          {
+            "@id": "https://www.finsera.nl/over#oner-yucel"
+          },
+          {
+            "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+          }
+        ],
+        "member": {
+          "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@finsera.nl",
+          "telephone": "+31641413836",
+          "areaServed": "NL",
+          "availableLanguage": [
+            "nl",
+            "en"
+          ]
+        }
       }
     ]
   }
@@ -130,8 +322,7 @@
   <section class="sol">
     <div class="wrap">
       <div class="sect-head">
-        <span class="sect-num">01</span>
-        <h2 class="sect-h2" data-i18n="routeSectionTitle">Van diagnose naar fundament naar AI.</h2>
+        <h2 class="sect-h2" data-i18n="routeSectionTitle">Drie diensten, in deze volgorde.</h2>
       </div>
       <p class="sect-intro" data-i18n="aanpakIntro">We bouwen een financieel fundament dat met je organisatie meegroeit. Geen losse dashboards of AI-proefjes, maar &#233;&#233;n samenhangende aanpak die rust en overzicht brengt, afgestemd op waar je nu staat.</p>
   <!-- ================================================= 3-STEP ROUTE ===== -->
@@ -162,11 +353,55 @@
   </section>
 
   <section id="diensten" class="diensten">
+    <!-- ---- Dienst 01: de diagnose. Dit is het instapproduct en hoort dus
+         als eerste en volwaardig op deze pagina te staan. ---- -->
+    <div class="svc svc--light" id="diagnose">
+      <div class="sect-head sect-head--svc">
+        <span class="sect-num">01</span>
+        <h2 class="sect-h2 svc__title" data-i18n="dgnTitle">Diagnose &amp; strategisch adviesrapport</h2>
+      </div>
+      <div class="svc__benefit" data-i18n="diagBenefit">Een concreet plan voor direct meer grip</div>
+      <p class="svc__intro" data-i18n="dgnIntro">Elke samenwerking begint hier. In twee tot vier weken lichten we je financi&euml;le processen, systemen en rapportages door. Geen lange theoretische audit, maar een scherpe analyse met aanbevelingen die je meteen kunt uitvoeren &mdash; ook als je daarna zelf verder wilt. Zo zie je waarde v&oacute;&oacute;rdat je aan een groter traject begint.</p>
+
+      <div class="dgn">
+        <div>
+          <p class="dgn__label" data-i18n="dgnColA">Wat we doorlichten</p>
+          <ul class="dgn__list">
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnA1b">Je cijfers en rapportages</b> <span data-i18n="dgnA1">&mdash; wat er nu wordt opgeleverd, hoe lang dat duurt en waar het schuurt</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnA2b">De processen eromheen</b> <span data-i18n="dgnA2">&mdash; van boeking tot maandafsluiting, inclusief het handwerk dat niemand meer ziet</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnA3b">Je systemen en datastromen</b> <span data-i18n="dgnA3">&mdash; welke bronnen er zijn, hoe ze zich tot elkaar verhouden en waar ze uiteenlopen</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnA4b">De vastlegging</b> <span data-i18n="dgnA4">&mdash; wie waarvoor tekent, en of dat bij een controle standhoudt</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="dgn__label" data-i18n="dgnColB">Wat je krijgt</p>
+          <ul class="dgn__list">
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnB1b">Een adviesrapport</b> <span data-i18n="dgnB1">met de huidige situatie naast de gewenste, en wat het verschil kost</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnB2b">Quick wins</b> <span data-i18n="dgnB2">die je binnen een paar weken zelf kunt doorvoeren</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnB3b">Prioriteiten voor de lange termijn</b><span data-i18n="dgnB3">, met een volgorde die hout snijdt</span></span></li>
+            <li><span class="dgn__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="dgnB4b">Een vaste prijs voor het vervolg</b><span data-i18n="dgnB4">, gebaseerd op wat we hebben gezien in plaats van op een inschatting vooraf</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svcfacts">
+        <div><span data-i18n="dgnF1">Doorlooptijd</span><b data-i18n="dgnV1">2 tot 4 weken</b></div>
+        <div><span data-i18n="dgnF2">Vorm</span><b data-i18n="dgnV2">Vaste projectprijs</b></div>
+        <div><span data-i18n="dgnF3">Scope</span><b data-i18n="dgnV3">Vooraf vastgelegd</b></div>
+        <div><span data-i18n="dgnF4">Daarna</span><b data-i18n="dgnV4">Vrij om zelf verder te gaan</b></div>
+      </div>
+
+      <div class="svc__foot">
+        <p data-i18n="dgnFoot">De diagnose staat op zichzelf. Je zit nergens aan vast, en wat we opleveren is van jou &mdash; ook als je besluit het zelf op te pakken.</p>
+        <a href="/contact" class="btn-copper" data-i18n="cta">Vraag de diagnose aan</a>
+      </div>
+    </div>
+
     <!-- ---- Service 1: Dashboard & managementrapportage (light) ---- -->
     <div class="svc svc--light" id="dashboard">
       <div class="sect-head sect-head--svc">
         <span class="sect-num">02</span>
-        <h3 class="sect-h2 svc__title" data-i18n="svc1Title">Dashboard &amp; managementrapportage</h3>
+        <h2 class="sect-h2 svc__title" data-i18n="svc1Title">Dashboard &amp; managementrapportage</h2>
       </div>
       <div class="svc__benefit" data-i18n="svc1Benefit">Grip op je fundament</div>
       <p class="svc__intro" data-i18n="svc1Intro">Van losse exports en Excel-lijsten naar één betrouwbare bron van waarheid. We brengen financiële én niet-financiële data samen en geven er betekenis aan, zodat finance, directie en operatie naar dezelfde cijfers kijken. Je weet direct waar het goed gaat en waar bijsturen nodig is.</p>
@@ -238,24 +473,45 @@
 
       <div class="svc__foot">
         <p data-i18n="svc1Foot">Heb je het dashboard al, maar ontbreekt de betrouwbare rapportage eronder? Of andersom? Dan starten we daar. We bouwen voort op wat er al is en herstellen wat niet klopt.</p>
-        <a href="/contact" class="btn-copper" data-i18n="cta">Vraag de diagnose aan</a>
+        <a href="/cases" class="btn-copper" data-i18n="ctaVoorbeeld">Bekijk een voorbeeld</a>
       </div>
     </div>
 
-    <!-- ---- Service 2: AI-strategie (dark) ---- -->
-    <div class="svc svc--dark" id="ai">
+    <!-- ---- Service 3: AI-strategie &amp; gerichte automatisering ---- -->
+    <div class="svc svc--light svc--open" id="ai">
       <div class="sect-head sect-head--svc">
         <span class="sect-num">03</span>
-        <h3 class="sect-h2 svc__title" data-i18n="svc2Title">AI-strategie</h3>
+        <h2 class="sect-h2 svc__title" data-i18n="svc2Title">AI-strategie &amp; gerichte automatisering</h2>
       </div>
       <div class="svc__benefit" data-i18n="svc2Benefit">Efficiënter werken met AI</div>
-      <p class="svc__intro"><span data-i18n="svc2IntroShort">Goede automatisering begint niet bij een tool, maar bij je proces. Omdat we je processen in de diagnose al hebben doorgrond, zien we exact waar AI écht waarde toevoegt. We vertalen dit direct naar de werkvloer: we bouwen concrete workflows samen met je team, in plaats van een adviesrapport op afstand.</span><span class="svc__more" id="aiMore" hidden> <span data-i18n="svc2IntroMore">We focussen op repeterend handwerk. Door dat te automatiseren houdt je team tijd over voor analyse en strategisch advies, het werk waar mensen het verschil maken. Juist nu regelgeving strenger wordt en de concurrentie scherper, loont het om dit doordacht aan te pakken. Geen losse experimenten, maar doordachte en bewezen oplossingen. We bouwen binnen een helder beleid met scherp oog voor privacy, betrouwbaarheid en menselijk toezicht.</span></span> <button type="button" class="svc__readmore" id="aiToggle">Meer lezen ›</button></p>
+      <p class="svc__intro"><span data-i18n="svc2IntroShort">Goede automatisering begint niet bij een tool, maar bij je proces. Omdat we je processen in de diagnose al hebben doorgrond, zien we exact waar AI écht waarde toevoegt. We vertalen dit direct naar de werkvloer: we bouwen concrete workflows samen met je team, in plaats van een adviesrapport op afstand.</span><span class="svc__more" id="aiMore"> <span data-i18n="svc2IntroMore">We focussen op repeterend handwerk. Door dat te automatiseren houdt je team tijd over voor analyse en strategisch advies, het werk waar mensen het verschil maken. Juist nu regelgeving strenger wordt en de concurrentie scherper, loont het om dit doordacht aan te pakken. Geen losse experimenten, maar doordachte en bewezen oplossingen. We bouwen binnen een helder beleid met scherp oog voor privacy, betrouwbaarheid en menselijk toezicht.</span></span></p>
 
-      <button type="button" class="svc__collapse" id="aiUsecasesToggle" aria-expanded="false">
-        <span data-i18n="aiUseHeading">Waar levert AI het snelst op?</span>
-        <span class="svc__collapse-ic" aria-hidden="true">⌄</span>
-      </button>
-      <div class="svc__collapse-body" id="aiUsecases" hidden>
+      <div class="svc__collapse-body" id="aiUsecases">
+      <!-- Schermbeeld bij de AI-dienst. De andere twee diensten hadden er
+           twee; deze had er geen, waardoor hij als bijzaak las. Getekend in
+           HTML, niet als afbeelding: schaalt scherp mee en bevat geen
+           klantgegevens. -->
+      <div class="aishot">
+        <div class="aimock" aria-hidden="true">
+          <div class="aimock__bar"><b>Factuurverwerking</b><i>AGENT ACTIEF</i></div>
+          <div class="aimock__sub"><b>Wachtrij</b><span>Uitzonderingen</span><span>Regels</span><span>Logboek</span></div>
+          <div class="aimock__body">
+            <div class="aimock__tbl">
+              <div class="aimock__tr h"><span>Nr</span><span>Leverancier</span><span class="b">Bedrag</span><span>Status</span></div>
+              <div class="aimock__tr"><span class="n">F-2841</span><span>Van Dijk Techniek</span><span class="b">1.284,50</span><span class="aimock__tag ok">Geboekt</span></div>
+              <div class="aimock__tr"><span class="n">F-2842</span><span>Kabelgroothandel Zuid</span><span class="b">7.910,00</span><span class="aimock__tag ok">Geboekt</span></div>
+              <div class="aimock__tr"><span class="n">F-2843</span><span>Meijer Transport</span><span class="b">412,75</span><span class="aimock__tag wacht">Ter controle</span></div>
+              <div class="aimock__tr"><span class="n">F-2844</span><span>Onderhoud Noord bv</span><span class="b">2.045,00</span><span class="aimock__tag ok">Geboekt</span></div>
+              <div class="aimock__tr"><span class="n">F-2845</span><span>De Wit Installaties</span><span class="b">899,90</span><span class="aimock__tag ok">Geboekt</span></div>
+            </div>
+            <div class="aimock__side">
+              <div class="aimock__kpi"><span>Vandaag verwerkt</span><b>184</b></div>
+              <div class="aimock__kpi"><span>Naar mens</span><b>6</b></div>
+              <div class="aimock__note">Afwijking op <b>F-2843</b>: bedrag wijkt af van de inkooporder. Klaargezet voor controle.</div>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="aiuse__grid">
           <div class="aiuse"><span class="aiuse__ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A14E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15a0 0 0 0 1 0 0H6a0 0 0 0 1 0 0z"></path><path d="M14 2v6h6M9 13h6M9 17h4"></path></svg></span><h4 data-i18n="ai1Title">Facturen en administratie</h4><p data-i18n="ai1Desc">Minder repeterend invoer- en controlewerk.</p></div>
           <div class="aiuse"><span class="aiuse__ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A14E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 16v-5M13 16V8M18 16v-3"></path></svg></span><h4 data-i18n="ai2Title">Rapportage en controles</h4><p data-i18n="ai2Desc">Sneller klaargezet, met minder kans op fouten.</p></div>
@@ -266,7 +522,7 @@
         </div>
         <p class="aiuse__note" data-i18n="aiUseExtra">Dezelfde aanpak werkt ook buiten finance, bijvoorbeeld bij klantvragen, helpdesk of marketing.</p>
         <div class="aiuse__training"><span class="aiuse__training-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A14E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span data-i18n="aiTraining">We bouwen niet alleen, we nemen je team mee: van een bewustwordingstraining voor de organisatie tot gerichte begeleiding voor de dagelijkse gebruikers.</span></div>
-        <div class="svc__strip svc__strip--tools svc__strip--dark">
+        <div class="svc__strip svc__strip--tools">
           <span class="svc__strip-label"><span data-i18n="toolsLabel">Waarmee we werken</span></span>
           <div class="svc__tools">
             <div class="svc__tool"><span class="svc__tool-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A14E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.5"></path><path d="M12 8v4l3 2"></path></svg></span>Claude</div>
@@ -280,7 +536,37 @@
 
       <div class="svc__foot">
         <p data-i18n="svc2Foot">Staat je fundament al stevig en wil je vooral repeterend werk automatiseren? Dan starten we daar.</p>
-        <a href="/contact" class="btn-copper btn--op-donker" data-i18n="cta">Vraag de diagnose aan</a>
+        <a href="/cases" class="btn-copper" data-i18n="ctaVoorbeeld">Bekijk een voorbeeld</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dfaq">
+    <h2 class="dfaq__h2" data-i18n="dfaqTitle">Wat je meestal nog wilt weten</h2>
+    <div class="dfaq__grid">
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ1">Wat kost het?</h3>
+        <p data-i18n="dfaqA1">Projecten voeren we uit tegen een vaste projectprijs, vooraf afgesproken op basis van de diagnose. Voor doorlopend beheer en doorontwikkeling van dashboards werken we met een abonnement. Omdat elk traject maatwerk is, noemen we pas een bedrag als we weten wat er nodig is.</p>
+      </div>
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ2">Hoe lang duurt het?</h3>
+        <p data-i18n="dfaqA2">De diagnose duurt twee tot vier weken. Daarna staat een werkend dashboard er meestal binnen vier tot zes weken. We werken met wekelijkse demo&rsquo;s, zodat je tussentijds ziet wat er gebouwd wordt en direct kunt bijsturen.</p>
+      </div>
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ3">We hebben al een dashboard. Wat dan?</h3>
+        <p data-i18n="dfaqA3">Dan beginnen we daar. Vaak ontbreekt niet het dashboard maar de betrouwbare rapportage eronder &mdash; of andersom. We bouwen voort op wat er staat en herstellen wat niet klopt, in plaats van alles opnieuw te doen.</p>
+      </div>
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ4">Vervangen jullie onze boekhouder of controller?</h3>
+        <p data-i18n="dfaqA4">Nee. We vervangen geen bestaande functies, we versterken ze. Je administratie blijft waar die is; wij zorgen dat de data eruit stroomt naar bruikbare stuurinformatie. Heb je tijdelijk senior financi&euml;le sturing nodig, dan bieden we aanvullend interim controller services op afstand.</p>
+      </div>
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ5">Van wie is wat jullie bouwen?</h3>
+        <p data-i18n="dfaqA5">Van jou. We bouwen op Power BI en Microsoft Azure, binnen je eigen licenties en tenancy waar dat kan. Geen vendor lock-in: alles wat we opleveren is van jou en gedocumenteerd, zodat je er zelf mee verder kunt.</p>
+      </div>
+      <div class="dfaq__item">
+        <h3 data-i18n="dfaqQ6">Moeten we met alle drie beginnen?</h3>
+        <p data-i18n="dfaqA6">Nee. De diagnose staat op zichzelf, en veel klanten doen daarna alleen de rapportage. Automatiseren heeft pas zin als het fundament klopt &mdash; anders gaan de problemen alleen sneller.</p>
       </div>
     </div>
   </section>
@@ -307,6 +593,7 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
+        <p class="footer__desc" data-i18n="footDesc">Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="footer__who">
           <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
@@ -322,20 +609,31 @@
             <a href="/diensten" data-i18n="navDiensten">Diensten</a>
             <a href="/cases">Cases</a>
             <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
         <div>
           <div class="footer__col-title">Contact</div>
-          <div class="footer__col-links">
+          <address class="footer__col-links footer__adres">
             <a href="mailto:info@finsera.nl">info@finsera.nl</a>
             <a href="tel:+31641413836">06 - 41 41 38 36</a>
             <span>KvK 93587953</span>
+          </address>
+          <div class="footer__social">
+            <div class="footer__col-title footer__col-title--sub">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="footer__col-links">
+              <a href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener">&Ouml;ner Y&uuml;cel</a>
+              <a href="https://www.linkedin.com/in/tomasvdlaan/" target="_blank" rel="noopener">Tomas van der Laan</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
+      <span>© <span data-jaar>2026</span> Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
       <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Over ons — Finsera op het snijvlak van cijfers, processen en technologie</title>
-  <meta name="description" content="Finsera is een boutique finance consultancy: senior denkkracht op het snijvlak van cijfers, processen en technologie voor groeiende bedrijven.">
+  <title>Over Finsera — grip op cijfers door structuur, data en technologie</title>
+  <meta name="description" content="Finsera is een Nederlands financieel consultancybureau: managementrapportage, Power BI-dashboards, AO/IC en AI-automatisering voor bedrijven met 10 tot 50 medewerkers.">
   <link rel="canonical" href="https://www.finsera.nl/over">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -12,8 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finsera">
   <meta property="og:locale" content="nl_NL">
-  <meta property="og:title" content="Over ons — Finsera op het snijvlak van cijfers, processen en technologie">
-  <meta property="og:description" content="Twee mensen, één doel: jouw bedrijf gezonder maken. Senior denkkracht op het snijvlak van cijfers, processen en technologie.">
+  <meta property="og:title" content="Over Finsera — grip op cijfers door structuur, data en technologie">
+  <meta property="og:description" content="Managementrapportage, Power BI-dashboards, AO/IC en AI-automatisering voor snelgroeiende MKB- en mid-marketbedrijven.">
   <meta property="og:url" content="https://www.finsera.nl/over">
   <meta property="og:image" content="https://www.finsera.nl/img/og-finsera.jpg">
   <meta property="og:image:width" content="1200">
@@ -31,65 +31,9 @@
        mono-kicker met koperen streep, Archivo-kop met gouden accent,
        hairlines in plaats van kaders. Op mobiel kantelt de scrim naar
        onder, zodat de tekst altijd op het donkerste deel valt. */
-    .obanner { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-band); }
-    .obanner__photo {
-      position: absolute; inset: 0; z-index: 0;
-      width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
-    }
-    .obanner__scrim {
-      position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background:
-        linear-gradient(94deg, rgba(22,36,61,.95) 0%, rgba(22,36,61,.86) 34%, rgba(22,36,61,.48) 64%, rgba(22,36,61,.20) 100%),
-        linear-gradient(0deg, rgba(22,36,61,.55) 0%, rgba(22,36,61,0) 42%);
-    }
-    .obanner__inner {
-      position: relative; z-index: 2;
-      max-width: var(--wrap); margin: 0 auto;
-      padding: clamp(84px, 13vh, 148px) var(--pad) clamp(56px, 9vh, 104px);
-      min-height: clamp(400px, 58vh, 620px);
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .obanner__kicker {
-      display: flex; align-items: center; gap: 12px;
-      font-family: var(--mono); font-size: 11.5px; font-weight: 500;
-      letter-spacing: .16em; text-transform: uppercase;
-      color: var(--gold-soft); margin: 0 0 clamp(18px, 3vh, 28px);
-    }
-    .obanner__rule { width: 30px; height: 1px; background: var(--gold-soft); flex: none; }
-    .obanner__h1 {
-      font-family: 'Archivo', var(--sans); font-weight: 800;
-      font-size: clamp(34px, 4.6vw, 62px); line-height: 1.04; letter-spacing: -.035em;
-      color: var(--band-paper); margin: 0; max-width: 17ch; text-wrap: balance;
-    }
-    .obanner__grad {
-      background: linear-gradient(96deg, #C9A96A 0%, #E0BE84 52%, #F2EDE3 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .obanner__sub {
-      margin: clamp(18px, 3vh, 26px) 0 0; max-width: 52ch;
-      font-size: clamp(16px, 1.3vw, 18px); line-height: 1.62;
-      color: var(--band-paper-70); text-wrap: pretty;
-    }
-    .obanner__names {
-      display: flex; flex-wrap: wrap; gap: 10px clamp(20px, 3vw, 40px);
-      margin-top: clamp(26px, 4vh, 40px); padding-top: 18px;
-      border-top: 1px solid var(--band-hair);
-    }
-    .obanner__name { display: flex; flex-direction: column; gap: 3px; }
-    .obanner__name b { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--band-paper); }
-    .obanner__name span {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      letter-spacing: .05em; text-transform: uppercase; color: var(--band-paper-70);
-    }
-    @media (max-width: 720px) {
-      .obanner__photo { object-position: 62% 26%; }
-      .obanner__scrim {
-        background:
-          linear-gradient(0deg, rgba(22,36,61,.96) 0%, rgba(22,36,61,.86) 44%, rgba(22,36,61,.52) 76%, rgba(22,36,61,.60) 100%);
-      }
-      .obanner__inner { min-height: clamp(440px, 72vh, 640px); }
-      .obanner__h1 { max-width: none; }
-    }
+    /* De banner van deze pagina gebruikt .pbanner uit styles.css
+       (variant .pbanner--over), zodat alle pagina's dezelfde hoogte houden. */
+
 
     .over-band { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .over-band__inner { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
@@ -140,8 +84,56 @@
       text-decoration: none; transition: background .18s ease, color .18s ease, transform .18s ease; }
     .over-cta__btn:hover, .over-cta__btn:focus-visible { background: var(--navy); color: #fff; transform: translateY(-1px); }
     @media (prefers-reduced-motion: reduce) { .over-cta__btn { transition: none; } .over-cta__btn:hover { transform: none; } }
+
+    /* ===================================================== SEO/GEO-opbouw ==
+       De pagina is opgebouwd als een reeks vragen met een direct antwoord
+       eronder. Dat leest prettig voor een bezoeker en is tegelijk het formaat
+       dat zoekmachines en taalmodellen kunnen citeren: elk antwoord staat op
+       zichzelf en heeft geen omliggende alinea's nodig om te kloppen. */
+    .over-sect { max-width: 1100px; margin: 0 auto; padding: clamp(52px,7vw,88px) clamp(20px,5vw,64px); }
+    .over-sect + .over-sect { border-top: 1px solid var(--hair); }
+    .over-sect__head { max-width: 30ch; }
+    .over-h2 { font-family: var(--serif); font-weight: 380; font-size: clamp(26px,3.2vw,40px);
+      line-height: 1.12; letter-spacing: -.018em; color: var(--ink); margin: 0; text-wrap: balance; }
+    .over-lead { margin: 18px 0 0; font-size: clamp(16.5px,1.35vw,18.5px); line-height: 1.68; color: var(--ink-70); text-wrap: pretty; max-width: 68ch; }
+    .over-body { margin: 16px 0 0; font-size: 16.5px; line-height: 1.72; color: var(--ink-70); text-wrap: pretty; max-width: 68ch; }
+    .over-body strong { color: var(--ink); font-weight: 600; }
+
+    /* -- antwoordblok: de definitie plus de feiten in een opzoekbare lijst -- */
+    .over-answer { display: grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: clamp(28px,4vw,56px); align-items: start; }
+    .over-facts { border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; background: var(--paper); }
+    .over-facts div { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 14px clamp(16px,2vw,20px); border-top: 1px solid var(--hair-soft); }
+    .over-facts div:first-child { border-top: 0; }
+    .over-facts dt { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-55); }
+    .over-facts dd { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
+
+    /* -- drie perspectieven van de oprichter, en de kernwaarden ------------ */
+    .over-tri { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(22px,2.8vw,40px); margin-top: clamp(30px,4vw,48px); }
+    .over-tri > div { border-top: 2px solid var(--copper); padding-top: 18px; }
+    .over-tri h3 { font-family: var(--serif); font-weight: 500; font-size: 19px; line-height: 1.25; color: var(--ink); margin: 0 0 10px; }
+    .over-tri p { margin: 0; font-size: 15.5px; line-height: 1.66; color: var(--ink-70); text-wrap: pretty; }
+    .over-tri__num { display: block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .16em; color: var(--ink-55); margin-bottom: 12px; }
+
+    /* -- hoe een samenwerking begint --------------------------------------- */
+    .over-start { display: grid; grid-template-columns: minmax(0,6fr) minmax(0,5fr); gap: clamp(28px,4vw,56px); align-items: start; }
+    .over-start__card { background: var(--paper-deep); border: 1px solid var(--hair); border-radius: var(--r-md); padding: clamp(22px,2.8vw,32px); }
+    .over-start__label { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--copper); margin: 0 0 12px; }
+    .over-start__title { font-family: var(--serif); font-weight: 500; font-size: clamp(20px,2.1vw,25px); line-height: 1.22; color: var(--ink); margin: 0 0 12px; }
+    .over-start__list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+    .over-start__list li { display: grid; grid-template-columns: 17px 1fr; gap: 10px; font-size: 15.5px; line-height: 1.55; color: var(--ink-70); }
+    .over-start__tick { color: var(--copper); font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .over-answer, .over-start { grid-template-columns: 1fr; }
+      .over-tri { grid-template-columns: 1fr; gap: 26px; }
+    }
+
     @media (max-width: 820px) { .over-2col, .over-team__grid { grid-template-columns: 1fr; } }
   </style>
+  <!-- Gestructureerde data. De vraag-en-antwoordopbouw van de pagina staat
+       hier ook als FAQPage: zoekmachines en taalmodellen krijgen daarmee
+       dezelfde antwoorden in machineleesbare vorm. Houd deze tekst gelijk aan
+       wat er op de pagina staat; loopt dat uiteen, dan is het misleidend. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -150,19 +142,80 @@
         "@type": "AboutPage",
         "@id": "https://www.finsera.nl/over#webpage",
         "url": "https://www.finsera.nl/over",
-        "name": "Over ons — Finsera op het snijvlak van cijfers, processen en technologie",
+        "name": "Over Finsera \u2014 grip op cijfers door structuur, data en technologie",
         "isPartOf": { "@id": "https://www.finsera.nl/#website" },
         "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "mainEntity": { "@id": "https://www.finsera.nl/#organisatie" },
         "inLanguage": "nl-NL"
-      }      ,
+      },
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "https://www.finsera.nl/#organisatie",
+        "name": "Finsera",
+        "url": "https://www.finsera.nl/",
+        "description": "Finsera is een Nederlands financieel consultancybureau dat managementrapportages en Power BI-dashboards bouwt, financi\u00eble processen optimaliseert (AO/IC) en AI-automatisering implementeert voor bedrijven met 10 tot 50 medewerkers en een omzet tussen 5 en 100 miljoen euro. Daarnaast levert Finsera interim controller services op afstand.",
+        "slogan": "Grip op cijfers door structuur, data en technologie",
+        "email": "info@finsera.nl",
+        "telephone": "+31641413836",
+        "founder": { "@id": "https://www.finsera.nl/over#oner-yucel" },
+        "employee": [
+          { "@id": "https://www.finsera.nl/over#oner-yucel" },
+          { "@id": "https://www.finsera.nl/over#tomas-van-der-laan" }
+        ],
+        "member": { "@id": "https://www.finsera.nl/over#tomas-van-der-laan" },
+        "identifier": { "@type": "PropertyValue", "name": "KvK", "value": "93587953" },
+        "areaServed": { "@type": "Country", "name": "Nederland" },
+        "knowsAbout": [
+          "Managementrapportage",
+          "Power BI",
+          "Administratieve organisatie en interne controle (AO/IC)",
+          "Financi\u00eble procesoptimalisatie",
+          "AI-automatisering",
+          "Interim controller",
+          "Data-architectuur",
+          "Exact Online",
+          "SnelStart"
+        ],
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Snelgroeiend MKB en mid-market",
+          "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
+          "yearlyRevenue": { "@type": "QuantitativeValue", "minValue": 5000000, "maxValue": 100000000, "unitText": "EUR" }
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Diensten van Finsera",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnose & strategisch adviesrapport", "description": "Een compact traject van twee tot vier weken waarin financi\u00eble processen, systemen en rapportages worden doorgelicht, met direct toepasbare aanbevelingen." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managementrapportage en Power BI-dashboards", "description": "Bronsystemen samengebracht tot \u00e9\u00e9n betrouwbare bron van waarheid, ontsloten via dashboards en managementrapportage." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AO/IC en financi\u00eble procesoptimalisatie", "description": "Administratieve organisatie en interne controle vastgelegd en toetsbaar gemaakt, zodat compliance een bijproduct van het systeem is." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-automatisering", "description": "Repeterend handwerk in de financi\u00eble keten geautomatiseerd, nadat het fundament klopt." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interim controller op afstand", "description": "Controllerscapaciteit op afstand voor organisaties die tijdelijk of deeltijds versterking nodig hebben." } }
+          ]
+        }
+      },
       {
         "@type": "Person",
         "@id": "https://www.finsera.nl/over#oner-yucel",
-        "name": "Öner Yücel",
-        "jobTitle": "Financial & business consultant",
-        "description": "Öner Yücel is medeoprichter van Finsera en gespecialiseerd in finance & control, accountancy, audit en compliance bij groeiende middelgrote bedrijven.",
+        "name": "\u00d6ner Y\u00fccel",
+        "givenName": "\u00d6ner",
+        "familyName": "Y\u00fccel",
+        "jobTitle": "Oprichter en financial & business consultant",
+        "description": "\u00d6ner Y\u00fccel is oprichter van Finsera. Hij combineert een achtergrond bij de Belastingdienst en Douane met een MSc Accountancy & Controlling en ondernemerschap, en is gespecialiseerd in AO/IC, managementrapportage en financi\u00eble sturing bij groeiende bedrijven.",
         "worksFor": { "@id": "https://www.finsera.nl/#organisatie" },
-        "knowsAbout": ["Financial control", "Accountancy", "Audit", "Compliance", "Managementrapportage", "Werkkapitaal"],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Master of Science",
+          "name": "MSc Accountancy & Controlling"
+        },
+        "knowsAbout": [
+          "Administratieve organisatie en interne controle (AO/IC)",
+          "Managementrapportage",
+          "Compliance en toezicht",
+          "Financi\u00eble sturing",
+          "Interim controlling"
+        ],
         "image": "https://www.finsera.nl/img/team/oner-yucel.jpg",
         "sameAs": ["https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/"]
       },
@@ -170,12 +223,47 @@
         "@type": "Person",
         "@id": "https://www.finsera.nl/over#tomas-van-der-laan",
         "name": "Tomas van der Laan",
+        "givenName": "Tomas",
+        "familyName": "van der Laan",
         "jobTitle": "Data analyst & ontwikkelaar",
-        "description": "Tomas van der Laan is medeoprichter van Finsera en verantwoordelijk voor data-architectuur, Power BI dashboards en AI-automatisering voor het MKB.",
+        "description": "Tomas van der Laan is vanaf het eerste uur bij Finsera betrokken en bouwt de datafundamenten, de koppelingen tussen bronsystemen en de Power BI-dashboards waar de rapportages op draaien.",
         "worksFor": { "@id": "https://www.finsera.nl/#organisatie" },
-        "knowsAbout": ["Data-architectuur", "Power BI", "Data-engineering", "AI-automatisering"],
+        "knowsAbout": ["Data-architectuur", "Power BI", "Data-engineering", "AI-automatisering", "Exact Online", "SnelStart"],
         "image": "https://www.finsera.nl/img/team/tomas-van-der-laan.jpg",
         "sameAs": ["https://www.linkedin.com/in/tomasvdlaan/"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.finsera.nl/over#faq",
+        "isPartOf": { "@id": "https://www.finsera.nl/over#webpage" },
+        "inLanguage": "nl-NL",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wat is Finsera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Finsera is een Nederlands financieel consultancybureau dat managementrapportages en Power BI-dashboards bouwt, financi\u00eble processen optimaliseert (AO/IC) en AI-automatisering implementeert voor bedrijven met 10 tot 50 medewerkers en een omzet tussen 5 en 100 miljoen euro. Daarnaast levert Finsera interim controller services op afstand." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wanneer schiet je financi\u00eble structuur tekort?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Wanneer een bedrijf de opstartfase voorbij is en harder groeit dan zijn financi\u00eble structuur aankan: maandafsluitingen duren weken, stuurinformatie komt te laat, en de administratie leunt op Excel-bestanden en de kennis van enkele sleutelpersonen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie zit er achter Finsera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Finsera is opgericht door \u00d6ner Y\u00fccel, MSc Accountancy & Controlling. Hij combineert drie perspectieven: een achtergrond bij de Belastingdienst en Douane, waardoor hij compliance en toezicht van binnenuit kent; de private financi\u00eble praktijk van AO/IC tot managementrapportage; en ondernemerschap, waardoor hij de afwegingen van een DGA of directie kent." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie doet het werk bij Finsera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Een compact team dat finance en technologie combineert. Naast de financi\u00eble expertise van oprichter \u00d6ner Y\u00fccel staat Tomas van der Laan, data analyst & developer, vanaf het eerste uur bij Finsera betrokken. Hij bouwt de datafundamenten, koppelingen en Power BI-dashboards waar de rapportages op draaien, en ontsluit data uit pakketten als Exact Online en SnelStart." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe begint een samenwerking met Finsera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Elke samenwerking start met een diagnose & strategisch adviesrapport: een compact traject van twee tot vier weken waarin de financi\u00eble processen, systemen en rapportages worden doorgelicht, met direct toepasbare aanbevelingen. Een eerste gesprek is vrijblijvend en ori\u00ebnterend." }
+          }
+        ]
       }
     ]
   }
@@ -222,38 +310,80 @@
 </nav>
 
 <main id="inhoud">
-  <header class="obanner">
-    <img class="obanner__photo" src="img/team/samen.webp" alt="Öner Yücel en Tomas van der Laan bespreken samen een rapportage" width="1536" height="672" decoding="async">
-    <div class="obanner__scrim" aria-hidden="true"></div>
-    <div class="obanner__inner">
-      <p class="obanner__kicker"><span class="obanner__rule" aria-hidden="true"></span><span data-i18n="eyebrow">Over ons</span></p>
-      <h1 class="obanner__h1"><span data-i18n="h1a">Op het snijvlak van</span> <span class="obanner__grad" data-i18n="h1b">cijfers, processen en technologie.</span></h1>
-      <p class="obanner__sub" data-i18n="bannerSub">Finsera is twee mensen, en dat is een keuze. Je werkt altijd rechtstreeks met degenen die het werk ook doen &mdash; geen accountmanager, geen tussenlaag.</p>
-      <div class="obanner__names">
-        <span class="obanner__name"><b>&Ouml;ner Y&uuml;cel</b><span data-i18n="role1sub">Financial &amp; business consultant</span></span>
-        <span class="obanner__name"><b>Tomas van der Laan</b><span data-i18n="role2sub">Data analyst &amp; ontwikkelaar</span></span>
-      </div>
+  <header class="pbanner pbanner--over">
+    <img class="pbanner__photo" src="img/team/samen.webp" alt="Öner Yücel en Tomas van der Laan bespreken samen een rapportage" width="1536" height="672" decoding="async">
+    <div class="pbanner__scrim" aria-hidden="true"></div>
+    <div class="pbanner__inner">
+      <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="eyebrow">Over ons</span></p>
+      <h1 class="pbanner__h1"><span data-i18n="h1a">Grip op cijfers door</span> <span class="pbanner__grad" data-i18n="h1b">structuur, data en technologie.</span></h1>
+      <p class="pbanner__intro" data-i18n="bannerSub">Een boutique consultancybureau voor financi&euml;le procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip krijgen op hun cijfers &mdash; niet door m&eacute;&eacute;r mensen of m&eacute;&eacute;r rapportages, maar door een slimme inrichting van data, processen en technologie.</p>
+      <p class="pbanner__names"><b>&Ouml;ner Y&uuml;cel</b> &middot; <span data-i18n="role1sub">Financial &amp; business consultant</span> &nbsp;&mdash;&nbsp; <b>Tomas van der Laan</b> &middot; <span data-i18n="role2sub">Data analyst &amp; ontwikkelaar</span></p>
     </div>
   </header>
 
-  <section class="over-band">
-    <div class="over-band__inner over-2col">
+  <!-- Antwoordblok. Zowel een zoekmachine als een taalmodel pakt hier een
+       compleet, op zichzelf staand antwoord op de vraag "wat is Finsera?".
+       Houd deze alinea daarom zelfdragend: geen verwijzingen naar tekst
+       elders op de pagina. -->
+  <section class="over-sect">
+    <div class="over-answer">
       <div>
-        <div class="over-label" data-i18n="missionLabel">Missie</div>
-        <p class="over-mission" data-i18n="mission">Wij stellen middelgrote bedrijven in staat om strategisch te leiden — niet tactisch te micromanagen — door heldere financiële inzichtelijkheid, intelligente dashboards en AI-gedreven automatisering die de dagelijkse operatie transformeert.</p>
+        <h2 class="over-h2" data-i18n="q1">Wat is Finsera?</h2>
+        <p class="over-lead" data-i18n="a1">Finsera is een Nederlands financieel consultancybureau dat managementrapportages en Power BI-dashboards bouwt, financi&euml;le processen optimaliseert (AO/IC) en AI-automatisering implementeert voor bedrijven met 10 tot 50 medewerkers en een omzet tussen &euro;5 miljoen en &euro;100 miljoen. Daarnaast leveren we interim controller services op afstand.</p>
+        <p class="over-body" data-i18n="a1b">We zijn een boutique consultancybureau voor financi&euml;le procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip te krijgen op hun cijfers &mdash; niet door m&eacute;&eacute;r mensen of m&eacute;&eacute;r rapportages, maar door een slimme inrichting van data, processen en technologie. Het resultaat is een financieel fundament dat betrouwbaar, schaalbaar en stuurbaar is.</p>
+      </div>
+      <dl class="over-facts">
+        <div><dt data-i18n="fType">Type organisatie</dt><dd data-i18n="vType">Boutique finance consultancy</dd></div>
+        <div><dt data-i18n="fOpgericht">Oprichter</dt><dd data-i18n="vOpgericht">&Ouml;ner Y&uuml;cel, MSc Accountancy &amp; Controlling</dd></div>
+        <div><dt data-i18n="fWerkgebied">Werkgebied</dt><dd data-i18n="vWerkgebied">Nederland, op afstand en op locatie</dd></div>
+        <div><dt data-i18n="fDoelgroep">Doelgroep</dt><dd data-i18n="vDoelgroep">10&ndash;50 medewerkers, &euro;5&ndash;100 mln omzet</dd></div>
+        <div><dt data-i18n="fDiensten">Diensten</dt><dd data-i18n="vDiensten">Managementrapportage en Power BI-dashboards, AO/IC, AI-automatisering, interim controller</dd></div>
+        <div><dt data-i18n="fStart">Startpunt</dt><dd data-i18n="vStart">Diagnose &amp; strategisch adviesrapport, 2&ndash;4 weken</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="over-sect">
+    <div class="over-sect__head">
+      <div class="over-label" data-i18n="lVoorwie">Voor wie we werken</div>
+      <h2 class="over-h2" data-i18n="q2">Wanneer schiet je financi&euml;le structuur tekort?</h2>
+    </div>
+    <p class="over-body" data-i18n="a2">Onze klanten zijn de opstartfase voorbij. Ze groeien hard &mdash; vaak harder dan hun financi&euml;le structuur aankan. Maandafsluitingen duren weken, stuurinformatie komt te laat, en de administratie leunt op Excel-bestanden en de kennis van enkele sleutelpersonen. Herkenbaar? Dan is dat precies het probleem dat we oplossen.</p>
+    <p class="over-body"><a href="/diensten" class="link-arrow"><span data-i18n="lDiensten">Bekijk wat we precies doen</span> <span aria-hidden="true">&rarr;</span></a></p>
+  </section>
+
+  <section class="over-sect">
+    <div class="over-sect__head">
+      <div class="over-label" data-i18n="lOprichter">De oprichter</div>
+      <h2 class="over-h2" data-i18n="q3">Wie zit er achter Finsera?</h2>
+    </div>
+    <p class="over-body" data-i18n="a3">Goede financi&euml;le advisering vraagt om meer dan theorie. &Ouml;ner Y&uuml;cel, oprichter van Finsera, combineert drie perspectieven die zelden in &eacute;&eacute;n adviseur samenkomen.</p>
+    <div class="over-tri">
+      <div>
+        <span class="over-tri__num">01</span>
+        <h3 data-i18n="p1t">Compliance van binnenuit</h3>
+        <p data-i18n="p1d">Als voormalig professional bij de Belastingdienst en Douane kent hij controle en toezicht van binnenuit. Hij weet hoe auditors en toezichthouders naar een administratie kijken &mdash; en dus ook hoe je processen z&oacute; inricht dat compliance geen reactieve tijdvreter is, maar een vanzelfsprekend bijproduct van een goed systeem.</p>
       </div>
       <div>
-        <div class="over-label" data-i18n="howLabel">Hoe we werken</div>
-        <p class="over-how" data-i18n="how">Wij geloven dat goede managementrapportage leidt tot betere besluiten. Een goed dashboard is geen gadget, maar een professioneel systeem om vanaf hoger niveau naar je bedrijf te kijken — in plaats van dagelijks brandjes te blussen. Van chaos naar strategische helderheid en slimme uitvoering.</p>
+        <span class="over-tri__num">02</span>
+        <h3 data-i18n="p2t">De financi&euml;le praktijk</h3>
+        <p data-i18n="p2d">Als afgestudeerd MSc Accountancy &amp; Controlling en ervaren financial beheerst hij het volledige spectrum van de private financi&euml;le praktijk: van administratieve organisatie en interne controle (AO/IC) tot managementrapportage en financi&euml;le sturing op directieniveau.</p>
+      </div>
+      <div>
+        <span class="over-tri__num">03</span>
+        <h3 data-i18n="p3t">Ondernemerschap</h3>
+        <p data-i18n="p3d">Als ondernemer weet hij hoe het is om z&eacute;lf een bedrijf te bouwen. Hij kent de afwegingen die een DGA of directie dagelijks maakt, en begrijpt dat een rapportage geen doel op zich is &mdash; het is een middel om betere beslissingen te nemen.</p>
       </div>
     </div>
+    <p class="over-body" data-i18n="a3b">Die combinatie bepaalt hoe we werken: grondig waar het moet, pragmatisch waar het kan, en altijd gericht op wat het je organisatie concreet oplevert.</p>
   </section>
 
   <section class="over-team">
     <div class="over-team__head">
       <div class="over-label" data-i18n="teamLabel">Het team</div>
-      <h2 data-i18n="teamHeading">Bewust boutique.</h2>
-      <p data-i18n="team">Finsera is twee mensen, en dat is een keuze. Öner brengt de finance-diepgang van jaren als controller mee, Tomas bouwt de data-architectuur en de dashboards. Je werkt dus altijd rechtstreeks met degenen die het werk ook doen: geen accountmanager, geen tussenlaag. Bewust boutique, dus selectief in opdrachten en persoonlijk in aanpak.</p>
+      <h2 class="over-h2" data-i18n="q4">Wie doet het werk?</h2>
+      <p class="over-body" data-i18n="team">Financi&euml;le inzichtelijkheid ontstaat op het snijvlak van finance, data en IT &mdash; en juist daar gaat het bij veel bedrijven mis, omdat die disciplines niet dezelfde taal spreken. Finsera is daarom bewust opgebouwd als een compact team dat beide werelden beheerst. Naast de financi&euml;le expertise van &Ouml;ner staat Tomas van der Laan, data analyst &amp; developer, die vanaf het eerste uur bij Finsera betrokken is. Hij bouwt de datafundamenten, koppelingen en Power BI-dashboards waar onze rapportages op draaien: data ontsluiten uit pakketten als Exact Online en SnelStart, automatiseringen bouwen, en dashboards opleveren die aansluiten op hoe je directie daadwerkelijk stuurt.</p>
+      <p class="over-body" data-i18n="teamB">Je krijgt bij ons geen junior consultants die het vak nog moeten leren, en geen dikke rapporten die in een la verdwijnen. Je krijgt een klein, senior team dat bouwt, oplevert en aanspreekbaar blijft.</p>
     </div>
     <div class="over-team__grid">
       <!-- Same portraits as the homepage team block; a missing file removes
@@ -283,17 +413,63 @@
     </div>
   </section>
 
+  <section class="over-sect">
+    <div class="over-sect__head">
+      <div class="over-label" data-i18n="lWaarden">Waar we in geloven</div>
+      <h2 class="over-h2" data-i18n="q5">Hoe kiezen we onze opdrachten?</h2>
+    </div>
+    <div class="over-tri">
+      <div>
+        <span class="over-tri__num">01</span>
+        <h3 data-i18n="w1t">Waarde-gedreven</h3>
+        <p data-i18n="w1d">Elk traject moet zichzelf terugverdienen in betere beslissingen, minder handwerk of lagere risico&rsquo;s. Anders beginnen we er niet aan.</p>
+      </div>
+      <div>
+        <span class="over-tri__num">02</span>
+        <h3 data-i18n="w2t">Betrouwbaar en transparant</h3>
+        <p data-i18n="w2d">Je weet vooraf wat we doen, waarom we het doen en wat het oplevert. En we zeggen het eerlijk als iets niet de moeite waard is.</p>
+      </div>
+      <div>
+        <span class="over-tri__num">03</span>
+        <h3 data-i18n="w3t">Gericht op de lange termijn</h3>
+        <p data-i18n="w3d">Liever een klant die ons over drie jaar nog steeds belt, dan een snelle opdracht die niets fundamenteels verandert.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="over-sect">
+    <div class="over-start">
+      <div>
+        <div class="over-label" data-i18n="lStart">Zo beginnen we</div>
+        <h2 class="over-h2" data-i18n="q6">Hoe begint een samenwerking met Finsera?</h2>
+        <p class="over-body" data-i18n="a6">Elke samenwerking start met een diagnose &amp; strategisch adviesrapport: een compact traject van twee tot vier weken waarin we je financi&euml;le processen, systemen en rapportages doorlichten. Geen lange theoretische audit, maar een scherpe analyse met direct toepasbare aanbevelingen &mdash; zodat je al waarde ziet v&oacute;&oacute;rdat je aan een groter traject begint.</p>
+        <p class="over-body" data-i18n="a6b">Elk traject is maatwerk, dus laten we je situatie bespreken. Een eerste gesprek is vrijblijvend en ori&euml;nterend.</p>
+      </div>
+      <div class="over-start__card">
+        <p class="over-start__label" data-i18n="startLabel">Het startpunt</p>
+        <p class="over-start__title" data-i18n="startTitle">Diagnose &amp; strategisch adviesrapport</p>
+        <ul class="over-start__list">
+          <li><span class="over-start__tick" aria-hidden="true">&#10003;</span><span data-i18n="s1">Twee tot vier weken, met een vaste opzet</span></li>
+          <li><span class="over-start__tick" aria-hidden="true">&#10003;</span><span data-i18n="s2">Processen, systemen en rapportages doorgelicht</span></li>
+          <li><span class="over-start__tick" aria-hidden="true">&#10003;</span><span data-i18n="s3">Aanbevelingen die je meteen kunt uitvoeren</span></li>
+          <li><span class="over-start__tick" aria-hidden="true">&#10003;</span><span data-i18n="s4">Waarde v&oacute;&oacute;rdat je aan een groter traject begint</span></li>
+        </ul>
+        <p class="over-body" style="margin-top:20px"><a href="/cases" class="link-arrow"><span data-i18n="lCases">Zie wat dat oplevert</span> <span aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </section>
+
   <section class="over-quote">
     <div class="over-quote__inner">
       <div class="over-quote__mark">“</div>
       <p class="over-quote__text" data-i18n="quote">Finsera brengt strategie, operatie en financieel inzicht bij groeiende bedrijven weer op één lijn — met professionele rapportage, heldere dashboards en slimme automatisering.</p>
-      <div class="over-quote__attr" data-i18n="quoteAttr">— Öner &amp; Tomas, oprichters</div>
+      <div class="over-quote__attr" data-i18n="quoteAttr">— Öner Yücel, oprichter van Finsera</div>
     </div>
   </section>
 
   <section class="over-cta">
     <h2 data-i18n="ctaHeading">Benieuwd wat we voor jouw organisatie kunnen betekenen?</h2>
-    <a href="/contact" class="over-cta__btn" data-i18n="ctaOver">Laten we kennis maken</a>
+    <a href="/contact" class="over-cta__btn" data-i18n="ctaOver">Plan een kennismakingsgesprek</a>
   </section>
 </main>
 
@@ -306,6 +482,7 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
+        <p class="footer__desc" data-i18n="footDesc">Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="footer__who">
           <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
@@ -321,20 +498,31 @@
             <a href="/diensten" data-i18n="navDiensten">Diensten</a>
             <a href="/cases">Cases</a>
             <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
         <div>
           <div class="footer__col-title">Contact</div>
-          <div class="footer__col-links">
+          <address class="footer__col-links footer__adres">
             <a href="mailto:info@finsera.nl">info@finsera.nl</a>
             <a href="tel:+31641413836">06 - 41 41 38 36</a>
             <span>KvK 93587953</span>
+          </address>
+          <div class="footer__social">
+            <div class="footer__col-title footer__col-title--sub">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="footer__col-links">
+              <a href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener">&Ouml;ner Y&uuml;cel</a>
+              <a href="https://www.linkedin.com/in/tomasvdlaan/" target="_blank" rel="noopener">Tomas van der Laan</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
+      <span>© <span data-jaar>2026</span> Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
       <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>
@@ -345,42 +533,125 @@ window.FINSERA_PAGE = {
   nl: {
     // 'intro' staat niet meer op de pagina; de alinea is geparkeerd voor
     // mogelijk hergebruik elders. Zie docs/geparkeerde-teksten.md.
+    // Nieuwe SEO/GEO-opbouw: elke vraag heeft een zelfdragend antwoord.
+    q1: 'Wat is Finsera?',
+    a1: 'Finsera is een Nederlands financieel consultancybureau dat managementrapportages en Power BI-dashboards bouwt, financi\u00eble processen optimaliseert (AO/IC) en AI-automatisering implementeert voor bedrijven met 10 tot 50 medewerkers en een omzet tussen \u20ac5 miljoen en \u20ac100 miljoen. Daarnaast leveren we interim controller services op afstand.',
+    a1b: 'We zijn een boutique consultancybureau voor financi\u00eble procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip te krijgen op hun cijfers \u2014 niet door m\u00e9\u00e9r mensen of m\u00e9\u00e9r rapportages, maar door een slimme inrichting van data, processen en technologie. Het resultaat is een financieel fundament dat betrouwbaar, schaalbaar en stuurbaar is.',
+    fType: 'Type organisatie', vType: 'Boutique finance consultancy',
+    fOpgericht: 'Oprichter', vOpgericht: '\u00d6ner Y\u00fccel, MSc Accountancy & Controlling',
+    fWerkgebied: 'Werkgebied', vWerkgebied: 'Nederland, op afstand en op locatie',
+    fDoelgroep: 'Doelgroep', vDoelgroep: '10\u201350 medewerkers, \u20ac5\u2013100 mln omzet',
+    fDiensten: 'Diensten', vDiensten: 'Managementrapportage en Power BI-dashboards, AO/IC, AI-automatisering, interim controller',
+    fStart: 'Startpunt', vStart: 'Diagnose & strategisch adviesrapport, 2\u20134 weken',
+    lVoorwie: 'Voor wie we werken',
+    q2: 'Wanneer schiet je financi\u00eble structuur tekort?',
+    a2: 'Onze klanten zijn de opstartfase voorbij. Ze groeien hard \u2014 vaak harder dan hun financi\u00eble structuur aankan. Maandafsluitingen duren weken, stuurinformatie komt te laat, en de administratie leunt op Excel-bestanden en de kennis van enkele sleutelpersonen. Herkenbaar? Dan is dat precies het probleem dat we oplossen.',
+    lDiensten: 'Bekijk wat we precies doen',
+    lOprichter: 'De oprichter',
+    q3: 'Wie zit er achter Finsera?',
+    a3: 'Goede financi\u00eble advisering vraagt om meer dan theorie. \u00d6ner Y\u00fccel, oprichter van Finsera, combineert drie perspectieven die zelden in \u00e9\u00e9n adviseur samenkomen.',
+    p1t: 'Compliance van binnenuit',
+    p1d: 'Als voormalig professional bij de Belastingdienst en Douane kent hij controle en toezicht van binnenuit. Hij weet hoe auditors en toezichthouders naar een administratie kijken \u2014 en dus ook hoe je processen z\u00f3 inricht dat compliance geen reactieve tijdvreter is, maar een vanzelfsprekend bijproduct van een goed systeem.',
+    p2t: 'De financi\u00eble praktijk',
+    p2d: 'Als afgestudeerd MSc Accountancy & Controlling en ervaren financial beheerst hij het volledige spectrum van de private financi\u00eble praktijk: van administratieve organisatie en interne controle (AO/IC) tot managementrapportage en financi\u00eble sturing op directieniveau.',
+    p3t: 'Ondernemerschap',
+    p3d: 'Als ondernemer weet hij hoe het is om z\u00e9lf een bedrijf te bouwen. Hij kent de afwegingen die een DGA of directie dagelijks maakt, en begrijpt dat een rapportage geen doel op zich is \u2014 het is een middel om betere beslissingen te nemen.',
+    a3b: 'Die combinatie bepaalt hoe we werken: grondig waar het moet, pragmatisch waar het kan, en altijd gericht op wat het je organisatie concreet oplevert.',
+    q4: 'Wie doet het werk?',
+    teamB: 'Je krijgt bij ons geen junior consultants die het vak nog moeten leren, en geen dikke rapporten die in een la verdwijnen. Je krijgt een klein, senior team dat bouwt, oplevert en aanspreekbaar blijft.',
+    lWaarden: 'Waar we in geloven',
+    q5: 'Hoe kiezen we onze opdrachten?',
+    w1t: 'Waarde-gedreven', w1d: 'Elk traject moet zichzelf terugverdienen in betere beslissingen, minder handwerk of lagere risico\u2019s. Anders beginnen we er niet aan.',
+    w2t: 'Betrouwbaar en transparant', w2d: 'Je weet vooraf wat we doen, waarom we het doen en wat het oplevert. En we zeggen het eerlijk als iets niet de moeite waard is.',
+    w3t: 'Gericht op de lange termijn', w3d: 'Liever een klant die ons over drie jaar nog steeds belt, dan een snelle opdracht die niets fundamenteels verandert.',
+    lStart: 'Zo beginnen we',
+    q6: 'Hoe begint een samenwerking met Finsera?',
+    a6: 'Elke samenwerking start met een diagnose & strategisch adviesrapport: een compact traject van twee tot vier weken waarin we je financi\u00eble processen, systemen en rapportages doorlichten. Geen lange theoretische audit, maar een scherpe analyse met direct toepasbare aanbevelingen \u2014 zodat je al waarde ziet v\u00f3\u00f3rdat je aan een groter traject begint.',
+    a6b: 'Elk traject is maatwerk, dus laten we je situatie bespreken. Een eerste gesprek is vrijblijvend en ori\u00ebnterend.',
+    startLabel: 'Het startpunt', startTitle: 'Diagnose & strategisch adviesrapport',
+    s1: 'Twee tot vier weken, met een vaste opzet',
+    s2: 'Processen, systemen en rapportages doorgelicht',
+    s3: 'Aanbevelingen die je meteen kunt uitvoeren',
+    s4: 'Waarde v\u00f3\u00f3rdat je aan een groter traject begint',
+    lCases: 'Zie wat dat oplevert',
     eyebrow: 'Over ons',
-    h1a: 'Op het snijvlak van', h1b: 'cijfers, processen en technologie.',
-    bannerSub: 'Finsera is twee mensen, en dat is een keuze. Je werkt altijd rechtstreeks met degenen die het werk ook doen — geen accountmanager, geen tussenlaag.',
+    h1a: 'Grip op cijfers door', h1b: 'structuur, data en technologie.',
+    bannerSub: 'Een boutique consultancybureau voor financi\u00eble procesoptimalisatie. We helpen snelgroeiende MKB- en mid-marketbedrijven grip krijgen op hun cijfers \u2014 niet door m\u00e9\u00e9r mensen of m\u00e9\u00e9r rapportages, maar door een slimme inrichting van data, processen en technologie.',
     intro: 'Finsera is opgericht vanuit een ongebruikelijke combinatie: jarenlange ervaring met compliance en interne beheersing, hands-on ondernemerschap, en een accountancy-achtergrond in audit en rapportage. Precies het snijvlak waar groeiende bedrijven vastlopen: tussen de cijfers, de processen en de technologie.',
     missionLabel: 'Missie',
     mission: 'Wij stellen middelgrote bedrijven in staat om strategisch te leiden — niet tactisch te micromanagen — door heldere financiële inzichtelijkheid, intelligente dashboards en AI-gedreven automatisering die de dagelijkse operatie transformeert.',
     howLabel: 'Hoe we werken',
     how: 'Wij geloven dat goede managementrapportage leidt tot betere besluiten. Een goed dashboard is geen gadget, maar een professioneel systeem om vanaf hoger niveau naar je bedrijf te kijken — in plaats van dagelijks brandjes te blussen. Van chaos naar strategische helderheid en slimme uitvoering.',
     quote: 'Finsera brengt strategie, operatie en financieel inzicht bij groeiende bedrijven weer op één lijn — met professionele rapportage, heldere dashboards en slimme automatisering.',
-    quoteAttr: '— Öner & Tomas, oprichters',
+    quoteAttr: '— Öner Yücel, oprichter van Finsera',
+    // 'teamHeading', 'mission' en 'how' staan niet meer op de pagina.
+    // De teksten zijn geparkeerd, zie docs/geparkeerde-teksten.md.
     teamLabel: 'Het team', teamHeading: 'Bewust boutique.',
-    team: 'Finsera is twee mensen, en dat is een keuze. Öner brengt de finance-diepgang van jaren als controller mee, Tomas bouwt de data-architectuur en de dashboards. Je werkt dus altijd rechtstreeks met degenen die het werk ook doen: geen accountmanager, geen tussenlaag. Bewust boutique, dus selectief in opdrachten en persoonlijk in aanpak.',
+    team: 'Financi\u00eble inzichtelijkheid ontstaat op het snijvlak van finance, data en IT \u2014 en juist daar gaat het bij veel bedrijven mis, omdat die disciplines niet dezelfde taal spreken. Finsera is daarom bewust opgebouwd als een compact team dat beide werelden beheerst. Naast de financi\u00eble expertise van \u00d6ner staat Tomas van der Laan, data analyst & developer, die vanaf het eerste uur bij Finsera betrokken is. Hij bouwt de datafundamenten, koppelingen en Power BI-dashboards waar onze rapportages op draaien: data ontsluiten uit pakketten als Exact Online en SnelStart, automatiseringen bouwen, en dashboards opleveren die aansluiten op hoe je directie daadwerkelijk stuurt.',
     role1sub: 'Financial & business consultant', role2sub: 'Data analyst & ontwikkelaar',
     teamLinkedin: 'LinkedIn',
     ctaHeading: 'Benieuwd wat we voor jouw organisatie kunnen betekenen?',
     // Eigen sleutel: de gedeelde 'cta' blijft 'Vraag de diagnose aan', hier
     // bewust persoonlijker van toon.
-    ctaOver: 'Laten we kennis maken'
+    ctaOver: 'Plan een kennismakingsgesprek'
   },
   en: {
+    q1: 'What is Finsera?',
+    a1: 'Finsera is a Dutch financial consultancy that builds management reporting and Power BI dashboards, optimises financial processes (internal control) and implements AI automation for companies with 10 to 50 employees and revenue between \u20ac5 million and \u20ac100 million. We also provide interim controller services remotely.',
+    a1b: 'We are a boutique consultancy for financial process optimisation. We help fast-growing mid-market companies get a grip on their numbers \u2014 not through more people or more reports, but through a smarter arrangement of data, processes and technology. The result is a financial foundation that is reliable, scalable and steerable.',
+    fType: 'Type of firm', vType: 'Boutique finance consultancy',
+    fOpgericht: 'Founder', vOpgericht: '\u00d6ner Y\u00fccel, MSc Accountancy & Controlling',
+    fWerkgebied: 'Area served', vWerkgebied: 'The Netherlands, remote and on site',
+    fDoelgroep: 'Who we work for', vDoelgroep: '10\u201350 employees, \u20ac5\u2013100m revenue',
+    fDiensten: 'Services', vDiensten: 'Management reporting and Power BI dashboards, internal control, AI automation, interim controller',
+    fStart: 'Starting point', vStart: 'Diagnosis & strategic advisory report, 2\u20134 weeks',
+    lVoorwie: 'Who we work for',
+    q2: 'When does your financial structure fall short?',
+    a2: 'Our clients are past the start-up phase. They are growing fast \u2014 often faster than their financial structure can handle. Monthly closes take weeks, steering information arrives too late, and the administration leans on Excel files and the knowledge of a few key people. Sound familiar? That is exactly the problem we solve.',
+    lDiensten: 'See what we actually do',
+    lOprichter: 'The founder',
+    q3: 'Who is behind Finsera?',
+    a3: 'Good financial advice takes more than theory. \u00d6ner Y\u00fccel, founder of Finsera, combines three perspectives that rarely come together in one adviser.',
+    p1t: 'Compliance from the inside',
+    p1d: 'As a former professional at the Dutch Tax and Customs Administration, he knows control and supervision from the inside. He knows how auditors and regulators look at an administration \u2014 and therefore how to set up processes so that compliance is not a reactive time sink but a natural by-product of a good system.',
+    p2t: 'The financial practice',
+    p2d: 'As an MSc in Accountancy & Controlling and an experienced finance professional, he covers the full spectrum of private-sector finance: from administrative organisation and internal control to management reporting and financial steering at board level.',
+    p3t: 'Entrepreneurship',
+    p3d: 'As an entrepreneur he knows what it is like to build a company himself. He knows the trade-offs an owner-director or board makes every day, and understands that a report is not an end in itself \u2014 it is a means to make better decisions.',
+    a3b: 'That combination shapes how we work: thorough where it matters, pragmatic where it can be, and always aimed at what it concretely delivers for your organisation.',
+    q4: 'Who does the work?',
+    teamB: 'You will not get junior consultants still learning the trade, or thick reports that disappear into a drawer. You get a small, senior team that builds, delivers and stays reachable.',
+    lWaarden: 'What we believe',
+    q5: 'How do we choose our assignments?',
+    w1t: 'Value-driven', w1d: 'Every engagement has to pay for itself in better decisions, less manual work or lower risk. Otherwise we do not start.',
+    w2t: 'Reliable and transparent', w2d: 'You know in advance what we do, why we do it and what it delivers. And we say so honestly when something is not worth it.',
+    w3t: 'Built for the long term', w3d: 'We would rather have a client who still calls us in three years than a quick assignment that changes nothing fundamental.',
+    lStart: 'How we start',
+    q6: 'How does working with Finsera begin?',
+    a6: 'Every engagement starts with a diagnosis & strategic advisory report: a compact two-to-four-week process in which we review your financial processes, systems and reporting. Not a long theoretical audit, but a sharp analysis with directly applicable recommendations \u2014 so you see value before committing to anything larger.',
+    a6b: 'Every engagement is tailored, so let us discuss your situation. A first conversation is free and exploratory.',
+    startLabel: 'The starting point', startTitle: 'Diagnosis & strategic advisory report',
+    s1: 'Two to four weeks, with a fixed structure',
+    s2: 'Processes, systems and reporting reviewed',
+    s3: 'Recommendations you can act on straight away',
+    s4: 'Value before you commit to anything larger',
+    lCases: 'See what that delivers',
     eyebrow: 'About us',
-    h1a: 'At the intersection of', h1b: 'numbers, processes and technology.',
-    bannerSub: 'Finsera is two people, and that is a deliberate choice. You always work directly with the people doing the work — no account manager, no layer in between.',
+    h1a: 'A grip on your numbers through', h1b: 'structure, data and technology.',
+    bannerSub: 'A boutique consultancy for financial process optimisation. We help fast-growing mid-market companies get a grip on their numbers \u2014 not through more people or more reports, but through a smarter arrangement of data, processes and technology.',
     intro: 'Finsera was founded from an unusual combination: years of experience with compliance and internal control, hands-on entrepreneurship, and an accountancy background in audit and reporting. Exactly the intersection where growing companies get stuck: between the numbers, the processes and the technology.',
     missionLabel: 'Mission',
     mission: 'We enable mid-market companies to lead strategically — not micromanage tactically — through clear financial clarity, intelligent dashboards and AI-driven automation that transforms daily operations.',
     howLabel: 'How we work',
     how: 'We believe good management reporting leads to better decisions. A good dashboard is not a gadget, but a professional system to look at your business from a higher level — instead of firefighting every day. From chaos to strategic clarity and smart execution.',
     quote: 'Finsera realigns strategy, operations and financial visibility at growing companies — with professional reporting, clear dashboards and intelligent automation.',
-    quoteAttr: '— Öner & Tomas, founders',
+    quoteAttr: '— Öner Yücel, founder of Finsera',
     teamLabel: 'The team', teamHeading: 'Deliberately boutique.',
-    team: 'Finsera is two people, and that is a deliberate choice. Öner brings the finance depth of years as a controller, Tomas builds the data architecture and the dashboards. You always work directly with the people doing the work: no account manager, no layer in between. Deliberately boutique, so selective in assignments and personal in approach.',
+    team: 'Financial visibility happens where finance, data and IT meet \u2014 and that is exactly where it goes wrong at many companies, because those disciplines do not speak the same language. Finsera is therefore deliberately built as a compact team that masters both worlds. Alongside \u00d6ner\u2019s financial expertise stands Tomas van der Laan, data analyst & developer, involved with Finsera from the very first day. He builds the data foundations, integrations and Power BI dashboards our reporting runs on: unlocking data from packages such as Exact Online and SnelStart, building automations, and delivering dashboards that match how your board actually steers.',
     role1sub: 'Financial & business consultant', role2sub: 'Data analyst & developer',
     teamLinkedin: 'LinkedIn',
     ctaHeading: 'Curious what we can do for your organisation?',
-    ctaOver: "Let's get acquainted"
+    ctaOver: 'Book an intro call'
   }
 };
 </script>

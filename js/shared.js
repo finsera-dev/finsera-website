@@ -10,6 +10,7 @@
       navHome: 'Home', navOver: 'Over ons', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
       cta: 'Vraag de diagnose aan',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
+      footDesc: 'Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring',
       ctaWho: 'Je spreekt direct met Öner of Tomas.'
     },
@@ -17,6 +18,7 @@
       navHome: 'Home', navOver: 'About us', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
       cta: 'Request the diagnosis',
       footTagline: 'A financial foundation that grows with your organisation.',
+      footDesc: 'Management reporting, Power BI dashboards and AI automation for growing mid-market companies.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy',
       ctaWho: 'You’ll speak directly with Öner or Tomas.'
     }
@@ -83,6 +85,9 @@
       }
     });
   }
+
+  var jaar = String(new Date().getFullYear());
+  Array.prototype.forEach.call(document.querySelectorAll('[data-jaar]'), function (e) { e.textContent = jaar; });
 
   window.FINSERA_getLang = function () { return lang; };
   window.FINSERA_applyLang();

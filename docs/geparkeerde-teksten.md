@@ -40,3 +40,35 @@ kwestie van het element opnieuw plaatsen:
 Wordt de tekst ergens anders gebruikt, verplaats de sleutel dan mee naar de
 woordenlijst van die pagina, of naar `js/shared.js` als hij op meerdere
 pagina's terugkomt.
+
+---
+
+## Missie en "Hoe we werken" — "Over ons"
+
+**Vandaan:** `over.html`, het tweeluik `section.over-band` tussen de bannerhero
+en het team.
+**Weggehaald op:** 28 augustus 2026, bij de SEO/GEO-herbouw van de pagina. De
+sectie "Waar we in geloven" heeft die plek overgenomen.
+**Sleutels:** `missionLabel`, `mission`, `howLabel`, `how` — staan nog in
+`window.FINSERA_PAGE` in `over.html` (NL en EN).
+
+### Missie
+
+> Wij stellen middelgrote bedrijven in staat om strategisch te leiden — niet
+> tactisch te micromanagen — door heldere financiële inzichtelijkheid,
+> intelligente dashboards en AI-gedreven automatisering die de dagelijkse
+> operatie transformeert.
+
+### Hoe we werken
+
+> Wij geloven dat goede managementrapportage leidt tot betere besluiten. Een
+> goed dashboard is geen gadget, maar een professioneel systeem om vanaf hoger
+> niveau naar je bedrijf te kijken — in plaats van dagelijks brandjes te
+> blussen. Van chaos naar strategische helderheid en slimme uitvoering.
+
+## Teamkop "Bewust boutique."
+
+**Vandaan:** `over.html`, de kop boven de teamsectie.
+**Vervangen door:** "Wie doet het werk?" — een vraag, zodat de sectie een
+citeerbaar antwoord vormt.
+**Sleutel:** `teamHeading`, staat nog in beide woordenlijsten.

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cases — Resultaten uit de praktijk | Finsera</title>
-  <meta name="description" content="Geen theoretische beloftes, maar wat de aanpak van Finsera in de praktijk oplevert voor groeiende bedrijven in e-commerce en zorg.">
+  <title>Klantcases: Power BI &amp; managementrapportage | Finsera</title>
+  <meta name="description" content="Hoe groeiende MKB-bedrijven in e-commerce en zorg grip kregen op cijfers: Power BI-dashboards, managementrapportage en AO/IB in de praktijk.">
   <link rel="canonical" href="https://www.finsera.nl/cases">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -12,8 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finsera">
   <meta property="og:locale" content="nl_NL">
-  <meta property="og:title" content="Cases — Resultaten uit de praktijk | Finsera">
-  <meta property="og:description" content="Wat de aanpak van Finsera in de praktijk oplevert voor groeiende bedrijven in e-commerce en zorg.">
+  <meta property="og:title" content="Klantcases: Power BI &amp; managementrapportage | Finsera">
+  <meta property="og:description" content="Hoe groeiende MKB-bedrijven in e-commerce en zorg grip kregen op cijfers: Power BI-dashboards, managementrapportage en AO/IB in de praktijk.">
   <meta property="og:url" content="https://www.finsera.nl/cases">
   <meta property="og:image" content="https://www.finsera.nl/img/og-finsera.jpg">
   <meta property="og:image:width" content="1200">
@@ -106,6 +106,15 @@
       margin: clamp(38px, 4.4vw, 52px) 0 12px;
     }
     .casestory__label:first-child { margin-top: 0; }
+    /* De drie stappen lazen als één lap tekst en de checklist zweefde tussen
+       "wat we hebben gedaan" en "wat het oplevert" in. Elke stap is nu een
+       eigen blok, met de lijst binnen de stap waar hij bij hoort. */
+    .casestory__step + .casestory__step { margin-top: clamp(34px, 4.4vw, 50px); }
+    .casestory__step .casestory__label { margin-top: 0; }
+    /* Beschrijvende interne links naar de dienst waar de case over gaat. */
+    .casestory a, .caseref__result a { color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--copper); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .casestory a:hover, .caseref__result a:hover { color: var(--copper); }
     .casestory p { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-70); text-wrap: pretty; }
     .casestory p strong { color: var(--ink); font-weight: 600; }
     .casestory__list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 11px; }
@@ -303,10 +312,108 @@
         "@type": "CollectionPage",
         "@id": "https://www.finsera.nl/cases#webpage",
         "url": "https://www.finsera.nl/cases",
-        "name": "Cases — Resultaten uit de praktijk | Finsera",
-        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
-        "about": { "@id": "https://www.finsera.nl/#organisatie" },
-        "inLanguage": "nl-NL"
+        "name": "Klantcases: Power BI & managementrapportage | Finsera",
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/#website"
+        },
+        "about": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
+        "inLanguage": "nl-NL",
+        "breadcrumb": {
+          "@id": "https://www.finsera.nl/cases#kruimelpad"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.finsera.nl/cases#kruimelpad",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.finsera.nl/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Cases",
+            "item": "https://www.finsera.nl/cases"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.finsera.nl/#organisatie",
+        "name": "Finsera",
+        "legalName": "Finsera",
+        "alternateName": "Finsera Nederland",
+        "description": "Finsera helpt groeiende middelgrote Nederlandse bedrijven aan echte financiële inzichtelijkheid via professionele managementrapportage, Power BI dashboards en AI-gedreven automatisering voor het MKB.",
+        "url": "https://www.finsera.nl/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.finsera.nl/#logo",
+          "url": "https://www.finsera.nl/img/og-finsera.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "image": {
+          "@id": "https://www.finsera.nl/#logo"
+        },
+        "email": "info@finsera.nl",
+        "telephone": "+31641413836",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "name": "KvK",
+            "value": "93587953"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NL"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "knowsLanguage": [
+          "nl",
+          "en"
+        ],
+        "knowsAbout": [
+          "Managementrapportage",
+          "Power BI dashboards",
+          "Business intelligence voor het MKB",
+          "Financiële automatisering",
+          "AI-strategie",
+          "Interim controller"
+        ],
+        "founder": {
+          "@id": "https://www.finsera.nl/over#oner-yucel"
+        },
+        "employee": [
+          {
+            "@id": "https://www.finsera.nl/over#oner-yucel"
+          },
+          {
+            "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+          }
+        ],
+        "member": {
+          "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@finsera.nl",
+          "telephone": "+31641413836",
+          "areaServed": "NL",
+          "availableLanguage": [
+            "nl",
+            "en"
+          ]
+        }
       }
     ]
   }
@@ -354,12 +461,12 @@
 
 <main id="inhoud">
   <header class="pbanner pbanner--cases">
-    <img class="pbanner__photo" src="img/team/samen.webp" alt="" width="1536" height="672" decoding="async">
+    <img class="pbanner__photo" src="img/cases/werkoverleg-klant.webp" alt="" width="1672" height="941" decoding="async">
     <div class="pbanner__scrim" aria-hidden="true"></div>
     <div class="pbanner__inner">
       <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="casesEyebrow">Cases</span></p>
       <h1 class="pbanner__h1" data-i18n="h1">Resultaten uit de praktijk</h1>
-      <p class="pbanner__intro" data-i18n="intro">Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.</p>
+      <p class="pbanner__intro" data-i18n="intro">Finsera bouwt managementrapportages, Power BI-dashboards en financi&euml;le processen voor groeiende MKB-bedrijven, onder meer in e-commerce en de zorg. Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert &mdash; hieronder twee klantcases en een selectie van wat we bouwen.</p>
     </div>
   </header>
 
@@ -386,17 +493,16 @@
               <span class="caseref__org">DocHorse</span>
               <span class="caseref__person"><span data-i18n="case1Person">Charlotte van der Pauw</span> &middot; <span data-i18n="case1Role">eigenaresse</span></span>
             </p>
-            <h2 class="caseref__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge.</h2>
-            <p class="caseref__result" data-i18n="case1Result">Data uit webshop, marketing en boekhouding samengebracht in &eacute;&eacute;n Power BI-omgeving.</p>
+            <h2 class="caseref__title" data-i18n="case1Title">Van sturen op omzet naar sturen op marge</h2>
+            <p class="caseref__result"><span data-i18n="case1ResultA">Webshop-, marketing- en boekhouddata samengebracht in &eacute;&eacute;n </span><a href="/diensten#dashboard" data-i18n="case1ResultLink">Power BI-omgeving</a>.</p>
             <p class="caseref__srcs"><span data-i18n="case1Chip1">Webshop</span> &middot; <span data-i18n="case1Chip2">Marketing</span> &middot; <span data-i18n="case1Chip3">Boekhouding</span></p>
-            <blockquote class="caseref__quote" hidden>
-              <p data-i18n="case1Quote"></p>
-              <footer data-i18n="case1QuoteBy"></footer>
-            </blockquote>
             <div class="casestory">
-              <p class="casestory__label" data-i18n="storySituatie">De situatie</p>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storySituatie">De situatie</h3>
               <p data-i18n="c1Situatie">De omzet groeide, de voorraad groeide mee — maar niemand kon zeggen wélk merk daadwerkelijk geld opleverde. De cijfers zaten verspreid over de webshop, de boekhouding, Google Analytics en Meta. Vier bronnen, vier waarheden. De maandrapportage was een handmatige exercitie die pas halverwege de volgende maand klaar was, en tegen die tijd waren de beslissingen al genomen.</p>
-              <p class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</p>
+              </div>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</h3>
               <p data-i18n="c1Gedaan">Eerst het fundament: een liquiditeitsbegroting en een jaarbegroting tot op artikel- en kanaalniveau, zodat er iets was om aan af te meten. Daarna de maandrapportage opnieuw ingericht. Vervolgens alle bronsystemen samengebracht in één datawarehouse, dat elke nacht de Power BI-omgeving voedt — van scratch gebouwd, geen template.</p>
               <ul class="casestory__list">
                 <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P1b">Operationele pagina</b> <span data-i18n="c1P1">voor de directie — dagelijks en wekelijks te checken</span></span></li>
@@ -404,8 +510,11 @@
                 <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P3b">Marketingpagina</b> <span data-i18n="c1P3">— advertentiekosten afgezet tegen marge, niet tegen omzet</span></span></li>
                 <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c1P4b">Liquiditeits- en jaarbegroting</b> <span data-i18n="c1P4">als vaste meetlat</span></span></li>
               </ul>
-              <p class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</p>
+              </div>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</h3>
               <p data-i18n="c1Oplevert">De directie opent ’s ochtends één pagina in plaats van vier systemen. Merken die hard liepen maar nauwelijks bijdroegen zijn zichtbaar geworden — en daarmee bespreekbaar. Advertentiebudget wordt beoordeeld op wat er onder de streep overblijft. De maandafsluiting is een controle geworden in plaats van een zoektocht.</p>
+              </div>
               <div class="casestory__tiles">
                 <div class="casestory__tile"><b data-i18n="c1TileA">4 bronsystemen</b><span data-i18n="c1TileASub">samengebracht tot één rapportage</span></div>
                 <div class="casestory__tile"><b data-i18n="c1TileB">3 dashboardpagina’s</b><span data-i18n="c1TileBSub">directie, merk, marketing</span></div>
@@ -420,6 +529,10 @@
                 <span>Power BI</span>
               </p>
             </div>
+            <blockquote class="caseref__quote" hidden>
+              <p data-i18n="case1Quote"></p>
+              <footer data-i18n="case1QuoteBy"></footer>
+            </blockquote>
             <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
@@ -435,31 +548,32 @@
             <div class="caseref__meta">
               <span class="caseref__num">02</span>
               <span class="case__tag" data-i18n="case2Tag">Zorg</span>
-              <span class="case__badge" data-i18n="case2Badge">AO/IB &middot; audit-proof</span>
             </div>
             <p class="caseref__client">
               <span class="caseref__org">DUCE</span>
               <span class="caseref__person"><span data-i18n="case2Person">Miriam Twilt-Mendon&ccedil;a</span> &middot; <span data-i18n="case2Role">eigenaresse</span></span>
             </p>
-            <h2 class="caseref__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control.</h2>
-            <p class="caseref__result" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n rapportage, afgezet tegen budget en voorgaande periode.</p>
-            <p class="caseref__srcs"><span data-i18n="case2Chip1">Boekhouding</span> &middot; <span data-i18n="case2Chip2">Cli&euml;ntdata</span></p>
-            <blockquote class="caseref__quote" hidden>
-              <p data-i18n="case2Quote"></p>
-              <footer data-i18n="case2QuoteBy"></footer>
-            </blockquote>
+            <h2 class="caseref__title" data-i18n="case2Title">Van achteraf constateren naar aantoonbaar in control</h2>
+            <p class="caseref__result" data-i18n="case2Result">Financi&euml;le cijfers en cli&euml;ntdata in &eacute;&eacute;n kwartaalrapportage, afgezet tegen budget en voorgaande periode.</p>
+            <p class="caseref__srcs"><span data-i18n="case2Chip1">AO/IB</span> &middot; <span data-i18n="case2Chip2">Rapportage</span></p>
             <div class="casestory">
-              <p class="casestory__label" data-i18n="storySituatie">De situatie</p>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storySituatie">De situatie</h3>
               <p data-i18n="c2Situatie">Meerdere locaties, één administratie die met de organisatie was meegegroeid zonder ooit opnieuw te zijn ingericht. De begroting was een optelsom op hoofdlijnen — bruikbaar voor de bank, niet om op te sturen. De kwartaalrapportage kwam laat en riep meer vragen op dan zij beantwoordde. En bij een controle bleek “zo doen we dat hier” geen antwoord.</p>
-              <p class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</p>
+              </div>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storyGedaan">Wat we hebben gedaan</h3>
               <p data-i18n="c2Gedaan">De begroting per locatie opnieuw opgebouwd, tot op het detailniveau waarop een locatiemanager daadwerkelijk beslissingen neemt. De financiële administratie heringericht — rekeningschema, kostenplaatsen en boekingsgang — zodat de cijfers per locatie kloppen zonder handwerk achteraf.</p>
               <ul class="casestory__list">
                 <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P1b">Kwartaalrapportage</b> <span data-i18n="c2P1">vanaf nul opgezet: financiële cijfers naast de belangrijkste niet-financiële stuurinformatie</span></span></li>
-                <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P2b">AO/IB-handboek</b> <span data-i18n="c2P2">geschreven — processen, bevoegdheden en controles vastgelegd en toetsbaar</span></span></li>
+                <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><a href="/diensten#diagnose"><b data-i18n="c2P2b">AO/IB-handboek</b></a> <span data-i18n="c2P2">geschreven — processen, bevoegdheden en controles vastgelegd en toetsbaar</span></span></li>
                 <li><span class="casestory__tick" aria-hidden="true">&#10003;</span><span><b data-i18n="c2P3b">Adviesrapport</b> <span data-i18n="c2P3">met concrete vervolgstappen die het team zelf uitvoert</span></span></li>
               </ul>
-              <p class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</p>
+              </div>
+              <div class="casestory__step">
+              <h3 class="casestory__label" data-i18n="storyOplevert">Wat het oplevert</h3>
               <p data-i18n="c2Oplevert">Elke locatie is nu te lezen als realisatie tegenover budget én tegenover de vorige periode. Afwijkingen komen boven tafel in het kwartaal zelf, niet bij de jaarrekening. De werkwijze staat op papier, dus bij een controle is de vraag “hoe borgt u dit?” een documentverwijzing geworden. En het vervolg ligt bij de organisatie zelf — dat was expliciet de opdracht.</p>
+              </div>
               <div class="casestory__tiles">
                 <div class="casestory__tile"><b data-i18n="c2TileA">Per locatie</b><span data-i18n="c2TileASub">begroting, realisatie en analyse</span></div>
                 <div class="casestory__tile"><b data-i18n="c2TileB">AO/IB vastgelegd</b><span data-i18n="c2TileBSub">processen toetsbaar voor de accountant</span></div>
@@ -473,6 +587,10 @@
                 <span>Kwartaalrapportage</span>
               </p>
             </div>
+            <blockquote class="caseref__quote" hidden>
+              <p data-i18n="case2Quote"></p>
+              <footer data-i18n="case2QuoteBy"></footer>
+            </blockquote>
             <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
@@ -490,8 +608,8 @@
   <section class="proj">
     <div class="wrap">
       <div class="proj__head">
-        <p class="proj__eyebrow" data-i18n="projEyebrow">Wat we bouwen</p>
-        <h2><span data-i18n="projHeading">Vier voorbeelden. </span><em data-i18n="projHeadingEm">Geen sfeerplaatjes.</em></h2>
+        <p class="proj__eyebrow" data-i18n="projEyebrow">Voorbeelden</p>
+        <h2 data-i18n="projHeading">Wat we bouwen</h2>
         <p data-i18n="projIntro">Zo ziet een oplevering eruit: van een Power BI-rapport voor een groothandel tot een pakket op maat voor werkorders. Dit zijn illustraties van vorm en detailniveau, geen bestaande opdrachtgevers &mdash; klantverhalen staan hierboven, met naam en gezicht.</p>
       </div>
       <div class="proj__grid">
@@ -708,6 +826,7 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
+        <p class="footer__desc" data-i18n="footDesc">Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="footer__who">
           <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
@@ -723,20 +842,31 @@
             <a href="/diensten" data-i18n="navDiensten">Diensten</a>
             <a href="/cases">Cases</a>
             <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
         <div>
           <div class="footer__col-title">Contact</div>
-          <div class="footer__col-links">
+          <address class="footer__col-links footer__adres">
             <a href="mailto:info@finsera.nl">info@finsera.nl</a>
             <a href="tel:+31641413836">06 - 41 41 38 36</a>
             <span>KvK 93587953</span>
+          </address>
+          <div class="footer__social">
+            <div class="footer__col-title footer__col-title--sub">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="footer__col-links">
+              <a href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener">&Ouml;ner Y&uuml;cel</a>
+              <a href="https://www.linkedin.com/in/tomasvdlaan/" target="_blank" rel="noopener">Tomas van der Laan</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
+      <span>© <span data-jaar>2026</span> Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
       <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>
@@ -748,31 +878,30 @@ window.FINSERA_PAGE = {
     // Uitgeschreven cases. Woordelijk overgenomen uit de door de eigenaar
     // aangeleverde tekst; niets hiervan is door mij verzonnen.
     storySituatie: 'De situatie', storyGedaan: 'Wat we hebben gedaan', storyOplevert: 'Wat het oplevert',
-    c1Situatie: 'De omzet groeide, de voorraad groeide mee \u2014 maar niemand kon zeggen w\u00e9lk merk daadwerkelijk geld opleverde. De cijfers zaten verspreid over de webshop, de boekhouding, Google Analytics en Meta. Vier bronnen, vier waarheden. De maandrapportage was een handmatige exercitie die pas halverwege de volgende maand klaar was, en tegen die tijd waren de beslissingen al genomen.',
-    c1Gedaan: 'Eerst het fundament: een liquiditeitsbegroting en een jaarbegroting tot op artikel- en kanaalniveau, zodat er iets was om aan af te meten. Daarna de maandrapportage opnieuw ingericht. Vervolgens alle bronsystemen samengebracht in \u00e9\u00e9n datawarehouse, dat elke nacht de Power BI-omgeving voedt \u2014 van scratch gebouwd, geen template.',
-    c1P1b: 'Operationele pagina', c1P1: 'voor de directie \u2014 dagelijks en wekelijks te checken',
-    c1P2b: 'Merkanalyse', c1P2: '\u2014 omzet, inkoopwaarde en marge per merk, naast elkaar',
-    c1P3b: 'Marketingpagina', c1P3: '\u2014 advertentiekosten afgezet tegen marge, niet tegen omzet',
+    c1Situatie: 'DocHorse groeide hard, en met de groei groeide het aantal systemen: webshop, boekhouding, Google Analytics en Meta hadden elk hun eigen cijfers. Marge per merk was daardoor lastig scherp te krijgen en de maandrapportage vroeg veel handwerk.',
+    c1Gedaan: 'Eerst het fundament: een liquiditeits- en jaarbegroting tot op artikel- en kanaalniveau. Daarna alle bronsystemen samengebracht in één datawarehouse dat elke nacht de Power BI-omgeving voedt — van scratch gebouwd, geen template.',
+    c1P1b: 'Operationele pagina', c1P1: 'voor de directie — dagelijks en wekelijks te checken',
+    c1P2b: 'Merkanalyse', c1P2: '— omzet, inkoopwaarde en marge per merk naast elkaar',
+    c1P3b: 'Marketingpagina', c1P3: '— advertentiekosten afgezet tegen marge, niet tegen omzet',
     c1P4b: 'Liquiditeits- en jaarbegroting', c1P4: 'als vaste meetlat',
-    c1Oplevert: 'De directie opent \u2019s ochtends \u00e9\u00e9n pagina in plaats van vier systemen. Merken die hard liepen maar nauwelijks bijdroegen zijn zichtbaar geworden \u2014 en daarmee bespreekbaar. Advertentiebudget wordt beoordeeld op wat er onder de streep overblijft. De maandafsluiting is een controle geworden in plaats van een zoektocht.',
+    c1Oplevert: 'De directie opent ’s ochtends één pagina in plaats van vier systemen. Marge per merk is direct zichtbaar en bespreekbaar, advertentiebudget wordt beoordeeld op wat het onder de streep bijdraagt, en de maandafsluiting is een controle geworden in plaats van een zoektocht.',
     c1TileA: '4 bronsystemen', c1TileASub: 'samengebracht tot \u00e9\u00e9n rapportage',
     c1TileB: '3 dashboardpagina\u2019s', c1TileBSub: 'directie, merk, marketing',
     c1TileC: 'Dagelijks actueel', c1TileCSub: 'in plaats van maandelijks achteraf',
-    c2Situatie: 'Meerdere locaties, \u00e9\u00e9n administratie die met de organisatie was meegegroeid zonder ooit opnieuw te zijn ingericht. De begroting was een optelsom op hoofdlijnen \u2014 bruikbaar voor de bank, niet om op te sturen. De kwartaalrapportage kwam laat en riep meer vragen op dan zij beantwoordde. En bij een controle bleek \u201czo doen we dat hier\u201d geen antwoord.',
-    c2Gedaan: 'De begroting per locatie opnieuw opgebouwd, tot op het detailniveau waarop een locatiemanager daadwerkelijk beslissingen neemt. De financi\u00eble administratie heringericht \u2014 rekeningschema, kostenplaatsen en boekingsgang \u2014 zodat de cijfers per locatie kloppen zonder handwerk achteraf.',
-    c2P1b: 'Kwartaalrapportage', c2P1: 'vanaf nul opgezet: financi\u00eble cijfers naast de belangrijkste niet-financi\u00eble stuurinformatie',
-    c2P2b: 'AO/IB-handboek', c2P2: 'geschreven \u2014 processen, bevoegdheden en controles vastgelegd en toetsbaar',
-    c2P3b: 'Adviesrapport', c2P3: 'met concrete vervolgstappen die het team zelf uitvoert',
-    c2Oplevert: 'Elke locatie is nu te lezen als realisatie tegenover budget \u00e9n tegenover de vorige periode. Afwijkingen komen boven tafel in het kwartaal zelf, niet bij de jaarrekening. De werkwijze staat op papier, dus bij een controle is de vraag \u201choe borgt u dit?\u201d een documentverwijzing geworden. En het vervolg ligt bij de organisatie zelf \u2014 dat was expliciet de opdracht.',
+    c2Situatie: 'DUCE groeide naar meerdere locaties, terwijl de administratie nog was ingericht op de beginsituatie. De begroting was vooral geschreven voor de bank, en de kwartaalcijfers gaven de directie te weinig houvast om per locatie te sturen.',
+    c2Gedaan: 'Een begroting per locatie op detailniveau, de financiële administratie heringericht — rekeningschema, kostenplaatsen, boekingsgang — en processen en controles vastgelegd in een AO/IB-handboek.',
+    c2P1b: 'Kwartaalrapportage', c2P1: '— financieel én non-financieel, per locatie',
+    c2P2b: 'AO/IB-handboek', c2P2: '— processen en controles vastgelegd en toetsbaar',
+    c2P3b: 'Adviesrapport', c2P3: '— met concrete vervolgstappen',
+    c2Oplevert: 'De directie stuurt per locatie op begroting, realisatie en analyse. Processen zijn toetsbaar vastgelegd, ook richting de accountant. En de organisatie kan er zelfstandig mee verder: overdracht in plaats van afhankelijkheid.',
     c2TileA: 'Per locatie', c2TileASub: 'begroting, realisatie en analyse',
     c2TileB: 'AO/IB vastgelegd', c2TileBSub: 'processen toetsbaar voor de accountant',
     c2TileC: 'Zelfstandig verder', c2TileCSub: 'overdracht in plaats van afhankelijkheid',
     // Voorbeeldprojecten. De schermbeelden zelf staan op aria-hidden en worden
     // niet vertaald: dat is beeld, geen tekst.
-    projEyebrow: 'Wat we bouwen',
-    projHeading: 'Vier voorbeelden. ',
-    projHeadingEm: 'Geen sfeerplaatjes.',
-    projIntro: 'Zo ziet een oplevering eruit: van een Power BI-rapport voor een groothandel tot een pakket op maat voor werkorders. Dit zijn illustraties van vorm en detailniveau, geen bestaande opdrachtgevers \u2014 klantverhalen staan hierboven, met naam en gezicht.',
+    projEyebrow: 'Voorbeelden',
+    projHeading: 'Wat we bouwen',
+    projIntro: 'Vier voorbeelden van oplossingen zoals we die voor klanten bouwen — illustratief, geen klantcases.',
     factVorm: 'Vorm', factDatalaag: 'Datalaag', factOmvang: 'Omvang', factStack: 'Techniek',
     factKoppeling: 'Koppeling', factBronnen: 'Bronnen', factHorizon: 'Horizon', factRitme: 'Ritme',
     p1Sector: 'Groothandel', p1Num: 'Voorbeeld 01',
@@ -792,44 +921,43 @@ window.FINSERA_PAGE = {
     p4Text: 'Einde aan nachtelijke exportscripts en handmatig overtikken. De systemen wisselen gegevens uit via een tussenlaag, met foutmelding, signalering en documentatie die klopt.',
     p4F1: 'Koppeling en bewaking', p4F2: 'Azure Functions + SQL', p4F3: 'Elke 15 minuten',
     casesEyebrow: 'Cases',
-    h1: 'Resultaten uit de praktijk', intro: 'Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.',
+    h1: 'Resultaten uit de praktijk', intro: 'Finsera bouwt managementrapportages, Power BI-dashboards en financiële processen voor groeiende MKB-bedrijven, onder meer in e-commerce en de zorg. Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert — hieronder twee klantcases en een selectie van wat we bouwen.',
     casesTalk: 'Bespreek jouw situatie',
-    case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge.', case1Result: 'Data uit webshop, marketing en boekhouding samengebracht in één Power BI-omgeving.',
+    case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge', case1ResultA: 'Webshop-, marketing- en boekhouddata samengebracht in één ', case1ResultLink: 'Power BI-omgeving',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding',
     case1Person: 'Charlotte van der Pauw', case1Role: 'eigenaresse', case1Credit: 'Charlotte van der Pauw · DocHorse',
     // Vul hieronder het echte citaat in en haal [hidden] van het blockquote in de HTML.
     case1Quote: '', case1QuoteBy: '',
-    case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control.', case2Result: 'Financiële cijfers en cliëntdata in één rapportage, afgezet tegen budget en voorgaande periode.',
-    case2Chip1: 'Boekhouding', case2Chip2: 'Cliëntdata', case2Badge: 'AO/IB · audit-proof',
+    case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control', case2Result: 'Financiële cijfers en cliëntdata in één kwartaalrapportage, afgezet tegen budget en voorgaande periode.',
+    case2Chip1: 'AO/IB', case2Chip2: 'Rapportage',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'eigenaresse', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
     case2Quote: '', case2QuoteBy: '',
-    note: 'Uitgebreide klantcases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.'
+    note: 'Benieuwd wat een goed datafundament voor jouw organisatie oplevert? Elk traject start met een diagnose van 2–4 weken.'
   },
   en: {
     storySituatie: 'The situation', storyGedaan: 'What we did', storyOplevert: 'What it delivers',
-    c1Situatie: 'Revenue was growing and stock grew with it \u2014 but nobody could say which brand actually made money. The figures were spread across the webshop, the bookkeeping, Google Analytics and Meta. Four sources, four truths. The monthly report was a manual exercise that was only ready halfway through the following month, by which time the decisions had already been made.',
-    c1Gedaan: 'First the foundation: a cash-flow budget and an annual budget down to product and channel level, so there was something to measure against. Then the monthly report was rebuilt. After that all source systems were brought together in a single data warehouse that feeds the Power BI environment every night \u2014 built from scratch, not from a template.',
-    c1P1b: 'Operational page', c1P1: 'for the management team \u2014 to check daily and weekly',
-    c1P2b: 'Brand analysis', c1P2: '\u2014 revenue, purchase value and margin per brand, side by side',
-    c1P3b: 'Marketing page', c1P3: '\u2014 advertising spend measured against margin, not against revenue',
+    c1Situatie: 'DocHorse was growing fast, and with that growth came more systems: the webshop, the bookkeeping, Google Analytics and Meta each held their own figures. That made margin per brand hard to pin down, and the monthly report took a lot of manual work.',
+    c1Gedaan: 'First the foundation: a cash-flow and annual budget down to product and channel level. Then all source systems brought together in a single data warehouse that feeds the Power BI environment every night — built from scratch, not from a template.',
+    c1P1b: 'Operational page', c1P1: 'for the management team — to check daily and weekly',
+    c1P2b: 'Brand analysis', c1P2: '— revenue, purchase value and margin per brand side by side',
+    c1P3b: 'Marketing page', c1P3: '— advertising spend measured against margin, not against revenue',
     c1P4b: 'Cash-flow and annual budget', c1P4: 'as a fixed yardstick',
-    c1Oplevert: 'In the morning the management team opens one page instead of four systems. Brands that sold well but barely contributed have become visible \u2014 and therefore discussable. Advertising budget is judged on what is left at the bottom line. The monthly close has become a check instead of a search.',
+    c1Oplevert: 'In the morning the management team opens one page instead of four systems. Margin per brand is immediately visible and open to discussion, advertising budget is judged on what it contributes at the bottom line, and the monthly close has become a check instead of a search.',
     c1TileA: '4 source systems', c1TileASub: 'brought together into one report',
     c1TileB: '3 dashboard pages', c1TileBSub: 'management, brand, marketing',
     c1TileC: 'Up to date daily', c1TileCSub: 'instead of monthly in hindsight',
-    c2Situatie: 'Several locations, one set of books that had grown with the organisation without ever being set up again. The budget was a high-level total \u2014 usable for the bank, not to steer on. The quarterly report came late and raised more questions than it answered. And during an audit, \u201cthat is how we do things here\u201d turned out not to be an answer.',
-    c2Gedaan: 'The budget was rebuilt per location, down to the level of detail at which a location manager actually makes decisions. The financial administration was redesigned \u2014 chart of accounts, cost centres and posting flow \u2014 so the figures per location add up without manual work afterwards.',
-    c2P1b: 'Quarterly report', c2P1: 'built from scratch: financial figures alongside the most important non-financial steering information',
-    c2P2b: 'Internal control manual', c2P2: 'written \u2014 processes, authorisations and controls documented and auditable',
-    c2P3b: 'Advisory report', c2P3: 'with concrete next steps the team carries out itself',
-    c2Oplevert: 'Every location can now be read as actuals against budget and against the previous period. Deviations surface within the quarter itself, not at the annual accounts. The way of working is on paper, so during an audit the question \u201chow do you safeguard this?\u201d has become a document reference. And the follow-up sits with the organisation itself \u2014 that was explicitly the assignment.',
+    c2Situatie: 'DUCE grew to several locations, while the administration was still set up for how things began. The budget had mainly been written for the bank, and the quarterly figures gave the management team too little to steer on per location.',
+    c2Gedaan: 'A budget per location at detail level, the financial administration redesigned — chart of accounts, cost centres, posting flow — and processes and controls documented in an internal control manual.',
+    c2P1b: 'Quarterly report', c2P1: '— financial and non-financial, per location',
+    c2P2b: 'Internal control manual', c2P2: '— processes and controls documented and auditable',
+    c2P3b: 'Advisory report', c2P3: '— with concrete next steps',
+    c2Oplevert: 'The management team steers per location on budget, actuals and analysis. Processes are documented and auditable, including towards the accountant. And the organisation can carry on independently: handover instead of dependency.',
     c2TileA: 'Per location', c2TileASub: 'budget, actuals and analysis',
     c2TileB: 'Controls documented', c2TileBSub: 'processes auditable for the accountant',
     c2TileC: 'Independently onward', c2TileCSub: 'handover instead of dependency',
-    projEyebrow: 'What we build',
-    projHeading: 'Four examples. ',
-    projHeadingEm: 'No stock imagery.',
-    projIntro: 'This is what a delivery looks like: from a Power BI report for a wholesaler to a bespoke system for work orders. These illustrate form and level of detail, not existing clients \u2014 client stories are above, with names and faces.',
+    projEyebrow: 'Examples',
+    projHeading: 'What we build',
+    projIntro: 'Four examples of solutions like the ones we build for clients — illustrative, not client cases.',
     factVorm: 'Form', factDatalaag: 'Data layer', factOmvang: 'Size', factStack: 'Technology',
     factKoppeling: 'Integration', factBronnen: 'Sources', factHorizon: 'Horizon', factRitme: 'Frequency',
     p1Sector: 'Wholesale', p1Num: 'Example 01',
@@ -849,17 +977,17 @@ window.FINSERA_PAGE = {
     p4Text: 'An end to nightly export scripts and manual re-keying. The systems exchange data through a middle layer, with error reporting, alerting and documentation that is actually correct.',
     p4F1: 'Integration and monitoring', p4F2: 'Azure Functions + SQL', p4F3: 'Every 15 minutes',
     casesEyebrow: 'Cases',
-    h1: 'Results in practice', intro: 'No theoretical promises, but what our approach delivers in practice.',
+    h1: 'Results in practice', intro: 'Finsera builds management reports, Power BI dashboards and financial processes for growing mid-market companies, including in e-commerce and healthcare. No theoretical promises, but what our approach delivers in practice — below, two client cases and a selection of what we build.',
     casesTalk: 'Discuss your situation',
-    case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin.', case1Result: 'Data from webshop, marketing and bookkeeping brought together in one Power BI environment.',
+    case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin', case1ResultA: 'Webshop, marketing and bookkeeping data brought together in one ', case1ResultLink: 'Power BI environment',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping',
     case1Person: 'Charlotte van der Pauw', case1Role: 'owner', case1Credit: 'Charlotte van der Pauw · DocHorse',
     case1Quote: '', case1QuoteBy: '',
-    case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control.', case2Result: 'Financial figures and client data in one report, set against budget and the previous period.',
-    case2Chip1: 'Bookkeeping', case2Chip2: 'Client data', case2Badge: 'AO/IB · audit-proof',
+    case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control', case2Result: 'Financial figures and client data in one quarterly report, set against budget and the previous period.',
+    case2Chip1: 'Internal control', case2Chip2: 'Reporting',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'owner', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
     case2Quote: '', case2QuoteBy: '',
-    note: 'Detailed client cases to follow. Curious what we can do for your organisation? Request the diagnosis.'
+    note: 'Curious what a solid data foundation would deliver for your organisation? Every engagement starts with a diagnosis of 2–4 weeks.'
   }
 };
 </script>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plan een discovery call | Finsera</title>
-  <meta name="description" content="Plan een vrijblijvende discovery call van 30 minuten met Öner of Tomas. Kies een moment dat jou uitkomt, of app of bel direct.">
+  <title>Plan een kennismakingsgesprek | Finsera</title>
+  <meta name="description" content="Plan een vrijblijvend kennismakingsgesprek van 30 minuten met Finsera. We bespreken je situatie en zeggen eerlijk of we iets voor je kunnen betekenen.">
   <link rel="canonical" href="https://www.finsera.nl/contact">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Finsera">
   <meta property="og:locale" content="nl_NL">
-  <meta property="og:title" content="Plan een discovery call | Finsera">
+  <meta property="og:title" content="Plan een kennismakingsgesprek | Finsera">
   <meta property="og:description" content="Plan een vrijblijvende discovery call van 30 minuten. Kies een moment dat jou uitkomt, of app of bel direct.">
   <meta property="og:url" content="https://www.finsera.nl/contact">
   <meta property="og:image" content="https://www.finsera.nl/img/og-finsera.jpg">
@@ -85,6 +85,7 @@
     .ct-direct__link { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; color: var(--ink-70); text-decoration: none; transition: color .15s ease; }
     .ct-direct__link svg { color: var(--copper); flex-shrink: 0; }
     .ct-direct__link:hover { color: var(--copper); }
+    .ct-bridge { max-width: 72ch; margin: clamp(20px,3vw,28px) auto 0; font-size: 13.5px; line-height: 1.65; color: var(--ink-55); text-wrap: pretty; }
 
     /* --- met wie je spreekt --- */
     .ct-who { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--band-hair); }
@@ -143,9 +144,86 @@
         "@id": "https://www.finsera.nl/contact#webpage",
         "url": "https://www.finsera.nl/contact",
         "name": "Plan een discovery call | Finsera",
-        "isPartOf": { "@id": "https://www.finsera.nl/#website" },
-        "about": { "@id": "https://www.finsera.nl/#organisatie" },
+        "isPartOf": {
+          "@id": "https://www.finsera.nl/#website"
+        },
+        "about": {
+          "@id": "https://www.finsera.nl/#organisatie"
+        },
         "inLanguage": "nl-NL"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.finsera.nl/#organisatie",
+        "name": "Finsera",
+        "legalName": "Finsera",
+        "alternateName": "Finsera Nederland",
+        "description": "Finsera helpt groeiende middelgrote Nederlandse bedrijven aan echte financiële inzichtelijkheid via professionele managementrapportage, Power BI dashboards en AI-gedreven automatisering voor het MKB.",
+        "url": "https://www.finsera.nl/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.finsera.nl/#logo",
+          "url": "https://www.finsera.nl/img/og-finsera.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "image": {
+          "@id": "https://www.finsera.nl/#logo"
+        },
+        "email": "info@finsera.nl",
+        "telephone": "+31641413836",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "name": "KvK",
+            "value": "93587953"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NL"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Nederland"
+        },
+        "knowsLanguage": [
+          "nl",
+          "en"
+        ],
+        "knowsAbout": [
+          "Managementrapportage",
+          "Power BI dashboards",
+          "Business intelligence voor het MKB",
+          "Financiële automatisering",
+          "AI-strategie",
+          "Interim controller"
+        ],
+        "founder": {
+          "@id": "https://www.finsera.nl/over#oner-yucel"
+        },
+        "employee": [
+          {
+            "@id": "https://www.finsera.nl/over#oner-yucel"
+          },
+          {
+            "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+          }
+        ],
+        "member": {
+          "@id": "https://www.finsera.nl/over#tomas-van-der-laan"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@finsera.nl",
+          "telephone": "+31641413836",
+          "areaServed": "NL",
+          "availableLanguage": [
+            "nl",
+            "en"
+          ]
+        }
       }
     ]
   }
@@ -193,12 +271,12 @@
 
 <main id="inhoud">
   <header class="pbanner pbanner--contact">
-    <img class="pbanner__photo" src="img/team/samen.webp" alt="" width="1536" height="672" decoding="async">
+    <img class="pbanner__photo" src="img/team/samen.webp" alt="Öner Yücel en Tomas van der Laan bespreken een managementrapportage op twee schermen" width="1536" height="672" decoding="async">
     <div class="pbanner__scrim" aria-hidden="true"></div>
     <div class="pbanner__inner">
       <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="eyebrow">Plan een gesprek</span></p>
-      <h1 class="pbanner__h1" data-i18n="h1">Plan een discovery call</h1>
-      <p class="pbanner__intro" data-i18n="intro">Dertig minuten, videocall, vrijblijvend. We kijken naar je cijfers, je processen en waar de snelste winst zit. Kies hieronder een moment — je hoeft alleen je naam en e-mailadres achter te laten.</p>
+      <h1 class="pbanner__h1" data-i18n="h1">Plan een kennismakingsgesprek</h1>
+      <p class="pbanner__intro" data-i18n="intro">Dertig minuten, videocall, vrijblijvend. We bespreken waar je staat, waar het knelt en of wij daarbij kunnen helpen. Kies hieronder een moment — je hoeft alleen je naam en e-mailadres achter te laten.</p>
     </div>
   </header>
 
@@ -213,7 +291,7 @@
               <span class="ct-aside__logo"><img src="img/logo/finsera-merkteken-origineel.png" alt="" width="30" height="30" onerror="this.remove()"></span>
               <span class="ct-aside__wordmark">Finsera</span>
             </div>
-            <div class="ct-aside__title" data-i18n="panelTitle">Discovery call</div>
+            <div class="ct-aside__title" data-i18n="panelTitle">Kennismakings&shy;gesprek</div>
             <div class="ct-aside__list">
               <div class="ct-aside__item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C9A96A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span data-i18n="dMin">30 minuten</span></div>
               <div class="ct-aside__item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C9A96A" stroke-width="2" stroke-linecap="round"><path d="M15 10l4.5-2.5v9L15 14"></path><rect x="3" y="6" width="12" height="12" rx="2"></rect></svg><span data-i18n="dVideo">Videocall</span></div>
@@ -225,17 +303,17 @@
               <div class="ct-who__label" data-i18n="whoLabel">Je spreekt met</div>
               <div class="ct-who__people">
                 <div class="ct-who__person">
-                  <span class="ct-who__avatar"><span aria-hidden="true">ÖY</span><img src="img/team/oner-yucel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()"></span>
+                  <span class="ct-who__avatar"><span aria-hidden="true">ÖY</span><img src="img/team/oner-yucel.jpg" alt="Öner Yücel, oprichter van Finsera" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()"></span>
                   <span class="ct-who__name">Öner</span>
                 </div>
                 <div class="ct-who__person">
-                  <span class="ct-who__avatar"><span aria-hidden="true">TL</span><img src="img/team/tomas-van-der-laan.jpg" alt="" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()"></span>
+                  <span class="ct-who__avatar"><span aria-hidden="true">TL</span><img src="img/team/tomas-van-der-laan.jpg" alt="Tomas van der Laan, data analyst &amp; developer bij Finsera" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()"></span>
                   <span class="ct-who__name">Tomas</span>
                 </div>
               </div>
             </div>
 
-            <p class="ct-aside__note" data-i18n="panelNote">Geen verkooppraatje. We kijken naar je situatie en zeggen eerlijk of we iets voor je kunnen betekenen.</p>
+            <p class="ct-aside__note" data-i18n="panelNote">Geen verkooppraatje. We luisteren naar je situatie en zeggen eerlijk of we iets voor je kunnen betekenen &mdash; en zo niet, dan hoor je dat ook.</p>
           </div>
         </aside>
 
@@ -332,6 +410,7 @@
 
       </div>
     </div>
+    <p class="ct-bridge" data-i18n="bridge">Klikte je op &ldquo;Vraag de diagnose aan&rdquo;? Dan is dit gesprek de eerste stap: samen bepalen we of de Diagnose &amp; Strategisch Adviesrapport (2&ndash;4 weken) past bij jouw situatie.</p>
   </section>
 </main>
 
@@ -344,6 +423,7 @@
           <span class="footer__wordmark">Finsera</span>
         </div>
         <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
+        <p class="footer__desc" data-i18n="footDesc">Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="cta">Vraag de diagnose aan</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="footer__who">
           <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
@@ -359,20 +439,31 @@
             <a href="/diensten" data-i18n="navDiensten">Diensten</a>
             <a href="/cases">Cases</a>
             <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
         <div>
           <div class="footer__col-title">Contact</div>
-          <div class="footer__col-links">
+          <address class="footer__col-links footer__adres">
             <a href="mailto:info@finsera.nl">info@finsera.nl</a>
             <a href="tel:+31641413836">06 - 41 41 38 36</a>
             <span>KvK 93587953</span>
+          </address>
+          <div class="footer__social">
+            <div class="footer__col-title footer__col-title--sub">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"></path></svg>
+              <span>LinkedIn</span>
+            </div>
+            <div class="footer__col-links">
+              <a href="https://www.linkedin.com/in/%C3%B6ner-y%C3%BCcel-msc-319a7a30/" target="_blank" rel="noopener">&Ouml;ner Y&uuml;cel</a>
+              <a href="https://www.linkedin.com/in/tomasvdlaan/" target="_blank" rel="noopener">Tomas van der Laan</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
+      <span>© <span data-jaar>2026</span> Finsera. <span data-i18n="footRights">Alle rechten voorbehouden.</span></span>
       <a href="/privacyverklaring" data-i18n="footPrivacy">Privacyverklaring</a>
     </div>
   </div>
@@ -382,10 +473,11 @@
 window.FINSERA_PAGE = {
   nl: {
     nextLabel: 'Eerstvolgende momenten', otherMoment: 'Liever een ander moment', ratherDirect: 'Liever direct?', whoLabel: 'Je spreekt met',
-    eyebrow: 'Plan een gesprek', h1: 'Plan een discovery call',
-    intro: 'Dertig minuten, videocall, vrijblijvend. We kijken naar je cijfers, je processen en waar de snelste winst zit. Kies hieronder een moment — je hoeft alleen je naam en e-mailadres achter te laten.',
-    panelTitle: 'Discovery call', dMin: '30 minuten', dVideo: 'Videocall', dFree: 'Vrijblijvend',
-    panelNote: 'Geen verkooppraatje. We kijken naar je situatie en zeggen eerlijk of we iets voor je kunnen betekenen.',
+    eyebrow: 'Plan een gesprek', h1: 'Plan een kennismakingsgesprek',
+    intro: 'Dertig minuten, videocall, vrijblijvend. We bespreken waar je staat, waar het knelt en of wij daarbij kunnen helpen. Kies hieronder een moment — je hoeft alleen je naam en e-mailadres achter te laten.',
+    panelTitle: 'Kennismakings­gesprek', dMin: '30 minuten', dVideo: 'Videocall', dFree: 'Vrijblijvend',
+    panelNote: 'Geen verkooppraatje. We luisteren naar je situatie en zeggen eerlijk of we iets voor je kunnen betekenen — en zo niet, dan hoor je dat ook.',
+    bridge: 'Klikte je op “Vraag de diagnose aan”? Dan is dit gesprek de eerste stap: samen bepalen we of de Diagnose & Strategisch Adviesrapport (2–4 weken) past bij jouw situatie.',
     pickDay: 'Kies een dag om beschikbare tijden te zien.', back: 'Ander moment',
     fName: 'Naam', fCompany: 'Bedrijf', fEmail: 'E-mailadres', phName: 'Je naam', phCompany: 'Bedrijfsnaam',
     fNotes: 'Waar loop je tegenaan?', fOptional: 'optioneel',
@@ -401,9 +493,10 @@ window.FINSERA_PAGE = {
   en: {
     nextLabel: 'Next available', otherMoment: 'Pick another moment', ratherDirect: 'Rather reach out directly?', whoLabel: 'You will speak with',
     eyebrow: 'Book a call', h1: 'Book a discovery call',
-    intro: 'Thirty minutes, video call, no obligation. We look at your numbers, your processes and where the quickest gains are. Pick a time below — all we need is your name and email.',
+    intro: 'Thirty minutes, video call, no obligation. We discuss where you stand, where it pinches and whether we can help with that. Pick a time below — all we need is your name and email.',
     panelTitle: 'Discovery call', dMin: '30 minutes', dVideo: 'Video call', dFree: 'No obligation',
-    panelNote: 'No sales pitch. We look at your situation and tell you honestly whether we can help.',
+    panelNote: 'No sales pitch. We listen to your situation and tell you honestly whether we can do something for you — and if not, you will hear that too.',
+    bridge: 'Did you click “Request the diagnosis”? Then this call is the first step: together we determine whether the Diagnosis & Strategic Advisory Report (2–4 weeks) fits your situation.',
     pickDay: 'Pick a day to see available times.', back: 'Other time',
     fName: 'Name', fCompany: 'Company', fEmail: 'Email', phName: 'Your name', phCompany: 'Company name',
     fNotes: 'What are you running into?', fOptional: 'optional',
