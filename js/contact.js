@@ -248,6 +248,8 @@
     var name = $('ctName').value.trim();
     var company = $('ctCompany').value.trim();
     var email = $('ctEmail').value.trim();
+    var notesEl = $('ctNotes');
+    var notes = notesEl ? notesEl.value.trim().slice(0, 1500) : '';
     var validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
 
     if (hp) { finish(); return; } // bot trap: silently "succeed"
@@ -274,6 +276,7 @@
         name: name,
         company: company,
         email: email,
+        notes: notes,
         hp: hp,
         slot: stamp(state.date, state.time),
         slotLabel: summary(),
@@ -348,12 +351,19 @@
     calToggle.setAttribute('aria-expanded', String(open));
   });
 
-  // update placeholders + dynamic labels when language changes
-  window.FINSERA_onLang = function () {
+  // De placeholders staan als Nederlandse tekst in de HTML; bij een Engelse
+  // pagina moeten ze ook zonder taalwissel meteen goed staan.
+  function setPlaceholders() {
     var d = (window.FINSERA_PAGE[lang()] || window.FINSERA_PAGE.nl);
-    var n = $('ctName'), c = $('ctCompany');
+    var n = $('ctName'), c = $('ctCompany'), nt = $('ctNotes');
     if (n && d.phName) n.placeholder = d.phName;
     if (c && d.phCompany) c.placeholder = d.phCompany;
+    if (nt && d.phNotes) nt.placeholder = d.phNotes;
+  }
+
+  // update placeholders + dynamic labels when language changes
+  window.FINSERA_onLang = function () {
+    setPlaceholders();
     if (state.date) {
       $('ctSummary').textContent = summary();
       $('ctDoneSummary').textContent = summary();
@@ -366,6 +376,7 @@
   // binnen is opnieuw tekenen. Zo staat er nooit een lege pagina te wachten
   // op een netwerkverzoek.
   setView('cal');
+  setPlaceholders();
   renderNext();
   renderCalendar();
   loadAvailability().then(function () {

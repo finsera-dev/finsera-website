@@ -17,7 +17,7 @@ import { isConfigured, mailboxes, availabilityMode, graph, TIMEZONE, GraphError 
 import { SLOT_MINUTES, localStamp, whoIsFree } from './_slots.js';
 import { busyByMailbox } from './_agenda.js';
 
-const MAX = { name: 120, company: 160, email: 160, slot: 32 };
+const MAX = { name: 120, company: 160, email: 160, slot: 32, notes: 1500 };
 
 function clean(v, max) {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
@@ -55,10 +55,17 @@ async function stuurMail({ onderwerp, html, replyTo }) {
   return true;
 }
 
+/** Escapet en behoudt de regelovergangen die iemand in het tekstvak typte. */
+function escapeMultiline(s) {
+  return escapeHtml(s).replace(/\r\n|\r|\n/g, '<br>');
+}
+// Een rij is [label, waarde]; met een derde waarde `true` is de waarde al
+// veilige HTML en wordt hij niet nog een keer geescaped.
 function detailTabel(rijen) {
   return [
     '<table cellpadding="6" style="border-collapse:collapse;font-family:sans-serif;font-size:15px">',
-    ...rijen.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escapeHtml(v)}</td></tr>`),
+    ...rijen.map(([k, v, veilig]) =>
+      `<tr><td valign="top"><strong>${k}</strong></td><td>${veilig ? v : escapeHtml(v)}</td></tr>`),
     '</table>'
   ].join('');
 }
@@ -83,6 +90,7 @@ export default async function handler(req, res) {
   const company = clean(body.company, MAX.company);
   const email = clean(body.email, MAX.email);
   const slot = clean(body.slot, MAX.slot);     // "2026-08-26T09:00:00"
+  const notes = clean(body.notes, MAX.notes);  // vrije toelichting, mag leeg zijn
   const lang = body.lang === 'en' ? 'en' : 'nl';
 
   if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
@@ -141,7 +149,10 @@ export default async function handler(req, res) {
               `<p><strong>Naam</strong>: ${escapeHtml(name)}<br>`,
               `<strong>Bedrijf</strong>: ${escapeHtml(company || '—')}<br>`,
               `<strong>E-mail</strong>: ${escapeHtml(email)}<br>`,
-              `<strong>Aangevraagd via</strong>: finsera.nl (${lang.toUpperCase()})</p>`
+              `<strong>Aangevraagd via</strong>: finsera.nl (${lang.toUpperCase()})</p>`,
+              notes
+                ? `<p><strong>${lang === 'en' ? 'What they are running into' : 'Waar ze tegenaan lopen'}</strong>:<br>${escapeMultiline(notes)}</p>`
+                : ''
             ].join('')
           },
           start: { dateTime: slot, timeZone: TIMEZONE },
@@ -172,7 +183,8 @@ export default async function handler(req, res) {
             ['E-mail', email],
             ['Moment', label],
             ['In de agenda van', host],
-            ['Taal site', lang.toUpperCase()]
+            ['Taal site', lang.toUpperCase()],
+            ['Toelichting', notes ? escapeMultiline(notes) : '\u2014', true]
           ])
         });
       } catch (e) {
@@ -207,7 +219,8 @@ export default async function handler(req, res) {
           ['Bedrijf', company || '—'],
           ['E-mail', email],
           ['Voorkeursmoment', label || '(geen gekozen)'],
-          ['Taal site', lang.toUpperCase()]
+          ['Taal site', lang.toUpperCase()],
+          ['Toelichting', notes ? escapeMultiline(notes) : '\u2014', true]
         ])
       ].join('')
     });

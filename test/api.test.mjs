@@ -328,6 +328,34 @@ await t('book: bezet via de terugvalroute -> 409', async () => {
   assert.equal(r.statusCode, 409);
   assert.equal(aangemaakteEvents.length, 0);
 });
+await t('book: de toelichting staat in de omschrijving, met regelovergangen', async () => {
+  configureer(true); resetTokenCache(); graphGedrag = 'ok'; aangemaakteEvents = [];
+  const r = await roep(book, { method: 'POST',
+    body: { ...GELDIG, notes: 'Regel een\nRegel twee' } });
+  assert.equal(r.statusCode, 200);
+  const c = aangemaakteEvents[0].body.content;
+  assert.ok(c.includes('Waar ze tegenaan lopen'), 'kopje toelichting ontbreekt');
+  assert.ok(c.includes('Regel een<br>Regel twee'), 'regelovergang niet behouden');
+});
+await t('book: een toelichting met HTML wordt onschadelijk gemaakt', async () => {
+  resetTokenCache(); graphGedrag = 'ok'; aangemaakteEvents = [];
+  await roep(book, { method: 'POST',
+    body: { ...GELDIG, notes: '<script>alert(1)</script>' } });
+  const c = aangemaakteEvents[0].body.content;
+  assert.ok(!c.includes('<script>'), 'onbewerkte HTML in de omschrijving');
+  assert.ok(c.includes('&lt;script&gt;'), 'toelichting niet geescaped');
+});
+await t('book: zonder toelichting blijft het kopje weg', async () => {
+  resetTokenCache(); graphGedrag = 'ok'; aangemaakteEvents = [];
+  await roep(book, { method: 'POST', body: GELDIG });
+  assert.ok(!aangemaakteEvents[0].body.content.includes('Waar ze tegenaan lopen'));
+});
+await t('book: een te lange toelichting wordt afgekapt', async () => {
+  resetTokenCache(); graphGedrag = 'ok'; aangemaakteEvents = [];
+  await roep(book, { method: 'POST', body: { ...GELDIG, notes: 'x'.repeat(3000) } });
+  const m = aangemaakteEvents[0].body.content.match(/x+/);
+  assert.equal(m[0].length, 1500, 'toelichting niet op 1500 tekens afgekapt');
+});
 
 mock.close();
 console.log(`\n${pass} controles geslaagd${process.exitCode ? ' — MET FOUTEN' : ''}\n`);
