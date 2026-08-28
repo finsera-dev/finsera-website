@@ -104,6 +104,8 @@
     .ct-field label { display: block; font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 7px; }
     .fin-in { width: 100%; font-family: var(--sans); font-size: 15px; color: var(--ink); background: #fff; border: 1px solid var(--hair); border-radius: 2px; padding: 13px 15px; outline: none; transition: border-color .15s ease; }
     .fin-in:focus { border-color: var(--ink); }
+    .fin-ta { resize: vertical; min-height: 96px; line-height: 1.55; }
+    .ct-optional { font-weight: 400; letter-spacing: .06em; color: var(--ink-55); text-transform: none; font-family: var(--sans); font-size: 11.5px; }
     .fin-hp-wrap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     .fin-hp { width: 1px; height: 1px; opacity: 0; }
     .ct-error { font-size: 13.5px; color: var(--red); }
@@ -120,6 +122,17 @@
     .ct-done__chip { margin-top: 24px; display: inline-flex; align-items: center; gap: 9px; background: var(--paper); border: 1px solid var(--hair); border-radius: 2px; padding: 13px 18px; font-family: var(--mono); font-size: 13.5px; font-weight: 500; color: var(--ink); text-transform: capitalize; }
     [hidden] { display: none !important; }
     @media (max-width: 880px) { .ct-grid, .ct-cal-grid { grid-template-columns: 1fr; } }
+    /* Op een telefoon telt elke pixel voor de vouw. De bannerhero duwde de
+       tijden ruim een scherm naar beneden, en het merkteken in het paneel
+       stond vlak onder datzelfde logo in de navigatiebalk. Allebei weg; de
+       kop 'Discovery call' in het paneel voert de pagina nu aan. De h1 blijft
+       in de HTML staan voor zoekmachines en schermlezers. */
+    @media (max-width: 700px) {
+      .pbanner--contact { display: none; }
+      .ct-wrap { padding-top: clamp(20px, 5vw, 32px); }
+      .ct-aside__brand { display: none; }
+      .ct-aside__title { margin-top: 0; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -295,6 +308,7 @@
                 <div class="ct-field"><label for="ctName" data-i18n="fName">Naam</label><input class="fin-in" id="ctName" name="name" type="text" autocomplete="name" required data-ph="phName" placeholder="Je naam"></div>
                 <div class="ct-field"><label for="ctCompany" data-i18n="fCompany">Bedrijf</label><input class="fin-in" id="ctCompany" name="company" type="text" autocomplete="organization" data-ph="phCompany" placeholder="Bedrijfsnaam"></div>
                 <div class="ct-field"><label for="ctEmail" data-i18n="fEmail">E-mailadres</label><input class="fin-in" id="ctEmail" name="email" type="email" autocomplete="email" required placeholder="naam@bedrijf.nl"></div>
+                <div class="ct-field"><label for="ctNotes"><span data-i18n="fNotes">Waar loop je tegenaan?</span> <span class="ct-optional" data-i18n="fOptional">optioneel</span></label><textarea class="fin-in fin-ta" id="ctNotes" name="notes" rows="4" maxlength="1500" data-ph="phNotes" placeholder="Bijvoorbeeld: de maandcijfers komen te laat, of we sturen te veel op onderbuikgevoel."></textarea></div>
                 <!-- honeypot: onzichtbaar voor mensen, ingevuld door bots -->
                 <div class="fin-hp-wrap" aria-hidden="true"><label for="ctHp">Laat dit veld leeg</label><input class="fin-hp" id="ctHp" name="hp" type="text" tabindex="-1" autocomplete="off"></div>
                 <div class="ct-error" id="ctError" role="alert" hidden data-i18n="error">Vul je naam en een geldig e-mailadres in.</div>
@@ -374,6 +388,8 @@ window.FINSERA_PAGE = {
     panelNote: 'Geen verkooppraatje. We kijken naar je situatie en zeggen eerlijk of we iets voor je kunnen betekenen.',
     pickDay: 'Kies een dag om beschikbare tijden te zien.', back: 'Ander moment',
     fName: 'Naam', fCompany: 'Bedrijf', fEmail: 'E-mailadres', phName: 'Je naam', phCompany: 'Bedrijfsnaam',
+    fNotes: 'Waar loop je tegenaan?', fOptional: 'optioneel',
+    phNotes: 'Bijvoorbeeld: de maandcijfers komen te laat, of we sturen te veel op onderbuikgevoel.',
     error: 'Vul je naam en een geldig e-mailadres in.', submit: 'Bevestig je afspraak',
     subnote: 'Verstuur — we reageren binnen één werkdag.', thanks: 'Bedankt!', thanksMsg: 'We nemen binnen één werkdag contact met je op.',
     sending: 'Versturen…', sendFailed: 'Versturen lukte niet. Mail ons direct op',
@@ -390,6 +406,8 @@ window.FINSERA_PAGE = {
     panelNote: 'No sales pitch. We look at your situation and tell you honestly whether we can help.',
     pickDay: 'Pick a day to see available times.', back: 'Other time',
     fName: 'Name', fCompany: 'Company', fEmail: 'Email', phName: 'Your name', phCompany: 'Company name',
+    fNotes: 'What are you running into?', fOptional: 'optional',
+    phNotes: 'For example: the monthly figures arrive too late, or we steer too much on gut feeling.',
     error: 'Enter your name and a valid email address.', submit: 'Confirm your appointment',
     subnote: 'Submit — we reply within one business day.', thanks: 'Thank you!', thanksMsg: 'We will contact you within one business day.',
     sending: 'Sending…', sendFailed: 'Sending failed. Email us directly at',
