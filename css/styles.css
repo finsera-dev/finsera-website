@@ -2487,3 +2487,22 @@ body {
   .pbanner__inner { min-height: clamp(400px, 62vh, 560px); }
   .pbanner__h1 { max-width: none; font-size: clamp(30px, 7.6vw, 42px); }
 }
+
+
+/* ==========================================================================
+   HOMEPAGE — koppen en teksten uit de SEO/GEO-update
+   ========================================================================== */
+/* De datalaag had geen eigen kop; die staat nu boven het paneel en beantwoordt
+   meteen de vraag welke bronnen er samenkomen. */
+.hero2__dlhead { width: min(1180px, 100%); margin: clamp(30px, 4vw, 52px) auto clamp(18px, 2.4vw, 28px); text-align: left; }
+.hero2__dlh2 {
+  font-family: var(--serif); font-weight: 350; font-size: clamp(23px, 2.8vw, 34px);
+  line-height: 1.15; letter-spacing: -.018em; color: var(--ink); margin: 0; max-width: 24ch; text-wrap: balance;
+}
+.hero2__dlintro { margin: 14px 0 0; font-size: 16.5px; line-height: 1.68; color: var(--ink-70); max-width: 68ch; text-wrap: pretty; }
+
+/* De korte biografie onder elk portret. */
+.team__bio { display: block; margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--ink-70); text-wrap: pretty; }
+
+/* De FAQ-vraag is nu een h3; die mag de opmaak van de summary niet veranderen. */
+.faq__q-h { margin: 0; font: inherit; letter-spacing: inherit; color: inherit; }
