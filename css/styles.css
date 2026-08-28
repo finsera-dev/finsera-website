@@ -126,12 +126,16 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    daar dooft de knop juist naar de zachte papierkleur. */
 .btn--op-donker:hover { background: var(--band-paper); color: var(--ink); }
 
-.btn--paper {
-  background: var(--band-paper);
-  color: var(--ink);
-  border-color: var(--band-paper);
+.btn--secundair {
+  background: transparent;
+  color: var(--ink-70);
+  border-color: var(--hair);
 }
-.btn--paper:hover { background: transparent; color: var(--band-paper); }
+.btn--secundair:hover {
+  background: var(--paper-deep);
+  color: var(--ink);
+  border-color: var(--hair);
+}
 
 /* ------------------------------------------------------------ nav ------- */
 .nav {
@@ -1679,6 +1683,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero2 .gph-viz { margin-top: 12px; }
 
 /* ------------------------------------------------- zwevende glasskaartjes - */
+/* Zwevende kaartjes in de hero. Op dit moment staat er geen enkel kaartje
+   in de HTML: het doelgroepkaartje is verwijderd. De opmaak blijft staan
+   voor als er ooit weer een kaartje bij komt. */
 .hero2__card {
   position: absolute;
   z-index: 2;
@@ -2034,12 +2041,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   grid-template-columns: minmax(0, 4.6fr) minmax(0, 6.4fr);
   gap: 16px 20px;
   align-items: start;
-  grid-template-areas:
-    "photo dl"
-    "fit   dl";
+  grid-template-areas: "photo dl";
 }
 .hero2__photo:not([hidden]) {
   grid-area: photo;
+  align-self: center;
   position: static; inset: auto;
   width: 100%; height: auto; max-width: none;
   aspect-ratio: 4 / 3;
@@ -2050,11 +2056,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     0 10px 28px -14px rgba(22, 36, 61, 0.14);
 }
 .hero2__dlwrap { grid-area: dl; position: relative; text-align: left; }
-.hero2__card--fit {
-  grid-area: fit; align-self: start;
-  position: static; top: auto; right: auto;
-}
-.hero2__card--fit .hero2__card-text { white-space: normal; }
 
 /* Het paneel iets compacter dan in de oude sectie, zodat de drie sporen in de
    smallere herokolom passen. Alleen boven 900px: daaronder geldt de gestapelde
@@ -2071,7 +2072,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 900px) {
   .hero2__stage {
     grid-template-columns: 1fr;
-    grid-template-areas: "dl" "photo" "fit";
+    grid-template-areas: "dl" "photo";
   }
   .hero2__photo:not([hidden]) { aspect-ratio: 16 / 10; }
   .hero2__card--fit { justify-self: center; }
@@ -2335,18 +2336,6 @@ body {
   .rev__stat-lnk { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
 }
 
-.rev__foot {
-  display: flex; flex-wrap: wrap; align-items: center;
-  justify-content: space-between; gap: 20px 40px;
-  margin-top: clamp(30px, 4vw, 44px);
-  padding-top: clamp(24px, 3vw, 34px);
-  border-top: 1px solid var(--hair-soft);
-}
-.rev__note {
-  margin: 0; font-family: var(--mono); font-size: 11px; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-55);
-}
-.rev__foot .btn { flex: none; display: inline-flex; align-items: center; gap: 9px; }
 
 /* De portretten met "je spreekt direct met..." stonden in de diagnose-kaart en
    staan nu in de merkkolom van de footer, onder de call-to-action. Op papier
@@ -2488,8 +2477,8 @@ body {
 /* Per pagina een andere uitsnede van dezelfde foto. */
 .pbanner--diensten .pbanner__photo { object-position: 62% 28%; }
 .pbanner--cases    .pbanner__photo { object-position: 50% 22%; }
-.pbanner--blog     .pbanner__photo { object-position: 50% 22%; }
-.pbanner--contact  .pbanner__photo { object-position: 44% 40%; }
+.pbanner--blog     .pbanner__photo { object-position: 50% 0%; }
+.pbanner--contact  .pbanner__photo { object-position: 50% 22%; }
 /* Over ons: eigen typografie op dezelfde banner, zodat de hoogte niet los
    van de andere pagina's kan gaan lopen. */
 .pbanner--over .pbanner__photo { object-position: 50% 28%; }
