@@ -2476,7 +2476,7 @@ body {
 }
 /* Per pagina een andere uitsnede van dezelfde foto. */
 .pbanner--diensten .pbanner__photo { object-position: 62% 28%; }
-.pbanner--cases    .pbanner__photo { object-position: 34% 34%; }
+.pbanner--cases    .pbanner__photo { object-position: 50% 22%; }
 .pbanner--blog     .pbanner__photo { object-position: 50% 22%; }
 .pbanner--contact  .pbanner__photo { object-position: 44% 40%; }
 /* Over ons: eigen typografie op dezelfde banner, zodat de hoogte niet los
@@ -2502,6 +2502,7 @@ body {
 .pbanner__names b { color: var(--band-paper); font-weight: 500; }
 @media (max-width: 720px) {
   .pbanner__photo { object-position: 62% 26%; }
+  .pbanner--cases .pbanner__photo { object-position: 4% 30%; }
   .pbanner__scrim {
     background: linear-gradient(0deg, rgba(22,36,61,.96) 0%, rgba(22,36,61,.86) 44%, rgba(22,36,61,.50) 78%, rgba(22,36,61,.58) 100%);
   }
