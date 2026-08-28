@@ -2477,8 +2477,8 @@ body {
 /* Per pagina een andere uitsnede van dezelfde foto. */
 .pbanner--diensten .pbanner__photo { object-position: 62% 28%; }
 .pbanner--cases    .pbanner__photo { object-position: 50% 22%; }
-.pbanner--blog     .pbanner__photo { object-position: 50% 22%; }
-.pbanner--contact  .pbanner__photo { object-position: 44% 40%; }
+.pbanner--blog     .pbanner__photo { object-position: 50% 0%; }
+.pbanner--contact  .pbanner__photo { object-position: 50% 22%; }
 /* Over ons: eigen typografie op dezelfde banner, zodat de hoogte niet los
    van de andere pagina's kan gaan lopen. */
 .pbanner--over .pbanner__photo { object-position: 50% 28%; }
