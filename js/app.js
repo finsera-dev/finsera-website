@@ -204,6 +204,7 @@
       ctaTitle: 'Klaar voor grip op je cijfers?',
       ctaText: 'Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
+      footDesc: 'Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring', footTerms: 'Algemene voorwaarden',
       painData: [
         ['Je vertrouwt de cijfers niet volledig.', 'Dashboards, administratie en Excel-lijsten spreken elkaar tegen. Elke discussie in het MT begint met de vraag welke cijfers kloppen.'],
@@ -407,6 +408,7 @@
       ctaTitle: 'Ready for control over your numbers?',
       ctaText: 'No temporary patches or loose tools, but a foundation that grows with your organisation. Let’s explore in one conversation where the processes get stuck now and where the biggest gains are, tailored to where you stand today.',
       footTagline: 'A financial foundation that grows with your organisation.',
+      footDesc: 'Management reporting, Power BI dashboards and AI automation for growing mid-market companies.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy', footTerms: 'Terms and conditions',
       painData: [
         ['You do not fully trust the figures.', 'Dashboards, the administration and Excel lists contradict each other. Every board discussion starts with the question of which figures are right.'],
@@ -931,6 +933,8 @@
   }
 
   /* ------------------------------------------------------------- init ----- */
+  var jaar = String(new Date().getFullYear());
+  $all('[data-jaar]').forEach(function (e) { e.textContent = jaar; });
   applyLang();
   renderCarousel();
   caseStart();

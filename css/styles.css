@@ -816,6 +816,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-decoration: none;
 }
 .footer__col-links a:hover { color: var(--ink); }
+/* Beschrijvingsregel onder de tagline: in één zin wat we doen, voor wie via
+   een diepe pagina binnenkomt en voor zoekmachines. */
+.footer__desc {
+  margin: -8px 0 18px; max-width: 48ch;
+  font-size: 13px; line-height: 1.6; color: var(--ink-55);
+}
+/* Contactgegevens staan in een <address>; die is standaard cursief. */
+.footer__adres { font-style: normal; }
+.footer__social { margin-top: 26px; }
+.footer__col-title--sub { display: flex; align-items: center; gap: 7px; }
+.footer__col-title--sub svg { color: var(--ink-55); flex: none; }
 .footer__bottom {
   margin-top: clamp(36px, 5vw, 56px);
   padding-top: 18px;
