@@ -126,12 +126,16 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    daar dooft de knop juist naar de zachte papierkleur. */
 .btn--op-donker:hover { background: var(--band-paper); color: var(--ink); }
 
-.btn--paper {
-  background: var(--band-paper);
-  color: var(--ink);
-  border-color: var(--band-paper);
+.btn--secundair {
+  background: transparent;
+  color: var(--ink-70);
+  border-color: var(--hair);
 }
-.btn--paper:hover { background: transparent; color: var(--band-paper); }
+.btn--secundair:hover {
+  background: var(--paper-deep);
+  color: var(--ink);
+  border-color: var(--hair);
+}
 
 /* ------------------------------------------------------------ nav ------- */
 .nav {
