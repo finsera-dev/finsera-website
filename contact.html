@@ -122,6 +122,17 @@
     .ct-done__chip { margin-top: 24px; display: inline-flex; align-items: center; gap: 9px; background: var(--paper); border: 1px solid var(--hair); border-radius: 2px; padding: 13px 18px; font-family: var(--mono); font-size: 13.5px; font-weight: 500; color: var(--ink); text-transform: capitalize; }
     [hidden] { display: none !important; }
     @media (max-width: 880px) { .ct-grid, .ct-cal-grid { grid-template-columns: 1fr; } }
+    /* Op een telefoon telt elke pixel voor de vouw. De bannerhero duwde de
+       tijden ruim een scherm naar beneden, en het merkteken in het paneel
+       stond vlak onder datzelfde logo in de navigatiebalk. Allebei weg; de
+       kop 'Discovery call' in het paneel voert de pagina nu aan. De h1 blijft
+       in de HTML staan voor zoekmachines en schermlezers. */
+    @media (max-width: 700px) {
+      .pbanner--contact { display: none; }
+      .ct-wrap { padding-top: clamp(20px, 5vw, 32px); }
+      .ct-aside__brand { display: none; }
+      .ct-aside__title { margin-top: 0; }
+    }
   </style>
   <script type="application/ld+json">
   {
