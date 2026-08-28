@@ -72,3 +72,15 @@ sectie "Waar we in geloven" heeft die plek overgenomen.
 **Vervangen door:** "Wie doet het werk?" — een vraag, zodat de sectie een
 citeerbaar antwoord vormt.
 **Sleutel:** `teamHeading`, staat nog in beide woordenlijsten.
+
+## Doelgroepkaartje onder de herofoto
+
+**Vandaan:** `index.html`, het zwevende kaartje onder de foto in de hero.
+**Tekst:** "Voor groeiende bedrijven · 10–50 medewerkers · €10M–€50M omzet"
+**Waarom weg:** het is een filter, geen belofte. In een campagne op warme leads
+werkt zo'n regel vooral tegen: wie er net buiten valt, haakt zelf af. Het
+antwoord staat bovendien al in de veelgestelde vragen en op Over ons, en het
+omzetbereik klopte niet meer met de rest van de site (daar €5M–€100M).
+**Sleutel:** `heroTrust`, staat nog in beide woordenlijsten in `js/app.js`.
+De machineleesbare doelgroep zit onveranderd in het `BusinessAudience`-schema,
+dus voor zoekmachines verandert er niets.

@@ -1683,6 +1683,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero2 .gph-viz { margin-top: 12px; }
 
 /* ------------------------------------------------- zwevende glasskaartjes - */
+/* Zwevende kaartjes in de hero. Op dit moment staat er geen enkel kaartje
+   in de HTML: het doelgroepkaartje is verwijderd. De opmaak blijft staan
+   voor als er ooit weer een kaartje bij komt. */
 .hero2__card {
   position: absolute;
   z-index: 2;
@@ -2038,12 +2041,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   grid-template-columns: minmax(0, 4.6fr) minmax(0, 6.4fr);
   gap: 16px 20px;
   align-items: start;
-  grid-template-areas:
-    "photo dl"
-    "fit   dl";
+  grid-template-areas: "photo dl";
 }
 .hero2__photo:not([hidden]) {
   grid-area: photo;
+  align-self: center;
   position: static; inset: auto;
   width: 100%; height: auto; max-width: none;
   aspect-ratio: 4 / 3;
@@ -2054,11 +2056,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     0 10px 28px -14px rgba(22, 36, 61, 0.14);
 }
 .hero2__dlwrap { grid-area: dl; position: relative; text-align: left; }
-.hero2__card--fit {
-  grid-area: fit; align-self: start;
-  position: static; top: auto; right: auto;
-}
-.hero2__card--fit .hero2__card-text { white-space: normal; }
 
 /* Het paneel iets compacter dan in de oude sectie, zodat de drie sporen in de
    smallere herokolom passen. Alleen boven 900px: daaronder geldt de gestapelde
@@ -2075,7 +2072,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 900px) {
   .hero2__stage {
     grid-template-columns: 1fr;
-    grid-template-areas: "dl" "photo" "fit";
+    grid-template-areas: "dl" "photo";
   }
   .hero2__photo:not([hidden]) { aspect-ratio: 16 / 10; }
   .hero2__card--fit { justify-self: center; }
