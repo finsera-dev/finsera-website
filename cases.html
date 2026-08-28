@@ -135,6 +135,157 @@
     @media (max-width: 720px) {
       .casestory__tiles { grid-template-columns: 1fr; }
     }
+    /* ------------------------------------------------ voorbeeldprojecten --
+       Kaarten met een schermbeeld erboven. De schermbeelden zijn getekend in
+       HTML/SVG, niet als afbeelding: ze schalen scherp mee, laden meteen en
+       bevatten geen klantgegevens. Ze staan op aria-hidden omdat de tekst
+       eronder hetzelfde vertelt.
+
+       Overgenomen uit een ontwerp van Genspark, maar hier op het palet en de
+       fonts van de site gezet. De chrome van Power BI en van het maatwerk-
+       pakket houdt bewust zijn eigen kleuren, anders is het geen schermbeeld
+       meer maar een plaatje. */
+    .proj { padding: clamp(48px, 7vw, 88px) 0 0; border-top: 1px solid var(--hair); }
+    .proj__head { max-width: 64ch; margin-bottom: clamp(30px, 4vw, 48px); }
+    .proj__eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--copper); margin: 0 0 18px; }
+    .proj__head h2 { font-family: var(--serif); font-weight: 350; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.08; letter-spacing: -.018em; color: var(--ink); margin: 0; text-wrap: balance; }
+    .proj__head h2 em { font-style: italic; color: var(--copper); }
+    .proj__head p { margin: 16px 0 0; font-size: 16.5px; line-height: 1.65; color: var(--ink-70); text-wrap: pretty; }
+    .proj__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(30px, 3.6vw, 52px); }
+    @media (max-width: 900px) { .proj__grid { grid-template-columns: 1fr; } }
+
+    .pcard { display: flex; flex-direction: column; }
+    /* Het schermbeeld wordt op een vaste maat getekend (560x350) en daarna als
+       geheel geschaald, net als een echte schermafdruk. Zonder dat zou de UI in
+       een smalle kolom uit z'n voegen lopen. In een browser die geen deling van
+       twee lengtes in calc() kent, vervalt de schaling en toont het kader de
+       linkerbovenhoek van het schermbeeld; dat blijft leesbaar. */
+    .pcard__shot {
+      aspect-ratio: 16 / 10; border-radius: var(--r-md); overflow: hidden;
+      border: 1px solid var(--hair); background: #F3F2F1;
+      box-shadow: 0 18px 38px -30px rgba(22, 36, 61, .34);
+      container-type: size;
+    }
+    .pcard__meta { margin: clamp(18px, 2.2vw, 24px) 0 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 18px;
+      font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-55); }
+    .pcard__meta .pcard__sector { color: var(--copper); }
+    .pcard__title { font-family: var(--serif); font-weight: 380; font-size: clamp(21px, 2.1vw, 26px); line-height: 1.2;
+      letter-spacing: -.012em; color: var(--ink); margin: 12px 0 0; text-wrap: balance; }
+    .pcard__title em { font-style: italic; color: var(--copper); }
+    .pcard__text { margin: 12px 0 0; font-size: 16px; line-height: 1.64; color: var(--ink-70); text-wrap: pretty; }
+    .pcard__facts { margin: clamp(18px, 2.2vw, 24px) 0 0; padding-top: 14px; border-top: 1px solid var(--hair-soft);
+      display: flex; flex-wrap: wrap; gap: 12px clamp(22px, 3vw, 40px); }
+    .pcard__fact span { display: block; font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-55); }
+    .pcard__fact b { display: block; margin-top: 4px; font-family: var(--serif); font-size: 15.5px; font-weight: 500; color: var(--ink); }
+    .pcard__chips { margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .pcard__chips span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--ink-55);
+      border: 1px solid var(--hair); border-radius: 5px; padding: 5px 9px; }
+
+    /* -- schermbeeld: gedeelde basis ---------------------------------- */
+    .mock {
+      width: 560px; height: 350px; flex: none;
+      transform-origin: 0 0; transform: scale(calc(100cqw / 560px));
+      display: flex; flex-direction: column;
+      font-family: var(--sans); font-size: 10.5px; line-height: 1.35; overflow: hidden;
+    }
+    .mock svg { display: block; width: 100%; }
+
+    /* -- schermbeeld: Power BI ---------------------------------------- */
+    .mock--pbi { background: #F3F2F1; color: #252423; }
+    .mock--pbi .m-title { display: flex; align-items: center; justify-content: space-between; background: #F3F2F1; border-bottom: 1px solid #EDEBE9; padding: 5px 10px; }
+    .mock--pbi .m-title b { font-size: 10.5px; font-weight: 600; }
+    .mock--pbi .m-title b i { font-style: normal; color: #605E5C; font-weight: 400; }
+    .mock--pbi .m-title .m-orb { width: 16px; height: 16px; border-radius: 999px; background: linear-gradient(135deg, #B6F1F7, #2EA3D3); }
+    .mock--pbi .m-ribbon { background: #fff; border-bottom: 1px solid #EDEBE9; padding: 4px 10px; display: flex; gap: 12px; align-items: center; font-size: 10px; color: #605E5C; }
+    .mock--pbi .m-ribbon .on { background: #EDEBE9; color: #252423; font-weight: 500; padding: 3px 8px; border-radius: 3px; }
+    .mock--pbi .m-ribbon .m-push { margin-left: auto; }
+    .mock--pbi .m-ribbon .m-refresh { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 3px; background: #fff; border: 1px solid #EDEBE9; color: #252423; }
+    .mock--pbi .m-ribbon .m-refresh i { width: 6px; height: 6px; border-radius: 1px; background: #F2C811; }
+    .mock--pbi .m-sub { background: #fff; border-bottom: 1px solid #EDEBE9; padding: 6px 12px 0; }
+    .mock--pbi .m-sub b { display: block; font-size: 12px; font-weight: 600; }
+    .mock--pbi .m-sub span { display: block; font-size: 9.5px; color: #605E5C; }
+    .mock--pbi .m-tabs { display: flex; margin-top: 6px; }
+    .mock--pbi .m-tabs span { font-size: 10px; color: #605E5C; padding: 5px 11px 8px; border-bottom: 2px solid transparent; }
+    .mock--pbi .m-tabs span.on { color: #252423; border-bottom-color: #F2C811; font-weight: 600; }
+    .mock--pbi .m-canvas { flex: 1; padding: 9px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto 1fr; gap: 8px; min-height: 0; }
+    .mock--pbi .m-tile { background: #fff; border: 1px solid #EDEBE9; border-radius: 3px; padding: 7px 9px; display: flex; flex-direction: column; gap: 3px; min-width: 0; overflow: hidden; }
+    .mock--pbi .m-tile .m-th { display: flex; justify-content: space-between; font-size: 9px; color: #605E5C; font-weight: 500; }
+    .mock--pbi .m-tile .m-big { font-size: 20px; font-weight: 700; line-height: 1; letter-spacing: -.01em; }
+    .mock--pbi .m-tile .m-d { font-size: 9px; }
+    .mock--pbi .m-tile .m-d.up { color: #107C10; }
+    .mock--pbi .m-tile--wide { grid-column: span 3; }
+    .mock--pbi .m-legend { display: flex; gap: 9px; font-size: 8.5px; }
+    .mock--pbi .m-legend b { display: inline-flex; align-items: center; gap: 4px; font-weight: 400; }
+    .mock--pbi .m-legend i { width: 7px; height: 3px; border-radius: 1px; }
+    .mock--pbi .m-tile--wide svg { height: 100%; }
+
+    /* -- schermbeeld: maatwerkpakket ---------------------------------- */
+    .mock--app { display: grid; grid-template-columns: 96px 1fr; background: #FAFAFA; color: #252423; }
+    .mock--app > * { min-height: 0; }
+    .mock--app .m-side { background: #1E2540; padding: 10px 8px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .mock--app .m-brand { display: flex; align-items: center; gap: 6px; padding: 4px 6px 11px; margin-bottom: 8px; font-family: var(--serif); font-size: 12px; color: #fff; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mock--app .m-brand::before { content: ""; width: 13px; height: 13px; border-radius: 3px; background: var(--copper); flex: none; }
+    .mock--app .m-sec { font-family: var(--mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.35); padding: 8px 6px 4px; }
+    .mock--app .m-li { display: flex; align-items: center; gap: 6px; padding: 5px 6px; border-radius: 3px; font-size: 10px; color: #B8BFD1; }
+    .mock--app .m-li i { width: 5px; height: 5px; border-radius: 1px; background: rgba(255,255,255,.3); flex: none; }
+    .mock--app .m-li.on { background: rgba(255,255,255,.1); color: #fff; }
+    .mock--app .m-li.on i { background: var(--copper); }
+    .mock--app .m-li b { margin-left: auto; font-family: var(--mono); font-size: 8.5px; font-weight: 400; color: rgba(255,255,255,.55); }
+    .mock--app .m-main { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+    .mock--app .m-crumb { display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #E6E6EA; padding: 6px 12px; font-size: 9.5px; color: #605E5C; }
+    .mock--app .m-crumb b { color: #252423; }
+    .mock--app .m-av { display: flex; gap: 4px; }
+    .mock--app .m-av span { width: 15px; height: 15px; border-radius: 999px; background: linear-gradient(135deg, #D9CFB8, #8F5F2A); border: 1px solid #fff; font-size: 8px; color: #fff; display: grid; place-items: center; }
+    .mock--app .m-bar { background: #fff; border-bottom: 1px solid #E6E6EA; padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+    .mock--app .m-bar .m-h { font-weight: 600; font-size: 12.5px; margin-right: auto; }
+    .mock--app .m-bar .m-h b { font-family: var(--mono); font-size: 9.5px; font-weight: 400; color: #605E5C; margin-left: 6px; }
+    .mock--app .m-bar .m-search { padding: 4px 9px; background: #FAFAFA; border: 1px solid #E6E6EA; border-radius: 3px; font-size: 9.5px; color: #605E5C; }
+    .mock--app .m-bar .m-btn { padding: 4px 9px; border-radius: 3px; font-size: 10px; font-weight: 500; color: #fff; background: var(--copper); }
+    .mock--app .m-bar .m-btn.ghost { color: #252423; background: #fff; border: 1px solid #E6E6EA; }
+    .mock--app .m-filters { background: #fff; border-bottom: 1px solid #E6E6EA; padding: 6px 12px; display: flex; gap: 6px; align-items: center; font-size: 9.5px; color: #605E5C; }
+    .mock--app .m-pill { padding: 3px 8px; border: 1px solid #E6E6EA; border-radius: 999px; background: #FAFAFA; color: #252423; }
+    .mock--app .m-pill.on { background: #EEF2FB; border-color: #CDDAF3; color: #12239E; }
+    .mock--app .m-table { flex: 1; background: #fff; display: flex; flex-direction: column; min-height: 0; overflow: hidden; font-size: 10px; }
+    .mock--app .m-tr { display: grid; grid-template-columns: 44px 1fr 32px 34px 62px; gap: 8px; padding: 6px 12px; border-bottom: 1px solid #E6E6EA; align-items: center; }
+    .mock--app .m-tr.m-head { background: #FAFAFA; font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: #605E5C; }
+    .mock--app .m-tr .m-nr { font-family: var(--mono); color: #605E5C; }
+    .mock--app .m-tr .m-p { font-weight: 500; min-width: 0; }
+    .mock--app .m-tr .m-p b { display: block; font-family: var(--mono); font-size: 8.5px; color: #605E5C; font-weight: 400; margin-top: 1px; }
+    .mock--app .m-tr .m-u { font-family: var(--mono); text-align: right; }
+    .mock--app .m-tr .m-who { width: 15px; height: 15px; border-radius: 999px; background: linear-gradient(135deg, #D9CFB8, #8F5F2A); color: #fff; font-size: 8px; display: grid; place-items: center; }
+    .mock--app .m-tag { font-family: var(--mono); font-size: 8.5px; letter-spacing: .06em; padding: 2px 6px; border-radius: 999px; text-transform: uppercase; text-align: center; }
+    .mock--app .m-tag.g { background: #E8F5EE; color: #107C10; }
+    .mock--app .m-tag.o { background: #FFF4E5; color: #C46200; }
+    .mock--app .m-tag.r { background: #FDECEA; color: #B23A2F; }
+    .mock--app .m-tag.n { background: #EEF1F6; color: #556080; }
+    .mock--app .m-foot { background: #fff; border-top: 1px solid #E6E6EA; padding: 5px 12px; display: flex; justify-content: space-between; font-size: 9px; color: #605E5C; }
+
+    /* -- schermbeeld: eigen dashboard --------------------------------- */
+    .mock--own { background: var(--paper); color: var(--ink); }
+    .mock--own .m-hd { display: flex; align-items: center; justify-content: space-between; padding: 9px 13px; border-bottom: 1px solid var(--hair); background: #fff; gap: 10px; }
+    .mock--own .m-hd .m-l { display: flex; align-items: center; gap: 9px; min-width: 0; }
+    .mock--own .m-logo { width: 19px; height: 19px; border-radius: 4px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--serif); font-size: 11px; flex: none; }
+    .mock--own .m-name { font-family: var(--serif); font-size: 13.5px; letter-spacing: -.01em; }
+    .mock--own .m-name em { font-style: italic; color: var(--copper); }
+    .mock--own .m-r { display: flex; gap: 8px; font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-55); white-space: nowrap; }
+    .mock--own .m-live { color: #4C7A5C; display: inline-flex; align-items: center; gap: 4px; }
+    .mock--own .m-live::before { content: ""; width: 5px; height: 5px; border-radius: 999px; background: #4C7A5C; }
+    .mock--own .m-tabs { display: flex; background: #fff; border-bottom: 1px solid var(--hair); padding: 0 13px; }
+    .mock--own .m-tabs span { font-size: 10px; color: var(--ink-55); padding: 8px 11px; border-bottom: 2px solid transparent; }
+    .mock--own .m-tabs span.on { color: var(--ink); border-bottom-color: var(--copper); font-weight: 500; }
+    .mock--own .m-body { flex: 1; padding: 11px; display: flex; flex-direction: column; gap: 9px; min-height: 0; }
+    .mock--own .m-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .mock--own .m-kpi { background: #fff; border: 1px solid var(--hair); border-radius: 6px; padding: 8px 9px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .mock--own .m-kpi .m-lb { font-family: var(--mono); font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-55); }
+    .mock--own .m-kpi .m-vl { font-family: var(--serif); font-size: 19px; letter-spacing: -.02em; line-height: 1; }
+    .mock--own .m-kpi .m-dl { font-family: var(--mono); font-size: 9px; color: var(--ink-55); }
+    .mock--own .m-kpi .m-dl.up { color: #4C7A5C; }
+    .mock--own .m-card { background: #fff; border: 1px solid var(--hair); border-radius: 6px; padding: 9px 11px; flex: 1; display: flex; flex-direction: column; min-height: 0; }
+    .mock--own .m-card .m-ch { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 7px; margin-bottom: 6px; border-bottom: 1px solid var(--hair); }
+    .mock--own .m-card .m-ch b { font-family: var(--serif); font-size: 12px; font-weight: 400; }
+    .mock--own .m-card .m-ch span { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-55); }
+    .mock--own .m-card svg { flex: 1; min-height: 0; }
+
     @media (max-width: 820px) {
       .caseref, .caseref--flip { grid-template-columns: 1fr; }
       .caseref--flip .caseref__photo { order: 0; }
@@ -330,10 +481,218 @@
     </div>
   </section>
 
+
+  <!-- Voorbeeldprojecten. De schermbeelden zijn getekend in HTML/SVG en staan
+       op aria-hidden: de tekst eronder vertelt hetzelfde. Ze bevatten geen
+       klantgegevens. De kop zegt expliciet dat dit voorbeelden zijn en geen
+       bestaande opdrachtgevers; verander dat niet zonder dat er echte,
+       geanonimiseerde opdrachten achter zitten. -->
+  <section class="proj">
+    <div class="wrap">
+      <div class="proj__head">
+        <p class="proj__eyebrow" data-i18n="projEyebrow">Wat we bouwen</p>
+        <h2><span data-i18n="projHeading">Vier voorbeelden. </span><em data-i18n="projHeadingEm">Geen sfeerplaatjes.</em></h2>
+        <p data-i18n="projIntro">Zo ziet een oplevering eruit: van een Power BI-rapport voor een groothandel tot een pakket op maat voor werkorders. Dit zijn illustraties van vorm en detailniveau, geen bestaande opdrachtgevers &mdash; klantverhalen staan hierboven, met naam en gezicht.</p>
+      </div>
+      <div class="proj__grid">
+
+        <!-- 01 — Power BI -->
+        <article class="pcard">
+          <div class="pcard__shot">
+            <div class="mock mock--pbi" aria-hidden="true">
+              <div class="m-title"><b>Marge-explorer <i>&mdash; Power BI</i></b><span class="m-orb"></span></div>
+              <div class="m-ribbon"><span>Bestand</span><span class="on">Start</span><span>Invoegen</span><span>Modelleren</span><span>Weergave</span><span class="m-push m-refresh"><i></i> Vernieuwd 07:12</span></div>
+              <div class="m-sub">
+                <b>Marge-explorer &middot; YTD</b>
+                <span>Werkruimte / Sales &amp; margin / Marge-explorer</span>
+                <div class="m-tabs"><span class="on">Overzicht</span><span>Per artikel</span><span>Per klant</span><span>Regio</span><span>Aannames</span></div>
+              </div>
+              <div class="m-canvas">
+                <div class="m-tile"><div class="m-th"><span>Omzet YTD</span><span>&ctdot;</span></div><div class="m-big">&euro; 4,82M</div><div class="m-d up">&#9650; 6,1% vs. begroting</div></div>
+                <div class="m-tile"><div class="m-th"><span>Brutomarge</span><span>&ctdot;</span></div><div class="m-big">31,4%</div><div class="m-d up">&#9650; 1,3pp vs. vorig jaar</div></div>
+                <div class="m-tile"><div class="m-th"><span>Grootste categorie</span><span>&ctdot;</span></div><div class="m-big">42%</div><div class="m-d">van de omzet</div></div>
+                <div class="m-tile m-tile--wide">
+                  <div class="m-th"><span>Marge per categorie &middot; %</span><span class="m-legend"><b><i style="background:#F2C811"></i>Dit jaar</b><b><i style="background:#C8C6C4"></i>Vorig jaar</b><b><i style="background:#E66C37"></i>Norm</b></span></div>
+                  <svg viewBox="0 0 400 116" preserveAspectRatio="none">
+                    <g stroke="#EDEBE9" stroke-width="1"><line x1="30" y1="16" x2="400" y2="16"/><line x1="30" y1="41" x2="400" y2="41"/><line x1="30" y1="66" x2="400" y2="66"/><line x1="30" y1="91" x2="400" y2="91"/></g>
+                    <g fill="#605E5C" font-size="7"><text x="4" y="19">40</text><text x="4" y="44">30</text><text x="4" y="69">20</text><text x="4" y="94">10</text></g>
+                    <g fill="#F2C811"><rect x="42" y="38" width="14" height="53"/><rect x="102" y="22" width="14" height="69"/><rect x="162" y="46" width="14" height="45"/><rect x="222" y="30" width="14" height="61"/><rect x="282" y="54" width="14" height="37"/><rect x="342" y="42" width="14" height="49"/></g>
+                    <g fill="#C8C6C4"><rect x="58" y="46" width="14" height="45"/><rect x="118" y="30" width="14" height="61"/><rect x="178" y="50" width="14" height="41"/><rect x="238" y="38" width="14" height="53"/><rect x="298" y="58" width="14" height="33"/><rect x="358" y="48" width="14" height="43"/></g>
+                    <path d="M42,34 L116,34 L116,28 L190,28 L190,38 L264,38 L264,32 L338,32 L338,40 L372,40" fill="none" stroke="#E66C37" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    <g fill="#605E5C" font-size="7.5" text-anchor="middle"><text x="57" y="106">Kabels</text><text x="117" y="106">Verlicht.</text><text x="177" y="106">Meters</text><text x="237" y="106">Auto</text><text x="297" y="106">Gereed.</text><text x="357" y="106">Overig</text></g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="pcard__meta"><span class="pcard__sector" data-i18n="p1Sector">Groothandel</span><span data-i18n="p1Num">Voorbeeld 01</span></p>
+          <h3 class="pcard__title"><span data-i18n="p1TitleA">Marge-explorer per</span> <em data-i18n="p1TitleB">productcategorie</em></h3>
+          <p class="pcard__text" data-i18n="p1Text">Van &ldquo;we voelen wel welke lijnen slecht draaien&rdquo; naar zwart-op-wit brutomarge per categorie, klant en artikel. Vijf pagina&rsquo;s in Power BI, gevoed uit de boekhouding en het ERP via een eigen datalaag.</p>
+          <div class="pcard__facts">
+            <div class="pcard__fact"><span data-i18n="factVorm">Vorm</span><b data-i18n="p1F1">Power BI-rapport</b></div>
+            <div class="pcard__fact"><span data-i18n="factDatalaag">Datalaag</span><b data-i18n="p1F2">Boekhouding + ERP &rarr; SQL</b></div>
+            <div class="pcard__fact"><span data-i18n="factOmvang">Omvang</span><b data-i18n="p1F3">5 pagina&rsquo;s</b></div>
+          </div>
+          <p class="pcard__chips"><span>Power BI</span><span>Azure SQL</span><span>Exact Online</span><span>Datawarehouse</span></p>
+        </article>
+
+        <!-- 02 — pakket op maat -->
+        <article class="pcard">
+          <div class="pcard__shot">
+            <div class="mock mock--app" aria-hidden="true">
+              <div class="m-side">
+                <div class="m-brand">Werkbon</div>
+                <div class="m-sec">Vandaag</div>
+                <div class="m-li"><i></i>Dashboard</div>
+                <div class="m-li"><i></i>Vandaag <b>4</b></div>
+                <div class="m-sec">Werk</div>
+                <div class="m-li on"><i></i>Planning <b>28</b></div>
+                <div class="m-li"><i></i>Werkorders</div>
+                <div class="m-li"><i></i>Materialen</div>
+                <div class="m-li"><i></i>Uren</div>
+                <div class="m-sec">Fin.</div>
+                <div class="m-li"><i></i>Facturatie</div>
+              </div>
+              <div class="m-main">
+                <div class="m-crumb"><span>Werk &rsaquo; <b>Planning &middot; week 34</b></span><span class="m-av"><span>&Ouml;</span><span>T</span><span>J</span></span></div>
+                <div class="m-bar">
+                  <span class="m-h">Werkorders <b>28 open &middot; 4 wacht op materiaal</b></span>
+                  <span class="m-search">Zoek op nr, klant&hellip;</span>
+                  <span class="m-btn ghost">Exporteer</span>
+                  <span class="m-btn">+ Nieuwe</span>
+                </div>
+                <div class="m-filters"><span>Filter:</span><span class="m-pill on">Week 34 &times;</span><span class="m-pill on">Regio Zuid &times;</span><span class="m-pill">Monteur</span><span class="m-pill">Status</span></div>
+                <div class="m-table">
+                  <div class="m-tr m-head"><span>Nr</span><span>Klant &amp; adres</span><span>Wie</span><span class="m-u">Uren</span><span>Status</span></div>
+                  <div class="m-tr"><span class="m-nr">4128</span><span class="m-p">CV &mdash; Delfgauw<b>Van Kerckhoven 12</b></span><span class="m-who">M</span><span class="m-u">6,5</span><span class="m-tag g">Onderweg</span></div>
+                  <div class="m-tr"><span class="m-nr">4131</span><span class="m-p">Warmtepomp &mdash; Sliedrecht<b>Merwestraat 88</b></span><span class="m-who">R</span><span class="m-u">14,0</span><span class="m-tag o">Materiaal</span></div>
+                  <div class="m-tr"><span class="m-nr">4134</span><span class="m-p">Onderhoud kantoor<b>Zuidplein 4</b></span><span class="m-who">M</span><span class="m-u">2,0</span><span class="m-tag g">Onderweg</span></div>
+                  <div class="m-tr"><span class="m-nr">4139</span><span class="m-p">Zonnepaneel &mdash; Voorburg<b>Kerkstraat 21</b></span><span class="m-who">J</span><span class="m-u">9,5</span><span class="m-tag n">Ingepland</span></div>
+                  <div class="m-tr"><span class="m-nr">4142</span><span class="m-p">CV-storing &mdash; Rijswijk<b>Haagweg 156</b></span><span class="m-who">R</span><span class="m-u">1,5</span><span class="m-tag r">Spoed</span></div>
+                </div>
+                <div class="m-foot"><span>28 werkorders &middot; 71,5 uren gepland</span><span>&lsaquo; 1 2 3 &rsaquo;</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="pcard__meta"><span class="pcard__sector" data-i18n="p2Sector">Installatiebedrijf</span><span data-i18n="p2Num">Voorbeeld 02</span></p>
+          <h3 class="pcard__title"><em data-i18n="p2TitleA">Pakket op maat</em> <span data-i18n="p2TitleB">voor werkorders en planning</span></h3>
+          <p class="pcard__text" data-i18n="p2Text">Op maat gebouwd omdat er niets paste: geen standaardpakket kon uit de voeten met deze manier van roosteren en factureren. Van werkbon tot factuur op &eacute;&eacute;n plek, met een koppeling naar de administratie.</p>
+          <div class="pcard__facts">
+            <div class="pcard__fact"><span data-i18n="factVorm">Vorm</span><b data-i18n="p2F1">Applicatie op maat</b></div>
+            <div class="pcard__fact"><span data-i18n="factStack">Techniek</span><b data-i18n="p2F2">Next.js + SQL</b></div>
+            <div class="pcard__fact"><span data-i18n="factKoppeling">Koppeling</span><b data-i18n="p2F3">Boekhouding</b></div>
+          </div>
+          <p class="pcard__chips"><span>Maatwerk</span><span>Next.js</span><span>Azure SQL</span><span>Exact-koppeling</span></p>
+        </article>
+
+        <!-- 03 — eigen dashboard: liquiditeit -->
+        <article class="pcard">
+          <div class="pcard__shot">
+            <div class="mock mock--own" aria-hidden="true">
+              <div class="m-hd">
+                <span class="m-l"><span class="m-logo">F</span><span class="m-name">13-weeks <em>liquiditeit</em></span></span>
+                <span class="m-r"><span>wk 34</span><span class="m-live">Live</span></span>
+              </div>
+              <div class="m-tabs"><span class="on">Basis</span><span>Best-case</span><span>Worst-case</span><span>Aannames</span></div>
+              <div class="m-body">
+                <div class="m-kpis">
+                  <div class="m-kpi"><span class="m-lb">Cash nu</span><span class="m-vl">&euro; 812k</span><span class="m-dl up">&#9650; &euro;48k</span></div>
+                  <div class="m-kpi"><span class="m-lb">Wk +6</span><span class="m-vl">&euro; 640k</span><span class="m-dl">&#9660; &euro;172k</span></div>
+                  <div class="m-kpi"><span class="m-lb">Runway</span><span class="m-vl">18 wk</span><span class="m-dl">= stabiel</span></div>
+                  <div class="m-kpi"><span class="m-lb">Scenario</span><span class="m-vl">Basis</span><span class="m-dl">3 varianten</span></div>
+                </div>
+                <div class="m-card">
+                  <div class="m-ch"><b>Cash-positie &middot; 13 weken vooruit</b><span>&euro;k</span></div>
+                  <svg viewBox="0 0 400 116" preserveAspectRatio="none">
+                    <g stroke="#E6DFD2" stroke-width="1"><line x1="0" y1="18" x2="400" y2="18"/><line x1="0" y1="46" x2="400" y2="46"/><line x1="0" y1="74" x2="400" y2="74"/><line x1="0" y1="102" x2="400" y2="102"/></g>
+                    <g fill="#7C879B" font-size="7"><text x="2" y="20">1200</text><text x="2" y="48">900</text><text x="2" y="76">600</text><text x="2" y="104">300</text></g>
+                    <path d="M180,32 L215,40 L250,36 L285,44 L320,50 L355,48 L390,54 L400,58 L400,78 L390,70 L355,66 L320,72 L285,64 L250,58 L215,62 L180,54 Z" fill="#8F5F2A" opacity=".14"/>
+                    <path d="M20,70 L50,60 L80,64 L110,52 L140,56 L170,42 L180,38" fill="none" stroke="#16243D" stroke-width="2"/>
+                    <g fill="#16243D"><circle cx="20" cy="70" r="2"/><circle cx="50" cy="60" r="2"/><circle cx="80" cy="64" r="2"/><circle cx="110" cy="52" r="2"/><circle cx="140" cy="56" r="2"/><circle cx="170" cy="42" r="2"/><circle cx="180" cy="38" r="2.4" stroke="#fff" stroke-width="1"/></g>
+                    <path d="M180,38 L215,44 L250,40 L285,48 L320,54 L355,52 L390,58 L400,62" fill="none" stroke="#8F5F2A" stroke-width="1.8" stroke-dasharray="4 3"/>
+                    <line x1="180" y1="6" x2="180" y2="112" stroke="#C9A96A" stroke-dasharray="2 3" stroke-width=".8"/>
+                    <text x="185" y="13" font-size="7" fill="#A6884D" letter-spacing="1.2">VANDAAG</text>
+                    <g fill="#7C879B" font-size="7" text-anchor="middle"><text x="50" y="113">W30</text><text x="110" y="113">W32</text><text x="180" y="113" fill="#A6884D">W34</text><text x="250" y="113">W36</text><text x="320" y="113">W40</text><text x="390" y="113">W47</text></g>
+                    <g><rect x="246" y="20" width="92" height="15" rx="2" fill="#16243D"/><text x="292" y="31" font-size="8" font-weight="600" fill="#F3EEE4" text-anchor="middle">Betaling &euro;182k &middot; wk 38</text></g>
+                    <line x1="292" y1="35" x2="285" y2="46" stroke="#16243D" stroke-width="1"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="pcard__meta"><span class="pcard__sector" data-i18n="p3Sector">Groeibedrijf</span><span data-i18n="p3Num">Voorbeeld 03</span></p>
+          <h3 class="pcard__title"><span data-i18n="p3TitleA">Rollende</span> <em data-i18n="p3TitleB">13-weeks liquiditeit</em> <span data-i18n="p3TitleC">met scenario&rsquo;s</span></h3>
+          <p class="pcard__text" data-i18n="p3Text">In plaats van een handmatig Excel-model dat elke maand opnieuw moet: basis, best-case en worst-case naast elkaar, met het werkkapitaal per week en de aannames erbij. Steeds actueel, niet steeds opnieuw bouwen.</p>
+          <div class="pcard__facts">
+            <div class="pcard__fact"><span data-i18n="factVorm">Vorm</span><b data-i18n="p3F1">Eigen dashboard</b></div>
+            <div class="pcard__fact"><span data-i18n="factBronnen">Bronnen</span><b data-i18n="p3F2">Boekhouding + betalingen</b></div>
+            <div class="pcard__fact"><span data-i18n="factHorizon">Horizon</span><b data-i18n="p3F3">13 weken</b></div>
+          </div>
+          <p class="pcard__chips"><span>Eigen dashboard</span><span>Scenario&rsquo;s</span><span>Werkkapitaal</span></p>
+        </article>
+
+        <!-- 04 — koppelingen -->
+        <article class="pcard">
+          <div class="pcard__shot">
+            <div class="mock mock--own" aria-hidden="true">
+              <div class="m-hd">
+                <span class="m-l"><span class="m-logo">F</span><span class="m-name"><em>Koppelingen</em> in beeld</span></span>
+                <span class="m-r"><span>sync 3 min</span><span class="m-live">Actief</span></span>
+              </div>
+              <div class="m-tabs"><span class="on">Overzicht</span><span>Foutlog</span><span>Mapping</span><span>Signalering</span></div>
+              <div class="m-body">
+                <div class="m-kpis">
+                  <div class="m-kpi"><span class="m-lb">Runs / 24u</span><span class="m-vl">96</span><span class="m-dl up">100% actief</span></div>
+                  <div class="m-kpi"><span class="m-lb">Records</span><span class="m-vl">4.812</span><span class="m-dl">vandaag</span></div>
+                  <div class="m-kpi"><span class="m-lb">Fouten</span><span class="m-vl">2</span><span class="m-dl">opgelost</span></div>
+                  <div class="m-kpi"><span class="m-lb">Vertraging</span><span class="m-vl">1,8 s</span><span class="m-dl">p95</span></div>
+                </div>
+                <div class="m-card">
+                  <div class="m-ch"><b>Gegevensstroom &middot; vier systemen</b><span>elke 15 min</span></div>
+                  <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
+                    <g font-size="9" fill="#16243D">
+                      <rect x="8" y="12" width="88" height="30" rx="4" fill="#fff" stroke="#E6DFD2"/><rect x="8" y="16" width="5" height="22" fill="#D6553D"/>
+                      <text x="20" y="26" font-weight="600">Boekhouding</text><text x="20" y="37" fill="#7C879B" font-size="7">ADMINISTRATIE</text>
+                      <rect x="8" y="60" width="88" height="30" rx="4" fill="#fff" stroke="#E6DFD2"/><rect x="8" y="64" width="5" height="22" fill="#5A9C48"/>
+                      <text x="20" y="74" font-weight="600">Webshop</text><text x="20" y="85" fill="#7C879B" font-size="7">VERKOOP</text>
+                      <rect x="8" y="108" width="88" height="30" rx="4" fill="#fff" stroke="#E6DFD2"/><rect x="8" y="112" width="5" height="22" fill="#E66C37"/>
+                      <text x="20" y="122" font-weight="600">Facturatie</text><text x="20" y="133" fill="#7C879B" font-size="7">DEBITEUREN</text>
+                    </g>
+                    <g><rect x="158" y="50" width="118" height="50" rx="6" fill="#16243D"/>
+                      <text x="217" y="70" fill="#F3EEE4" text-anchor="middle" font-size="10" font-weight="600">Datalaag</text>
+                      <text x="217" y="84" fill="#C9A96A" text-anchor="middle" font-size="7.5" letter-spacing="1.4">ELKE 15 MINUTEN</text></g>
+                    <g font-size="9" fill="#16243D">
+                      <rect x="326" y="60" width="66" height="30" rx="4" fill="#fff" stroke="#E6DFD2"/><rect x="326" y="64" width="5" height="22" fill="#118DFF"/>
+                      <text x="338" y="74" font-weight="600">Rapportage</text><text x="338" y="85" fill="#7C879B" font-size="7">POWER BI</text></g>
+                    <g fill="none" stroke="#C9A96A" stroke-width="1.2" stroke-dasharray="4 3">
+                      <path d="M96,27 C126 27, 142 46, 158 62"/><path d="M96,75 L158 75"/><path d="M96,123 C126 123, 142 104, 158 88"/></g>
+                    <g fill="none" stroke="#8F5F2A" stroke-width="1.6"><path d="M276,75 L324 75"/><path d="M319 71 L326 75 L319 79" fill="#8F5F2A"/></g>
+                    <g font-size="7" fill="#7C879B" letter-spacing="1"><text x="120" y="20">200/dag</text><text x="120" y="68">1.400/dag</text><text x="120" y="116">3.200/dag</text></g>
+                    <g><circle cx="170" cy="60" r="3" fill="#4C7A5C"/><circle cx="180" cy="60" r="3" fill="#4C7A5C"/><circle cx="190" cy="60" r="3" fill="#4C7A5C"/><circle cx="200" cy="60" r="3" fill="#C46200"/></g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="pcard__meta"><span class="pcard__sector" data-i18n="p4Sector">E-commerce</span><span data-i18n="p4Num">Voorbeeld 04</span></p>
+          <h3 class="pcard__title"><span data-i18n="p4TitleA">Systemen die</span> <em data-i18n="p4TitleB">met elkaar praten</em></h3>
+          <p class="pcard__text" data-i18n="p4Text">Einde aan nachtelijke exportscripts en handmatig overtikken. De systemen wisselen gegevens uit via een tussenlaag, met foutmelding, signalering en documentatie die klopt.</p>
+          <div class="pcard__facts">
+            <div class="pcard__fact"><span data-i18n="factVorm">Vorm</span><b data-i18n="p4F1">Koppeling en bewaking</b></div>
+            <div class="pcard__fact"><span data-i18n="factStack">Techniek</span><b data-i18n="p4F2">Azure Functions + SQL</b></div>
+            <div class="pcard__fact"><span data-i18n="factRitme">Ritme</span><b data-i18n="p4F3">Elke 15 minuten</b></div>
+          </div>
+          <p class="pcard__chips"><span>Koppelingen</span><span>Azure Functions</span><span>Foutbewaking</span></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <section class="cs-note">
     <div class="wrap">
       <div class="cs-note__box">
-        <p data-i18n="note">Uitgebreide cases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.</p>
+        <p data-i18n="note">Uitgebreide klantcases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.</p>
         <a href="/contact" class="btn" data-i18n="cta">Vraag de diagnose aan</a>
       </div>
     </div>
@@ -408,6 +767,30 @@ window.FINSERA_PAGE = {
     c2TileA: 'Per locatie', c2TileASub: 'begroting, realisatie en analyse',
     c2TileB: 'AO/IB vastgelegd', c2TileBSub: 'processen toetsbaar voor de accountant',
     c2TileC: 'Zelfstandig verder', c2TileCSub: 'overdracht in plaats van afhankelijkheid',
+    // Voorbeeldprojecten. De schermbeelden zelf staan op aria-hidden en worden
+    // niet vertaald: dat is beeld, geen tekst.
+    projEyebrow: 'Wat we bouwen',
+    projHeading: 'Vier voorbeelden. ',
+    projHeadingEm: 'Geen sfeerplaatjes.',
+    projIntro: 'Zo ziet een oplevering eruit: van een Power BI-rapport voor een groothandel tot een pakket op maat voor werkorders. Dit zijn illustraties van vorm en detailniveau, geen bestaande opdrachtgevers \u2014 klantverhalen staan hierboven, met naam en gezicht.',
+    factVorm: 'Vorm', factDatalaag: 'Datalaag', factOmvang: 'Omvang', factStack: 'Techniek',
+    factKoppeling: 'Koppeling', factBronnen: 'Bronnen', factHorizon: 'Horizon', factRitme: 'Ritme',
+    p1Sector: 'Groothandel', p1Num: 'Voorbeeld 01',
+    p1TitleA: 'Marge-explorer per', p1TitleB: 'productcategorie',
+    p1Text: 'Van \u201cwe voelen wel welke lijnen slecht draaien\u201d naar zwart-op-wit brutomarge per categorie, klant en artikel. Vijf pagina\u2019s in Power BI, gevoed uit de boekhouding en het ERP via een eigen datalaag.',
+    p1F1: 'Power BI-rapport', p1F2: 'Boekhouding + ERP \u2192 SQL', p1F3: '5 pagina\u2019s',
+    p2Sector: 'Installatiebedrijf', p2Num: 'Voorbeeld 02',
+    p2TitleA: 'Pakket op maat', p2TitleB: 'voor werkorders en planning',
+    p2Text: 'Op maat gebouwd omdat er niets paste: geen standaardpakket kon uit de voeten met deze manier van roosteren en factureren. Van werkbon tot factuur op \u00e9\u00e9n plek, met een koppeling naar de administratie.',
+    p2F1: 'Applicatie op maat', p2F2: 'Next.js + SQL', p2F3: 'Boekhouding',
+    p3Sector: 'Groeibedrijf', p3Num: 'Voorbeeld 03',
+    p3TitleA: 'Rollende', p3TitleB: '13-weeks liquiditeit', p3TitleC: 'met scenario\u2019s',
+    p3Text: 'In plaats van een handmatig Excel-model dat elke maand opnieuw moet: basis, best-case en worst-case naast elkaar, met het werkkapitaal per week en de aannames erbij. Steeds actueel, niet steeds opnieuw bouwen.',
+    p3F1: 'Eigen dashboard', p3F2: 'Boekhouding + betalingen', p3F3: '13 weken',
+    p4Sector: 'E-commerce', p4Num: 'Voorbeeld 04',
+    p4TitleA: 'Systemen die', p4TitleB: 'met elkaar praten',
+    p4Text: 'Einde aan nachtelijke exportscripts en handmatig overtikken. De systemen wisselen gegevens uit via een tussenlaag, met foutmelding, signalering en documentatie die klopt.',
+    p4F1: 'Koppeling en bewaking', p4F2: 'Azure Functions + SQL', p4F3: 'Elke 15 minuten',
     casesEyebrow: 'Cases',
     h1: 'Resultaten uit de praktijk', intro: 'Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert.',
     casesTalk: 'Bespreek jouw situatie',
@@ -420,7 +803,7 @@ window.FINSERA_PAGE = {
     case2Chip1: 'Boekhouding', case2Chip2: 'Cliëntdata', case2Badge: 'AO/IB · audit-proof',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'eigenaresse', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
     case2Quote: '', case2QuoteBy: '',
-    note: 'Uitgebreide cases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.'
+    note: 'Uitgebreide klantcases volgen. Benieuwd wat we voor jouw organisatie kunnen betekenen? Vraag de diagnose aan.'
   },
   en: {
     storySituatie: 'The situation', storyGedaan: 'What we did', storyOplevert: 'What it delivers',
@@ -443,6 +826,28 @@ window.FINSERA_PAGE = {
     c2TileA: 'Per location', c2TileASub: 'budget, actuals and analysis',
     c2TileB: 'Controls documented', c2TileBSub: 'processes auditable for the accountant',
     c2TileC: 'Independently onward', c2TileCSub: 'handover instead of dependency',
+    projEyebrow: 'What we build',
+    projHeading: 'Four examples. ',
+    projHeadingEm: 'No stock imagery.',
+    projIntro: 'This is what a delivery looks like: from a Power BI report for a wholesaler to a bespoke system for work orders. These illustrate form and level of detail, not existing clients \u2014 client stories are above, with names and faces.',
+    factVorm: 'Form', factDatalaag: 'Data layer', factOmvang: 'Size', factStack: 'Technology',
+    factKoppeling: 'Integration', factBronnen: 'Sources', factHorizon: 'Horizon', factRitme: 'Frequency',
+    p1Sector: 'Wholesale', p1Num: 'Example 01',
+    p1TitleA: 'Margin explorer per', p1TitleB: 'product category',
+    p1Text: 'From \u201cwe have a feeling which lines are underperforming\u201d to gross margin in black and white, per category, customer and item. Five pages in Power BI, fed from the bookkeeping and the ERP through a dedicated data layer.',
+    p1F1: 'Power BI report', p1F2: 'Bookkeeping + ERP \u2192 SQL', p1F3: '5 pages',
+    p2Sector: 'Installation company', p2Num: 'Example 02',
+    p2TitleA: 'A bespoke system', p2TitleB: 'for work orders and planning',
+    p2Text: 'Built from scratch because nothing fitted: no off-the-shelf package could handle this way of scheduling and invoicing. From work order to invoice in one place, with a link to the bookkeeping.',
+    p2F1: 'Bespoke application', p2F2: 'Next.js + SQL', p2F3: 'Bookkeeping',
+    p3Sector: 'Growth company', p3Num: 'Example 03',
+    p3TitleA: 'A rolling', p3TitleB: '13-week cash forecast', p3TitleC: 'with scenarios',
+    p3Text: 'Instead of a manual Excel model that has to be rebuilt every month: base, best and worst case side by side, with working capital per week and the assumptions alongside. Always current, never rebuilt from scratch.',
+    p3F1: 'Own dashboard', p3F2: 'Bookkeeping + payments', p3F3: '13 weeks',
+    p4Sector: 'E-commerce', p4Num: 'Example 04',
+    p4TitleA: 'Systems that', p4TitleB: 'talk to each other',
+    p4Text: 'An end to nightly export scripts and manual re-keying. The systems exchange data through a middle layer, with error reporting, alerting and documentation that is actually correct.',
+    p4F1: 'Integration and monitoring', p4F2: 'Azure Functions + SQL', p4F3: 'Every 15 minutes',
     casesEyebrow: 'Cases',
     h1: 'Results in practice', intro: 'No theoretical promises, but what our approach delivers in practice.',
     casesTalk: 'Discuss your situation',
@@ -454,7 +859,7 @@ window.FINSERA_PAGE = {
     case2Chip1: 'Bookkeeping', case2Chip2: 'Client data', case2Badge: 'AO/IB · audit-proof',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'owner', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
     case2Quote: '', case2QuoteBy: '',
-    note: 'Detailed cases to follow. Curious what we can do for your organisation? Request the diagnosis.'
+    note: 'Detailed client cases to follow. Curious what we can do for your organisation? Request the diagnosis.'
   }
 };
 </script>
