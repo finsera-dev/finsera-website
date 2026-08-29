@@ -2557,6 +2557,14 @@ body {
 }
 .hero2__dlintro { margin: 14px 0 0; font-size: 16.5px; line-height: 1.68; color: var(--ink-70); max-width: 68ch; text-wrap: pretty; }
 
+/* Op breed scherm komt het beeld eerst en de uitleg eronder: je ziet wat er
+   gebeurt en leest daarna waarom. Alleen de kop verhuist; de wrap is al een
+   flexkolom, dus order 1 zet hem achter de rest. Op telefoon blijft de
+   volgorde zoals hierboven ingesteld (foto, kop, paneel). */
+@media (min-width: 901px) {
+  .hero2__dlhead { order: 1; margin-top: 0; margin-bottom: 0; }
+}
+
 /* De korte biografie onder elk portret. */
 .team__bio { display: block; margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--ink-70); text-wrap: pretty; }
 
