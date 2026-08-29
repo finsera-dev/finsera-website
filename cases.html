@@ -70,13 +70,8 @@
     }
     .caseref__photo--charlotte img { object-position: 44% 34%; }
     .caseref__photo--miriam img { object-position: 50% 22%; }
-    .caseref__credit {
-      margin-top: 12px; font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      letter-spacing: .05em; text-transform: uppercase; color: var(--ink-55);
-    }
-    .caseref__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; }
-    .caseref__num { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .18em; color: var(--ink-55); }
     .caseref__client { margin: 20px 0 0; display: flex; flex-direction: column; gap: 5px; }
+    .caseref__client:first-child { margin-top: 0; }
     .caseref__org { font-family: var(--serif); font-size: clamp(20px, 2vw, 25px); font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
     .caseref__person { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-55); }
     .caseref__title {
@@ -485,13 +480,8 @@
         <article class="caseref">
           <figure class="caseref__photo caseref__photo--charlotte">
             <img src="img/cases/dochorse-charlotte-van-der-pauw.webp" alt="Charlotte van der Pauw, eigenaresse van DocHorse" width="1080" height="676" decoding="async" loading="lazy">
-            <figcaption class="caseref__credit" data-i18n="case1Credit">Charlotte van der Pauw &middot; DocHorse</figcaption>
           </figure>
           <div class="caseref__body">
-            <div class="caseref__meta">
-              <span class="caseref__num">01</span>
-              <span class="case__tag" data-i18n="case1Tag">E-commerce</span>
-            </div>
             <p class="caseref__client">
               <span class="caseref__org">DocHorse</span>
               <span class="caseref__person"><span data-i18n="case1Person">Charlotte van der Pauw</span> &middot; <span data-i18n="case1Role">eigenaresse</span></span>
@@ -545,13 +535,8 @@
         <article class="caseref caseref--flip">
           <figure class="caseref__photo caseref__photo--miriam">
             <img src="img/cases/duce-miriam-twilt-mendonca.webp" alt="Miriam Twilt-Mendon&ccedil;a, eigenaresse van DUCE" width="1200" height="1200" decoding="async" loading="lazy">
-            <figcaption class="caseref__credit" data-i18n="case2Credit">Miriam Twilt-Mendon&ccedil;a &middot; DUCE</figcaption>
           </figure>
           <div class="caseref__body">
-            <div class="caseref__meta">
-              <span class="caseref__num">02</span>
-              <span class="case__tag" data-i18n="case2Tag">Zorg</span>
-            </div>
             <p class="caseref__client">
               <span class="caseref__org">DUCE</span>
               <span class="caseref__person"><span data-i18n="case2Person">Miriam Twilt-Mendon&ccedil;a</span> &middot; <span data-i18n="case2Role">eigenaresse</span></span>
@@ -926,14 +911,16 @@ window.FINSERA_PAGE = {
     casesEyebrow: 'Cases',
     h1: 'Resultaten uit de praktijk', intro: 'Finsera bouwt managementrapportages, Power BI-dashboards en financiële processen voor groeiende MKB-bedrijven, onder meer in e-commerce en de zorg. Geen theoretische beloftes, maar wat onze aanpak in de praktijk oplevert — hieronder twee klantcases en een selectie van wat we bouwen.',
     casesTalk: 'Bespreek jouw situatie',
+    // case1Tag en case2Tag (de sector) staan sinds augustus niet meer op de
+    // pagina; ze blijven staan voor als het label terugkomt.
     case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge', case1ResultA: 'Webshop-, marketing- en boekhouddata samengebracht in één ', case1ResultLink: 'Power BI-omgeving',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding',
-    case1Person: 'Charlotte van der Pauw', case1Role: 'eigenaresse', case1Credit: 'Charlotte van der Pauw · DocHorse',
+    case1Person: 'Charlotte van der Pauw', case1Role: 'eigenaresse',
     // Vul hieronder het echte citaat in en haal [hidden] van het blockquote in de HTML.
     case1Quote: '', case1QuoteBy: '',
     case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control', case2Result: 'Financiële cijfers en cliëntdata in één kwartaalrapportage, afgezet tegen budget en voorgaande periode.',
     case2Chip1: 'AO/IB', case2Chip2: 'Rapportage',
-    case2Person: 'Miriam Twilt-Mendonça', case2Role: 'eigenaresse', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
+    case2Person: 'Miriam Twilt-Mendonça', case2Role: 'eigenaresse',
     case2Quote: '', case2QuoteBy: '',
     note: 'Benieuwd wat een goed datafundament voor jouw organisatie oplevert? Elk traject start met een diagnose van 2–4 weken.'
   },
@@ -984,11 +971,11 @@ window.FINSERA_PAGE = {
     casesTalk: 'Discuss your situation',
     case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin', case1ResultA: 'Webshop, marketing and bookkeeping data brought together in one ', case1ResultLink: 'Power BI environment',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping',
-    case1Person: 'Charlotte van der Pauw', case1Role: 'owner', case1Credit: 'Charlotte van der Pauw · DocHorse',
+    case1Person: 'Charlotte van der Pauw', case1Role: 'owner',
     case1Quote: '', case1QuoteBy: '',
     case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control', case2Result: 'Financial figures and client data in one quarterly report, set against budget and the previous period.',
     case2Chip1: 'Internal control', case2Chip2: 'Reporting',
-    case2Person: 'Miriam Twilt-Mendonça', case2Role: 'owner', case2Credit: 'Miriam Twilt-Mendonça · DUCE',
+    case2Person: 'Miriam Twilt-Mendonça', case2Role: 'owner',
     case2Quote: '', case2QuoteBy: '',
     note: 'Curious what a solid data foundation would deliver for your organisation? Every engagement starts with a diagnosis of 2–4 weeks.'
   }
