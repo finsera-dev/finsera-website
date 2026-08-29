@@ -126,17 +126,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
    daar dooft de knop juist naar de zachte papierkleur. */
 .btn--op-donker:hover { background: var(--band-paper); color: var(--ink); }
 
-.btn--secundair {
-  background: #fff;
-  color: var(--ink-70);
-  border-color: var(--hair);
-}
-.btn--secundair:hover {
-  background: #fff;
-  color: var(--ink);
-  border-color: var(--ink);
-}
-
 /* ------------------------------------------------------------ nav ------- */
 .nav {
   position: sticky;
@@ -1600,11 +1589,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-wrap: pretty;
 }
 .hero2__lead { display: block; margin-top: 10px; color: var(--ink); font-weight: 600; }
+/* Eén gevulde hoofdknop met daaronder een gewone tekstlink. Twee lichte
+   knoppen naast elkaar gaven geen enkel richtpunt: even zwaar, verschillend
+   breed en met verschillende randen. Nu is er één actie en één uitweg. */
 .hero2__cta {
   margin-top: 28px;
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 12px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px;
 }
+.hero2__cta .btn { background: var(--ink); color: #fff; border-color: var(--ink); }
+.hero2__cta .btn:hover { background: #fff; color: var(--ink); }
+.hero2__cta-link {
+  padding: 10px 4px; font-size: 15px; color: var(--ink-70); text-decoration: underline;
+  text-decoration-color: var(--hair); text-underline-offset: 5px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+.hero2__cta-link:hover { color: var(--ink); text-decoration-color: var(--ink); }
 
 /* ------------------------------------------------- stage + glazen paneel -- */
 .hero2__stage {

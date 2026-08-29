@@ -43,7 +43,7 @@
       dlHeading: 'Al je cijfers uit Exact Online, AFAS, bol.com en Mollie in één dashboard',
       dlIntro: 'Finsera ontsluit data uit boekhoudpakketten zoals Exact Online en SnelStart, en uit verkoop- en betaalplatformen, naar één betrouwbaar Power BI-dashboard. Geen losse exports of tegenstrijdige lijsten meer, maar één bron van waarheid: omzet, marge en cashpositie — actueel en op elk moment beschikbaar.',
       painIntro: 'Een organisatie is haar financiële structuur ontgroeid wanneer de rapportage de groei niet meer bijhoudt: cijfers spreken elkaar tegen, inzicht komt te laat en te veel kennis zit in hoofden en Excel-bestanden. Herken je dit, dan beslis je op gevoel — en wordt finance een bottleneck in plaats van een stuurinstrument.',
-      heroCta2: 'Bekijk onze diensten',
+      heroCta2: 'Lees meer over wat we doen',
       teamBio1: 'Financial & business consultant. MSc Accountancy & Controlling, voormalig Belastingdienst en Douane, en zelf ondernemer. Kent compliance en controle van binnenuit — en weet wat een directie nodig heeft om te sturen.',
       teamBio2: 'Data analyst & developer, vanaf het begin betrokken bij Finsera. Bouwt de datafundamenten, koppelingen en Power BI-dashboards waar onze rapportages op draaien. Vertaalt financiële vragen naar techniek die werkt.',
       heroCta1: 'Plan een kennismakingsgesprek',
@@ -204,6 +204,7 @@
       ctaTitle: 'Klaar voor grip op je cijfers?',
       ctaText: 'Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
+      footCta: 'Neem contact op',
       footDesc: 'Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring', footTerms: 'Algemene voorwaarden',
       painData: [
@@ -249,7 +250,7 @@
       dlHeading: 'All your figures from Exact Online, AFAS, bol.com and Mollie in one dashboard',
       dlIntro: 'Finsera unlocks data from accounting packages such as Exact Online and SnelStart, and from sales and payment platforms, into one reliable Power BI dashboard. No more loose exports or contradictory lists, but a single source of truth: revenue, margin and cash position — current and available at any moment.',
       painIntro: 'An organisation has outgrown its financial structure when reporting can no longer keep up with the growth: figures contradict each other, insight arrives too late, and too much knowledge sits in people’s heads and Excel files. If you recognise this, you are deciding on gut feeling — and finance becomes a bottleneck instead of a steering instrument.',
-      heroCta2: 'See our services',
+      heroCta2: 'Read more about what we do',
       teamBio1: 'Financial & business consultant. MSc Accountancy & Controlling, formerly with the Dutch Tax and Customs Administration, and an entrepreneur himself. Knows compliance and control from the inside — and what a board needs in order to steer.',
       teamBio2: 'Data analyst & developer, involved with Finsera from the start. Builds the data foundations, integrations and Power BI dashboards our reporting runs on. Translates financial questions into technology that works.',
       heroCta1: 'Book an intro call',
@@ -408,6 +409,7 @@
       ctaTitle: 'Ready for control over your numbers?',
       ctaText: 'No temporary patches or loose tools, but a foundation that grows with your organisation. Let’s explore in one conversation where the processes get stuck now and where the biggest gains are, tailored to where you stand today.',
       footTagline: 'A financial foundation that grows with your organisation.',
+      footCta: 'Get in touch',
       footDesc: 'Management reporting, Power BI dashboards and AI automation for growing mid-market companies.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy', footTerms: 'Terms and conditions',
       painData: [
