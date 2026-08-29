@@ -7,7 +7,7 @@
 
   var SHARED = {
     nl: {
-      navHome: 'Home', navOver: 'Over ons', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Vraag de diagnose aan',
+      navHome: 'Home', navOver: 'Over ons', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een kennismaking',
       cta: 'Vraag de diagnose aan',
       footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
       footCta: 'Neem contact op',
@@ -16,7 +16,7 @@
       ctaWho: 'Je spreekt direct met Öner of Tomas.'
     },
     en: {
-      navHome: 'Home', navOver: 'About us', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Request the diagnosis',
+      navHome: 'Home', navOver: 'About us', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book an intro call',
       cta: 'Request the diagnosis',
       footTagline: 'A financial foundation that grows with your organisation.',
       footCta: 'Get in touch',
