@@ -5,7 +5,14 @@ node_modules/
 # Screenshots van de controlescripts horen niet in de repo.
 *-hero-en.png
 *-hero-nojs.png
+shots*/
 
 # Voorbeeldpaginas: die moeten vanuit de repo-map geserveerd worden voor de
 # relatieve paden naar css/ en js/, maar horen niet in de repo.
 _preview-*.html
+
+# schermafdrukken uit controlescripts horen niet in de repo
+*-desk.png
+*-mob.png
+pcard-na*.png
+chips-na.png

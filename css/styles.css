@@ -127,14 +127,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .btn--op-donker:hover { background: var(--band-paper); color: var(--ink); }
 
 .btn--secundair {
-  background: transparent;
+  background: #fff;
   color: var(--ink-70);
   border-color: var(--hair);
 }
 .btn--secundair:hover {
-  background: var(--paper-deep);
+  background: #fff;
   color: var(--ink);
-  border-color: var(--hair);
+  border-color: var(--ink);
 }
 
 /* ------------------------------------------------------------ nav ------- */
@@ -1474,6 +1474,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .team__photo { filter: saturate(0.86) contrast(1.03); }
 .team__person--a .team__photo { aspect-ratio: 3.6 / 5; }
 
+/* Deze twee regels stonden ná het breekpunt op 900px en wonnen het daardoor
+   ook op een telefoon: de tekstkolom werd daar 116px breed. De herhaling
+   hieronder zet dat recht — op smal scherm staan intro, Oner en Tomas gewoon
+   onder elkaar, en hebben beide portretten dezelfde verhouding. */
+@media (max-width: 900px) {
+  .team__layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .team__person--a .team__photo { aspect-ratio: 4 / 4.6; }
+}
+
 /* mini-grafiekjes bij de cases: inkt en koper op papier, illustratief */
 .case__viz { width: 132px; height: 56px; margin-top: 14px; display: block; }
 
@@ -1589,7 +1600,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-wrap: pretty;
 }
 .hero2__lead { display: block; margin-top: 10px; color: var(--ink); font-weight: 600; }
-.hero2__cta { margin-top: 28px; }
+.hero2__cta {
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 12px;
+}
 
 /* ------------------------------------------------- stage + glazen paneel -- */
 .hero2__stage {
@@ -2070,12 +2085,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 @media (max-width: 900px) {
-  .hero2__stage {
-    grid-template-columns: 1fr;
-    grid-template-areas: "dl" "photo";
+  /* Op telefoon staat de foto voorop, dan de uitleg, dan het paneel. De foto
+     zit in .hero2__stage en de tekst erbuiten, dus de stage geeft zijn eigen
+     opmaakbox op (display: contents) en worden zijn kinderen broers en zussen
+     van de tekst. Daarna bepaalt order de volgorde. De marges van de stage
+     vervallen daarmee en staan hieronder op de kinderen zelf. */
+  .hero2__wrap { display: flex; flex-direction: column; }
+  .hero2__stage { display: contents; }
+  .hero2__photo:not([hidden]) {
+    order: 1;
+    aspect-ratio: 16 / 10;
+    margin-top: clamp(30px, 4vw, 52px);
   }
-  .hero2__photo:not([hidden]) { aspect-ratio: 16 / 10; }
-  .hero2__card--fit { justify-self: center; }
+  .hero2__dlhead { order: 2; margin-top: clamp(26px, 3.4vw, 36px); }
+  .hero2__dlwrap { order: 3; margin-bottom: clamp(28px, 5vh, 44px); }
+  .hero2__card--fit { order: 4; justify-self: center; }
 }
 
 /* ==========================================================================
@@ -2242,7 +2266,10 @@ body {
    hairlines van de rest van de site. De initialen-cirkels zijn vervangen door
    de echte portretten die al in img/cases staan.
    ========================================================================== */
-.rev { padding-top: clamp(64px, 9vw, 130px); }
+.rev {
+  padding-top: clamp(64px, 9vw, 130px);
+  padding-bottom: clamp(56px, 8vw, 104px);
+}
 .rev__grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 1.8vw, 24px);
@@ -2502,7 +2529,10 @@ body {
 .pbanner__names b { color: var(--band-paper); font-weight: 500; }
 @media (max-width: 720px) {
   .pbanner__photo { object-position: 62% 26%; }
-  .pbanner--cases .pbanner__photo { object-position: 4% 30%; }
+  .pbanner--over .pbanner__photo,
+  .pbanner--diensten .pbanner__photo,
+  .pbanner--cases .pbanner__photo,
+  .pbanner--blog .pbanner__photo { object-position: 50% 35%; }
   .pbanner__scrim {
     background: linear-gradient(0deg, rgba(22,36,61,.96) 0%, rgba(22,36,61,.86) 44%, rgba(22,36,61,.50) 78%, rgba(22,36,61,.58) 100%);
   }
@@ -2570,7 +2600,7 @@ body {
 .svc--open .svc__readmore { display: none; }
 
 /* -- schermbeeld bij de AI-dienst, in dezelfde taal als bij de cases -- */
-.aishot { margin-top: clamp(26px,3.4vw,40px); aspect-ratio: 16/9; border: 1px solid var(--hair);
+.aishot { margin: clamp(26px,3.4vw,40px) 0 clamp(18px,2.2vw,26px); aspect-ratio: 16/9; border: 1px solid var(--hair);
   border-radius: var(--r-md); overflow: hidden; background: #FAFAFA; container-type: size; }
 .aimock { width: 640px; height: 360px; transform-origin: 0 0; transform: scale(calc(100cqw / 640px));
   display: flex; flex-direction: column; font-family: var(--sans); font-size: 11px; color: #252423; overflow: hidden; }
@@ -2596,13 +2626,10 @@ body {
 .aimock__note b { color: #C9A96A; }
 
 /* -- vragen die kopers stellen --------------------------------------- */
-.dfaq { max-width: var(--wrap); margin: 0 auto; padding: clamp(52px,7vw,88px) var(--pad); border-top: 1px solid var(--hair); }
-.dfaq__h2 { font-family: var(--serif); font-weight: 350; font-size: clamp(26px,3.2vw,40px); line-height: 1.12; letter-spacing: -.018em; color: var(--ink); margin: 0 0 clamp(26px,3.4vw,40px); max-width: 26ch; text-wrap: balance; }
-.dfaq__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(24px,3vw,44px); }
-.dfaq__item h3 { font-family: var(--serif); font-weight: 500; font-size: 18.5px; line-height: 1.3; color: var(--ink); margin: 0 0 10px; padding-top: 16px; border-top: 1px solid var(--hair); }
-.dfaq__item p { margin: 0; font-size: 15.5px; line-height: 1.66; color: var(--ink-70); text-wrap: pretty; }
+/* De veelgestelde vragen op de dienstenpagina gebruiken dezelfde
+   uitklapmodule als de homepage: zie .faq hierboven. */
 
-@media (max-width: 860px) { .dgn, .dfaq__grid { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .dgn { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .aimock__body { grid-template-columns: 1fr; } .aimock__side { display: none; } }
 
 /* -- de AI-dienst staat nu op papier in plaats van op navy; de .aiuse-opmaak

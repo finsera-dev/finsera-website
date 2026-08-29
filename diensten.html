@@ -310,7 +310,10 @@
 
 <main id="inhoud" class="main">
   <header class="pbanner pbanner--diensten">
-    <img class="pbanner__photo" src="img/team/samen.webp" alt="" width="1536" height="672" decoding="async">
+    <picture>
+      <source media="(max-width: 720px)" srcset="img/team/samen-mobiel.webp" width="1200" height="1600">
+      <img class="pbanner__photo" src="img/team/samen.webp" alt="" width="1536" height="672" decoding="async">
+    </picture>
     <div class="pbanner__scrim" aria-hidden="true"></div>
     <div class="pbanner__inner">
       <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="dienstenPageEyebrow">Onze diensten</span></p>
@@ -541,33 +544,50 @@
     </div>
   </section>
 
-  <section class="dfaq">
-    <h2 class="dfaq__h2" data-i18n="dfaqTitle">Wat je meestal nog wilt weten</h2>
-    <div class="dfaq__grid">
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ1">Wat kost het?</h3>
-        <p data-i18n="dfaqA1">Projecten voeren we uit tegen een vaste projectprijs, vooraf afgesproken op basis van de diagnose. Voor doorlopend beheer en doorontwikkeling van dashboards werken we met een abonnement. Omdat elk traject maatwerk is, noemen we pas een bedrag als we weten wat er nodig is.</p>
+  <!-- ================================================ VEELGESTELDE VRAGEN =
+       Zelfde uitklapmodule als op de homepage: native <details>/<summary>,
+       dus zonder JavaScript en met de juiste rollen vanuit de browser. Het
+       name-attribuut houdt er in moderne browsers een accordeon van waarin er
+       een tegelijk openstaat. De antwoorden staan gewoon in de HTML, dus
+       zoekmachines en taalmodellen lezen ze ook als ze dichtgeklapt zijn. -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <p class="faq__kicker"><span class="faq__kicker-rule" aria-hidden="true"></span><span data-i18n="faqEyebrow">Veelgestelde vragen</span></p>
+      <h2 class="faq__h2" data-i18n="dfaqTitle">Wat je meestal nog wilt weten</h2>
+
+      <div class="faq__list">
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ1">Wat kost het?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA1">Projecten voeren we uit tegen een vaste projectprijs, vooraf afgesproken op basis van de diagnose. Voor doorlopend beheer en doorontwikkeling van dashboards werken we met een abonnement. Omdat elk traject maatwerk is, noemen we pas een bedrag als we weten wat er nodig is.</p></div>
+        </details>
+
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ2">Hoe lang duurt het?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA2">De diagnose duurt twee tot vier weken. Daarna staat een werkend dashboard er meestal binnen vier tot zes weken. We werken met wekelijkse demo&rsquo;s, zodat je tussentijds ziet wat er gebouwd wordt en direct kunt bijsturen.</p></div>
+        </details>
+
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ3">We hebben al een dashboard. Wat dan?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA3">Dan beginnen we daar. Vaak ontbreekt niet het dashboard maar de betrouwbare rapportage eronder &mdash; of andersom. We bouwen voort op wat er staat en herstellen wat niet klopt, in plaats van alles opnieuw te doen.</p></div>
+        </details>
+
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ4">Vervangen jullie onze boekhouder of controller?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA4">Nee. We vervangen geen bestaande functies, we versterken ze. Je administratie blijft waar die is; wij zorgen dat de data eruit stroomt naar bruikbare stuurinformatie. Heb je tijdelijk senior financi&euml;le sturing nodig, dan bieden we aanvullend interim controller services op afstand.</p></div>
+        </details>
+
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ5">Van wie is wat jullie bouwen?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA5">Van jou. We bouwen op Power BI en Microsoft Azure, binnen je eigen licenties en tenancy waar dat kan. Geen vendor lock-in: alles wat we opleveren is van jou en gedocumenteerd, zodat je er zelf mee verder kunt.</p></div>
+        </details>
+
+        <details class="faq__item" name="dfaq">
+          <summary class="faq__q"><h3 class="faq__q-h" data-i18n="dfaqQ6">Moeten we met alle drie beginnen?</h3><span class="faq__ic" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p data-i18n="dfaqA6">Nee. De diagnose staat op zichzelf, en veel klanten doen daarna alleen de rapportage. Automatiseren heeft pas zin als het fundament klopt &mdash; anders gaan de problemen alleen sneller.</p></div>
+        </details>
       </div>
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ2">Hoe lang duurt het?</h3>
-        <p data-i18n="dfaqA2">De diagnose duurt twee tot vier weken. Daarna staat een werkend dashboard er meestal binnen vier tot zes weken. We werken met wekelijkse demo&rsquo;s, zodat je tussentijds ziet wat er gebouwd wordt en direct kunt bijsturen.</p>
-      </div>
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ3">We hebben al een dashboard. Wat dan?</h3>
-        <p data-i18n="dfaqA3">Dan beginnen we daar. Vaak ontbreekt niet het dashboard maar de betrouwbare rapportage eronder &mdash; of andersom. We bouwen voort op wat er staat en herstellen wat niet klopt, in plaats van alles opnieuw te doen.</p>
-      </div>
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ4">Vervangen jullie onze boekhouder of controller?</h3>
-        <p data-i18n="dfaqA4">Nee. We vervangen geen bestaande functies, we versterken ze. Je administratie blijft waar die is; wij zorgen dat de data eruit stroomt naar bruikbare stuurinformatie. Heb je tijdelijk senior financi&euml;le sturing nodig, dan bieden we aanvullend interim controller services op afstand.</p>
-      </div>
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ5">Van wie is wat jullie bouwen?</h3>
-        <p data-i18n="dfaqA5">Van jou. We bouwen op Power BI en Microsoft Azure, binnen je eigen licenties en tenancy waar dat kan. Geen vendor lock-in: alles wat we opleveren is van jou en gedocumenteerd, zodat je er zelf mee verder kunt.</p>
-      </div>
-      <div class="dfaq__item">
-        <h3 data-i18n="dfaqQ6">Moeten we met alle drie beginnen?</h3>
-        <p data-i18n="dfaqA6">Nee. De diagnose staat op zichzelf, en veel klanten doen daarna alleen de rapportage. Automatiseren heeft pas zin als het fundament klopt &mdash; anders gaan de problemen alleen sneller.</p>
-      </div>
+
+      <p class="faq__foot"><span data-i18n="faqFoot">Staat je vraag er niet bij?</span> <a href="/contact" class="link-arrow"><span data-i18n="faqFootCta">Stel hem gerust</span> <span aria-hidden="true">&rarr;</span></a></p>
     </div>
   </section>
 
