@@ -2600,7 +2600,7 @@ body {
 .svc--open .svc__readmore { display: none; }
 
 /* -- schermbeeld bij de AI-dienst, in dezelfde taal als bij de cases -- */
-.aishot { margin-top: clamp(26px,3.4vw,40px); aspect-ratio: 16/9; border: 1px solid var(--hair);
+.aishot { margin: clamp(26px,3.4vw,40px) 0 clamp(18px,2.2vw,26px); aspect-ratio: 16/9; border: 1px solid var(--hair);
   border-radius: var(--r-md); overflow: hidden; background: #FAFAFA; container-type: size; }
 .aimock { width: 640px; height: 360px; transform-origin: 0 0; transform: scale(calc(100cqw / 640px));
   display: flex; flex-direction: column; font-family: var(--sans); font-size: 11px; color: #252423; overflow: hidden; }
