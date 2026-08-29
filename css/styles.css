@@ -2074,12 +2074,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 @media (max-width: 900px) {
-  .hero2__stage {
-    grid-template-columns: 1fr;
-    grid-template-areas: "dl" "photo";
+  /* Op telefoon staat de foto voorop, dan de uitleg, dan het paneel. De foto
+     zit in .hero2__stage en de tekst erbuiten, dus de stage geeft zijn eigen
+     opmaakbox op (display: contents) en worden zijn kinderen broers en zussen
+     van de tekst. Daarna bepaalt order de volgorde. De marges van de stage
+     vervallen daarmee en staan hieronder op de kinderen zelf. */
+  .hero2__wrap { display: flex; flex-direction: column; }
+  .hero2__stage { display: contents; }
+  .hero2__photo:not([hidden]) {
+    order: 1;
+    aspect-ratio: 16 / 10;
+    margin-top: clamp(30px, 4vw, 52px);
   }
-  .hero2__photo:not([hidden]) { aspect-ratio: 16 / 10; }
-  .hero2__card--fit { justify-self: center; }
+  .hero2__dlhead { order: 2; margin-top: clamp(26px, 3.4vw, 36px); }
+  .hero2__dlwrap { order: 3; margin-bottom: clamp(28px, 5vh, 44px); }
+  .hero2__card--fit { order: 4; justify-self: center; }
 }
 
 /* ==========================================================================
