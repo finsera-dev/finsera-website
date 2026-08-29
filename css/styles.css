@@ -127,14 +127,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .btn--op-donker:hover { background: var(--band-paper); color: var(--ink); }
 
 .btn--secundair {
-  background: transparent;
+  background: #fff;
   color: var(--ink-70);
   border-color: var(--hair);
 }
 .btn--secundair:hover {
-  background: var(--paper-deep);
+  background: #fff;
   color: var(--ink);
-  border-color: var(--hair);
+  border-color: var(--ink);
 }
 
 /* ------------------------------------------------------------ nav ------- */
@@ -1589,7 +1589,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-wrap: pretty;
 }
 .hero2__lead { display: block; margin-top: 10px; color: var(--ink); font-weight: 600; }
-.hero2__cta { margin-top: 28px; }
+.hero2__cta {
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 12px;
+}
 
 /* ------------------------------------------------- stage + glazen paneel -- */
 .hero2__stage {
