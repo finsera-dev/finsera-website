@@ -1474,6 +1474,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .team__photo { filter: saturate(0.86) contrast(1.03); }
 .team__person--a .team__photo { aspect-ratio: 3.6 / 5; }
 
+/* Deze twee regels stonden ná het breekpunt op 900px en wonnen het daardoor
+   ook op een telefoon: de tekstkolom werd daar 116px breed. De herhaling
+   hieronder zet dat recht — op smal scherm staan intro, Oner en Tomas gewoon
+   onder elkaar, en hebben beide portretten dezelfde verhouding. */
+@media (max-width: 900px) {
+  .team__layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .team__person--a .team__photo { aspect-ratio: 4 / 4.6; }
+}
+
 /* mini-grafiekjes bij de cases: inkt en koper op papier, illustratief */
 .case__viz { width: 132px; height: 56px; margin-top: 14px; display: block; }
 
