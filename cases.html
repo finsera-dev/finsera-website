@@ -461,7 +461,10 @@
 
 <main id="inhoud">
   <header class="pbanner pbanner--cases">
-    <img class="pbanner__photo" src="img/cases/werkoverleg-klant.webp" alt="" width="1672" height="941" decoding="async">
+    <picture>
+      <source media="(max-width: 720px)" srcset="img/cases/werkoverleg-klant-mobiel.webp" width="706" height="941">
+      <img class="pbanner__photo" src="img/cases/werkoverleg-klant.webp" alt="" width="1672" height="941" decoding="async">
+    </picture>
     <div class="pbanner__scrim" aria-hidden="true"></div>
     <div class="pbanner__inner">
       <p class="pbanner__kicker"><span class="pbanner__rule" aria-hidden="true"></span><span data-i18n="casesEyebrow">Cases</span></p>
