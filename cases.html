@@ -131,7 +131,9 @@
       display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px;
       line-height: 1.5; color: var(--ink-55);
     }
-    .casestory__chips { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    /* Twee klassen diep, want .casestory p hierboven zet alle alinea's op
+       margin 0 en won het anders van deze regel. */
+    .casestory .casestory__chips { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
     .casestory__chips span {
       font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; color: var(--ink-55);
       border: 1px solid var(--hair); border-radius: 5px; padding: 5px 9px;
