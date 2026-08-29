@@ -2626,13 +2626,10 @@ body {
 .aimock__note b { color: #C9A96A; }
 
 /* -- vragen die kopers stellen --------------------------------------- */
-.dfaq { max-width: var(--wrap); margin: 0 auto; padding: clamp(52px,7vw,88px) var(--pad); border-top: 1px solid var(--hair); }
-.dfaq__h2 { font-family: var(--serif); font-weight: 350; font-size: clamp(26px,3.2vw,40px); line-height: 1.12; letter-spacing: -.018em; color: var(--ink); margin: 0 0 clamp(26px,3.4vw,40px); max-width: 26ch; text-wrap: balance; }
-.dfaq__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(24px,3vw,44px); }
-.dfaq__item h3 { font-family: var(--serif); font-weight: 500; font-size: 18.5px; line-height: 1.3; color: var(--ink); margin: 0 0 10px; padding-top: 16px; border-top: 1px solid var(--hair); }
-.dfaq__item p { margin: 0; font-size: 15.5px; line-height: 1.66; color: var(--ink-70); text-wrap: pretty; }
+/* De veelgestelde vragen op de dienstenpagina gebruiken dezelfde
+   uitklapmodule als de homepage: zie .faq hierboven. */
 
-@media (max-width: 860px) { .dgn, .dfaq__grid { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .dgn { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .aimock__body { grid-template-columns: 1fr; } .aimock__side { display: none; } }
 
 /* -- de AI-dienst staat nu op papier in plaats van op navy; de .aiuse-opmaak
