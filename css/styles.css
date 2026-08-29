@@ -477,10 +477,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: var(--gold-soft); cursor: pointer; white-space: nowrap;
 }
 .diag__readmore:hover { text-decoration: underline; }
-.diag__bespoke {
-  font-size: 15.5px; line-height: 1.55; color: var(--gold-soft);
-  font-weight: 600; margin: 0 0 24px; max-width: 50ch;
-}
+/* Het uitgeklapte vervolg is een eigen alinea in de aangeleverde tekst en
+   leest anders als één lange lap; als blok houdt het die tweedeling. */
+.diag__more:not([hidden]) { display: block; margin-top: .95em; }
 .diag__acties {
   display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
 }
