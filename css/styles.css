@@ -2266,7 +2266,10 @@ body {
    hairlines van de rest van de site. De initialen-cirkels zijn vervangen door
    de echte portretten die al in img/cases staan.
    ========================================================================== */
-.rev { padding-top: clamp(64px, 9vw, 130px); }
+.rev {
+  padding-top: clamp(64px, 9vw, 130px);
+  padding-bottom: clamp(56px, 8vw, 104px);
+}
 .rev__grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 1.8vw, 24px);
