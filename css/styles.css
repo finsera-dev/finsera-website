@@ -335,6 +335,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
   }
+  /* Los van elkaar heeft ook het eerste kaartje een bovenrand nodig. De regel
+     hierboven zet die weg voor de gestapelde lijst en is specifieker dan
+     .pain__card, dus hij won ook hier. */
+  .pain__card:first-child { border-top: 1px solid var(--hair-soft); }
   .pain__card-quote { font-size: clamp(15px, 1.25vw, 17px); line-height: 1.28; }
 }
 
@@ -2265,8 +2269,10 @@ body {
    hairlines van de rest van de site. De initialen-cirkels zijn vervangen door
    de echte portretten die al in img/cases staan.
    ========================================================================== */
+/* De bovenmarge was bijna twee keer zo groot als bij de andere overgangen,
+   waardoor er een gat viel tussen de diensten en de resultaten. */
 .rev {
-  padding-top: clamp(64px, 9vw, 130px);
+  padding-top: clamp(30px, 3.6vw, 52px);
   padding-bottom: clamp(56px, 8vw, 104px);
 }
 .rev__grid {
@@ -2285,7 +2291,20 @@ body {
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
-.rev__top { flex: 1; padding: clamp(24px, 2.8vw, 34px) clamp(22px, 2.6vw, 34px) clamp(20px, 2.4vw, 28px); }
+.rev__top { flex: 1; display: flex; flex-direction: column;
+  padding: clamp(24px, 2.8vw, 34px) clamp(22px, 2.6vw, 34px) clamp(20px, 2.4vw, 28px); }
+
+/* Naast elkaar moeten de donkere balken even hoog zijn. Alleen het bovenliggende
+   raster kan hoogtes delen tussen twee kaarten; met subgrid krijgen beide
+   kaarten dezelfde twee rijen, waarbij de tweede rij zich naar de hoogste balk
+   voegt. Kent de browser subgrid niet, dan blijft de bestaande flexindeling
+   staan en lopen de balken zoals voorheen. */
+@media (min-width: 901px) {
+  @supports (grid-template-rows: subgrid) {
+    .rev__grid { grid-template-rows: 1fr auto; }
+    .rev__card { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  }
+}
 
 .rev__sector {
   display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
@@ -2315,7 +2334,10 @@ body {
 
 .rev__by {
   display: flex; align-items: center; gap: 14px;
-  margin-top: clamp(20px, 2.4vw, 26px); padding-top: 18px;
+  /* auto duwt de naamregel naar de onderkant van het bovendeel, zodat beide
+     kaarten hem op dezelfde hoogte hebben en de donkere balken gelijk lopen.
+     De overgebleven lucht valt onder het citaat. */
+  margin-top: auto; padding-top: 18px;
   border-top: 1px dashed var(--hair-soft);
 }
 .rev__avatar {
