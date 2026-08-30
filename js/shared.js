@@ -9,18 +9,18 @@
     nl: {
       navHome: 'Home', navOver: 'Over ons', navDiensten: 'Diensten', navCases: 'Cases', navBlog: 'Blog', navCta: 'Plan een kennismaking',
       cta: 'Vraag de diagnose aan',
-      footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
+      footTagline: 'Een schaalbaar fundament voor jouw complete bedrijfsvoering.',
       footCta: 'Neem contact op',
-      footDesc: 'Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.',
+      footDesc: 'Van de juiste stuurgetallen en maatwerk datastructuren tot gerichte AI-automatisering voor het snelgroeiende MKB.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring',
       ctaWho: 'Je spreekt direct met Öner of Tomas.'
     },
     en: {
       navHome: 'Home', navOver: 'About us', navDiensten: 'Services', navCases: 'Cases', navBlog: 'Blog', navCta: 'Book an intro call',
       cta: 'Request the diagnosis',
-      footTagline: 'A financial foundation that grows with your organisation.',
+      footTagline: 'A scalable foundation for your entire operation.',
       footCta: 'Get in touch',
-      footDesc: 'Management reporting, Power BI dashboards and AI automation for growing mid-market companies.',
+      footDesc: 'From the right steering figures and bespoke data structures to targeted AI automation for fast-growing mid-market companies.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy',
       ctaWho: 'You’ll speak directly with Öner or Tomas.'
     }

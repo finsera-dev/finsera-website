@@ -46,9 +46,8 @@
     /* ------------------------------------------------- cases met klant ----
        Elke case is een tweeluik: portret van de eigenaresse naast de tekst,
        om en om links/rechts. Hairlines in plaats van kaarten, mono-labels,
-       Fraunces-kop. Het citaatblok staat klaar maar is verborgen tot er een
-       echt, door de klant goedgekeurd citaat in staat (zie de opmerking in
-       de HTML). */
+       Fraunces-kop. Het citaat staat onder het portret; op smal scherm schuift
+       het naar achter het verhaal. */
     .cs-cases { border-top: 0; display: flex; flex-direction: column; }
     .caseref {
       display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
@@ -59,10 +58,11 @@
     /* Omgekeerde rij: ook de kolombreedtes wisselen, anders belandt het
        portret in de brede tekstkolom en wordt het beeld twee keer zo groot. */
     .caseref--flip { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
-    .caseref--flip .caseref__photo { order: 2; }
-    /* De tekst staat nu naast de foto en is een stuk langer; de foto loopt
+    .caseref--flip .caseref__col { order: 2; }
+    /* De tekst staat naast de foto en is een stuk langer; foto en citaat lopen
        daarom mee bij het scrollen in plaats van bovenaan achter te blijven. */
-    .caseref__photo { margin: 0; position: sticky; top: clamp(24px, 6vh, 72px); }
+    .caseref__col { position: sticky; top: clamp(24px, 6vh, 72px); }
+    .caseref__photo { margin: 0; }
     .caseref__photo img {
       display: block; width: 100%; height: auto;
       aspect-ratio: 4 / 5; object-fit: cover;
@@ -70,6 +70,7 @@
     }
     .caseref__photo--charlotte img { object-position: 44% 34%; }
     .caseref__photo--miriam img { object-position: 50% 22%; }
+    .caseref[id] { scroll-margin-top: 92px; }
     .caseref__client { margin: 20px 0 0; display: flex; flex-direction: column; gap: 5px; }
     .caseref__client:first-child { margin-top: 0; }
     .caseref__org { font-family: var(--serif); font-size: clamp(20px, 2vw, 25px); font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
@@ -303,8 +304,14 @@
 
     @media (max-width: 820px) {
       .caseref, .caseref--flip { grid-template-columns: 1fr; }
-      .caseref--flip .caseref__photo { order: 0; }
-      .caseref__photo { position: static; }
+      /* Onder elkaar hoort het citaat niet direct onder de foto: dan staat er
+         eerst honderd woorden klant voordat het verhaal begint. De kolom laat
+         daarom zijn opmaakbox los, zodat foto, verhaal en citaat los van
+         elkaar geordend kunnen worden. */
+      .caseref__col, .caseref--flip .caseref__col { display: contents; position: static; }
+      .caseref__photo, .caseref--flip .caseref__photo { order: 1; }
+      .caseref__body { order: 2; }
+      .caseref__quote { order: 3; margin-top: clamp(24px, 5vw, 32px); }
       .caseref__photo img { aspect-ratio: 3 / 2; }
       .caseref__photo--charlotte img { object-position: 44% 26%; }
       .caseref__photo--miriam img { object-position: 50% 18%; }
@@ -377,6 +384,7 @@
         ],
         "address": {
           "@type": "PostalAddress",
+          "addressLocality": "Weert",
           "addressCountry": "NL"
         },
         "areaServed": {
@@ -483,15 +491,16 @@
     <div class="wrap">
       <div class="cs-cases">
 
-        <!-- Case 01 — DocHorse. Het citaatblok hieronder staat bewust op
-             [hidden]: haal het attribuut weg zodra er een echt, door
-             Charlotte goedgekeurd citaat in staat, en zet de tekst ook in
-             beide woordenlijsten onderaan deze pagina (case1Quote /
-             case1QuoteBy). Publiceer hier nooit een verzonnen citaat. -->
-        <article class="caseref">
-          <figure class="caseref__photo caseref__photo--charlotte">
-            <img src="img/cases/dochorse-charlotte-van-der-pauw.webp" alt="Charlotte van der Pauw, eigenaresse van DocHorse" width="1080" height="676" decoding="async" loading="lazy">
-          </figure>
+        <article class="caseref" id="dochorse">
+          <div class="caseref__col">
+  <figure class="caseref__photo caseref__photo--charlotte">
+              <img src="img/cases/dochorse-charlotte-van-der-pauw.webp" alt="Charlotte van der Pauw, eigenaresse van DocHorse" width="1080" height="676" decoding="async" loading="lazy">
+            </figure>
+            <blockquote class="caseref__quote">
+              <p data-i18n="case1Quote"></p>
+              <footer data-i18n="case1QuoteBy"></footer>
+            </blockquote>
+          </div>
           <div class="caseref__body">
             <p class="caseref__client">
               <span class="caseref__org">DocHorse</span>
@@ -533,20 +542,22 @@
                 <span>Power BI</span>
               </p>
             </div>
-            <blockquote class="caseref__quote" hidden>
-              <p data-i18n="case1Quote"></p>
-              <footer data-i18n="case1QuoteBy"></footer>
-            </blockquote>
             <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
 
         <!-- Case 02 — DUCE. Zelfde afspraak voor het citaatblok
              (case2Quote / case2QuoteBy), goed te keuren door Miriam. -->
-        <article class="caseref caseref--flip">
-          <figure class="caseref__photo caseref__photo--miriam">
-            <img src="img/cases/duce-miriam-twilt-mendonca.webp" alt="Miriam Twilt-Mendon&ccedil;a, eigenaresse van DUCE" width="1200" height="1200" decoding="async" loading="lazy">
-          </figure>
+        <article class="caseref caseref--flip" id="duce">
+          <div class="caseref__col">
+  <figure class="caseref__photo caseref__photo--miriam">
+              <img src="img/cases/duce-miriam-twilt-mendonca.webp" alt="Miriam Twilt-Mendon&ccedil;a, eigenaresse van DUCE" width="1200" height="1200" decoding="async" loading="lazy">
+            </figure>
+            <blockquote class="caseref__quote">
+              <p data-i18n="case2Quote"></p>
+              <footer data-i18n="case2QuoteBy"></footer>
+            </blockquote>
+          </div>
           <div class="caseref__body">
             <p class="caseref__client">
               <span class="caseref__org">DUCE</span>
@@ -586,10 +597,6 @@
                 <span>Kwartaalrapportage</span>
               </p>
             </div>
-            <blockquote class="caseref__quote" hidden>
-              <p data-i18n="case2Quote"></p>
-              <footer data-i18n="case2QuoteBy"></footer>
-            </blockquote>
             <a href="/contact" class="link-arrow"><span data-i18n="casesTalk">Bespreek jouw situatie</span> <span aria-hidden="true">&rarr;</span></a>
           </div>
         </article>
@@ -824,8 +831,8 @@
           <img class="footer__mark" src="img/logo/finsera-merkteken-origineel.png" alt="" width="25" height="25" onerror="this.remove()">
           <span class="footer__wordmark">Finsera</span>
         </div>
-        <p class="footer__tagline" data-i18n="footTagline">Een financieel fundament dat met je organisatie meegroeit.</p>
-        <p class="footer__desc" data-i18n="footDesc">Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.</p>
+        <p class="footer__tagline" data-i18n="footTagline">Een schaalbaar fundament voor jouw complete bedrijfsvoering.</p>
+        <p class="footer__desc" data-i18n="footDesc">Van de juiste stuurgetallen en maatwerk datastructuren tot gerichte AI-automatisering voor het snelgroeiende MKB.</p>
         <a href="/contact" class="link-arrow"><span data-i18n="footCta">Neem contact op</span> <span aria-hidden="true">&rarr;</span></a>
         <div class="footer__who">
           <span class="footer__who-avatars" aria-hidden="true"><img src="img/team/oner-yucel.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"><img src="img/team/tomas-van-der-laan.jpg" alt="" width="88" height="88" decoding="async" loading="lazy"></span>
@@ -849,6 +856,7 @@
           <address class="footer__col-links footer__adres">
             <a href="mailto:info@finsera.nl">info@finsera.nl</a>
             <a href="tel:+31641413836">06 - 41 41 38 36</a>
+            <span>Weert / Eindhoven</span>
             <span>KvK 93587953</span>
           </address>
           <div class="footer__social">
@@ -927,12 +935,11 @@ window.FINSERA_PAGE = {
     case1Tag: 'E-commerce', case1Title: 'Van sturen op omzet naar sturen op marge', case1ResultA: 'Webshop-, marketing- en boekhouddata samengebracht in één ', case1ResultLink: 'Power BI-omgeving',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Boekhouding',
     case1Person: 'Charlotte van der Pauw', case1Role: 'eigenaresse',
-    // Vul hieronder het echte citaat in en haal [hidden] van het blockquote in de HTML.
-    case1Quote: '', case1QuoteBy: '',
+    case1Quote: 'Als snelgroeiend bedrijf ontgroeiden we de standaard rapportages. We wilden niet langer alleen de totale omzet zien, maar op detailniveau weten hoe de marges per productgroep presteren. Finsera heeft ons enorm geholpen door de ruwe data uit al onze systemen voor verkoop, voorraad en financiën slim aan elkaar te koppelen. In ons nieuwe Power BI-dashboard hebben we nu real-time inzicht in de juiste stuurgetallen. Het geeft ons als directie precies de data en de bevestiging die we nodig hebben om vol vertrouwen verder te schalen.', case1QuoteBy: 'Charlotte van der Pauw · DocHorse',
     case2Tag: 'Zorg', case2Title: 'Van achteraf constateren naar aantoonbaar in control', case2Result: 'Financiële cijfers en cliëntdata in één kwartaalrapportage, afgezet tegen budget en voorgaande periode.',
     case2Chip1: 'AO/IB', case2Chip2: 'Rapportage',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'eigenaresse',
-    case2Quote: '', case2QuoteBy: '',
+    case2Quote: 'In de zorgsector zijn de eisen rondom compliance en verantwoording onverminderd hoog. Om de snelle ontwikkeling van onze organisatie in goede banen te leiden, wilden we proactief sturen in plaats van achteraf verantwoorden. Finsera heeft de professionaliseringsslag van onze administratieve organisatie en interne beheersing (AO/IC) uitstekend begeleid. Ze brachten de benodigde structuur aan in onze processen. We zijn nu op elk moment aantoonbaar ‘in control’. Dat zorgt voor enorm veel rust binnen de organisatie, zeker met het oog op externe audits.', case2QuoteBy: 'Miriam Twilt-Mendonça · DUCE',
     note: 'Benieuwd wat een goed datafundament voor jouw organisatie oplevert? Elk traject start met een diagnose van 2–4 weken.'
   },
   en: {
@@ -983,11 +990,11 @@ window.FINSERA_PAGE = {
     case1Tag: 'E-commerce', case1Title: 'From steering on revenue to steering on margin', case1ResultA: 'Webshop, marketing and bookkeeping data brought together in one ', case1ResultLink: 'Power BI environment',
     case1Chip1: 'Webshop', case1Chip2: 'Marketing', case1Chip3: 'Bookkeeping',
     case1Person: 'Charlotte van der Pauw', case1Role: 'owner',
-    case1Quote: '', case1QuoteBy: '',
+    case1Quote: 'As a fast-growing company we outgrew the standard reports. We no longer wanted to see only total revenue, but to know in detail how margins per product group were performing. Finsera helped us enormously by cleverly connecting the raw data from all our systems for sales, stock and finance. In our new Power BI dashboard we now have real-time insight into the right steering figures. As a management team it gives us exactly the data and the confirmation we need to keep scaling with confidence.', case1QuoteBy: 'Charlotte van der Pauw · DocHorse',
     case2Tag: 'Healthcare', case2Title: 'From finding out afterwards to demonstrably in control', case2Result: 'Financial figures and client data in one quarterly report, set against budget and the previous period.',
     case2Chip1: 'Internal control', case2Chip2: 'Reporting',
     case2Person: 'Miriam Twilt-Mendonça', case2Role: 'owner',
-    case2Quote: '', case2QuoteBy: '',
+    case2Quote: 'In healthcare the demands around compliance and accountability remain high. To guide the rapid development of our organisation, we wanted to steer proactively instead of accounting for things afterwards. Finsera guided the professionalisation of our administrative organisation and internal control excellently. They brought the structure our processes needed. We are now demonstrably ‘in control’ at any moment. That brings an enormous amount of calm to the organisation, certainly with external audits in mind.', case2QuoteBy: 'Miriam Twilt-Mendonça · DUCE',
     note: 'Curious what a solid data foundation would deliver for your organisation? Every engagement starts with a diagnosis of 2–4 weeks.'
   }
 };
