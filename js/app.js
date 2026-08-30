@@ -204,9 +204,9 @@
       revThanks: 'Bedankt! Je review is geopend in je e-mailprogramma — klik op verzenden om af te ronden.',
       ctaTitle: 'Klaar voor grip op je cijfers?',
       ctaText: 'Geen tijdelijke pleisters of losse tools, maar een fundament dat met je organisatie meegroeit. Laten we in één gesprek verkennen waar de processen nu vastlopen en waar de grootste winst zit, afgestemd op waar je nu staat.',
-      footTagline: 'Een financieel fundament dat met je organisatie meegroeit.',
+      footTagline: 'Een schaalbaar fundament voor jouw complete bedrijfsvoering.',
       footCta: 'Neem contact op',
-      footDesc: 'Managementrapportage, Power BI-dashboards en AI-automatisering voor groeiend MKB.',
+      footDesc: 'Van de juiste stuurgetallen en maatwerk datastructuren tot gerichte AI-automatisering voor het snelgroeiende MKB.',
       footNav: 'Navigatie', footRights: 'Alle rechten voorbehouden.', footPrivacy: 'Privacyverklaring', footTerms: 'Algemene voorwaarden',
       painData: [
         ['Je vertrouwt de cijfers niet volledig.', 'Dashboards, administratie en Excel-lijsten spreken elkaar tegen. Elke discussie in het MT begint met de vraag welke cijfers kloppen.'],
@@ -410,9 +410,9 @@
       revThanks: 'Thank you! Your review has opened in your email app — click send to finish.',
       ctaTitle: 'Ready for control over your numbers?',
       ctaText: 'No temporary patches or loose tools, but a foundation that grows with your organisation. Let’s explore in one conversation where the processes get stuck now and where the biggest gains are, tailored to where you stand today.',
-      footTagline: 'A financial foundation that grows with your organisation.',
+      footTagline: 'A scalable foundation for your entire operation.',
       footCta: 'Get in touch',
-      footDesc: 'Management reporting, Power BI dashboards and AI automation for growing mid-market companies.',
+      footDesc: 'From the right steering figures and bespoke data structures to targeted AI automation for fast-growing mid-market companies.',
       footNav: 'Navigation', footRights: 'All rights reserved.', footPrivacy: 'Privacy policy', footTerms: 'Terms and conditions',
       painData: [
         ['You do not fully trust the figures.', 'Dashboards, the administration and Excel lists contradict each other. Every board discussion starts with the question of which figures are right.'],
