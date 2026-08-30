@@ -41,10 +41,11 @@
     .over-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
     .over-mission { font-family: var(--serif); font-size: clamp(20px,2vw,26px); line-height: 1.36; color: var(--navy); font-weight: 600; margin: 0; text-wrap: pretty; }
     .over-how { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; text-wrap: pretty; }
-    .over-team { max-width: 1100px; margin: 0 auto; padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); }
+    .over-team { max-width: 1100px; margin: 0 auto; padding: clamp(52px,7vw,88px) clamp(20px,5vw,64px); }
     .over-team__head { max-width: 640px; margin-bottom: 44px; }
     .over-team__head h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px,3.4vw,40px); line-height: 1.1; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 18px; text-wrap: balance; }
     .over-team__head p { font-size: 17px; line-height: 1.65; color: var(--text-2); margin: 0; text-wrap: pretty; }
+    .over-team__head p + p { margin-top: 16px; }
     .over-team__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 760px; }
     /* Portretten editorial op de pagina, zonder wit kaart-chroom; de tweede
        iets verlaagd zodat de compositie gezet oogt in plaats van gegenereerd. */
@@ -91,7 +92,9 @@
        dat zoekmachines en taalmodellen kunnen citeren: elk antwoord staat op
        zichzelf en heeft geen omliggende alinea's nodig om te kloppen. */
     .over-sect { max-width: 1100px; margin: 0 auto; padding: clamp(52px,7vw,88px) clamp(20px,5vw,64px); }
-    .over-sect + .over-sect { border-top: 1px solid var(--hair); }
+    .over-sect + .over-sect,
+    .over-sect + .over-team,
+    .over-team + .over-sect { border-top: 1px solid var(--hair); }
     .over-sect__head { max-width: 30ch; }
     .over-h2 { font-family: var(--serif); font-weight: 380; font-size: clamp(26px,3.2vw,40px);
       line-height: 1.12; letter-spacing: -.018em; color: var(--ink); margin: 0; text-wrap: balance; }
