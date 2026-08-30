@@ -2558,6 +2558,7 @@ body {
   letter-spacing: .05em; text-transform: uppercase; color: var(--band-paper-70);
 }
 .pbanner__names b { color: var(--band-paper); font-weight: 500; }
+.pbanner__names-sep { color: var(--band-paper-70); margin: 0 6px; opacity: .7; }
 @media (max-width: 720px) {
   .pbanner__photo { object-position: 62% 26%; }
   .pbanner--over .pbanner__photo,
